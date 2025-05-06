@@ -117,16 +117,26 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Industry Experience - Wider now that Skills & Tools is removed */}
+            {/* Industry Experience with descriptions */}
             <div className="p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-purple-50">
-              <h3 className="font-semibold text-gray-900 mb-2 text-xl">Industry Experience</h3>
-              <div className="flex flex-wrap gap-2">
-                <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200">EdTech</Badge>
-                <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200">HR Tech</Badge>
-                <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200">Enterprise SaaS</Badge>
-                <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200">Startups</Badge>
-                <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200">Ecommerce</Badge>
-                <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200">Connected Homes</Badge>
+              <h3 className="font-semibold text-gray-900 mb-3 text-xl">Industry Experience</h3>
+              <div className="space-y-3">
+                <div className="p-2 bg-purple-50/80 rounded">
+                  <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200 mb-1">EdTech</Badge>
+                  <p className="text-sm text-gray-700">Redesigned student course planners and built adaptive learning interfaces, improving scheduling efficiency by 60%.</p>
+                </div>
+                <div className="p-2 bg-purple-50/80 rounded">
+                  <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200 mb-1">HR Tech</Badge>
+                  <p className="text-sm text-gray-700">Created recruitment platforms and employee onboarding systems that reduced hiring time by 40% and improved satisfaction.</p>
+                </div>
+                <div className="p-2 bg-purple-50/80 rounded">
+                  <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200 mb-1">Enterprise SaaS</Badge>
+                  <p className="text-sm text-gray-700">Built design systems and data visualization dashboards that unified 30+ products and increased user comprehension by 65%.</p>
+                </div>
+                <div className="p-2 bg-purple-50/80 rounded">
+                  <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200 mb-1">Startups & Ecommerce</Badge>
+                  <p className="text-sm text-gray-700">Optimized checkout flows and created product visualization tools, reducing cart abandonment by 30% and increasing engagement.</p>
+                </div>
               </div>
             </div>
 
