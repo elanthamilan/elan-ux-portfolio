@@ -45,8 +45,8 @@ const CaseStudyStudentPlanner = () => {
           </p>
           
           <div className="aspect-video w-full bg-green-100/50 rounded-lg overflow-hidden mb-8">
-            <img 
-              src="/lovable-uploads/78be9a59-8230-4ea5-b024-d96fd3cdd83e.png" 
+<img 
+              src="/Elanable-uploads/78be9a59-8230-4ea5-b024-d96fd3cdd83e.png" 
               alt="Student Course Planner Interface"
               className="w-full h-full object-cover"
             />

@@ -47,8 +47,8 @@ const CaseStudyCampusHiring = () => {
           </p>
 
           <div className="aspect-video w-full bg-purple-100/50 rounded-lg overflow-hidden mb-8">
-            <img
-              src="/lovable-uploads/d194dd7b-4980-4860-bf9d-ece30b18149d.png" 
+<img
+              src="/Elanable-uploads/d194dd7b-4980-4860-bf9d-ece30b18149d.png" 
               alt="Camu Campus Recruitment App Interface"
               className="w-full h-full object-cover"
             />

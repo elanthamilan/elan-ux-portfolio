@@ -1,22 +1,12 @@
-# Welcome to your Lovable project
-
-## Project info
-
-**URL**: https://lovable.dev/projects/3c12186b-923d-4603-9d83-839ed3f001e8
+# Elan UX Portfolio
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/3c12186b-923d-4603-9d83-839ed3f001e8) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +52,19 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/3c12186b-923d-4603-9d83-839ed3f001e8) and click on Share -> Publish.
+This project is configured for deployment to GitHub Pages.
 
-## Can I connect a custom domain to my Lovable project?
+1.  Ensure your `vite.config.ts` has the correct `base` setting:
+    *   For `username.github.io/repo-name`: `base: '/repo-name/'`
+    *   For a custom domain root: `base: '/'`
+2.  Run the deployment script:
+    ```sh
+    npm run deploy
+    ```
+    This will build the project and push the `dist` folder to the `gh-pages` branch.
 
-Yes, you can!
+## Can I connect a custom domain to this project?
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Yes, you can connect a custom domain via your GitHub repository settings after deploying to GitHub Pages.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Refer to the [GitHub Pages documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) for detailed instructions.

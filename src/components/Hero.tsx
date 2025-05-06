@@ -195,7 +195,7 @@ const Hero = () => {
                 <Card className="overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300 bg-white/90 backdrop-blur-sm">
                   <div className="aspect-video w-full bg-purple-600 overflow-hidden">
                     <img 
-                      src="/lovable-uploads/d194dd7b-4980-4860-bf9d-ece30b18149d.png" 
+                      src="/Elanable-uploads/d194dd7b-4980-4860-bf9d-ece30b18149d.png" 
                       alt="Camu Campus Recruitment App"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
@@ -269,8 +269,8 @@ const Hero = () => {
                 <Card className="overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300 bg-white/90 backdrop-blur-sm">
                   <div className="aspect-video w-full bg-green-600 overflow-hidden">
                     <img 
-                      src="/lovable-uploads/78be9a59-8230-4ea5-b024-d96fd3cdd83e.png" 
-                      alt="Student Course Planner Redesign" 
+                      src="/Elanable-uploads/78be9a59-8230-4ea5-b024-d96fd3cdd83e.png" 
+                      alt="Student Course Planner Redesign"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
