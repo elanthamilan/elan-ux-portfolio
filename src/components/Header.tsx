@@ -28,19 +28,19 @@ const Header = () => {
             Work
           </Link>
           <Link
-            to="/"
+            to="/about"
             className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm"
           >
             About
           </Link>
           <Link
-            to="/"
+            to="/contact"
             className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm"
           >
             Contact
           </Link>
           <Button className="bg-purple-600 hover:bg-purple-700 text-white" asChild>
-            <a href="#" download>
+            <a href="/resume.pdf" download>
               Resume
             </a>
           </Button>
@@ -68,21 +68,21 @@ const Header = () => {
               Work
             </Link>
             <Link
-              to="/"
+              to="/about"
               className="text-gray-800 hover:text-purple-600 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link
-              to="/"
+              to="/contact"
               className="text-gray-800 hover:text-purple-600 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
             <Button className="bg-purple-600 hover:bg-purple-700 text-white w-full" asChild>
-              <a href="#" download>
+              <a href="/resume.pdf" download>
                 Download Resume
               </a>
             </Button>
