@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { useState } from "react";
 
 const Header = () => {
@@ -27,21 +27,15 @@ const Header = () => {
           >
             Work
           </Link>
-          <Link
-            to="/about"
-            className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm"
-          >
-            About
-          </Link>
-          <Link
-            to="/contact"
-            className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm"
-          >
-            Contact
-          </Link>
           <Button className="bg-purple-600 hover:bg-purple-700 text-white" asChild>
             <a href="/resume.pdf" download>
               Resume
+            </a>
+          </Button>
+          <Button variant="outline" className="border-purple-200 text-purple-700 hover:bg-purple-50" asChild>
+            <a href="mailto:elanthamilan12@gmail.com">
+              <Mail size={16} className="mr-2" />
+              Email
             </a>
           </Button>
         </nav>
@@ -67,23 +61,15 @@ const Header = () => {
             >
               Work
             </Link>
-            <Link
-              to="/about"
-              className="text-gray-800 hover:text-purple-600 text-lg font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              to="/contact"
-              className="text-gray-800 hover:text-purple-600 text-lg font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
             <Button className="bg-purple-600 hover:bg-purple-700 text-white w-full" asChild>
               <a href="/resume.pdf" download>
                 Download Resume
+              </a>
+            </Button>
+            <Button variant="outline" className="border-purple-200 text-purple-700 hover:bg-purple-50 w-full" asChild>
+              <a href="mailto:elanthamilan12@gmail.com">
+                <Mail size={16} className="mr-2" />
+                Email Me
               </a>
             </Button>
           </nav>
