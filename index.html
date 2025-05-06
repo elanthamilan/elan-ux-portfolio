@@ -1,26 +1,948 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>elan-ux-portfolio</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elanthamilan - Enterprise UX Designer</title>
+    <style>
+        /* Base styles */
+        :root {
+            --purple-50: #f5f3ff;
+            --purple-100: #ede9fe;
+            --purple-200: #ddd6fe;
+            --purple-600: #9333ea;
+            --purple-700: #7e22ce;
+            --purple-800: #6b21a8;
+            --green-500: #22c55e;
+            --green-600: #16a34a;
+            --blue-600: #2563eb;
+            --blue-700: #1d4ed8;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+        }
 
-    <meta property="og:title" content="elan-ux-portfolio" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        body {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(240,240,252,0.8) 40%, rgba(246,240,255,0.8) 100%);
+            color: var(--gray-800);
+            line-height: 1.5;
+        }
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Abstract background elements */
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .bg-blob-1 {
+            top: 0;
+            right: 0;
+            width: 24rem;
+            height: 24rem;
+            background-color: rgba(221, 214, 254, 0.2);
+            filter: blur(3rem);
+        }
+
+        .bg-blob-2 {
+            bottom: 0;
+            left: 0;
+            width: 20rem;
+            height: 20rem;
+            background-color: rgba(191, 219, 254, 0.2);
+            filter: blur(3rem);
+        }
+
+        .bg-blob-3 {
+            top: 50%;
+            left: 33%;
+            width: 16rem;
+            height: 16rem;
+            background-color: rgba(251, 207, 232, 0.2);
+            filter: blur(3rem);
+        }
+
+        /* Grid layout */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--purple-100);
+            color: var(--purple-800);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .purple-text {
+            color: var(--purple-600);
+        }
+
+        .intro {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .intro {
+                font-size: 1.5rem;
+            }
+        }
+
+        .description {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 42rem;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, var(--purple-600), var(--purple-800));
+            color: white;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(147, 51, 234, 0.1);
+            transition: all 0.3s ease;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        @media (min-width: 768px) {
+            .btn {
+                width: auto;
+            }
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            box-shadow: 0 4px 12px rgba(147, 51, 234, 0.2);
+        }
+
+        /* Brands section */
+        .brands-section {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(147, 51, 234, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .brands-title {
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .brands-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .brand {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .brand:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        .brand-name {
+            color: var(--gray-500);
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-label {
+            color: var(--purple-700);
+            font-size: 0.875rem;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .stat-value {
+                font-size: 1.875rem;
+            }
+        }
+
+        .stat-desc {
+            color: var(--gray-600);
+            font-size: 0.75rem;
+        }
+
+        /* Panels Grid */
+        .panels-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .panels-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .panel {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(147, 51, 234, 0.1);
+        }
+
+        .panel-title {
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .skills-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-badge {
+            background-color: var(--purple-100);
+            color: var(--purple-800);
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        /* Contact buttons */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-btn-email {
+            background-color: var(--purple-600);
+        }
+
+        .contact-btn-email:hover {
+            background-color: var(--purple-700);
+        }
+
+        .contact-btn-phone {
+            background-color: var(--green-600);
+        }
+
+        .contact-btn-phone:hover {
+            background-color: var(--green-500);
+        }
+
+        .contact-btn-linkedin {
+            background-color: var(--blue-600);
+        }
+
+        .contact-btn-linkedin:hover {
+            background-color: var(--blue-700);
+        }
+
+        .contact-btn-whatsapp {
+            background-color: var(--green-500);
+        }
+
+        .contact-btn-whatsapp:hover {
+            background-color: var(--green-600);
+        }
+
+        .contact-icon {
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Case Studies */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 1.875rem;
+            }
+        }
+
+        .case-studies-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .case-study-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .case-study-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: var(--purple-600);
+            overflow: hidden;
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .case-study-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .case-study-header {
+            padding: 1rem 1rem 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .case-study-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .case-study-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .case-study-subtitle {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        @media (min-width: 768px) {
+            .case-study-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        .case-study-year {
+            background-color: var(--purple-100);
+            color: var(--purple-800);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        .case-study-content {
+            padding: 0 1rem 0.75rem;
+        }
+
+        .case-study-details-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .case-study-details-mobile {
+                display: none;
+            }
+        }
+
+        .case-study-detail {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: var(--purple-800);
+            margin-right: 0.5rem;
+        }
+
+        .detail-green {
+            color: #166534;
+        }
+
+        .detail-value {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+        }
+
+        .case-study-details-desktop {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .case-study-details-desktop {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        .detail-box {
+            background-color: rgba(237, 233, 254, 0.8);
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+        }
+
+        .detail-box-green {
+            background-color: rgba(240, 253, 244, 0.8);
+        }
+
+        .detail-box-label {
+            font-weight: 500;
+            color: var(--purple-800);
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-box-green-label {
+            color: #166534;
+        }
+
+        .detail-box-value {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+        }
+
+        .case-study-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .case-study-tag {
+            background-color: var(--purple-100);
+            color: var(--purple-800);
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        .case-study-footer {
+            padding: 0 1rem 1rem;
+        }
+
+        .case-study-link {
+            color: var(--purple-700);
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .case-study-link {
+                font-size: 1rem;
+            }
+        }
+
+        .case-study-link:hover {
+            color: var(--purple-800);
+        }
+
+        .case-study-link:hover .link-underline {
+            width: 100%;
+        }
+
+        .link-underline {
+            position: absolute;
+            bottom: -0.25rem;
+            left: 0;
+            width: 0;
+            height: 0.125rem;
+            background-color: var(--purple-700);
+            transition: width 0.3s ease;
+        }
+
+        .arrow-icon {
+            margin-left: 0.25rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .case-study-link:hover .arrow-icon {
+            transform: translateX(0.25rem);
+        }
+
+        /* Icon styles */
+        .icon {
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <!-- Abstract background elements -->
+        <div class="bg-blob bg-blob-1"></div>
+        <div class="bg-blob bg-blob-2"></div>
+        <div class="bg-blob bg-blob-3"></div>
+        
+        <div class="container">
+            <div class="grid">
+                <!-- Left Column: Professional Information -->
+                <div>
+                    <div>
+                        <span class="badge">Enterprise UX Designer</span>
+                        
+                        <h1>
+                            Simplifying <span class="purple-text">Enterprise Experiences</span>
+                        </h1>
+                        
+                        <div class="intro">
+                            <span role="img" aria-label="wave">👋</span>
+                            <span>Hi, I'm Elanthamilan</span>
+                            <span role="img" aria-label="peace">✌️</span>
+                        </div>
+                        
+                        <p class="description">
+                            Experienced UX designer specializing in enterprise SaaS, EdTech, and HR Tech. 
+                            I transform complex business challenges into intuitive, user-centered solutions 
+                            that drive measurable impact and enhance usability for large-scale products.
+                        </p>
+
+                        <!-- Download Resume Button -->
+                        <a href="#" class="btn">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download Resume
+                        </a>
+
+                        <!-- Brands section -->
+                        <div class="brands-section">
+                            <h3 class="brands-title">Brands I Have Worked With</h3>
+                            
+                            <div class="brands-grid">
+                                <div class="brand">
+                                    <svg width="80" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#9CA3AF"/>
+                                        <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fill="#9CA3AF"/>
+                                    </svg>
+                                    <p class="brand-name">Company 1</p>
+                                </div>
+                                
+                                <div class="brand">
+                                    <svg width="80" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#9CA3AF"/>
+                                        <path d="M12 12.59l-2.3-2.3a1 1 0 10-1.4 1.42l3 3a1 1 0 001.4 0l3-3a1 1 0 00-1.4-1.42L12 12.59z" fill="#9CA3AF"/>
+                                    </svg>
+                                    <p class="brand-name">Company 2</p>
+                                </div>
+                                
+                                <div class="brand">
+                                    <svg width="80" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M4 20h16V8H4v12zm2-10h12v2H6v-2z" fill="#9CA3AF"/>
+                                        <path d="M2 6v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-4c0-1.38-1.12-2.5-2.5-2.5S11 2.62 11 4H6c-1.1 0-2 .9-2 2zm2 0h16v14H4V6z" fill="#9CA3AF"/>
+                                    </svg>
+                                    <p class="brand-name">Company 3</p>
+                                </div>
+                                
+                                <div class="brand">
+                                    <svg width="80" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M21 3H3v18h18V3zm-9 14H6v-2h6v2zm6-4H6v-2h12v2zm0-4H6V7h12v2z" fill="#9CA3AF"/>
+                                    </svg>
+                                    <p class="brand-name">Company 4</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Stats -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-label">Experience</span>
+                            <span class="stat-value">8+ Years</span>
+                            <span class="stat-desc">Enterprise UX Design</span>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <span class="stat-label">Products</span>
+                            <span class="stat-value">10+</span>
+                            <span class="stat-desc">Successfully Shipped</span>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <span class="stat-label">Features</span>
+                            <span class="stat-value">30+</span>
+                            <span class="stat-desc">Designed & Implemented</span>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <span class="stat-label">Systems</span>
+                            <span class="stat-value">2</span>
+                            <span class="stat-desc">Design Systems Built</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Skills and Industry -->
+                    <div class="panels-grid">
+                        <div class="panel">
+                            <h3 class="panel-title">Skills & Tools</h3>
+                            <div class="skills-badges">
+                                <span class="skill-badge">UX Research</span>
+                                <span class="skill-badge">UI Design</span>
+                                <span class="skill-badge">Prototyping</span>
+                                <span class="skill-badge">Figma</span>
+                                <span class="skill-badge">Design Systems</span>
+                                <span class="skill-badge">Information Architecture</span>
+                            </div>
+                        </div>
+                        
+                        <div class="panel">
+                            <h3 class="panel-title">Industry Experience</h3>
+                            <div class="skills-badges">
+                                <span class="skill-badge">EdTech</span>
+                                <span class="skill-badge">HR Tech</span>
+                                <span class="skill-badge">Enterprise SaaS</span>
+                                <span class="skill-badge">Startups</span>
+                                <span class="skill-badge">Ecommerce</span>
+                                <span class="skill-badge">Connected Homes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Buttons -->
+                    <div class="contact-grid">
+                        <a href="mailto:elanthamilan12@gmail.com" class="contact-btn contact-btn-email" aria-label="Contact via Email">
+                            <svg class="icon contact-icon" viewBox="0 0 24 24">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span class="contact-text">Email</span>
+                        </a>
+                        
+                        <a href="tel:+918148622302" class="contact-btn contact-btn-phone" aria-label="Contact via Phone">
+                            <svg class="icon contact-icon" viewBox="0 0 24 24">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <span class="contact-text">+91 8148622302</span>
+                        </a>
+                        
+                        <a href="https://linkedin.com/in/elanthamilan" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn-linkedin" aria-label="Visit LinkedIn Profile">
+                            <svg class="icon contact-icon" viewBox="0 0 24 24">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            <span class="contact-text">LinkedIn</span>
+                        </a>
+                        
+                        <a href="https://wa.me/918148622302" target="_blank" rel="noopener noreferrer" class="contact-btn contact-btn-whatsapp" aria-label="Contact via WhatsApp">
+                            <svg class="icon contact-icon" viewBox="0 0 24 24">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                            <span class="contact-text">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Case Studies -->
+                <div>
+                    <div>
+                        <h2 class="section-title">Case Studies</h2>
+                        
+                        <div class="case-studies-list">
+                            <!-- Case Study 1 -->
+                            <div class="case-study-card">
+                                <div class="case-study-image">
+                                    <img src="/lovable-uploads/b42d7e86-f04d-4ef4-acaf-14cd171e8e44.png" alt="Camu Campus Recruitment App">
+                                </div>
+                                <div class="case-study-header">
+                                    <div>
+                                        <h3 class="case-study-title">Camu Campus Recruitment App</h3>
+                                        <p class="case-study-subtitle">HR Tech platform for streamlined recruiting</p>
+                                    </div>
+                                    <span class="case-study-year">2025</span>
+                                </div>
+                                <div class="case-study-content">
+                                    <!-- Mobile view - List -->
+                                    <ul class="case-study-details-mobile">
+                                        <li class="case-study-detail">
+                                            <span class="detail-label">WHO:</span>
+                                            <span class="detail-value">HR teams, recruiters, students</span>
+                                        </li>
+                                        
+                                        <li class="case-study-detail">
+                                            <span class="detail-label">WHAT:</span>
+                                            <span class="detail-value">Unified campus hiring platform</span>
+                                        </li>
+                                        
+                                        <li class="case-study-detail">
+                                            <span class="detail-label detail-green">RESULT:</span>
+                                            <span class="detail-value">40% faster hiring, 85% user satisfaction</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <!-- Desktop view - Horizontal -->
+                                    <div class="case-study-details-desktop">
+                                        <div class="detail-box">
+                                            <p class="detail-box-label">WHO:</p>
+                                            <p class="detail-box-value">HR teams, recruiters, students</p>
+                                        </div>
+                                        
+                                        <div class="detail-box">
+                                            <p class="detail-box-label">WHAT:</p>
+                                            <p class="detail-box-value">Unified campus hiring platform</p>
+                                        </div>
+                                        
+                                        <div class="detail-box detail-box-green">
+                                            <p class="detail-box-label detail-box-green-label">RESULT:</p>
+                                            <p class="detail-box-value">40% faster hiring, 85% user satisfaction</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="case-study-tags">
+                                        <span class="case-study-tag">User Research</span>
+                                        <span class="case-study-tag">Prototyping</span>
+                                    </div>
+                                </div>
+                                <div class="case-study-footer">
+                                    <a href="#" class="case-study-link" aria-label="View Campus Hiring Case Study">
+                                        <span>
+                                            View Full Case Study 
+                                            <span class="link-underline"></span>
+                                        </span>
+                                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Case Study 2 -->
+                            <div class="case-study-card">
+                                <div class="case-study-image">
+                                    <img src="/lovable-uploads/b42d7e86-f04d-4ef4-acaf-14cd171e8e44.png" alt="Student Course Planner Redesign">
+                                </div>
+                                <div class="case-study-header">
+                                    <div>
+                                        <h3 class="case-study-title">Student Course Planner Redesign</h3>
+                                        <p class="case-study-subtitle">Academic planning platform for students</p>
+                                    </div>
+                                    <span class="case-study-year">2021</span>
+                                </div>
+                                <div class="case-study-content">
+                                    <!-- Mobile view - List -->
+                                    <ul class="case-study-details-mobile">
+                                        <li class="case-study-detail">
+                                            <span class="detail-label">WHO:</span>
+                                            <span class="detail-value">University students, academic advisors</span>
+                                        </li>
+                                        
+                                        <li class="case-study-detail">
+                                            <span class="detail-label">WHAT:</span>
+                                            <span class="detail-value">AI-powered course scheduling</span>
+                                        </li>
+                                        
+                                        <li class="case-study-detail">
+                                            <span class="detail-label detail-green">RESULT:</span>
+                                            <span class="detail-value">60% time saved, 92% task success rate</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <!-- Desktop view - Horizontal -->
+                                    <div class="case-study-details-desktop">
+                                        <div class="detail-box">
+                                            <p class="detail-box-label">WHO:</p>
+                                            <p class="detail-box-value">University students, academic advisors</p>
+                                        </div>
+                                        
+                                        <div class="detail-box">
+                                            <p class="detail-box-label">WHAT:</p>
+                                            <p class="detail-box-value">AI-powered course scheduling</p>
+                                        </div>
+                                        
+                                        <div class="detail-box detail-box-green">
+                                            <p class="detail-box-label detail-box-green-label">RESULT:</p>
+                                            <p class="detail-box-value">60% time saved, 92% task success rate</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="case-study-tags">
+                                        <span class="case-study-tag">AI Integration</span>
+                                        <span class="case-study-tag">UX Research</span>
+                                    </div>
+                                </div>
+                                <div class="case-study-footer">
+                                    <a href="#" class="case-study-link" aria-label="View Student Planner Case Study">
+                                        <span>
+                                            View Full Case Study
+                                            <span class="link-underline"></span>
+                                        </span>
+                                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
 </html>
