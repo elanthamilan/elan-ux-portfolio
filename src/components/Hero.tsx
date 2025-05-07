@@ -5,9 +5,46 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Hero = () => {
   const isMobile = useIsMobile();
+
+  const industries = [
+    {
+      title: "EdTech",
+      content:
+        "Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals.   Revamped SIS through evaluation, design systems, and redesign of 30+ features.    Directed LMS design focusing on accessibility, usability, and scalable workflows.    Designed data-guided recruitment experience enhancing job discovery.    Redesigned Student Portal for seamless navigation and mobile responsiveness.    Created eLearning platform for trading courses.",
+    },
+    {
+      title: "eCommerce",
+      content:
+        "Redesigned key flows for a B2B pharma eCommerce site.   Designed eCommerce experiences for brands like Robinson Co. and Natural Partners.    Improved product discovery, navigation, and checkout flows.    Crafted scalable UI systems for quick orders, subscriptions, and account management.",
+    },
+    {
+      title: "Connected Home",
+      content:
+        "Led design for connected home interfaces (consumer & industrial IoT).   Founding member of product/design team, revamped platform, built design system.    Designed subscription-based water purifier interface and mobile app. Designed machine interface and mobile app for idly dosa batter making machine.",
+    },
+    {
+      title: "Construction",
+      content:
+        "Designed construction asset management app for real-time tool tracking.   ",
+    },
+    {
+      title: "Pharma",
+      content: "Redesigned key flows for a B2B pharma eCommerce site.   ",
+    },
+    {
+      title: "Trading",
+      content: "Created an eLearning platform for trading courses.   ",
+    },
+  ];
 
   return (
     <section className="py-10 md:py-16 bg-gradient-to-br from-purple-50/50 to-white relative overflow-hidden">
@@ -116,28 +153,18 @@ const Hero = () => {
                 <span className="text-gray-600 text-xs block">Design Systems Built</span>
               </div>
             </div>
-            
-            {/* Features & Applications Worked On - replacing Industry Experience */}
+
+            {/* Industries I have Worked In - replacing Features & Applications */}
             <div className="p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-purple-50">
-              <h3 className="font-semibold text-gray-900 mb-3 text-xl">Features & Applications</h3>
-              <div className="space-y-3">
-                <div className="p-2 bg-purple-50/80 rounded">
-                  <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200 mb-1">Learning Management Systems</Badge>
-                  <p className="text-sm text-gray-700">Designed adaptive learning interfaces with personalized dashboards and interactive content delivery modules.</p>
-                </div>
-                <div className="p-2 bg-purple-50/80 rounded">
-                  <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200 mb-1">Recruitment Platforms</Badge>
-                  <p className="text-sm text-gray-700">Built AI-powered candidate matching systems and interview scheduling tools with integrated assessment workflows.</p>
-                </div>
-                <div className="p-2 bg-purple-50/80 rounded">
-                  <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200 mb-1">Analytics Dashboards</Badge>
-                  <p className="text-sm text-gray-700">Created data visualization interfaces with customizable reporting, real-time metrics, and actionable insights panels.</p>
-                </div>
-                <div className="p-2 bg-purple-50/80 rounded">
-                  <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-200 mb-1">Design Systems</Badge>
-                  <p className="text-sm text-gray-700">Developed comprehensive component libraries with documentation, style guides, and implementation patterns for developers.</p>
-                </div>
-              </div>
+              <h3 className="font-semibold text-gray-900 mb-3 text-xl">Industries I have Worked In</h3>
+              <Accordion type="single" collapsible defaultValue="EdTech">
+                {industries.map((industry) => (
+                  <AccordionItem value={industry.title} key={industry.title}>
+                    <AccordionTrigger>{industry.title}</AccordionTrigger>
+                    <AccordionContent>{industry.content}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
 
             {/* Contact Buttons with explicit text */}
