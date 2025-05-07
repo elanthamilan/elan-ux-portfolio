@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+      fontFamily: {
+        sans: ['"Noto Sans"', 'sans-serif'], // Changed default sans font to Noto Sans
+        script: ['Philosopher', 'sans-serif'], // Added Philosopher font
+      },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

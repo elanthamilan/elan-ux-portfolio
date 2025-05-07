@@ -20,16 +20,10 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link
-            to="/"
-            className="text-gray-600 hover:text-gray-900 transition-colors font-medium text-sm"
-          >
-            Work
-          </Link>
+        <nav className="hidden md:flex items-center space-x-4">
           <Button className="bg-purple-600 hover:bg-purple-700 text-white" asChild>
-            <a href="/resume.pdf" download>
-              Resume
+            <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              Download Resume
             </a>
           </Button>
           <Button variant="outline" className="border-purple-200 text-purple-700 hover:bg-purple-50" asChild>
@@ -40,41 +34,20 @@ const Header = () => {
           </Button>
         </nav>
         
-        {/* Mobile menu button */}
-        <button 
-          onClick={toggleMenu} 
-          className="md:hidden text-gray-700 p-2"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-      
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-white z-40 px-4 py-6">
-          <nav className="flex flex-col space-y-6">
-            <Link
-              to="/"
-              className="text-gray-800 hover:text-purple-600 text-lg font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Work
-            </Link>
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white w-full" asChild>
-              <a href="/resume.pdf" download>
-                Download Resume
-              </a>
-            </Button>
-            <Button variant="outline" className="border-purple-200 text-purple-700 hover:bg-purple-50 w-full" asChild>
-              <a href="mailto:elanthamilan12@gmail.com">
-                <Mail size={16} className="mr-2" />
-                Email Me
-              </a>
-            </Button>
-          </nav>
+        {/* Mobile Navigation */}
+        <div className="md:hidden flex justify-end items-center space-x-4">
+          <Button className="bg-purple-600 hover:bg-purple-700 text-white" asChild>
+            <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              Resume
+            </a>
+          </Button>
+          <Button variant="outline" className="border-purple-200 text-purple-700 hover:bg-purple-50" asChild aria-label="Contact via Email">
+            <a href="mailto:elanthamilan12@gmail.com">
+              <Mail size={16} className="mr-2" aria-hidden="true" />
+            </a>
+          </Button>
         </div>
-      )}
+      </div>
     </header>
   );
 };
