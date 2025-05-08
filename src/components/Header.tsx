@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -13,39 +12,45 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-background border-b border-brand-light-gray-accent">
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
-        <Link to="/" className="text-xl font-bold text-gray-800">
+        <Link to="/" className="text-xl font-bold text-foreground">
           Elan
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-4">
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white" asChild>
+        <nav className="hidden md:flex items-center space-x-6"> {/* Increased spacing a bit */}
+          {/* Restoring asChild */}
+          <Button className="bg-primary text-primary-foreground hover:bg-gray-800 px-4 py-2 text-sm" asChild> 
             <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
               Download Resume
             </a>
           </Button>
-          <Button variant="outline" className="border-purple-200 text-purple-700 hover:bg-purple-50" asChild>
-            <a href="mailto:elanthamilan12@gmail.com">
-              <Mail size={16} className="mr-2" />
-              Email
-            </a>
-          </Button>
+          <a 
+            href="mailto:elanthamilan12@gmail.com" 
+            className="text-sm font-medium text-foreground hover:text-brand-link-text transition-colors flex items-center"
+          >
+            <Mail size={16} className="mr-1.5" /> {/* Slightly adjusted margin */}
+            Email
+          </a>
         </nav>
         
         {/* Mobile Navigation */}
+        {/* Intercom mobile is usually just a hamburger. For now, styling existing elements. */}
         <div className="md:hidden flex justify-end items-center space-x-4">
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white" asChild>
+          {/* Restoring asChild */}
+          <Button className="bg-primary text-primary-foreground hover:bg-gray-800 px-3 py-1.5 text-xs" asChild> 
             <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </Button>
-          <Button variant="outline" className="border-purple-200 text-purple-700 hover:bg-purple-50" asChild aria-label="Contact via Email">
-            <a href="mailto:elanthamilan12@gmail.com">
-              <Mail size={16} className="mr-2" aria-hidden="true" />
-            </a>
-          </Button>
+          <a 
+            href="mailto:elanthamilan12@gmail.com" 
+            className="text-foreground hover:text-brand-link-text"
+            aria-label="Contact via Email"
+          >
+            <Mail size={20} /> {/* Icon size can be adjusted */}
+          </a>
         </div>
       </div>
     </header>

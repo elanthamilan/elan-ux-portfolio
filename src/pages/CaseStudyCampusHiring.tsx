@@ -9,518 +9,304 @@ import { Badge } from "@/components/ui/badge";
 
 const CaseStudyCampusHiring = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Subtle background for case study */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute w-full h-full bg-gradient-to-b from-white via-purple-50/20 to-blue-50/10"></div>
-
-        {/* Subtle grid pattern for depth */}
-        <div
-          className="absolute inset-0 opacity-[0.01]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #8E9196 1px, transparent 1px), linear-gradient(to bottom, #8E9196 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-          aria-hidden="true"
-        ></div>
-      </div>
-
+    // Removed fixed background elements, using theme background
+    <div className="min-h-screen flex flex-col bg-background"> 
       <Header />
 
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <Link to="/" className="inline-flex items-center text-purple-700 hover:text-purple-900 transition-colors mb-6">
-          <ArrowLeft size={18} className="mr-2" />
+      <main className="flex-grow container mx-auto px-4 py-12 md:py-16"> {/* Increased padding */}
+        <Link to="/" className="inline-flex items-center text-foreground/80 hover:text-foreground transition-colors mb-8 text-sm font-medium"> {/* Adjusted style */}
+          <ArrowLeft size={16} className="mr-1.5" /> {/* Adjusted size/margin */}
           <span>Back to Home</span>
         </Link>
 
-        <div className="bg-white/80 backdrop-blur-sm border border-purple-100/50 rounded-xl p-6 md:p-10 shadow-sm mb-8">
-          <Badge className="bg-purple-100 text-purple-800 mb-4">Case Study • 2025</Badge>
+        {/* Removed outer container div, applying padding directly to main or using sections */}
+        <article className="max-w-3xl mx-auto"> {/* Adjusted max-width for blog style */}
+          {/* Meta Info */}
+          <div className="mb-4 flex items-center space-x-3">
+            <Badge className="bg-brand-badge-bg text-foreground px-2.5 py-1 text-xs font-medium rounded">Case Study</Badge>
+            <span className="text-xs text-foreground/60">Published April 2025</span> {/* Example date */}
+          </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-800 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-sans font-extrabold mb-4 text-foreground leading-tight"> {/* Sans-serif Heading */}
             40% Faster Campus Hiring: Camu Campus Recruitment App
           </h1>
 
-          <p className="text-xl text-gray-700 mb-8 max-w-3xl">
-            A Unified Hiring Experience that redefines university hiring by embedding job creation, approvals,
-            interview scheduling, and application management into Camu's Student Information System (SIS).
+          <p className="text-lg md:text-xl text-foreground/70 mb-8 leading-relaxed"> {/* Adjusted opacity/margin */}
+            A Unified Hiring Experience redefining university hiring by embedding job creation, approvals, scheduling, and application management into Camu's SIS.
           </p>
+          
+          {/* Author/Read time meta - Example */}
+          <div className="flex items-center space-x-4 text-sm text-foreground/60 mb-10">
+             {/* Add author image/name if available */}
+             {/* <img src="/path/to/author.jpg" alt="Author Name" className="w-6 h-6 rounded-full" /> */}
+             {/* <span>Author Name</span> */}
+             {/* <span>•</span> */}
+             <span>Approx. 8 min read</span> {/* Example read time */}
+          </div>
 
-          <div className="aspect-video w-full bg-purple-100/50 rounded-lg overflow-hidden mb-8">
-<img
-              src="/Elanable-uploads/d194dd7b-4980-4860-bf9d-ece30b18149d.png" 
+
+          <div className="aspect-video w-full bg-gray-200 rounded-lg overflow-hidden mb-12 shadow-lg"> {/* Increased shadow */}
+            <img
+              src="/Elanable-uploads/d194dd7b-4980-4860-bf9d-ece30b18149d.png" // Assuming this is the correct image path
               alt="Camu Campus Recruitment App Interface"
               className="w-full h-full object-cover"
             />
           </div>
 
-          <hr className="my-8 border-purple-100" />
+          {/* Use subtle border or just spacing */}
+          {/* <hr className="my-10 md:my-12 border-brand-light-gray-accent" /> */}
 
-          <CaseStudySection title="Project Background">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <p className="text-gray-700 mb-4">
-                  <strong className="text-purple-800">Project Name:</strong> Camu Campus Recruitment App
-                </p>
-                <p className="text-gray-700 mb-4">
-                  <strong className="text-purple-800">Role:</strong> Lead Interaction Designer
-                </p>
-                <p className="text-gray-700 mb-4">
-                  <strong className="text-purple-800">Date Shipped:</strong> April 2025
-                </p>
+          {/* Use standard heading elements instead of CaseStudySection component for blog style */}
+          <section className="mb-10 md:mb-12"> {/* Added section tag and spacing */}
+            <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">Project Background</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-foreground/80 text-base leading-relaxed"> {/* Adjusted text size/leading */}
+              <div className="space-y-4"> {/* Increased spacing */}
+                <p><strong className="font-medium text-foreground">Project Name:</strong> Camu Campus Recruitment App</p>
+                <p><strong className="font-medium text-foreground">Role:</strong> Lead Interaction Designer</p>
+                <p><strong className="font-medium text-foreground">Date Shipped:</strong> April 2025</p>
               </div>
 
               <div>
-                <h3 className="font-semibold text-lg mb-3 text-purple-800">User Pain Points:</h3>
-                <ul className="space-y-2 text-gray-700 list-disc pl-5">
-                  <li>
-                    <strong>Recruiters:</strong> Struggled with multiple platform logins, manual data uploads, and limited
-                    visibility into student profiles, wasting time and missing ideal candidates.
-                  </li>
-                  <li>
-                    <strong>Placement Officers:</strong> Juggled email threads, spreadsheets, and disjointed tools for
-                    approvals, scheduling, and reporting, leading to inefficiencies and errors.
-                  </li>
-                  <li>
-                    <strong>Students:</strong> Faced repetitive form-filling across disconnected job boards, often missing
-                    opportunities due to complexity and lack of a centralized hub.
-                  </li>
+                <h3 className="font-sans font-semibold text-lg mb-3 text-foreground">User Pain Points:</h3> {/* Sans-serif heading */}
+                <ul className="space-y-2.5 list-disc pl-5"> {/* Increased spacing */}
+                  <li><strong className="font-medium text-foreground">Recruiters:</strong> Struggled with multiple platform logins, manual data uploads, and limited visibility into student profiles.</li>
+                  <li><strong className="font-medium text-foreground">Placement Officers:</strong> Juggled email threads, spreadsheets, and disjointed tools for approvals and scheduling.</li>
+                  <li><strong className="font-medium text-foreground">Students:</strong> Faced repetitive form-filling and missed opportunities due to complexity.</li>
                 </ul>
               </div>
             </div>
 
-            <div className="mt-6">
-              <h3 className="font-semibold text-lg mb-3 text-purple-800">Business Problem:</h3>
-              <p className="text-gray-700">
-                Camu needed to streamline the recruitment process to boost user engagement, improve placement rates,
-                and drive revenue through employer contract renewals, all while leveraging its existing SIS infrastructure.
+            <div className="mt-6"> {/* Adjusted margin */}
+              <h3 className="font-sans font-semibold text-lg mb-3 text-foreground">Business Problem:</h3> {/* Sans-serif heading */}
+              <p className="text-foreground/80 leading-relaxed">
+                Camu needed to streamline recruitment to boost engagement, improve placement rates, and drive revenue, leveraging its SIS.
               </p>
             </div>
 
-            <div className="mt-6">
-              <h3 className="font-semibold text-lg mb-3 text-purple-800">Background:</h3>
-              <p className="text-gray-700">
-                Camu, a trusted SIS for educational institutions, saw an opportunity to integrate recruitment into its
-                platform. By tapping into its rich student data and established user base, Camu aimed to create a unified
-                hiring ecosystem that would set a new standard for campus recruitment.
+            <div className="mt-6"> {/* Adjusted margin */}
+              <h3 className="font-sans font-semibold text-lg mb-3 text-foreground">Background Context:</h3> {/* Sans-serif heading */}
+              <p className="text-foreground/80 leading-relaxed">
+                Camu, a trusted SIS, integrated recruitment, leveraging student data and its user base for a unified hiring ecosystem.
               </p>
             </div>
-          </CaseStudySection>
+          </section>
 
-          <CaseStudySection title="The Challenge: A Fragmented Hiring Process">
-            <p className="text-gray-700 mb-4">
-              University hiring was a chaotic affair. Recruiters toggled between platforms, wrestling with cumbersome logins
-              and uploading data manually. Placement officers drowned in email threads and spreadsheets, struggling to
-              coordinate logistics and enforce institutional policies. Students, meanwhile, navigated a maze of external job
-              boards, filling out repetitive forms and missing opportunities due to the sheer complexity. The need for a
-              unified, efficient system was undeniable, and Camu stepped up to bridge the gap by embedding recruitment
-              directly into its SIS.
+          <section className="mb-10 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">The Challenge: A Fragmented Hiring Process</h2>
+            <p className="text-foreground/80 leading-relaxed">
+              University hiring involved recruiters juggling platforms, placement officers drowning in spreadsheets, and students navigating external job boards. Camu aimed to unify this by embedding recruitment into its SIS.
             </p>
-          </CaseStudySection>
+          </section>
 
-          <CaseStudySection title="Understanding the Users: Three Personas, One Mission">
-            <p className="text-gray-700 mb-4">
-              The design process kicked off with a deep dive into the needs of three core user groups:
+          <section className="mb-10 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">Understanding the Users: Three Personas, One Mission</h2>
+            <p className="text-foreground/80 leading-relaxed mb-6">
+              Research identified three core user groups with distinct needs but a shared desire for simplicity and efficiency:
             </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-              <div className="bg-white/90 p-5 rounded-lg border border-purple-100 shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-purple-800">Recruiters</h3>
-                <p className="text-gray-700 text-sm">
-                  They wanted to post jobs quickly, target suitable candidates, and track applications effortlessly,
-                  frustrated by scattered systems and limited access to student data.
-                </p>
+            {/* Restyled persona blocks */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="border border-brand-light-gray-accent rounded-lg p-5">
+                <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Recruiters</h3>
+                <p className="text-foreground/80 text-sm leading-relaxed">Needed quick job posting, candidate targeting, and easy application tracking.</p>
               </div>
-
-              <div className="bg-white/90 p-5 rounded-lg border border-purple-100 shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-purple-800">Placement Officers</h3>
-                <p className="text-gray-700 text-sm">
-                  Tasked with managing policies, interviews, and stakeholder insights, they needed a centralized tool
-                  to replace fragmented workflows and reduce coordination burdens.
-                </p>
+              <div className="border border-brand-light-gray-accent rounded-lg p-5">
+                <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Placement Officers</h3>
+                <p className="text-foreground/80 text-sm leading-relaxed">Required centralized policy management, interview scheduling, and reporting.</p>
               </div>
-
-              <div className="bg-white/90 p-5 rounded-lg border border-purple-100 shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-purple-800">Students</h3>
-                <p className="text-gray-700 text-sm">
-                  They craved an intuitive way to find relevant jobs, apply easily, and track progress, tired of
-                  external platforms and redundant data entry.
-                </p>
+              <div className="border border-brand-light-gray-accent rounded-lg p-5">
+                <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Students</h3>
+                <p className="text-foreground/80 text-sm leading-relaxed">Wanted intuitive job discovery, simple applications, and progress tracking.</p>
               </div>
             </div>
+          </section>
 
-            <p className="text-gray-700">
-              While their goals differed, simplicity and efficiency were universal demands, shaping the app's user-centric
-              design.
-            </p>
-          </CaseStudySection>
+          <section className="mb-10 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">Design Process: Methods and Artifacts</h2>
+             <p className="text-foreground/80 leading-relaxed mb-6">
+               A user-centric approach involved interviews, surveys, wireframing, prototyping, and usability testing.
+             </p>
+             {/* Example artifact block */}
+             <div className="border border-brand-light-gray-accent rounded-lg p-6 mb-6">
+               <h3 className="font-sans font-semibold text-lg mb-3 text-foreground">User Research</h3>
+               <p className="text-foreground/80 leading-relaxed">Identified key pain points and goals through interviews and surveys.</p>
+             </div>
+          </section>
 
-          <CaseStudySection title="Design Process: Methods and Artifacts">
-            <p className="text-gray-700 text-lg mb-6">
-              The design process was grounded in user-centric methods and iterative feedback, producing key artifacts to
-              guide development:
-            </p>
+          <section className="mb-10 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">The Breakthrough: A Unified, Familiar Flow</h2>
+             <p className="text-foreground/80 leading-relaxed mb-6">
+               Inspired by familiar platforms but tailored for university needs, a multi-step form approach balanced clarity and efficiency, reducing form abandonment by 38% compared to a single-page concept.
+             </p>
+             {/* Restyled ElanThinking as blockquote */}
+             <blockquote className="border-l-4 border-brand-light-gray-accent pl-6 italic text-foreground/70 my-8">
+               <p className="mb-2"><strong className="not-italic font-sans font-medium text-foreground/90">Elan's Thinking: Finding the Right Flow</strong></p>
+               "The LinkedIn comment stuck with me, but Camu's context was messier... A single-page form felt like a quick win, but users got lost... The multi-step form added clicks... I pushed for it anyway, backed by test data showing users valued clarity. User trust was worth more than a few seconds saved."
+             </blockquote>
+          </section>
 
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <h3 className="font-semibold text-lg mb-3 text-purple-800">User Research</h3>
-              <p className="text-gray-700">
-                Conducted interviews, shadowing, and surveys with recruiters, placement officers, and students to map
-                pain points and goals
-              </p>
-            </div>
-          </CaseStudySection>
+          <section className="mb-10 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">Iterative Design: Balancing Needs and Constraints</h2>
+             <p className="text-foreground/80 leading-relaxed mb-6">
+               Three key iterations refined the design based on user feedback:
+             </p>
+             {/* Restyled iteration blocks */}
+             <div className="space-y-6">
+               <div className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-3 text-foreground">Iteration 1: Form Structure</h3>
+                 <p className="text-sm text-foreground/80 leading-relaxed"><strong className="font-medium text-foreground">Challenge:</strong> Single-page form overwhelmed users. <strong className="font-medium text-foreground">Solution:</strong> Multi-step form with autosave.</p>
+               </div>
+               <div className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-3 text-foreground">Iteration 2: AI Autofill</h3>
+                 <p className="text-sm text-foreground/80 leading-relaxed"><strong className="font-medium text-foreground">Challenge:</strong> User distrust of full automation. <strong className="font-medium text-foreground">Solution:</strong> Optional autofill with easy overrides.</p>
+               </div>
+               <div className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-3 text-foreground">Iteration 3: External Tracking</h3>
+                 <p className="text-sm text-foreground/80 leading-relaxed"><strong className="font-medium text-foreground">Challenge:</strong> Confusing popups on external links. <strong className="font-medium text-foreground">Solution:</strong> Simplified wording and clearer context.</p>
+               </div>
+             </div>
+          </section>
 
-          <CaseStudySection title="The Breakthrough: A Unified, Familiar Flow">
-            <p className="text-gray-700 text-lg mb-6">
-              A recruiter's casual remark—"Why can't this be as straightforward as LinkedIn?"—sparked the vision for a
-              clear, step-by-step flow. But Camu wasn't a generic job platform; it needed to handle university-specific
-              nuances like approval workflows and SIS data integration. Stakeholders feared a rigid system would sacrifice
-              flexibility, so we tested two approaches: a single-page form (fast but overwhelming) versus a multi-step form
-              (clearer, with autosave). The multi-step version won, reducing form abandonment by 38%. Structure, it turned
-              out, trumped raw speed.
-            </p>
+          <section className="mb-10 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">The Recruiter's Journey: From Chaos to Control</h2>
+             <p className="text-foreground/80 leading-relaxed mb-6">
+               The app provided an intuitive, data-driven experience:
+             </p>
+             {/* Restyled journey steps */}
+             <ol className="space-y-6 list-decimal list-inside marker:font-semibold marker:text-foreground">
+               <li className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-1 text-foreground inline">Seamless Access:</h3>
+                 <p className="text-foreground/80 leading-relaxed inline"> Institutional credentials provide scoped login; trusted partners skip approvals.</p>
+               </li>
+               <li className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-3 text-foreground">Job Creation Made Simple:</h3>
+                 <p className="text-foreground/80 mb-4 leading-relaxed">A four-step form guided users through Basic Info, Position Details, Location/Time, and Compensation, with AI assistance and autosave.</p>
+               </li>
+               <li className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-1 text-foreground inline">Leveraging SIS Data:</h3>
+                 <p className="text-foreground/80 leading-relaxed inline"> Filters pull directly from the SIS, eliminating manual uploads.</p>
+               </li>
+               <li className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-1 text-foreground inline">Approval & Tracking:</h3>
+                 <p className="text-foreground/80 leading-relaxed inline"> Automated routing and a real-time dashboard replaced email chaos.</p>
+               </li>
+             </ol>
+          </section>
 
-            <ElanThinking id="breakthrough-thinking" title="Finding the Right Flow">
-              "The LinkedIn comment stuck with me, but Camu's context was messier—approval rules, SIS data, campus logistics.
-              A single-page form felt like a quick win, but users got lost in the noise. The multi-step form added clicks,
-              which worried stakeholders. I pushed for it anyway, backed by test data showing users valued clarity. It was a
-              gamble, but user trust was worth more than a few seconds saved."
-            </ElanThinking>
-          </CaseStudySection>
-
-          <CaseStudySection title="Iterative Design: Balancing Needs and Constraints">
-            <p className="text-gray-700 text-lg mb-6">
-              The design evolved through three pivotal iterations, each addressing user feedback and technical realities:
-            </p>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <h3 className="font-semibold text-lg mb-3 text-purple-800">Iteration 1</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                  <h4 className="font-medium text-gray-800">Form Structure</h4>
-                  <p className="text-gray-700 text-sm">Single-page job post</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-800">Feedback</h4>
-                  <p className="text-gray-700 text-sm">Users felt overwhelmed</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-800">Solution</h4>
-                  <p className="text-gray-700 text-sm">Multi-step with autosave</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <h3 className="font-semibold text-lg mb-3 text-purple-800">Iteration 2</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                  <h4 className="font-medium text-gray-800">AI Autofill</h4>
-                  <p className="text-gray-700 text-sm">Auto-populate fields</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-800">Feedback</h4>
-                  <p className="text-gray-700 text-sm">Distrust of automation</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-800">Solution</h4>
-                  <p className="text-gray-700 text-sm">Optional autofill with easy overrides</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm">
-              <h3 className="font-semibold text-lg mb-3 text-purple-800">Iteration 3</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                  <h4 className="font-medium text-gray-800">External Tracking</h4>
-                  <p className="text-gray-700 text-sm">Popup on external site clicks</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-800">Feedback</h4>
-                  <p className="text-gray-700 text-sm">Confusion and mis-clicks</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-800">Solution</h4>
-                  <p className="text-gray-700 text-sm">Simplified wording, clearer context</p>
-                </div>
-              </div>
-            </div>
-          </CaseStudySection>
-
-          <CaseStudySection title="The Recruiter's Journey: From Chaos to Control">
-            <p className="text-gray-700 text-lg mb-6">
-              For recruiters, the app delivers an intuitive, data-driven experience:
-            </p>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-800 font-bold mr-4">
-                  1
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2 text-purple-800">Seamless Access</h3>
-                  <p className="text-gray-700">
-                    Institutional credentials provide scoped login; trusted partners skip approvals
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-800 font-bold mr-4">
-                  2
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2 text-purple-800">Job Creation Made Simple</h3>
-                  <p className="text-gray-700 mb-3">A Create Job button launches a four-step form:</p>
-                  
-                  <div className="ml-4 space-y-4">
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 text-sm font-medium mr-3">
-                        1
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-gray-800">Basic Info</h4>
-                        <p className="text-gray-700 text-sm">Job title, description, and screening questions with AI autofill</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 text-sm font-medium mr-3">
-                        2
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-gray-800">Position Details</h4>
-                        <p className="text-gray-700 text-sm">Role type, duration, and work-study eligibility</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 text-sm font-medium mr-3">
-                        3
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-gray-800">Location & Time</h4>
-                        <p className="text-gray-700 text-sm">On-site, remote, or hybrid options with timezone-aware defaults</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 w-6 h-6 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 text-sm font-medium mr-3">
-                        4
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-gray-800">Compensation</h4>
-                        <p className="text-gray-700 text-sm">Pay transparency and optional perks. Autosave prevents data loss, keeping the process stress-free</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-800 font-bold mr-4">
-                  3
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2 text-purple-800">Leveraging SIS Data</h3>
-                  <p className="text-gray-700">
-                    Filters for GPA, major, or skills pull directly from the SIS, eliminating manual uploads
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-800 font-bold mr-4">
-                  4
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2 text-purple-800">Approval & Tracking</h3>
-                  <p className="text-gray-700">
-                    Postings route automatically for approval. A real-time dashboard tracks applications and candidate
-                    snapshots, replacing email chaos
-                  </p>
-                </div>
-              </div>
-            </div>
-          </CaseStudySection>
-
-          <CaseStudySection title="The Placement Officer's Command Center: Efficiency Meets Oversight">
-            <p className="text-gray-700 text-lg mb-6">
-              Placement officers gained a centralized hub that balances automation and control:
-            </p>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <h3 className="font-semibold text-lg mb-2 text-purple-800">Centralized Oversight</h3>
-              <p className="text-gray-700">
-                Job postings appear in a sortable queue with "white-glove" tags for priority partners. Approvals and edits
-                are a click away
-              </p>
-            </div>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <h3 className="font-semibold text-lg mb-2 text-purple-800">Streamlined Interview Management</h3>
-              
-              <div className="ml-4 space-y-4 mt-3">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 text-sm font-medium mr-3">
-                    1
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">Setup</h4>
-                    <p className="text-gray-700 text-sm">Configure preferences, slot durations, and seasonal windows</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 text-sm font-medium mr-3">
-                    2
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">Scheduling</h4>
-                    <p className="text-gray-700 text-sm">Build slots or rotations in the Interview hub</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 text-sm font-medium mr-3">
-                    3
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">Room Booking</h4>
-                    <p className="text-gray-700 text-sm">Reserve campus facilities in-app</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 bg-purple-50 rounded-full flex items-center justify-center text-purple-700 text-sm font-medium mr-3">
-                    4
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-800">Coordination</h4>
-                    <p className="text-gray-700 text-sm">Add candidates, export packets, and send bulk emails seamlessly</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm">
-              <h3 className="font-semibold text-lg mb-2 text-purple-800">Data-Driven Insights</h3>
-              <p className="text-gray-700">
-                Dashboards track slot fill rates and time-to-offer, while post-event surveys drive improvements
-              </p>
-            </div>
-          </CaseStudySection>
+          <section className="mb-10 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">The Placement Officer's Command Center: Efficiency Meets Oversight</h2>
+             <p className="text-foreground/80 leading-relaxed mb-6">
+               A centralized hub balanced automation and control:
+             </p>
+             <div className="space-y-6">
+               <div className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Centralized Oversight</h3>
+                 <p className="text-foreground/80 leading-relaxed">A sortable job queue with priority tags and one-click approvals/edits.</p>
+               </div>
+               <div className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-3 text-foreground">Streamlined Interview Management</h3>
+                 <p className="text-foreground/80 leading-relaxed">Integrated setup, scheduling, room booking, and candidate coordination.</p>
+               </div>
+               <div className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Data-Driven Insights</h3>
+                 <p className="text-foreground/80 leading-relaxed">Dashboards tracked key metrics, and surveys drove improvements.</p>
+               </div>
+             </div>
+          </section>
           
-          <CaseStudySection title="The Student's Experience: Opportunity at Their Fingertips">
-            <p className="text-gray-700 text-lg mb-6">
-              Students now enjoy a seamless, integrated job-hunting journey:
-            </p>
-            
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <h3 className="font-semibold text-lg mb-2 text-purple-800">Effortless Discovery</h3>
-              <p className="text-gray-700">
-                Jobs appear in their SIS home feed alongside academic updates, boosting visibility by 30%. 
-                AI recommendations match roles to their profiles
-              </p>
-            </div>
-            
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm mb-6">
-              <h3 className="font-semibold text-lg mb-2 text-purple-800">Frictionless Applications</h3>
-              <p className="text-gray-700">
-                Pre-filled forms pull SIS data—resumes, transcripts, skills—halving application time
-              </p>
-            </div>
-            
-            <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm">
-              <h3 className="font-semibold text-lg mb-2 text-purple-800">Clear Next Steps</h3>
-              <p className="text-gray-700">
-                Pick or swap interview slots and track status updates in real time, eliminating uncertainty
-              </p>
-            </div>
-          </CaseStudySection>
+          <section className="mb-10 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">The Student's Experience: Opportunity at Their Fingertips</h2>
+             <p className="text-foreground/80 leading-relaxed mb-6">
+               A seamless, integrated job-hunting journey:
+             </p>
+             <div className="space-y-6">
+               <div className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Effortless Discovery</h3>
+                 <p className="text-foreground/80 leading-relaxed">Jobs appeared in the SIS feed with AI recommendations.</p>
+               </div>
+               <div className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Frictionless Applications</h3>
+                 <p className="text-foreground/80 leading-relaxed">Pre-filled forms using SIS data halved application time.</p>
+               </div>
+               <div className="border border-brand-light-gray-accent rounded-lg p-6">
+                 <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Clear Next Steps</h3>
+                 <p className="text-foreground/80 leading-relaxed">Easy interview scheduling and real-time status tracking.</p>
+               </div>
+             </div>
+          </section>
 
-          <CaseStudySection title="Final Design: A Seamless, Data-Driven Experience">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/90 p-5 rounded-lg border border-purple-100 shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-purple-800">Recruiter Flow</h3>
-                <ul className="space-y-2 text-gray-700 list-disc pl-5">
-                  <li>Four-step job creation with AI autofill and SIS filters</li>
-                  <li>Real-time dashboards for application tracking</li>
-                  <li>Automated approval workflows</li>
-                </ul>
-              </div>
-              
-              <div className="bg-white/90 p-5 rounded-lg border border-purple-100 shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-purple-800">Placement Officer Flow</h3>
-                <ul className="space-y-2 text-gray-700 list-disc pl-5">
-                  <li>Centralized job queue with quick-edit tools</li>
-                  <li>Interview scheduling and room booking integration</li>
-                  <li>Data dashboards and post-event surveys</li>
-                </ul>
-              </div>
-              
-              <div className="bg-white/90 p-5 rounded-lg border border-purple-100 shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-purple-800">Student Flow</h3>
-                <ul className="space-y-2 text-gray-700 list-disc pl-5">
-                  <li>Job postings in the SIS dashboard with AI recommendations</li>
-                  <li>Pre-filled application forms using SIS data</li>
-                  <li>Interview slot selection and status tracking</li>
-                </ul>
-              </div>
-            </div>
-          </CaseStudySection>
+          <section className="mb-10 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">Final Design: A Seamless, Data-Driven Experience</h2>
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+               <div className="border border-brand-light-gray-accent rounded-lg p-5">
+                 <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Recruiter Flow</h3>
+                 <ul className="space-y-2 text-foreground/80 list-disc pl-5 text-sm">
+                   <li>Four-step job creation</li>
+                   <li>Real-time tracking</li>
+                   <li>Automated approvals</li>
+                 </ul>
+               </div>
+               <div className="border border-brand-light-gray-accent rounded-lg p-5">
+                 <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Placement Officer Flow</h3>
+                 <ul className="space-y-2 text-foreground/80 list-disc pl-5 text-sm">
+                   <li>Centralized job queue</li>
+                   <li>Integrated scheduling</li>
+                   <li>Data dashboards</li>
+                 </ul>
+               </div>
+               <div className="border border-brand-light-gray-accent rounded-lg p-5">
+                 <h3 className="font-sans font-semibold text-lg mb-2 text-foreground">Student Flow</h3>
+                 <ul className="space-y-2 text-foreground/80 list-disc pl-5 text-sm">
+                   <li>Jobs in SIS dashboard</li>
+                   <li>Pre-filled applications</li>
+                   <li>Interview scheduling</li>
+                 </ul>
+               </div>
+             </div>
+          </section>
 
-          <CaseStudySection title="The Roadblocks: Grit and Growth">
-            <p className="text-gray-700 text-lg mb-6">
-              These setbacks underscored the importance of prioritizing trust over innovation for innovation's sake.
-            </p>
+          <section className="mb-10 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">The Roadblocks: Grit and Growth</h2>
+             <p className="text-foreground/80 leading-relaxed mb-6">
+               Challenges like user resistance to AI autofill and confusion over external link tracking highlighted the need to prioritize user trust and clarity.
+             </p>
+             {/* Restyled ElanThinking as blockquote */}
+              <blockquote className="border-l-4 border-brand-light-gray-accent pl-6 italic text-foreground/70 my-8">
+               <p className="mb-2"><strong className="not-italic font-sans font-medium text-foreground/90">Elan's Thinking: Overcoming Challenges</strong></p>
+               "The 'Quick Post' flop hurt... External tracking was another mess... I learned to let data and feedback guide me, even when it meant scrapping 'cool' ideas. Business goals loomed, but user trust was my north star."
+             </blockquote>
+          </section>
 
-            <ElanThinking id="roadblocks-thinking" title="Overcoming Challenges">
-              "The 'Quick Post' flop hurt—we thought AI would wow users, but recruiters pushed back, wanting agency. External tracking
-              was another mess; stakeholders hated the wordiness, but users needed clarity. I learned to let data and feedback guide me, even when it meant scrapping
-              'cool' ideas. Business goals loomed, but user trust was my north star."
-            </ElanThinking>
-          </CaseStudySection>
-
-          <CaseStudySection title="Results: Impact and Outcomes">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm text-center">
-                <p className="text-3xl font-bold text-purple-700 mb-2">30%</p>
-                <p className="text-gray-700">faster time-to-hire through data-driven filters and streamlined scheduling</p>
-              </div>
-              
-              <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm text-center">
-                <p className="text-3xl font-bold text-purple-700 mb-2">40%</p>
-                <p className="text-gray-700">reduction in placement officer workload, freeing time for strategic focus</p>
-              </div>
-              
-              <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm text-center">
-                <p className="text-3xl font-bold text-purple-700 mb-2">25%</p>
-                <p className="text-gray-700">increase in student engagement with the SIS, boosting app usage</p>
-              </div>
-              
-              <div className="bg-white/90 p-6 rounded-lg border border-purple-100 shadow-sm text-center">
-                <p className="text-3xl font-bold text-purple-700 mb-2">$500K</p>
-                <p className="text-gray-700">in new revenue from satisfied employers renewing contracts</p>
-              </div>
-            </div>
-          </CaseStudySection>
+          <section className="mb-10 md:mb-12">
+             <h2 className="text-2xl md:text-3xl font-sans font-semibold mb-4 text-foreground">Results: Impact and Outcomes</h2>
+             {/* Restyled results display */}
+             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+               <div className="border border-brand-light-gray-accent p-6 rounded-lg text-center">
+                 <p className="text-3xl font-semibold text-foreground mb-1">30%</p>
+                 <p className="text-foreground/80 text-sm leading-relaxed">Faster Time-to-Hire</p>
+               </div>
+               <div className="border border-brand-light-gray-accent p-6 rounded-lg text-center">
+                 <p className="text-3xl font-semibold text-foreground mb-1">40%</p>
+                 <p className="text-foreground/80 text-sm leading-relaxed">Reduced PO Workload</p>
+               </div>
+               <div className="border border-brand-light-gray-accent p-6 rounded-lg text-center">
+                 <p className="text-3xl font-semibold text-foreground mb-1">25%</p>
+                 <p className="text-foreground/80 text-sm leading-relaxed">Increased SIS Engagement</p>
+               </div>
+               <div className="border border-brand-light-gray-accent p-6 rounded-lg text-center">
+                 <p className="text-3xl font-semibold text-foreground mb-1">$500K</p>
+                 <p className="text-foreground/80 text-sm leading-relaxed">New Revenue</p>
+               </div>
+             </div>
+          </section>
 
           <div className="text-center mt-16">
-            <p className="text-lg text-purple-800 mb-2">⭐ End of Case Study ⭐</p>
-            <Link to="/" className="inline-flex items-center text-purple-700 hover:text-purple-900 transition-colors">
-              <ArrowLeft size={18} className="mr-2" />
+            <p className="text-lg text-foreground/80 mb-2">⭐ End of Case Study ⭐</p>
+            <Link to="/" className="inline-flex items-center text-foreground/80 hover:text-foreground transition-colors text-sm font-medium">
+              <ArrowLeft size={16} className="mr-1.5" />
               <span>Back to Portfolio</span>
             </Link>
           </div>
-        </div>
+        </article>
       </main>
 
       <Footer />

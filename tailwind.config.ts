@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
       fontFamily: {
-        sans: ['"Noto Sans"', 'sans-serif'], // Changed default sans font to Noto Sans
-        script: ['Philosopher', 'sans-serif'], // Added Philosopher font
+        sans: ['"Noto Sans"', 'sans-serif'], // Noto Sans is a good default sans-serif
+        // Removed serif, headings will use sans-serif with specific weights
       },
 			colors: {
 				border: 'hsl(var(--border))',
@@ -56,6 +56,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+        // Adding Intercom-inspired brand colors for direct use
+        'brand-beige-bg': 'hsl(var(--brand-beige-bg))',
+        'brand-dark-text': 'hsl(var(--brand-dark-text))',
+        'brand-black-cta': 'hsl(var(--brand-black-cta))',
+        'brand-white-cta-text': 'hsl(var(--brand-white-cta-text))',
+        'brand-light-gray-accent': 'hsl(var(--brand-light-gray-accent))',
+        'brand-badge-bg': 'hsl(var(--brand-badge-bg))',
+        'brand-link-text': 'hsl(var(--brand-link-text))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
