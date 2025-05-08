@@ -9,15 +9,15 @@ const Footer = () => {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <div className="mb-6 md:mb-0">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center mb-8">
+          <div>
             <Link to="/" className="text-xl font-bold text-gray-800">
               Elan
             </Link>
             <p className="mt-2 text-gray-600">Enterprise UX Designer</p>
           </div>
           
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 md:justify-self-end">
             <a 
               href="https://linkedin.com/in/elanthamilan" 
               target="_blank" 
@@ -44,12 +44,12 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+        <div className="border-t border-gray-200 pt-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-center">
+          <p className="text-gray-500 text-sm">
             © {currentYear} Elanthamilan. All rights reserved.
           </p>
           
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 md:justify-self-end">
             <Link to="/" className="text-sm text-gray-500 hover:text-purple-600 transition-colors">
               Work
             </Link>
