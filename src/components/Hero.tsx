@@ -58,7 +58,7 @@ const Hero = () => {
           {/* Left Column: Professional Information */}
           <div className="space-y-8 md:space-y-10"> {/* Increased spacing */}
             <div>
-              <Badge className="bg-brand-badge-bg text-foreground px-3 py-1.5 text-sm font-medium rounded"> {/* Intercom badge style */}
+              <Badge className="bg-secondary text-secondary-foreground px-3 py-1.5 text-sm font-medium rounded"> {/* Intercom badge style */}
                 Enterprise UX Designer
               </Badge>
               
@@ -68,8 +68,7 @@ const Hero = () => {
               </h1>
               
               <div className="flex items-center mb-8 space-x-2">
-                <span role="img" aria-label="wave" className="text-2xl">👋</span>
-                <span className="text-xl md:text-2xl font-sans font-medium text-foreground font-dm-sans">Hi, I'm Elanthamilan</span>
+                <span className="text-xl md:text-2xl font-sans font-medium text-foreground font-dm-sans">Hi, I'm <span className="font-heading text-primary">Elan</span>👋🤓</span>
               </div>
               
               <p className="text-foreground/80 text-lg md:text-xl max-w-xl mb-10 leading-relaxed"> {/* Intercom body text style */}
