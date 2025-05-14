@@ -4,63 +4,56 @@
 
 @layer base {
   :root {
-    /* Intercom Inspired Brand Colors */
-    --brand-beige-bg: 39 33% 96%;        /* Approx F8F6F1 */
-    --brand-dark-text: 0 0% 13%;         /* Approx 212121 */
-    --brand-black-cta: 0 0% 7%;          /* For black buttons */
-    --brand-white-cta-text: 0 0% 100%;   /* Text on black buttons */
-    --brand-light-gray-accent: 0 0% 87%; /* Approx D9D9D9, for subtle borders/lines */
-    --brand-badge-bg: 39 20% 92%;       /* Slightly darker/muted beige for badges */
-    --brand-link-text: 210 30% 45%;      /* A subtle blue for links if needed */
+    /* Theme Variables - User Interviews Inspired */
+    --background: 0 0% 98%; /* Very Light Gray / Off-white */
+    --foreground: 0 0% 13%; /* Dark Gray */
 
-    /* Theme Variables - Intercom Light Style */
-    --background: var(--brand-beige-bg);
-    --foreground: var(--brand-dark-text);
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 0 0% 13%; /* Dark Gray */
 
-    --card: var(--brand-beige-bg); /* Cards are flat, or could be white: 0 0% 100% */
-    --card-foreground: var(--brand-dark-text);
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 0 0% 13%; /* Dark Gray */
 
-    --popover: 0 0% 100%; /* Popovers typically white */
-    --popover-foreground: var(--brand-dark-text);
+    /* Primary Color: Dark Teal */
+    --primary: 174 43% 33%;
+    --primary-foreground: 0 0% 100%; /* White */
+    --primary-color: 174 43% 33%; /* Use existing primary color as default */
 
-    /* Primary for buttons (e.g., "Apply Now" style) */
-    --primary: var(--brand-black-cta);
-    --primary-foreground: var(--brand-white-cta-text);
-
-    /* Secondary buttons/accents */
-    --secondary: var(--brand-badge-bg); /* e.g. background for a secondary button */
-    --secondary-foreground: var(--brand-dark-text); /* Text on secondary button */
+    /* Secondary Color: Dark Blue/Charcoal */
+    --secondary: 220 31% 23%;
+    --secondary-foreground: 0 0% 100%; /* White */
 
     /* Muted text */
-    --muted: var(--brand-dark-text); /* Muted is still dark, but could be overridden with opacity */
-    --muted-foreground: 0 0% 40%; /* Lighter than main text for less emphasis */
+    --muted: 0 0% 40%; /* Medium Gray */
+    --muted-foreground: 0 0% 60%; /* Lighter Gray */
 
-    /* Accent colors for links or highlights */
-    --accent: var(--brand-light-gray-accent); /* Subtle background for accented elements */
-    --accent-foreground: var(--brand-link-text); /* Link color */
+    /* Accent colors */
+    --accent: 210 30% 90%; /* Light Blue */
+    --accent-foreground: 210 30% 30%; /* Darker Blue */
     
-    --destructive: 0 84.2% 60.2%; /* Standard destructive red */
-    --destructive-foreground: var(--brand-white-cta-text);
+    --destructive: 0 72% 51%; /* Modern Red */
+    --destructive-foreground: 0 0% 100%; /* White */
 
-    --border: var(--brand-light-gray-accent); /* General borders */
-    --input: 0 0% 100%; /* White input background */
-    --input-foreground: var(--brand-dark-text); /* Text in input */
-    --ring: var(--brand-dark-text); /* Focus ring, can be an accent color too */
+    --border: 0 0% 87%; /* Light Gray */
+    --input: 0 0% 100%; /* White */
+    --input-foreground: 0 0% 13%; /* Dark Gray */
+    --ring: 174 43% 43%; /* Lighter shade of primary for focus rings */
 
-    --radius: 0.375rem; /* Intercom uses slightly less rounded corners (6px) */
+    --radius: 0.5rem; /* Slightly more rounded corners */
 
-    /* Sidebar specific colors - adjust if sidebar is used, for now align with main theme */
-    --sidebar-background: 40 33% 93%; /* Slightly darker beige */
-    --sidebar-foreground: var(--brand-dark-text);
-    --sidebar-primary: var(--brand-black-cta);
-    --sidebar-primary-foreground: var(--brand-white-cta-text);
-    --sidebar-accent: var(--brand-light-gray-accent);
-    --sidebar-accent-foreground: var(--brand-dark-text);
-    --sidebar-border: var(--brand-light-gray-accent);
-    --sidebar-ring: var(--brand-dark-text);
-  }
+    /* Sidebar specific colors (can be customized further if needed) */
+    --sidebar-background: 0 0% 96%; /* Slightly off-white, similar to background */
+    --sidebar-foreground: 0 0% 13%;
+    --sidebar-primary: 174 43% 33%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 85%;
+    --sidebar-accent-foreground: 210 30% 25%;
+    --sidebar-border: 0 0% 87%;
+    --sidebar-ring: 174 43% 43%;
 
-  /* .dark theme is removed for now to focus on the Intercom light style */
+}
+
+  /* Dark theme can be added here if needed in the future */
 }
 
 @layer base {
@@ -70,7 +63,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Noto Sans', sans-serif; /* Default sans-serif font */
+    font-family: 'DM Sans', sans-serif; /* Default sans-serif font */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -79,4 +72,88 @@
   h1, h2, h3, h4, h5, h6 {
      /* font-family set in tailwind.config.ts for headings */
   }
+}
+
+.card {
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.card.expanded {
+  height: auto;
+}
+
+/* Fade-in effect */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.loaded {
+  opacity: 1;
+}
+
+/* Case study card hover effect */
+.card-hover-details {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.group:hover .card-hover-details {
+  opacity: 1;
+}
+
+
+/* Glowing shadow effect on hover */
+.case-study-card {
+  transition: box-shadow 0.5s ease;
+  position: relative; /* Required for pseudo-element */
+  /* border: 4px solid transparent; */
+  /* overflow: hidden;  Clip the shadow */
+}
+
+.group:hover .case-study-card {
+  box-shadow: 0 0 20px var(--primary-color),
+              0 0 30px var(--primary-color),
+              0 0 40px var(--primary-color); /* Glowing shadow using primary color */
+  animation: pulse 2s infinite alternate;
+  /* border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1; */
+  /* border-image-slice: 1; */
+  /* animation: spin 5s linear infinite; */
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 10px var(--primary-color);
+  }
+  to {
+    box-shadow: 0 0 20px var(--primary-color),
+                0 0 30px var(--primary-color),
+                0 0 40px var(--primary-color);
+  }
+}
+
+.glitter-border {
+  border: none;
+}
+/* Case study card hover effect */
+.group:hover .card {
+  /* height: auto; */
+  transition: height 0.3s ease; /* Smooth transition */
+}
+
+.case-study-card {
+  /* height: 300px; */
+  /* overflow: hidden; */
+  transition: height 0.3s ease;
+}
+
+.group:hover .case-study-card {
+  height: auto;
+  overflow: visible;
+  /* max-height: auto; */
+}
+
+.long-description p {
+  font-size: 1rem;
 }

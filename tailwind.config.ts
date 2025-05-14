@@ -19,8 +19,9 @@ export default {
 		},
 		extend: {
       fontFamily: {
-        sans: ['"Noto Sans"', 'sans-serif'], // Noto Sans is a good default sans-serif
-        // Removed serif, headings will use sans-serif with specific weights
+        sans: ['DM Sans', 'sans-serif'],
+        heading: ['DM Serif Text', 'serif'],
+        mono: ['IBM Plex Mono', 'monospace'],
       },
 			colors: {
 				border: 'hsl(var(--border))',
@@ -30,7 +31,9 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					'case-study-1': '#156152',
+					'case-study-2': '#16325A',
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -54,16 +57,11 @@ export default {
 				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					foreground: 'hsl(var(--card-foreground))',
+					'case-study-1': '#F2F8F7',
+					'case-study-2': '#F3F6F9',
 				},
-        // Adding Intercom-inspired brand colors for direct use
-        'brand-beige-bg': 'hsl(var(--brand-beige-bg))',
-        'brand-dark-text': 'hsl(var(--brand-dark-text))',
-        'brand-black-cta': 'hsl(var(--brand-black-cta))',
-        'brand-white-cta-text': 'hsl(var(--brand-white-cta-text))',
-        'brand-light-gray-accent': 'hsl(var(--brand-light-gray-accent))',
-        'brand-badge-bg': 'hsl(var(--brand-badge-bg))',
-        'brand-link-text': 'hsl(var(--brand-link-text))',
+				// Removed Intercom-inspired brand colors as per new theme
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -73,7 +71,10 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'mesh-gradient-start': '#F0F0F0', // Lighter shade of fafafa
+					   'mesh-gradient-middle': '#FAFAFA', // fafafa
+					   'mesh-gradient-end': '#FFFFFF',   // White
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -14,8 +14,8 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-brand-light-gray-accent">
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
-        <Link to="/" className="text-xl font-bold text-foreground">
-          Elan
+        <Link to="/" className="text-xl font-heading font-semibold text-foreground">
+          ✨ Elan ✨
         </Link>
 
         {/* Desktop Navigation */}

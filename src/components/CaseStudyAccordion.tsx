@@ -16,10 +16,10 @@ export function ElanThinking({ id, title, children }: ElanThinkingProps) {
           <AccordionTrigger className="py-4 px-5 hover:bg-purple-50/70 rounded-md transition-all">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-purple-600 rounded-full mr-3 animate-pulse" aria-hidden="true"></div>
-              <span className="text-purple-900 font-medium">Elan's Thinking: {title}</span>
+              <span className="text-purple-900 font-handwriting text-xl">Elan's Thinking: {title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="px-5 pb-4 pt-2 text-gray-800 italic bg-gradient-to-r from-purple-50/70 to-white rounded-b-md">
+          <AccordionContent className="px-5 pb-4 pt-2 text-gray-800 italic font-['Lato'] bg-gradient-to-r from-purple-50/70 to-white rounded-b-md">
             {children}
           </AccordionContent>
         </AccordionItem>
