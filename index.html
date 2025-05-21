@@ -17,11 +17,59 @@
       rel="stylesheet"
     />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Philosopher:ital,wght@1,700&display=swap" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
     <script type="module" crossorigin src="/assets/index-x6gqU6Tn.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-B7c8WPgi.css">
+    <style>
+      /* Basic responsive image handling */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* General typography adjustments for smaller screens */
+      @media (max-width: 768px) {
+        body {
+          font-size: 90%; /* Reduce base font size slightly */
+        }
+        /* Add more specific selectors if obvious ones can be targeted, e.g., h1, h2 */
+        h1 {
+           font-size: 1.8em; /* Example: adjust heading sizes */
+        }
+        h2 {
+           font-size: 1.5em; /* Example: adjust heading sizes */
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          font-size: 85%; /* Further reduce font size for very small screens */
+        }
+        h1 {
+           font-size: 1.5em;
+        }
+        h2 {
+           font-size: 1.2em;
+        }
+        /* Attempt to stack common flex containers. This is speculative.
+           If you can identify common wrapper class names from the existing CSS (from step 1),
+           you could try to target them. Otherwise, this might be too broad.
+           Example:
+           .flex-container { // Replace with actual class if identifiable
+             flex-direction: column;
+           }
+        */
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root" role="main"></div>
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        gsap.set("body", { autoAlpha: 0 });
+        gsap.to("body", { duration: 1, autoAlpha: 1, ease: "power1.inOut" });
+      });
+    </script>
   </body>
 </html>
