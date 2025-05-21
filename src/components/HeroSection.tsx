@@ -1,23 +1,7 @@
-import { Button } from "../ui/button.tsx";
-import { ArrowRight, Download, Mail, Phone, Linkedin, MessageSquare } from "lucide-react";
-import { useIsMobile } from "../hooks/use-mobile.js";
-import { Badge } from "../components/ui/badge.tsx"; // Updated path
-// Card components were imported but not used in the final version
-// import { Card, CardContent, CardFooter, CardHeader } from "./ui/card.tsx";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../ui/accordion.tsx";
-import CaseStudyCard from "../components/CaseStudyCard.tsx"; // Updated path
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useState, useEffect, useRef } from "react";
-import SectionReveal from "./SectionReveal.tsx";
-import { useGSAP } from '../../lib/gsap/useGSAP.js';
+import { useEffect, useRef } from 'react';
+import { useGSAP } from '../lib/gsap/useGSAP.js';
 import { motion } from 'framer-motion';
-import TypingAnimation from '../TypingAnimation.js';
+import TypingAnimation from './TypingAnimation.js';
 
 const phrases = [
   'UX Designer',
@@ -27,41 +11,9 @@ const phrases = [
   'Accessibility Advocate'
 ];
 
-const Hero = () => {
-  const [loaded, setLoaded] = useState(false);
-  const isMobile = useIsMobile();
+const HeroSection = () => {
   const { elementRef, scrollAnimation } = useGSAP();
   const heroRef = useRef<HTMLElement>(null);
-
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const tl = gsap.timeline();
-
-    tl.fromTo(
-      ".hero-text",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, delay: 0.5, stagger: 0.2 }
-    );
-
-    tl.to(".hero-text", {
-      y: -50,
-      scrollTrigger: {
-        trigger: ".hero-text",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
-
-    tl.fromTo(
-      ".elan-text",
-      { rotation: 0 },
-      { rotation: 5, duration: 0.5, yoyo: true, repeat: 1 }
-    );
-
-    setLoaded(true);
-  }, []);
 
   useEffect(() => {
     if (heroRef.current) {
@@ -81,33 +33,6 @@ const Hero = () => {
       );
     }
   }, []);
-
-  const industries = [
-    {
-      title: "EdTech",
-      content:
-        "Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals.   Revamped SIS through evaluation, design systems, and redesign of 30+ features.    Directed LMS design focusing on accessibility, usability, and scalable workflows.    Designed Student Portal for seamless navigation and mobile responsiveness.    Created eLearning platform for trading courses.",
-    },
-    {
-      title: "eCommerce",
-      content:
-        "Redesigned key flows for a B2B pharma eCommerce site.   Designed eCommerce experiences for brands like Robinson Co. and Natural Partners.    Improved product discovery, navigation and checkout flows.    Crafted scalable UI systems for quick orders, subscriptions, and account management.",
-    },
-    {
-      title: "Connected Home",
-      content:
-        "Led design for connected home interfaces (consumer & industrial IoT).   Founding member of product/design team, revamped platform, built design system.    Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine.",
-    },
-    {
-      title: "Construction",
-      content:
-        "Designed construction asset management app for real-time tool tracking.   ",
-    },
-    {
-      title: "Startup",
-      content: "Contributed to the design and development of various startup products, focusing on user-centered design and rapid iteration.  ",
-    }
-  ];
 
   return (
     <motion.section
@@ -194,4 +119,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroSection; 

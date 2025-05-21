@@ -1,27 +1,32 @@
-import React, { lazy, Suspense } from 'react'; // Import lazy and Suspense
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/layout/Header.js'; // Updated path
-import Footer from './components/layout/Footer.js'; // Updated path
+import { useGSAP } from './lib/gsap/useGSAP.js';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import HomePage from './pages/HomePage.js';
+import CaseStudyCampusHiring from './pages/CaseStudyCampusHiring.js';
+import CaseStudyStudentPlanner from './pages/CaseStudyStudentPlanner.js';
 
-// Lazy load the HomePage component
-const HomePage = lazy(() => import('./pages/HomePage.js'));
+const App = () => {
+  const { gsap } = useGSAP();
 
-function App() {
+  useEffect(() => {
+    // Initialize smooth scrolling
+    gsap.to('html, body', {
+      scrollBehavior: 'smooth',
+      duration: 0
+    });
+
+    // Initialize ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+  }, []);
+
   return (
-    <div className="app-container">
-      {/* Header and Footer are outside Routes so they appear on all pages */}
-      <Header />
-      {/* Use Suspense for lazy loaded components */}
-      <Suspense fallback={<div>Loading...</div>}> {/* Add a loading fallback */}
-        <Routes>
-          {/* Define a route for the home page */}
-          <Route path="/" element={<HomePage />} />
-          {/* Add more routes here as needed */}
-        </Routes>
-      </Suspense>
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/case-study/campus-hiring" element={<CaseStudyCampusHiring />} />
+      <Route path="/case-study/student-planner" element={<CaseStudyStudentPlanner />} />
+    </Routes>
   );
-}
+};
 
 export default App;
