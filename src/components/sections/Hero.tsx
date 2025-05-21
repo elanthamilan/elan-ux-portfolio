@@ -1,4 +1,4 @@
-import { Button } from "./ui/button.tsx";
+import { Button } from "../ui/button.tsx";
 import { ArrowRight, Download, Mail, Phone, Linkedin, MessageSquare } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile.js";
 import { Badge } from "../components/ui/badge.tsx"; // Updated path
@@ -9,7 +9,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./ui/accordion.tsx";
+} from "../ui/accordion.tsx";
 import CaseStudyCard from "../components/CaseStudyCard.tsx"; // Updated path
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -40,6 +40,12 @@ const Hero = () => {
         scrub: 1,
       },
     });
+
+    tl.fromTo(
+      ".elan-text",
+      { rotation: 0 },
+      { rotation: 5, duration: 0.5, yoyo: true, repeat: 1 }
+    );
 
     setLoaded(true);
   }, []);
@@ -89,7 +95,7 @@ const Hero = () => {
                 Simplifying Enterprise Experiences
               </h1>
               
-              <div className="flex items-center mb-8 space-x-2 hero-text">
+              <div className="flex items-center mb-8 space-x-2 hero-text elan-text">
                 <span className="text-xl md:text-2xl font-sans font-medium text-foreground font-dm-sans">Hi, I'm <span className="font-heading text-primary">Elan</span>👋🤓</span>
               </div>
               
