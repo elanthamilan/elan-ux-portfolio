@@ -13,6 +13,12 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-brand-light-gray-accent">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:z-50 focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-background focus:text-foreground focus:border focus:border-ring focus:rounded-md focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
         <Link to="/" className="text-xl font-heading font-semibold text-foreground">
           ✨ Elan ✨
@@ -44,13 +50,16 @@ const Header = () => {
               Resume
             </a>
           </Button>
-          <a 
-            href="mailto:elanthamilan12@gmail.com" 
-            className="text-foreground hover:text-brand-link-text"
-            aria-label="Contact via Email"
-          >
-            <Mail size={20} /> {/* Icon size can be adjusted */}
-          </a>
+          <Button className="bg-primary text-primary-foreground hover:bg-gray-800 px-3 py-1.5 text-xs" asChild>
+            <a 
+              href="mailto:elanthamilan12@gmail.com" 
+              className="text-primary-foreground flex items-center" // Adjusted className for content within button
+              aria-label="Contact via Email"
+            >
+              <Mail size={16} className="mr-1.5" /> {/* Adjusted size and margin */}
+              Email
+            </a>
+          </Button>
         </div>
       </div>
     </header>

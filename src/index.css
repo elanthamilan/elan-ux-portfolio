@@ -106,32 +106,19 @@
 
 /* Glowing shadow effect on hover */
 .case-study-card {
-  transition: box-shadow 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Updated transition */
   position: relative; /* Required for pseudo-element */
   /* border: 4px solid transparent; */
   /* overflow: hidden;  Clip the shadow */
 }
 
 .group:hover .case-study-card {
-  box-shadow: 0 0 20px var(--primary-color),
-              0 0 30px var(--primary-color),
-              0 0 40px var(--primary-color); /* Glowing shadow using primary color */
-  animation: pulse 2s infinite alternate;
-  /* border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1; */
-  /* border-image-slice: 1; */
-  /* animation: spin 5s linear infinite; */
+  transform: scale(1.03); /* Added scale effect */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1); /* Updated box-shadow */
+  /* Removed pulse animation and other complex styles */
 }
 
-@keyframes pulse {
-  from {
-    box-shadow: 0 0 10px var(--primary-color);
-  }
-  to {
-    box-shadow: 0 0 20px var(--primary-color),
-                0 0 30px var(--primary-color),
-                0 0 40px var(--primary-color);
-  }
-}
+/* Removed @keyframes pulse */
 
 .glitter-border {
   border: none;
@@ -139,20 +126,20 @@
 /* Case study card hover effect */
 .group:hover .card {
   /* height: auto; */
-  transition: height 0.3s ease; /* Smooth transition */
+  /* transition: height 0.3s ease; */ /* This transition might conflict, ensure only transform/box-shadow are transitioned for hover effect */
 }
 
-.case-study-card {
+/* .case-study-card { */ /* This declaration is a duplicate, ensure properties are consolidated or removed if not needed */
   /* height: 300px; */
   /* overflow: hidden; */
-  transition: height 0.3s ease;
-}
+  /* transition: height 0.3s ease; */ /* This transition might conflict */
+/* } */
 
-.group:hover .case-study-card {
-  height: auto;
-  overflow: visible;
+/* .group:hover .case-study-card { */ /* This declaration is a duplicate */
+  /* height: auto; */
+  /* overflow: visible; */
   /* max-height: auto; */
-}
+/* } */
 
 .long-description p {
   font-size: 1rem;

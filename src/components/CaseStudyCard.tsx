@@ -37,15 +37,18 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   const cardRef = useRef<HTMLDivElement>(null);
 
   return (
-    <Card
-      style={{ transform: "translateZ(0)", backgroundColor: backgroundColor }}
-      ref={cardRef}
-    >
-      <div className="aspect-video w-full bg-gray-200 overflow-hidden">
-        <img
+    <div className="group">
+      <Card
+        className="case-study-card" // Added case-study-card class
+        style={{ transform: "translateZ(0)", backgroundColor: backgroundColor }}
+        ref={cardRef}
+      >
+        <div className="aspect-video w-full bg-gray-200 overflow-hidden">
+          <img
           src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500"
+          loading="lazy" // Added lazy loading
         />
       </div>
       <CardHeader className="p-6">
@@ -96,6 +99,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
           </Link>
         </CardFooter>
       </Card>
+    </div>
   );
 };
 
