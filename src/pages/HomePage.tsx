@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from '../components/sections/Hero.js';
 import Skills from '../components/sections/Skills.js';
 import Contact from '../components/sections/Contact.js';
 import Footer from '../components/sections/Footer.js';
 import CaseStudyCard from '../components/CaseStudyCard.js';
+import ScrollToTop from '../components/ui/ScrollToTop.js';
+import LoadingScreen from '../components/ui/LoadingScreen.js';
+import ThemeToggle from '../components/ui/ThemeToggle.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -27,12 +30,26 @@ const caseStudies = [
 ];
 
 const HomePage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <main className="min-h-screen">
+      <ThemeToggle />
       <Hero />
       
       <section className="py-20 px-4 bg-white dark:bg-gray-900">
@@ -54,6 +71,7 @@ const HomePage = () => {
       <Skills />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </main>
   );
 };
