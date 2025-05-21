@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionReveal from '../components/SectionReveal.tsx'; // Assuming SectionReveal might be used for skills animation later
 
 const Skills = () => {
   const skills = ['JavaScript', 'React', 'Tailwind CSS', 'UI/UX Design', 'Problem Solving'];
@@ -14,6 +15,7 @@ const Skills = () => {
         ))}
       </div>
     </div>
+    // Consider wrapping the content in SectionReveal if you want scroll animation
   );
 };
 
