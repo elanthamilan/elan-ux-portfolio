@@ -14,7 +14,11 @@ export default {
 			center: true,
 			padding: '2rem',
 			screens: {
-				'2xl': '1400px'
+				sm: '640px',
+				md: '768px',
+				lg: '1024px',
+				xl: '1280px',
+				'2xl': '1400px',
 			}
 		},
 		extend: {
@@ -34,6 +38,7 @@ export default {
 					foreground: 'hsl(var(--primary-foreground))',
 					'case-study-1': '#156152',
 					'case-study-2': '#16325A',
+					     'enterprise-ux-designer': '#16325A',
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',

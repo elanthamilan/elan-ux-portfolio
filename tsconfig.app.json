@@ -12,7 +12,8 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
 
     /* Linting */
     "strict": false,
@@ -24,7 +25,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "jsxImportSource": "react"
   },
   "include": ["src"]
 }
