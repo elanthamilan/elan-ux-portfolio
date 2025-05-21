@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, Mail, Phone, Linkedin, MessageSquare } from "lucide-react";
+import { ArrowRight, Download, Mail, Phone, Linkedin, MessageSquare, GraduationCap, ShoppingCart, Network, Rocket } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
@@ -12,42 +12,123 @@ import {
 } from "@/components/ui/accordion";
 import CaseStudyCard from "./CaseStudyCard";
 import { gsap } from "gsap";
-import { useEffect, useState } from "react";
+import { TextPlugin } from "gsap/TextPlugin"; // Import TextPlugin
+import { useEffect, useState, useRef } from "react"; // Added useRef
+
+gsap.registerPlugin(TextPlugin); // Register TextPlugin
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
   const isMobile = useIsMobile();
+  const headlineRef = useRef(null); // Create headlineRef
+
+  const phrases = [
+    "Simplifying Enterprise Experiences",
+    "UX Designer specializing in Enterprise SaaS",
+    "Crafting User-Centric Digital Experiences",
+    "Transforming Complexity into Clarity",
+    "Expert in EdTech & HR Tech"
+  ];
 
   useEffect(() => {
     setLoaded(true);
-  }, []);
+
+    if (headlineRef.current) {
+      const mm = gsap.matchMedia();
+
+      mm.add({
+        // For users who prefer reduced motion
+        isReduced: "(prefers-reduced-motion: reduce)",
+        // For users who have no preference for reduced motion
+        isNotReduced: "(prefers-reduced-motion: no-preference)"
+      }, (context) => {
+        // context.conditions has a boolean property for each condition defined above
+        const { isReduced, isNotReduced } = context.conditions;
+
+        if (isNotReduced) {
+          // FULL ANIMATION LOGIC (existing timeline code)
+          gsap.set(headlineRef.current, { text: "" }); // Ensure headline is initially empty
+          const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+          
+          phrases.forEach((phrase, index) => {
+            if (index === 0) { // Initial entry for the very first phrase
+              tl.set(headlineRef.current, { text: "", opacity: 0, y: 20 })
+                .to(headlineRef.current, {
+                    opacity: 1, y: 0, duration: 0.4, ease: "power1.out"
+                })
+                .to(headlineRef.current, {
+                    text: phrase, duration: phrase.length * 0.06, ease: "none",
+                }, "+=0.2")
+                .to(headlineRef.current, { duration: 2 }, "+=0.5");
+            } else { // Subsequent phrases
+              tl.to(headlineRef.current, {
+                  opacity: 0, y: -20, duration: 0.4, ease: "power1.in"
+              });
+              tl.set(headlineRef.current, { text: "", opacity: 0, y: 20 })
+                .to(headlineRef.current, {
+                    opacity: 1, y: 0, duration: 0.4, ease: "power1.out"
+                })
+                .to(headlineRef.current, {
+                    text: phrase, duration: phrase.length * 0.06, ease: "none",
+                }, "+=0.2")
+                .to(headlineRef.current, { duration: 2 }, "+=0.5");
+            }
+          });
+          
+          tl.to(headlineRef.current, { // Final animation out for the last phrase
+              opacity: 0, y: -20, duration: 0.4, ease: "power1.in"
+          });
+
+        } else if (isReduced) {
+          // REDUCED MOTION: Set static text (first phrase) and fade in
+          gsap.set(headlineRef.current, { text: phrases[0], opacity: 0 });
+          gsap.to(headlineRef.current, { opacity: 1, duration: 1, ease: "power1.out" });
+        }
+        
+        return () => { // Cleanup for the context
+          gsap.killTweensOf(headlineRef.current); 
+        };
+      });
+      
+      // Cleanup function for the useEffect itself, to revert the matchMedia instance
+      return () => {
+          mm.revert();
+      };
+    }
+  }, []); // Empty dependency array as phrases is stable and defined outside this effect's direct scope in a way that won't change.
 
   const industries = [
     {
       title: "EdTech",
+      iconName: "GraduationCap",
       content:
         "Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals.   Revamped SIS through evaluation, design systems, and redesign of 30+ features.    Directed LMS design focusing on accessibility, usability, and scalable workflows.    Designed Student Portal for seamless navigation and mobile responsiveness.    Created eLearning platform for trading courses.",
     },
     {
       title: "eCommerce",
+      iconName: "ShoppingCart",
       content:
         "Redesigned key flows for a B2B pharma eCommerce site.   Designed eCommerce experiences for brands like Robinson Co. and Natural Partners.    Improved product discovery, navigation and checkout flows.    Crafted scalable UI systems for quick orders, subscriptions, and account management.",
     },
     {
-      title: "Connected Home",
+      title: "Connected Tech",
+      iconName: "Network",
       content:
-        "Led design for connected home interfaces (consumer & industrial IoT).   Founding member of product/design team, revamped platform, built design system.    Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine.",
-    },
-    {
-      title: "Construction",
-      content:
-        "Designed construction asset management app for real-time tool tracking.   ",
+        "Led design for connected home interfaces (consumer & industrial IoT).   Founding member of product/design team, revamped platform, built design system.    Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine. Experience includes designing asset management solutions for real-time tool tracking in industrial IoT settings.",
     },
     {
       title: "Startup",
+      iconName: "Rocket",
       content: "Contributed to the design and development of various startup products, focusing on user-centered design and rapid iteration.  ",
     }
   ];
+
+  const iconMap: { [key: string]: React.ElementType } = {
+    GraduationCap: GraduationCap,
+    ShoppingCart: ShoppingCart,
+    Network: Network,
+    Rocket: Rocket,
+  };
 
   return (
     <section className={`py-10 md:py-16 text-foreground relative bg-gradient-to-br from-mesh-gradient-start via-mesh-gradient-middle to-mesh-gradient-end fade-in ${loaded ? 'loaded' : ''}`}>
@@ -63,8 +144,8 @@ const Hero = () => {
               </Badge>
               
               {/* Intercom uses large serif headings */}
-              <h1 className="mt-4 mb-6 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold leading-tight">
-                Simplifying Enterprise Experiences
+              <h1 ref={headlineRef} className="mt-4 mb-6 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold leading-tight" style={{ minHeight: '150px' }}>
+                {/* Initial text removed, GSAP will populate */}
               </h1>
               
               <div className="flex items-center mb-8 space-x-2">
@@ -144,8 +225,12 @@ const Hero = () => {
                 <Accordion type="single" collapsible defaultValue="EdTech" className="w-full">
                   {industries.map((industry) => (
                     <AccordionItem value={industry.title} key={industry.title} className="border-b border-brand-light-gray-accent last:border-b-0">
-                      <AccordionTrigger className="py-3 text-left font-medium text-foreground hover:no-underline data-[state=open]:text-brand-link-text">
-                        {industry.title}
+                      <AccordionTrigger className="flex items-center w-full py-3 text-left font-medium text-foreground hover:no-underline data-[state=open]:text-brand-link-text">
+                        {(() => {
+                          const IconComponent = iconMap[industry.iconName];
+                          return IconComponent ? <IconComponent className="mr-2 h-5 w-5 flex-shrink-0 text-primary" aria-hidden="true" /> : null;
+                        })()}
+                        <span>{industry.title}</span>
                       </AccordionTrigger>
                       <AccordionContent className="pt-1 pb-3 text-foreground/80">
                         {industry.content}
@@ -183,16 +268,6 @@ const Hero = () => {
                       <span>+918148622302</span>
                     </Button>
                     <a
-                      href="https://linkedin.com/in/elanthamilan"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center px-4 py-2.5 bg-accent text-accent-foreground hover:bg-accent/80 transition-colors rounded text-sm font-medium"
-                      aria-label="Visit LinkedIn Profile"
-                    >
-                      <Linkedin size={16} className="mr-2 flex-shrink-0" aria-hidden="true" />
-                      <span>LinkedIn</span>
-                    </a>
-                    <a
                       href="https://wa.me/918148622302"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -202,7 +277,20 @@ const Hero = () => {
                       <MessageSquare size={16} className="mr-2 flex-shrink-0" aria-hidden="true" />
                       <span>WhatsApp</span>
                     </a>
+                    <a
+                      href="https://linkedin.com/in/elanthamilan"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center px-4 py-2.5 bg-accent text-accent-foreground hover:bg-accent/80 transition-colors rounded text-sm font-medium"
+                      aria-label="Visit LinkedIn Profile"
+                    >
+                      <Linkedin size={16} className="mr-2 flex-shrink-0" aria-hidden="true" />
+                      <span>LinkedIn</span>
+                    </a>
                   </div>
+                  <p className="mt-4 text-sm text-foreground/80 text-center sm:text-left">
+                    Email: <span className="font-medium">elanthamilan12@gmail.com</span>
+                  </p>
                 </div>
             </div>
           </div>
