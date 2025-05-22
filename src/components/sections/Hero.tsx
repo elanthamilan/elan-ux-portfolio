@@ -34,8 +34,6 @@ const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const tl = gsap.timeline();
 
     tl.fromTo(
@@ -54,32 +52,7 @@ const Hero = () => {
       },
     });
 
-    tl.fromTo(
-      ".elan-text",
-      { rotation: 0 },
-      { rotation: 5, duration: 0.5, yoyo: true, repeat: 1 }
-    );
-
     setLoaded(true);
-  }, []);
-
-  useEffect(() => {
-    if (heroRef.current) {
-      scrollAnimation(
-        heroRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out'
-        },
-        {
-          start: 'top center',
-          end: 'bottom center',
-          toggleActions: 'play none none reverse'
-        }
-      );
-    }
   }, []);
 
   const industries = [
@@ -110,49 +83,28 @@ const Hero = () => {
   ];
 
   return (
-    <motion.section
+    <section
       ref={heroRef}
-      initial={{ opacity: 0, y: 20 }}
       className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
     >
       <div className="max-w-7xl mx-auto text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 dark:text-white"
-        >
+        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 dark:text-white hero-text">
           Hi, I'm Elanthamilan
-        </motion.h1>
+        </h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-2xl md:text-4xl font-serif mb-8 text-gray-700 dark:text-gray-300"
-        >
+        <div className="text-2xl md:text-4xl font-serif mb-8 text-gray-700 dark:text-gray-300 hero-text">
           <TypingAnimation
             phrases={phrases}
             className="inline-block min-h-[2.5em]"
           />
-        </motion.div>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12"
-        >
+        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 hero-text">
           I create intuitive and accessible digital experiences that solve real user problems.
           Specializing in UX research, interaction design, and design systems.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex flex-wrap justify-center gap-4"
-        >
+        <div className="flex flex-wrap justify-center gap-4 hero-text">
           <a
             href="/resume"
             className="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
@@ -167,14 +119,9 @@ const Hero = () => {
           >
             Get in Touch
           </a>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-20"
-        >
+        <div className="mt-20">
           <div className="flex justify-center">
             <motion.div
               animate={{ y: [0, 10, 0] }}
@@ -188,9 +135,9 @@ const Hero = () => {
               />
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

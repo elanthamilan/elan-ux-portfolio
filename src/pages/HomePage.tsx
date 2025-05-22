@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Hero from '../components/sections/Hero.js';
-import Skills from '../components/sections/Skills.js';
-import Contact from '../components/sections/Contact.js';
-import Footer from '../components/sections/Footer.js';
-import CaseStudyCard from '../components/CaseStudyCard.js';
-import ScrollToTop from '../components/ui/ScrollToTop.js';
-import LoadingScreen from '../components/ui/LoadingScreen.js';
-import ThemeToggle from '../components/ui/ThemeToggle.js';
+import Hero from '../components/sections/Hero.tsx';
+import Skills from '../components/Skills.tsx';
+import Contact from '../components/sections/Contact.tsx';
+import Footer from '../components/Footer.tsx';
+import CaseStudyCard from '../components/CaseStudyCard.tsx';
+import ScrollToTop from '../components/ui/ScrollToTop.tsx';
+import LoadingScreen from '../components/ui/LoadingScreen.tsx';
+import ThemeToggle from '../components/ui/ThemeToggle.tsx';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
