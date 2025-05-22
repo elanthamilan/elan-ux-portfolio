@@ -10,6 +10,12 @@ interface CaseStudyCardProps {
   tags: string[];
   link: string;
   index: number;
+  year: string;
+  who: string;
+  what: string;
+  result: string;
+  backgroundColor: string;
+  buttonColor: string;
 }
 
 const CaseStudyCard = ({
@@ -18,7 +24,13 @@ const CaseStudyCard = ({
   image,
   tags,
   link,
-  index
+  index,
+  year,
+  who,
+  what,
+  result,
+  backgroundColor,
+  buttonColor
 }: CaseStudyCardProps) => {
   const { elementRef, scrollAnimation } = useGSAP();
   const cardRef = useRef<HTMLDivElement>(null);
@@ -49,6 +61,7 @@ const CaseStudyCard = ({
       whileHover={{ y: -10 }}
       transition={{ duration: 0.3 }}
       className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
+      style={{ backgroundColor: backgroundColor }}
     >
       <div className="aspect-w-16 aspect-h-9 overflow-hidden">
         <img
@@ -64,6 +77,19 @@ const CaseStudyCard = ({
           {title}
         </h3>
         
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+          <span className="font-semibold">Year:</span> {year}
+        </p>
+         <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+          <span className="font-semibold">Who:</span> {who}
+        </p>
+         <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+          <span className="font-semibold">What:</span> {what}
+        </p>
+         <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+          <span className="font-semibold">Result:</span> {result}
+        </p>
+
         <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
           {description}
         </p>
@@ -83,6 +109,7 @@ const CaseStudyCard = ({
           to={link}
           className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
           aria-label={`Read case study: ${title}`}
+          style={{ color: buttonColor }}
         >
           Read Case Study
           <svg

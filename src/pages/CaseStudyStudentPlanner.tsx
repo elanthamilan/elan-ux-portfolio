@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "../components/layout/Header.tsx";
+import Footer from "../components/layout/Footer.tsx";
 // Removed ElanThinking import as blockquotes will be styled directly
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "../components/ui/badge.tsx";
+import { Card, CardContent } from "../components/ui/card.tsx";
 
 const CaseStudyStudentPlanner = () => {
   return (

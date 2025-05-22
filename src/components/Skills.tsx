@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+import { useGSAP } from '../lib/gsap/useGSAP.ts';
 import { motion } from 'framer-motion';
 
 interface SkillCard {
@@ -53,55 +55,56 @@ const skills: SkillCard[] = [
   }
 ];
 
-const Skills = () => {
+const SkillsBentoGrid = () => {
+  const { elementRef, animateBentoGrid } = useGSAP();
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (gridRef.current) {
+      const elements = Array.from(gridRef.current.children);
+      animateBentoGrid(elements);
+    }
+  }, []);
+
   return (
-    <motion.section 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900"
+    <div 
+      ref={gridRef}
+      className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 max-w-7xl mx-auto"
+      role="region"
+      aria-label="Skills and Expertise"
     >
-      <div 
-        className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 max-w-7xl mx-auto"
-        role="region"
-        aria-label="Skills and Expertise"
-      >
-        {skills.map((skill, index) => (
-          <motion.div
-            key={skill.title}
-            className={`
-              ${skill.color}
-              rounded-2xl p-6
-              ${skill.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''}
-              ${skill.size === 'medium' ? 'md:col-span-2' : ''}
-              transition-all duration-300
-              hover:scale-[1.02]
-              hover:shadow-lg
-              dark:shadow-none
-            `}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
-            whileHover={{ y: -5 }}
-          >
-            <div className="flex items-start gap-4">
-              <span className="text-3xl" role="img" aria-label={skill.title}>
-                {skill.icon}
-              </span>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">{skill.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {skill.description}
-                </p>
-              </div>
+      {skills.map((skill, index) => (
+        <motion.div
+          key={skill.title}
+          className={`
+            ${skill.color}
+            rounded-2xl p-6
+            ${skill.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''}
+            ${skill.size === 'medium' ? 'md:col-span-2' : ''}
+            transition-all duration-300
+            hover:scale-[1.02]
+            hover:shadow-lg
+            dark:shadow-none
+          `}
+          initial={{ opacity: 0, y: 20 }}
+          whileHover={{ y: -5 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="flex items-start gap-4">
+            <span className="text-3xl" role="img" aria-label={skill.title}>
+              {skill.icon}
+            </span>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{skill.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {skill.description}
+              </p>
             </div>
-          </motion.div>
-        ))}
-      </div>
-    </motion.section>
+          </div>
+        </motion.div>
+      ))}
+    </div>
   );
 };
 
-export default Skills;
+export default SkillsBentoGrid;

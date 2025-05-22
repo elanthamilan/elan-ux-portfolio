@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
-import { Button } from './button.js';
+import { Button } from './button.tsx';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
 
   useEffect(() => {
     // Check for saved theme preference or system preference
@@ -21,6 +21,9 @@ const ThemeToggle = () => {
     localStorage.setItem('theme', newTheme);
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
   };
+
+  // Don't render anything until theme is initialized
+  if (theme === null) return null;
 
   return (
     <Button
