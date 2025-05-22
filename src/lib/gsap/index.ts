@@ -1,30 +1,17 @@
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
-import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
-import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import { Flip } from 'gsap/Flip';
-import { Draggable } from 'gsap/Draggable';
-import { SplitText } from 'gsap/SplitText';
-import { Observer } from 'gsap/Observer';
-import { TextPlugin } from 'gsap/TextPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'; // Keep: ScrollTrigger.Vars type is used
+// import { ScrollSmoother } from 'gsap/ScrollSmoother'; // Remove
+// import { ScrollToPlugin } from 'gsap/ScrollToPlugin'; // Remove
+// import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'; // Remove (functionality via config.ts)
+// import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin'; // Remove
+// import { MotionPathPlugin } from 'gsap/MotionPathPlugin'; // Remove
+// import { Flip } from 'gsap/Flip'; // Remove
+// import { Draggable } from 'gsap/Draggable'; // Remove
+import { SplitText } from 'gsap/SplitText'; // Keep: Used directly (new SplitText)
+// import { Observer } from 'gsap/Observer'; // Remove
+// import { TextPlugin } from 'gsap/TextPlugin'; // Remove (functionality via config.ts)
 
-// Register GSAP plugins
-gsap.registerPlugin(
-  ScrollTrigger,
-  ScrollSmoother,
-  ScrollToPlugin,
-  DrawSVGPlugin,
-  MorphSVGPlugin,
-  MotionPathPlugin,
-  Flip,
-  Draggable,
-  SplitText,
-  Observer,
-  TextPlugin
-);
+// GSAP plugin registration is now handled in config.ts
 
 // Utility function for smooth scroll animations
 export const smoothScroll = (target: string | Element, duration: number = 1) => {

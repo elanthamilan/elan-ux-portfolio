@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useGSAP } from '../lib/gsap/useGSAP.js';
+import { useGSAP } from '../lib/gsap/useGSAP.ts';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -32,7 +32,7 @@ const CaseStudyCard = ({
   backgroundColor,
   buttonColor
 }: CaseStudyCardProps) => {
-  const { elementRef, scrollAnimation } = useGSAP();
+  const { scrollAnimation } = useGSAP();
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -57,7 +57,6 @@ const CaseStudyCard = ({
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 50 }}
       whileHover={{ y: -10 }}
       transition={{ duration: 0.3 }}
       className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"

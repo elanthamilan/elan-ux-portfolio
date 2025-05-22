@@ -26,7 +26,7 @@ const caseStudies = [
   {
     title: "Student Course Planner Redesign",
     description: "Created an intuitive course planning tool that helps students make informed decisions about their academic journey.",
-    image: "/Elanable-uploads/Camu Campus Recruitment App.png",
+    image: "/Elanable-uploads/Student Course Planner Redesign.png",
     tags: ["UX Research", "UI Design", "Education"],
     link: "/case-study/student-planner",
     index: 1,

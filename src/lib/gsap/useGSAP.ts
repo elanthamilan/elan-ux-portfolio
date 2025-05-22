@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { gsap, ScrollTrigger } from './config.js';
+import { gsap, ScrollTrigger } from './config.ts';
 
 interface AnimationConfig {
   element: HTMLElement;
@@ -15,8 +15,7 @@ export const useGSAP = () => {
 
   useEffect(() => {
     if (!initializedRef.current) {
-      // Register ScrollTrigger plugin
-      gsap.registerPlugin(ScrollTrigger);
+      // ScrollTrigger plugin is expected to be registered in config.ts
       initializedRef.current = true;
     }
 
