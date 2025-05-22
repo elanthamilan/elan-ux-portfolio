@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface TypingAnimationProps {
   phrases: string[];
@@ -9,29 +9,41 @@ const TypingAnimation = ({ phrases, className = '' }: TypingAnimationProps) => {
   const [currentPhrase, setCurrentPhrase] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(100);
 
   useEffect(() => {
     const currentText = phrases[currentIndex];
-    const shouldDelete = isDeleting;
-    const speed = shouldDelete ? 50 : 100;
+    
+    // Typing speed
+    const typeSpeed = 100;
+    // Deleting speed
+    const deleteSpeed = 50;
+    // Pause at the end of typing
+    const pauseAtEnd = 2000;
+    // Pause before starting next phrase
+    const pauseBeforeNext = 500;
 
     const timer = setTimeout(() => {
-      if (!shouldDelete) {
-        setCurrentPhrase(currentText.slice(0, currentPhrase.length + 1));
-        if (currentPhrase === currentText) {
-          setIsDeleting(true);
-          setTypingSpeed(1000); // Pause at the end
+      if (!isDeleting) {
+        // Typing
+        if (currentPhrase !== currentText) {
+          setCurrentPhrase(currentText.slice(0, currentPhrase.length + 1));
+        } else {
+          // Finished typing, pause before deleting
+          setTimeout(() => {
+            setIsDeleting(true);
+          }, pauseAtEnd);
         }
       } else {
-        setCurrentPhrase(currentText.slice(0, currentPhrase.length - 1));
-        if (currentPhrase === '') {
+        // Deleting
+        if (currentPhrase !== '') {
+          setCurrentPhrase(currentText.slice(0, currentPhrase.length - 1));
+        } else {
+          // Finished deleting, move to next phrase
           setIsDeleting(false);
           setCurrentIndex((currentIndex + 1) % phrases.length);
-          setTypingSpeed(500); // Pause before typing next phrase
         }
       }
-    }, speed);
+    }, isDeleting ? deleteSpeed : typeSpeed);
 
     return () => clearTimeout(timer);
   }, [currentPhrase, isDeleting, currentIndex, phrases]);
@@ -43,7 +55,7 @@ const TypingAnimation = ({ phrases, className = '' }: TypingAnimationProps) => {
       aria-live="polite"
     >
       {currentPhrase}
-      <span className="animate-blink">|</span>
+      <span className="animate-blink ml-0.5">|</span>
     </span>
   );
 };
