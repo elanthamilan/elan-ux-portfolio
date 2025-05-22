@@ -81,7 +81,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Hi, I'm Elanthamilan
+          Hi, I'm Elanthamilan - Test
         </motion.h1>
 
         <motion.div 
@@ -156,7 +156,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1.2 }}
         >
           <h2 className="text-2xl md:text-3xl font-serif font-bold mb-8 text-gray-900 dark:text-white">
-            Industries I've Worked In
+            Brands I Have Worked With
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {industries.map((industry) => (
