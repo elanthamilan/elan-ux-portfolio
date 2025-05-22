@@ -1,11 +1,12 @@
 import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "../components/Header.tsx";
+import Footer from "../components/sections/Footer.tsx";
 // Removed CaseStudySection and ElanThinking imports as their content will be integrated directly
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "../components/ui/badge.tsx";
+import { Card, CardContent } from "../components/ui/card.tsx";
+import ZoomableImage from "../components/ui/ZoomableImage.tsx";
 
 const CaseStudyCampusHiring = () => {
   return (
@@ -18,7 +19,7 @@ const CaseStudyCampusHiring = () => {
           <span>Back to Home</span>
         </Link>
 
-        <article className="max-w-3xl mx-auto">
+        <article className="max-w-7xl mx-auto">
            {/* Meta Info - Stays at the top */}
            <Card isExpanded={true}> {/* Assuming Card is a custom component that doesn't need to be removed */}
              <CardContent>
@@ -31,12 +32,11 @@ const CaseStudyCampusHiring = () => {
                  40% Faster Campus Hiring: Camu Campus Recruitment App
                </h1>
 
-               <div className="aspect-video w-full bg-gray-200 rounded-lg overflow-hidden mb-12 shadow-lg">
-                 <img
+               <div className="w-full bg-gray-200 rounded-lg overflow-hidden mb-12 shadow-lg">
+                 <ZoomableImage
                    src="/Elanable-uploads/d194dd7b-4980-4860-bf9d-ece30b18149d.png"
                    alt="Camu Campus Recruitment App Interface"
-                   className="w-full h-full object-cover"
-                   loading="lazy" // Added lazy loading
+                   className="aspect-video"
                  />
                </div>
 
@@ -103,8 +103,12 @@ const CaseStudyCampusHiring = () => {
                  <p className="text-foreground/80 leading-relaxed text-lg mb-4">
                    A user-centric approach involved interviews and surveys to identify key pain points and goals for these personas. This foundational research was critical in shaping the design direction.
                  </p>
-                 <div className="aspect-video w-full bg-gray-200 dark:bg-gray-700 rounded-lg my-12 shadow-md flex items-center justify-center text-gray-500 dark:text-gray-400">
-                   [Large Image Placeholder: User Personas / Journey Map]
+                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-lg my-12 shadow-md overflow-hidden">
+                   <ZoomableImage
+                     src="/Elanable-uploads/user-personas.png"
+                     alt="User Personas and Journey Map"
+                     className="aspect-video"
+                   />
                  </div>
 
                  <h3 className="text-3xl font-semibold mb-4 mt-12 text-foreground font-heading">Ideation & Design</h3>
@@ -118,8 +122,12 @@ const CaseStudyCampusHiring = () => {
                  <p className="text-foreground/80 leading-relaxed text-lg mb-4">
                    The design for recruiters focused on a four-step job creation process (Basic Info, Position Details, Location/Time, Compensation) with AI assistance and autosave. For students, the design aimed for effortless discovery of jobs within their SIS feed and frictionless applications with pre-filled forms.
                  </p>
-                 <div className="aspect-video w-full bg-gray-200 dark:bg-gray-700 rounded-lg my-12 shadow-md flex items-center justify-center text-gray-500 dark:text-gray-400">
-                   [Large Image Placeholder: Wireframes / Prototypes]
+                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-lg my-12 shadow-md overflow-hidden">
+                   <ZoomableImage
+                     src="/Elanable-uploads/wireframes.png"
+                     alt="Wireframes and Prototypes"
+                     className="aspect-video"
+                   />
                  </div>
 
                  <h3 className="text-3xl font-semibold mb-4 mt-12 text-foreground font-heading">Testing & Iteration</h3>
@@ -143,8 +151,12 @@ const CaseStudyCampusHiring = () => {
                      <p className="text-lg text-foreground/80 leading-relaxed"><strong className="font-medium text-foreground">Solution:</strong> Simplified wording and provided clearer context for external links, improving user trust and understanding.</p>
                    </div>
                  </div>
-                 <div className="aspect-video w-full bg-gray-200 dark:bg-gray-700 rounded-lg my-12 shadow-md flex items-center justify-center text-gray-500 dark:text-gray-400">
-                   [Large Image Placeholder: Iteration Examples / UI Mockups]
+                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-lg my-12 shadow-md overflow-hidden">
+                   <ZoomableImage
+                     src="/Elanable-uploads/iterations.png"
+                     alt="Iteration Examples and UI Mockups"
+                     className="aspect-video"
+                   />
                  </div>
                </section>
 
@@ -183,8 +195,12 @@ const CaseStudyCampusHiring = () => {
                      </ul>
                    </div>
                  </div>
-                 <div className="aspect-video w-full bg-gray-200 dark:bg-gray-700 rounded-lg my-12 shadow-md flex items-center justify-center text-gray-500 dark:text-gray-400">
-                   [Large Image Placeholder: Final UI Screens / Key Flows]
+                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-lg my-12 shadow-md overflow-hidden">
+                   <ZoomableImage
+                     src="/Elanable-uploads/final-ui.png"
+                     alt="Final UI Screens and Key Flows"
+                     className="aspect-video"
+                   />
                  </div>
                </section>
 
@@ -223,7 +239,7 @@ const CaseStudyCampusHiring = () => {
                  </p>
                  <blockquote className="border-l-4 border-brand-light-gray-accent pl-6 italic text-foreground/70 my-8">
                    <p className="mb-2"><strong className="not-italic font-medium text-foreground/90 text-lg">Elan's Thinking: Overcoming Challenges & Growth</strong></p>
-                   "The 'Quick Post' flop hurt initially because it was an idea I was attached to. Similarly, the confusion around external tracking was a blind spot. These moments were crucial learning experiences. I learned to let data and user feedback be the ultimate guide, even when it meant scrapping 'cool' ideas or rethinking assumptions. Business goals loomed large, but maintaining user trust became my north star throughout the process. It’s not just about features; it's about how those features make users feel and whether they genuinely solve their problems."
+                   "The 'Quick Post' flop hurt initially because it was an idea I was attached to. Similarly, the confusion around external tracking was a blind spot. These moments were crucial learning experiences. I learned to let data and user feedback be the ultimate guide, even when it meant scrapping 'cool' ideas or rethinking assumptions. Business goals loomed large, but maintaining user trust became my north star throughout the process. It's not just about features; it's about how those features make users feel and whether they genuinely solve their problems."
                  </blockquote>
                  <p className="text-foreground/80 leading-relaxed text-lg mb-4">
                    Key takeaways include:

@@ -122,7 +122,7 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 dark:text-white"
         >
-          Hi, I'm Elan
+          Hi, I'm Elanthamilan
         </motion.h1>
 
         <motion.div

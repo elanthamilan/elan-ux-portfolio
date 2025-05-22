@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Hero from '../components/sections/Hero.js';
 import Skills from '../components/sections/Skills.js';
 import Contact from '../components/sections/Contact.js';
@@ -31,8 +31,13 @@ const caseStudies = [
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const caseStudiesRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
+    // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
     // Simulate loading time
@@ -40,7 +45,108 @@ const HomePage = () => {
       setIsLoading(false);
     }, 2000);
 
-    return () => clearTimeout(timer);
+    // Title animation
+    if (titleRef.current) {
+      gsap.from(titleRef.current, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 80%",
+          end: "top 50%",
+          scrub: 1,
+        },
+      });
+    }
+
+    // Case Studies Section Animation with stagger
+    if (caseStudiesRef.current) {
+      const caseStudyCards = caseStudiesRef.current.querySelectorAll('.case-study-card');
+      gsap.fromTo(
+        caseStudyCards,
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: caseStudiesRef.current,
+            start: "top 80%",
+            end: "top 50%",
+            scrub: 1,
+          },
+        }
+      );
+    }
+
+    // Skills Section Animation with parallax
+    if (skillsRef.current) {
+      gsap.fromTo(
+        skillsRef.current,
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: skillsRef.current,
+            start: "top 80%",
+            end: "top 50%",
+            scrub: 1,
+          },
+        }
+      );
+
+      // Parallax effect for skills section
+      gsap.to(skillsRef.current, {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: skillsRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+
+    // Contact Section Animation
+    if (contactRef.current) {
+      gsap.fromTo(
+        contactRef.current,
+        {
+          opacity: 0,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: contactRef.current,
+            start: "top 80%",
+            end: "top 50%",
+            scrub: 1,
+          },
+        }
+      );
+    }
+
+    return () => {
+      clearTimeout(timer);
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   if (isLoading) {
@@ -52,24 +158,32 @@ const HomePage = () => {
       <ThemeToggle />
       <Hero />
       
-      <section className="py-20 px-4 bg-white dark:bg-gray-900">
+      <section ref={caseStudiesRef} className="py-20 px-4 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-12 text-gray-900 dark:text-white">
+          <h2 
+            ref={titleRef}
+            className="text-3xl md:text-4xl font-serif font-bold text-center mb-12 text-gray-900 dark:text-white"
+          >
             Featured Case Studies
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {caseStudies.map((study) => (
-              <CaseStudyCard
-                key={study.title}
-                {...study}
-              />
+              <div key={study.title} className="case-study-card">
+                <CaseStudyCard {...study} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <Skills />
-      <Contact />
+      <div ref={skillsRef}>
+        <Skills />
+      </div>
+      
+      <div ref={contactRef}>
+        <Contact />
+      </div>
+      
       <Footer />
       <ScrollToTop />
     </main>
