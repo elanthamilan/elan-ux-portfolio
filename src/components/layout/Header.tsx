@@ -9,9 +9,9 @@ const Header = () => {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <header className="sticky top-0 z-50 bg-background border-b border-brand-light-gray-accent">
+    <header className="sticky top-0 z-50 border-b">
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
-        <Link to="/" className="text-xl font-heading font-semibold text-primary" aria-label="Home">
+        <Link to="/" className="text-xl font-heading font-semibold" aria-label="Home">
           Elan
         </Link>
 
@@ -21,7 +21,7 @@ const Header = () => {
             href="/Elanthamilan_UX_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary text-primary-foreground hover:bg-gray-800 px-4 py-2 text-sm rounded"
+            className="px-4 py-2 text-sm rounded"
             onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
           >
             Download Resume
@@ -47,13 +47,13 @@ const Header = () => {
 
         {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-background border-b border-brand-light-gray-accent shadow-lg py-4 z-40">
+          <div className="md:hidden absolute top-16 left-0 w-full py-4 z-40">
             <nav className="flex flex-col items-center space-y-4">
               <a
                 href="/Elanthamilan_UX_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center bg-primary text-primary-foreground hover:bg-gray-800 px-4 py-2 text-sm rounded"
+                className="w-full text-center px-4 py-2 text-sm rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Download Resume
@@ -69,7 +69,7 @@ const Header = () => {
         <nav className="hidden md:flex items-center space-x-6">
           <a
             href="mailto:elanthamilan12@gmail.com"
-            className="text-sm font-medium text-foreground hover:text-brand-link-text transition-colors flex items-center"
+            className="text-sm font-medium flex items-center"
             aria-label="Send Email"
           >
             <Mail size={16} className="mr-1.5 flex-shrink-0" />
