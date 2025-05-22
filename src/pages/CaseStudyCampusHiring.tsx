@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header.tsx";
-import Footer from "../components/sections/Footer.tsx";
+import Footer from "../components/Footer.tsx";
 // Removed CaseStudySection and ElanThinking imports as their content will be integrated directly
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";

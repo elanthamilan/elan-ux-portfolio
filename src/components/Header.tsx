@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button.tsx";
 import { Menu, X, Mail } from "lucide-react";
 import { useState } from "react";
 
@@ -25,10 +25,9 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6"> {/* Increased spacing a bit */}
-          {/* Restoring asChild */}
-          <Button className="bg-primary text-primary-foreground hover:bg-gray-800 px-4 py-2 text-sm" asChild> 
-            <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <nav className="hidden md:flex items-center space-x-6">
+          <Button className="bg-primary text-primary-foreground hover:bg-gray-800 px-4 py-2 text-sm" asChild>
+            <a href="/resume" target="_blank" rel="noopener noreferrer">
               Download Resume
             </a>
           </Button>
@@ -36,27 +35,25 @@ const Header = () => {
             href="mailto:elanthamilan12@gmail.com" 
             className="text-sm font-medium text-foreground hover:text-brand-link-text transition-colors flex items-center"
           >
-            <Mail size={16} className="mr-1.5" /> {/* Slightly adjusted margin */}
+            <Mail size={16} className="mr-1.5" />
             Email
           </a>
         </nav>
         
         {/* Mobile Navigation */}
-        {/* Intercom mobile is usually just a hamburger. For now, styling existing elements. */}
         <div className="md:hidden flex justify-end items-center space-x-4">
-          {/* Restoring asChild */}
-          <Button className="bg-primary text-primary-foreground hover:bg-gray-800 px-3 py-1.5 text-xs" asChild> 
-            <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <Button className="bg-primary text-primary-foreground hover:bg-gray-800 px-3 py-1.5 text-xs" asChild>
+            <a href="/resume" target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </Button>
           <Button className="bg-primary text-primary-foreground hover:bg-gray-800 px-3 py-1.5 text-xs" asChild>
             <a 
               href="mailto:elanthamilan12@gmail.com" 
-              className="text-primary-foreground flex items-center" // Adjusted className for content within button
+              className="text-primary-foreground flex items-center"
               aria-label="Contact via Email"
             >
-              <Mail size={16} className="mr-1.5" /> {/* Adjusted size and margin */}
+              <Mail size={16} className="mr-1.5" />
               Email
             </a>
           </Button>

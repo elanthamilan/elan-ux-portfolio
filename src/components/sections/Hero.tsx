@@ -9,11 +9,6 @@ import {
   AccordionTrigger,
 } from "../ui/accordion.tsx";
 import CaseStudyCard from "../CaseStudyCard.tsx";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useState, useEffect, useRef } from "react";
-import SectionReveal from "../SectionReveal.tsx";
-import { useGSAP } from '../../lib/gsap/useGSAP.ts';
 import { motion } from 'framer-motion';
 import TypingAnimation from '../TypingAnimation.tsx';
 
@@ -26,42 +21,23 @@ const phrases = [
 ];
 
 const Hero = () => {
-  const [loaded, setLoaded] = useState(false);
   const isMobile = useIsMobile();
-  const { elementRef, scrollAnimation } = useGSAP();
-  const heroRef = useRef<HTMLElement>(null);
-
-  useLayoutEffect(() => {
-    if (heroRef.current) {
-      scrollAnimation({
-        element: heroRef.current,
-        animation: {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          delay: 0.5
-        }
-      });
-
-      setLoaded(true);
-    }
-  }, []);
 
   const industries = [
     {
       title: "EdTech",
       content:
-        "Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals.   Revamped SIS through evaluation, design systems, and redesign of 30+ features.    Directed LMS design focusing on accessibility, usability, and scalable workflows.    Designed Student Portal for seamless navigation and mobile responsiveness.    Created eLearning platform for trading courses.",
+        "Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals. Revamped SIS through evaluation, design systems, and redesign of 30+ features. Directed LMS design focusing on accessibility, usability, and scalable workflows. Designed Student Portal for seamless navigation and mobile responsiveness. Created eLearning platform for trading courses.",
     },
     {
       title: "eCommerce",
       content:
-        "Redesigned key flows for a B2B pharma eCommerce site.   Designed eCommerce experiences for brands like Robinson Co. and Natural Partners.    Improved product discovery, navigation and checkout flows.    Crafted scalable UI systems for quick orders, subscriptions, and account management.",
+        "Redesigned key flows for a B2B pharma eCommerce site. Designed eCommerce experiences for brands like Robinson Co. and Natural Partners. Improved product discovery, navigation and checkout flows. Crafted scalable UI systems for quick orders, subscriptions, and account management.",
     },
     {
       title: "Connected Tech",
       content:
-        "Led design for connected home interfaces (consumer & industrial IoT).   Founding member of product/design team, revamped platform, built design system.    Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine.    Created construction asset management app for real-time tool tracking.",
+        "Led design for connected home interfaces (consumer & industrial IoT). Founding member of product/design team, revamped platform, built design system. Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine. Created construction asset management app for real-time tool tracking.",
     },
     {
       title: "Startup",
@@ -70,18 +46,20 @@ const Hero = () => {
   ];
 
   return (
-    <section
-      ref={heroRef}
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
     >
       <div className="max-w-7xl mx-auto text-center">
-        <motion.h1 
+        <motion.h1
           className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 dark:text-white"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Hi, I'm Elanthamilan - Test
+          Hi, I'm Elanthamilan
         </motion.h1>
 
         <motion.div 
@@ -96,7 +74,7 @@ const Hero = () => {
           />
         </motion.div>
 
-        <motion.p 
+          <motion.p
           className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -106,7 +84,7 @@ const Hero = () => {
           Specializing in UX research, interaction design, and design systems.
         </motion.p>
 
-        <motion.div 
+        <motion.div
           className="flex flex-wrap justify-center gap-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -178,7 +156,7 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

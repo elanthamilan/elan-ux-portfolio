@@ -1,5 +1,3 @@
-import { useEffect, useRef } from 'react';
-import { useGSAP } from '../lib/gsap/useGSAP.js';
 import { motion } from 'framer-motion';
 
 interface SkillCard {
@@ -56,23 +54,15 @@ const skills: SkillCard[] = [
 ];
 
 const Skills = () => {
-  const { elementRef, animateBentoGrid } = useGSAP();
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (gridRef.current) {
-      const elements = Array.from(gridRef.current.children);
-      animateBentoGrid(elements);
-    }
-  }, []);
-
   return (
-    <section 
-      ref={elementRef}
+    <motion.section 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
       className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900"
     >
       <div 
-        ref={gridRef}
         className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 max-w-7xl mx-auto"
         role="region"
         aria-label="Skills and Expertise"
@@ -91,8 +81,10 @@ const Skills = () => {
               dark:shadow-none
             `}
             initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
             whileHover={{ y: -5 }}
-            transition={{ duration: 0.3 }}
           >
             <div className="flex items-start gap-4">
               <span className="text-3xl" role="img" aria-label={skill.title}>
@@ -108,7 +100,7 @@ const Skills = () => {
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -10,22 +10,36 @@ const App = () => {
   const { gsap } = useGSAP();
 
   useEffect(() => {
-    // Initialize smooth scrolling
-    gsap.to('html, body', {
-      scrollBehavior: 'smooth',
-      duration: 0
-    });
+    // Initialize GSAP and ScrollTrigger
+    if (typeof window !== 'undefined') {
+      try {
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
 
-    // Initialize ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
+        // Initialize smooth scrolling
+        gsap.to('html, body', {
+          scrollBehavior: 'smooth',
+          duration: 0
+        });
+
+        // Clear all ScrollTrigger instances on unmount
+        return () => {
+          ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+      } catch (error) {
+        console.error('Error initializing GSAP:', error);
+      }
+    }
   }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/case-study/campus-hiring" element={<CaseStudyCampusHiring />} />
-      <Route path="/case-study/student-planner" element={<CaseStudyStudentPlanner />} />
-    </Routes>
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/case-study/campus-hiring" element={<CaseStudyCampusHiring />} />
+        <Route path="/case-study/student-planner" element={<CaseStudyStudentPlanner />} />
+      </Routes>
+    </div>
   );
 };
 

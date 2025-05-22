@@ -1,5 +1,14 @@
 import React from 'react';
-export const Button = ({ children, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
-  <button {...props}>{children}</button>
-);
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  asChild?: boolean;
+}
+
+export const Button = ({ children, asChild, ...props }: ButtonProps) => {
+  if (asChild) {
+    return React.cloneElement(children as React.ReactElement, props);
+  }
+  return <button {...props}>{children}</button>;
+};
+
 export default Button; 

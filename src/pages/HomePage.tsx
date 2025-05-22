@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import Hero from '../components/sections/Hero.tsx';
 import Skills from '../components/Skills.tsx';
 import Contact from '../components/sections/Contact.tsx';
 import Footer from '../components/Footer.tsx';
 import CaseStudyCard from '../components/CaseStudyCard.tsx';
 import ScrollToTop from '../components/ui/ScrollToTop.tsx';
-import LoadingScreen from '../components/ui/LoadingScreen.tsx';
 import ThemeToggle from '../components/ui/ThemeToggle.tsx';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const caseStudies = [
   {
@@ -30,143 +27,19 @@ const caseStudies = [
 ];
 
 const HomePage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const caseStudiesRef = useRef<HTMLDivElement>(null);
-  const skillsRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    // Register ScrollTrigger plugin
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    // Title animation
-    if (titleRef.current) {
-      gsap.from(titleRef.current, {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 80%",
-          end: "top 50%",
-          scrub: 1,
-        },
-      });
-    }
-
-    // Case Studies Section Animation with stagger
-    if (caseStudiesRef.current) {
-      const caseStudyCards = caseStudiesRef.current.querySelectorAll('.case-study-card');
-      gsap.fromTo(
-        caseStudyCards,
-        {
-          opacity: 0,
-          y: 30,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: caseStudiesRef.current,
-            start: "top 80%",
-            end: "top 50%",
-            scrub: 1,
-          },
-        }
-      );
-    }
-
-    // Skills Section Animation with parallax
-    if (skillsRef.current) {
-      gsap.fromTo(
-        skillsRef.current,
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          scrollTrigger: {
-            trigger: skillsRef.current,
-            start: "top 80%",
-            end: "top 50%",
-            scrub: 1,
-          },
-        }
-      );
-
-      // Parallax effect for skills section
-      gsap.to(skillsRef.current, {
-        yPercent: -20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: skillsRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }
-
-    // Contact Section Animation
-    if (contactRef.current) {
-      gsap.fromTo(
-        contactRef.current,
-        {
-          opacity: 0,
-          scale: 0.95,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: contactRef.current,
-            start: "top 80%",
-            end: "top 50%",
-            scrub: 1,
-          },
-        }
-      );
-    }
-
-    return () => {
-      clearTimeout(timer);
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
-
   return (
     <main className="min-h-screen">
       <ThemeToggle />
       <Hero />
       
-      <section ref={caseStudiesRef} className="py-20 px-4 bg-white dark:bg-gray-900">
+      <section className="py-20 px-4 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <h2 
-            ref={titleRef}
             className="text-3xl md:text-4xl font-serif font-bold text-center mb-12 text-gray-900 dark:text-white"
           >
             Featured Case Studies
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {caseStudies.map((study) => (
               <div key={study.title} className="case-study-card">
                 <CaseStudyCard {...study} />
@@ -176,11 +49,11 @@ const HomePage = () => {
         </div>
       </section>
 
-      <div ref={skillsRef}>
+      <div>
         <Skills />
       </div>
       
-      <div ref={contactRef}>
+      <div>
         <Contact />
       </div>
       
