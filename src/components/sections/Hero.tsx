@@ -98,26 +98,26 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
   }, []); // Empty dependency array is fine as PHRASES is stable and headlineRef.current changes don't need to re-trigger this effect.
 
   return (
-    <section className={`py-16 md:py-24 text-foreground relative bg-background fade-in ${loaded ? 'loaded' : ''}`} style={{ opacity: loaded ? 1 : 0 }} aria-labelledby="hero-headline">
-      <AnimatedHeroBackground /> {/* Added the animated background component here */}
-      <div className="container mx-auto px-4 relative z-10"> {/* Ensure this content stays above the background */}
+    <section className={`py-12 xs:py-16 md:py-24 text-foreground relative bg-background fade-in ${loaded ? 'loaded' : ''}`} style={{ opacity: loaded ? 1 : 0 }} aria-labelledby="hero-headline">
+      <AnimatedHeroBackground /> 
+      <div className="container mx-auto px-2 xs:px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 items-start">
           {/* Left Column */}
-          <div className="space-y-8 md:space-y-10">
+          <div className="space-y-6 md:space-y-8">
             <div>
               <Badge className="bg-brand-primary text-white px-3 py-1.5 text-sm font-medium rounded-md shadow-sm">
                 Enterprise UX Designer
               </Badge>
-              <h1 ref={headlineRef} id="hero-headline" className="mt-4 mb-6 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold leading-tight text-foreground" style={{ minHeight: '150px' }}>
-                {PHRASES[0]} {/* Use PHRASES constant */}
+              <h1 ref={headlineRef} id="hero-headline" className="mt-3 mb-5 text-3xl xs:text-4xl md:text-5xl lg:text-6xl font-heading font-semibold leading-tight text-foreground" style={{ minHeight: '120px' }}>
+                {PHRASES[0]} 
               </h1>
-              <div className="flex items-center mb-8 space-x-2">
+              <div className="flex items-center mb-6 space-x-2">
                 <span className="text-xl md:text-2xl font-sans font-medium text-foreground">Hi, I'm <span className="font-heading text-brand-primary">Elan</span> <span role='img' aria-label='wave'>👋</span><span role='img' aria-label='nerd face'>🤓</span></span>
               </div>
-              <p className="text-foreground text-lg md:text-xl max-w-xl mb-10 leading-relaxed"> {/* text-foreground/80 to text-foreground */}
+              <p className="text-foreground text-base xs:text-lg md:text-xl max-w-xl mb-8 leading-relaxed"> {/* Adjusted typography and margin */}
                 Experienced UX designer specializing in enterprise SaaS, EdTech, and HR Tech. I transform complex business challenges into intuitive, user-centered solutions that drive measurable impact and enhance usability for large-scale products.
               </p>
-              <div className="w-full mb-8 flex justify-start">
+              <div className="w-full mb-6 flex justify-start"> {/* Adjusted margin */}
                 <Button // This button is already styled by buttonVariants, which was updated
                   variant="default" // Uses bg-brand-primary, text-white, shadow-lg
                   size="lg" // Use larger size for hero CTA
@@ -130,52 +130,52 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                 </Button>
               </div>
               {/* Brands Section */}
-              <div className="py-6 border-t border-b border-slate-200 dark:border-slate-700"> {/* Themed border */}
+              <div className="py-5 border-t border-b border-slate-200 dark:border-slate-700"> {/* Adjusted padding */}
                 <div className="px-0">
-                  <h3 className="font-heading font-semibold text-foreground mb-4 text-lg">Brands I Have Worked With</h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center justify-items-center"> {/* Adjusted gap for responsiveness */}
+                  <h3 className="font-heading font-semibold text-foreground mb-3 text-md xs:text-lg">Brands I Have Worked With</h3> {/* Adjusted typography and margin */}
+                  <div className="grid grid-cols-2 xs:grid-cols-4 gap-4 items-center justify-items-center"> {/* Adjusted gap */}
                     {[{src:"/Elanable-uploads/Camu.png", alt:"Camu"}, {src:"/Elanable-uploads/Mastek.png", alt:"Mastek"}, {src:"/Elanable-uploads/Geninfy.jpg", alt:"Geninfy"}, {src:"/Elanable-uploads/Oceo.svg", alt:"Oceo"}].map(brand => (
                       <div key={brand.alt} className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all text-center">
-                        <img src={brand.src} alt={brand.alt} width="90" height="45" className="object-contain mx-auto" /> {/* Slightly increased size */}
-                        <p className="text-xs text-foreground/80 mt-2">{brand.alt}</p> {/* text-foreground/70 to text-foreground/80 */}
+                        <img src={brand.src} alt={brand.alt} width="80" height="40" className="object-contain mx-auto" /> {/* Adjusted size */}
+                        <p className="text-xs text-foreground/80 mt-1.5">{brand.alt}</p> {/* Adjusted margin */}
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
               {/* Stats Section */}
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 border-b border-slate-200 dark:border-slate-700 py-6"> {/* Themed border, removed border-t as previous section has border-b */}
+              <div className="grid grid-cols-2 gap-3 xs:gap-4 sm:grid-cols-4 border-b border-slate-200 dark:border-slate-700 py-5"> {/* Adjusted padding and gap */}
                 {[{label:"Experience", value:"8+ Years"}, {label:"Products", value:"10+"}, {label:"Features", value:"30+"}, {label:"Systems", value:"2"}].map(stat => (
                   <div key={stat.label} className="text-center">
-                    <span className="text-xs text-foreground/70 block uppercase tracking-wider">{stat.label}</span> {/* text-foreground/60 to text-foreground/70 */}
-                    <span className="font-semibold text-xl md:text-2xl block text-foreground mt-1">{stat.value}</span>
+                    <span className="text-xs text-foreground/70 block uppercase tracking-wider">{stat.label}</span> 
+                    <span className="font-semibold text-lg xs:text-xl md:text-2xl block text-foreground mt-0.5">{stat.value}</span> {/* Adjusted typography and margin */}
                   </div>
                 ))}
               </div>
               {/* Industries Accordion */}
-              <div className="py-6 border-b border-slate-200 dark:border-slate-700">
-                <h3 className="font-heading font-semibold text-foreground mb-4 text-lg">Industries I have Worked In</h3>
+              <div className="py-5 border-b border-slate-200 dark:border-slate-700"> {/* Adjusted padding */}
+                <h3 className="font-heading font-semibold text-foreground mb-3 text-md xs:text-lg">Industries I have Worked In</h3> {/* Adjusted typography and margin */}
                 <Accordion type="single" collapsible defaultValue="EdTech" className="w-full text-foreground">
-                  {INDUSTRIES.map((industry) => ( // Use INDUSTRIES constant
+                  {INDUSTRIES.map((industry) => ( 
                     <AccordionItem value={industry.title} key={industry.title} className="border-b border-slate-200 dark:border-slate-700 last:border-b-0">
-                      <AccordionTrigger className="flex items-center w-full py-4 px-2 text-left font-semibold text-lg rounded-md hover:bg-accent-bg focus-visible:bg-accent-bg focus-visible:ring-1 focus-visible:ring-brand-primary transition-colors data-[state=open]:bg-accent-light data-[state=open]:text-brand-primary">
+                      <AccordionTrigger className="flex items-center w-full py-3 px-1 text-left font-semibold text-base xs:text-lg rounded-md hover:bg-accent-bg focus-visible:bg-accent-bg focus-visible:ring-1 focus-visible:ring-brand-primary transition-colors data-[state=open]:bg-accent-light data-[state=open]:text-brand-primary"> {/* Adjusted padding and typography */}
                         {(() => {
-                          const IconComponent = ICON_MAP[industry.iconName]; // Use ICON_MAP constant
-                          return IconComponent ? <IconComponent className="mr-3 h-5 w-5 flex-shrink-0 text-brand-primary" aria-hidden="true" /> : null;
+                          const IconComponent = ICON_MAP[industry.iconName]; 
+                          return IconComponent ? <IconComponent className="mr-2.5 h-4 w-4 xs:h-5 xs:w-5 flex-shrink-0 text-brand-primary" aria-hidden="true" /> : null; {/* Adjusted size and margin */}
                         })()}
                         <span>{industry.title}</span>
                       </AccordionTrigger>
-                      <AccordionContent className="pt-2 pb-4 px-2 text-foreground text-base leading-relaxed bg-transparent rounded-b-md">
-                        {industry.content} {/* Content is a string, stable */}
+                      <AccordionContent className="pt-2 pb-3 px-1 text-foreground text-sm xs:text-base leading-relaxed bg-transparent rounded-b-md"> {/* Adjusted padding and typography */}
+                        {industry.content} 
                       </AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>
               </div>
               {/* Get In Touch Section */}
-              <div className="pt-6"> {/* Removed border-t as previous section has border-b */}
-                <h3 className="font-heading font-semibold text-foreground mb-4 text-lg">Get In Touch</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="pt-5"> {/* Adjusted padding */}
+                <h3 className="font-heading font-semibold text-foreground mb-3 text-md xs:text-lg">Get In Touch</h3> {/* Adjusted typography and margin */}
+                <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5"> {/* Adjusted gap */}
                   {[
                     { label: "elanthamilan12@gmail.com", text: "elanthamilan12@gmail.com", icon: Mail, action: () => { navigator.clipboard.writeText("elanthamilan12@gmail.com"); alert("Email copied to clipboard!"); }, aria: "Copy Email to Clipboard" },
                     { label: "+918148622302", text: "+918148622302", icon: Phone, action: () => { navigator.clipboard.writeText("+918148622302"); alert("Phone number copied to clipboard!"); }, aria: "Copy Phone to Clipboard" },
@@ -184,17 +184,17 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                   ].map(item => (
                     item.href ? (
                       <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
-                         className="inline-flex items-center justify-center px-4 py-2.5 bg-accent-bg text-foreground hover:bg-brand-primary/10 hover:text-brand-primary transition-colors rounded-md text-sm font-medium shadow-sm focus-visible:ring-1 focus-visible:ring-brand-primary"
+                         className="inline-flex items-center justify-center px-4 py-3 bg-accent-bg text-foreground hover:bg-brand-primary/10 hover:text-brand-primary transition-colors rounded-md text-xs xs:text-sm font-medium shadow-sm focus-visible:ring-1 focus-visible:ring-brand-primary min-h-[44px]" // Ensured min height and adjusted padding
                          aria-label={item.aria}>
-                        <item.icon className="mr-2 h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                        <item.icon className="mr-1.5 h-3.5 w-3.5 xs:h-4 xs:w-4 flex-shrink-0" aria-hidden="true" />
                         <span>{item.text}</span>
                       </a>
                     ) : (
-                      <Button key={item.label} variant="outline" // Using outline for copy buttons
+                      <Button key={item.label} variant="outline" 
                               onClick={item.action}
-                              className="inline-flex items-center justify-center px-4 py-2.5 hover:bg-accent-bg transition-colors rounded-md text-sm font-medium border-slate-300 dark:border-slate-600 focus-visible:ring-1 focus-visible:ring-brand-primary" // Themed border for outline
+                              className="inline-flex items-center justify-center px-4 py-3 hover:bg-accent-bg transition-colors rounded-md text-xs xs:text-sm font-medium border-slate-300 dark:border-slate-600 focus-visible:ring-1 focus-visible:ring-brand-primary min-h-[44px]" // Ensured min height and adjusted padding
                               aria-label={item.aria}>
-                        <item.icon className="mr-2 h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                        <item.icon className="mr-1.5 h-3.5 w-3.5 xs:h-4 xs:w-4 flex-shrink-0" aria-hidden="true" />
                         <span>{item.text}</span>
                       </Button>
                     )
@@ -204,45 +204,45 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
             </div>
           </div>
           {/* Right Column - Case Studies */}
-          <div className={isMobile ? "mt-12 w-full" : "mt-0 md:mt-12"} style={{maxWidth: "720px", width: "100%"}}> {/* Adjusted mt for desktop */}
+          <div className={isMobile ? "mt-8 w-full" : "mt-0 md:mt-12"} style={{maxWidth: "720px", width: "100%"}}>
             <div className="h-full">
-              <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground" id="case-studies-heading"> {/* Added id for aria-labelledby */}
+              <div className="mb-6">
+                <h2 className="text-2xl xs:text-3xl md:text-4xl font-heading font-semibold text-foreground" id="case-studies-heading">
                   Case Studies
                 </h2>
               </div>
-              <div className="space-y-8" role="list" aria-labelledby="case-studies-heading"> {/* ARIA list role */}
+              <div className="space-y-6" role="list" aria-labelledby="case-studies-heading">
                 <CaseStudyCard
-                  title="Campus Hiring Platform" // Slightly shortened
+                  title="Campus Hiring Platform" 
                   year="2023"
                   who="Top Indian University"
                   what="End-to-end campus hiring solution" // Slightly shortened
                   result="50% faster hiring" // More concise
                   image="/Elanable-uploads/Camu Campus Recruitment App.png"
                   link="/case-study/campus-hiring"
-                  tags={['EdTech', 'SaaS', 'UX/UI']} // Standardized tags
+                  tags={['EdTech', 'SaaS', 'UX/UI']}
                   description={<>
-                    <p className="mb-2 text-sm text-foreground">A platform to streamline campus hiring processes.</p> {/* text-foreground/90 to text-foreground */}
+                    <p className="mb-2 text-sm text-foreground">A platform to streamline campus hiring processes.</p>
                   </>}
                   index={0}
-                  backgroundColor="bg-accent-light" // Themed background
-                  // buttonColor prop seems unused by CaseStudyCard, styling is via Button component variants
+                  cardClassName="bg-accent-light dark:bg-slate-800/60" // Custom background for first card
+                  accentColorName="brand-primary" // Accent for first card
                 />
                 <CaseStudyCard
-                  title="AI Student Course Planner" // Slightly shortened
+                  title="AI Student Course Planner"
                   year="2025"
                   who="University Students"
                   what="AI-powered course planning tool"
-                  result="60% less scheduling time" // More concise
+                  result="60% less scheduling time"
                   image="/Elanable-uploads/78be9a59-8230-4ea5-b024-d96fd3cdd83e.png"
                   link="/case-study/student-planner"
-                  tags={["AI", "UX Research", "EdTech"]} // Standardized tags
+                  tags={["AI", "UX Research", "EdTech"]}
                   description={<>
-                    <p className="mb-2 text-sm text-foreground">A redesign of a student course planning tool with AI integration.</p> {/* text-foreground/90 to text-foreground */}
+                    <p className="mb-2 text-sm text-foreground">A redesign of a student course planning tool with AI integration.</p>
                   </>}
                   index={1}
-                  backgroundColor="bg-accent-bg" // Themed background
-                  // buttonColor prop seems unused
+                  cardClassName="bg-accent-off-white dark:bg-slate-800/40" // Custom background for second card
+                  accentColorName="brand-secondary" // Accent for second card
                 />
               </div>
             </div>

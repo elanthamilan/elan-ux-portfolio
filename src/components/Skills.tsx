@@ -69,20 +69,21 @@ const SkillCardDisplay = React.memo(({ skill, index, onCardClick }: { skill: Ski
   return (
     <div
       className={`reveal ${skill.size === 'large' ? 'md:col-span-2' : 'md:col-span-1'} sm:col-span-1`}
-      key={skill.title} // key is used by React in the list, not directly on SkillCardDisplay
+      // key prop is correctly on the SkillCardDisplay in the map, not needed here
     >
       <Card
-        className={`flex flex-col items-start justify-between rounded-3xl shadow-lg hover:scale-[1.02] focus-within:ring-2 focus-within:ring-brand-primary focus-within:ring-offset-2 transition-all duration-300 ease-in-out ${skill.color} p-6 ${skill.size === 'large' ? 'md:p-8' : 'p-6'} h-full border`}
+        className={`flex flex-col items-start justify-between rounded-3xl shadow-lg hover:scale-[1.02] focus-within:ring-2 focus-within:ring-brand-primary focus-within:ring-offset-2 transition-all duration-300 ease-in-out ${skill.color} px-3 py-4 xs:p-4 ${skill.size === 'large' ? 'md:p-8' : 'sm:p-6'} h-full border`} // Responsive padding
         tabIndex={0}
         aria-label={skill.title}
         onClick={onCardClick}
       >
         <CardContent className="flex flex-col items-start p-0 h-full text-foreground">
-          <div className="flex items-center gap-3 mb-4">
-            <span className={`text-4xl ${index < 2 ? 'text-brand-primary' : 'text-brand-secondary'}`} role="img" aria-label={skill.title}>{skill.icon}</span>
-            <h3 className={`font-semibold text-foreground ${skill.size === 'large' ? 'text-2xl' : 'text-xl'}`}>{skill.title}</h3>
+          <div className="flex items-center gap-2 xs:gap-3 mb-3 xs:mb-4"> {/* Adjusted gap and margin */}
+            <span className={`text-3xl xs:text-4xl ${index < 2 ? 'text-brand-primary' : 'text-brand-secondary'}`} role="img" aria-label={skill.title}>{skill.icon}</span> {/* Responsive icon size */}
+            {/* Adaptive Typography for skill title H3 */}
+            <h3 className={`font-semibold text-foreground ${skill.size === 'large' ? 'text-xl xs:text-2xl' : 'text-lg xs:text-xl'}`}>{skill.title}</h3>
           </div>
-          <p className="text-foreground text-base">{skill.description}</p>
+          <p className="text-foreground text-sm xs:text-base">{skill.description}</p> {/* Responsive description text */}
         </CardContent>
       </Card>
     </div>
@@ -137,17 +138,23 @@ const SkillsBentoGrid = React.memo(() => { // Wrapped SkillsBentoGrid with React
   }, []); // No dependencies
 
   return (
-    <section className="py-16 md:py-24 bg-background text-foreground">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4 text-foreground">Skills & Expertise</h2>
-          <p className="text-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+    <section className="py-12 xs:py-16 md:py-24 bg-background text-foreground"> {/* Adjusted vertical padding */}
+      <div className="container mx-auto px-2 xs:px-4 sm:px-6 lg:px-8"> {/* Adjusted horizontal padding */}
+        <div className="text-center mb-10 md:mb-14"> {/* Adjusted margin */}
+          {/* Adaptive Typography for Skills H2 */}
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-heading font-semibold mb-3 xs:mb-4 text-foreground">Skills & Expertise</h2>
+          <p className="text-foreground max-w-2xl mx-auto text-base xs:text-lg leading-relaxed"> {/* Adjusted typography */}
             With over 8 years of experience, I've developed a comprehensive skill set focused on creating exceptional user experiences for enterprise products.
           </p>
         </div>
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-10 max-w-7xl mx-auto">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 xs:gap-6 md:gap-8 max-w-7xl mx-auto"> {/* Adjusted gap */}
           {SKILLS_DATA.map((skill, index) => (
-            <SkillCardDisplay key={skill.title} skill={skill} index={index} onCardClick={handleRipple} />
+            <SkillCardDisplay 
+              key={skill.title} 
+              skill={skill} 
+              index={index} 
+              onCardClick={handleRipple} 
+            />
           ))}
         </div>
       </div>

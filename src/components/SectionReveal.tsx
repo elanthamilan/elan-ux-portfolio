@@ -24,10 +24,17 @@ const SectionReveal = React.memo(({ children }: SectionRevealProps) => { // Wrap
       // Animate from a slightly visible state or use fromTo for robustness
       st = ScrollTrigger.create({
         trigger: ref.current,
-        start: 'top 80%',
+        start: 'top 80%', // When the top of the trigger hits 80% of the viewport height
         onEnter: () => gsap.fromTo(ref.current.querySelectorAll('.reveal'),
-                                  { opacity: 0, y: 20 }, // Start from opacity 0 and slight y offset
-                                  { opacity: 1, y: 0, stagger: 0.2, duration: 0.8, ease: 'power4.out' })
+                                  { opacity: 0, y: 10 }, // From: slightly lower, invisible
+                                  { 
+                                    opacity: 1, 
+                                    y: 0, 
+                                    stagger: 0.15, // Slightly faster stagger
+                                    duration: 0.65, // Slightly faster duration
+                                    ease: 'power4.out' 
+                                  } // To: fully visible, original position
+                                 )
       });
     }
     return () => {

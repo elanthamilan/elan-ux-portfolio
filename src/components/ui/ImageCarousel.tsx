@@ -97,17 +97,22 @@ const ImageCarousel: React.FC<ImageCarouselProps> = React.memo(({ images, option
       </button>
 
       {/* Dots Navigation */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-3"> {/* Increased space-x for larger dots */}
         {images.map((_, index) => (
+          // Added a larger invisible touch area around the visible dot for easier interaction
           <button
             key={index}
             onClick={() => scrollTo(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              index === selectedIndex ? 'bg-brand-primary' : 'bg-brand-primary/30 hover:bg-brand-primary/60'
-            }`}
+            className="p-2 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1" // Added padding for larger touch target and focus ring
             aria-label={`Go to slide ${index + 1}`}
             aria-current={index === selectedIndex ? 'true' : 'false'}
-          />
+          >
+            <span
+              className={`block w-2.5 h-2.5 xs:w-3 xs:h-3 rounded-full transition-colors ${ // Slightly larger visible dot, responsive
+                index === selectedIndex ? 'bg-brand-primary' : 'bg-brand-primary/40 hover:bg-brand-primary/70'
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>

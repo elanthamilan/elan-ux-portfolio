@@ -14,6 +14,7 @@ export default {
     		center: true,
     		padding: '2rem',
     		screens: {
+          xs: '420px', // Added custom xs breakpoint
     			sm: '640px',
     			md: '768px',
     			lg: '1024px',
@@ -37,12 +38,10 @@ export default {
     			]
     		},
     		colors: {
-    			border: 'hsl(var(--border))',
-    			input: 'hsl(var(--input))',
-    			ring: 'hsl(var(--ring))',
-    			border: 'hsl(var(--border))', // Keep existing hsl variables if they are used for dark mode or specific components
-    			input: 'hsl(var(--input))',
-    			ring: 'hsl(var(--ring))',
+    			// Removed duplicate border, input, ring definitions
+    			border: 'hsl(var(--border))', 
+    			input: 'hsl(var(--input))', 
+    			ring: 'hsl(var(--ring))', 
     			background: '#FFFFFF', // New explicit background
     			foreground: '#000000', // New explicit foreground
     			brand: {
