@@ -103,8 +103,8 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className = '' 
       aria-label={`${isZoomed ? 'Close' : 'Zoom'} image: ${alt}`}
     >
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <div className="absolute inset-0 flex items-center justify-center bg-accent-bg dark:bg-slate-800 rounded-lg"> {/* Themed loading background, added rounded-lg to match image container */}
+          <div className="w-8 h-8 border-4 border-brand-primary border-t-transparent rounded-full animate-spin"></div> {/* Ensured border-brand-primary */}
         </div>
       )}
       <img

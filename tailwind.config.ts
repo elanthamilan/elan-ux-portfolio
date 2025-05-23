@@ -40,12 +40,27 @@ export default {
     			border: 'hsl(var(--border))',
     			input: 'hsl(var(--input))',
     			ring: 'hsl(var(--ring))',
-    			background: 'hsl(var(--background))',
-    			foreground: 'hsl(var(--foreground))',
-    			primary: {
+    			border: 'hsl(var(--border))', // Keep existing hsl variables if they are used for dark mode or specific components
+    			input: 'hsl(var(--input))',
+    			ring: 'hsl(var(--ring))',
+    			background: '#FFFFFF', // New explicit background
+    			foreground: '#000000', // New explicit foreground
+    			brand: {
+    				primary: '#2A7779',
+    				secondary: '#234574',
+    				tertiary: '#5A1738',
+    			},
+    			accent: {
+    				DEFAULT: 'hsl(var(--accent))', // Keep existing hsl variable
+    				foreground: 'hsl(var(--accent-foreground))', // Keep existing hsl variable
+    				bg: '#F3F6F9',
+    				light: '#F2F8F7',
+    				'off-white': '#F8F4F2',
+    			},
+    			primary: { // Keep existing primary but ensure DEFAULT is hsl for compatibility if used elsewhere
     				DEFAULT: 'hsl(var(--primary))',
     				foreground: 'hsl(var(--primary-foreground))',
-    				'case-study-1': '#156152',
+    				'case-study-1': '#156152', // Specific case study colors, can remain or be refactored
     				'case-study-2': '#16325A',
     				'enterprise-ux-designer': '#16325A'
     			},
@@ -61,10 +76,7 @@ export default {
     				DEFAULT: 'hsl(var(--muted))',
     				foreground: 'hsl(var(--muted-foreground))'
     			},
-    			accent: {
-    				DEFAULT: 'hsl(var(--accent))',
-    				foreground: 'hsl(var(--accent-foreground))'
-    			},
+    			// accent definition is moved up and merged
     			popover: {
     				DEFAULT: 'hsl(var(--popover))',
     				foreground: 'hsl(var(--popover-foreground))'
@@ -85,9 +97,11 @@ export default {
     				border: 'hsl(var(--sidebar-border))',
     				ring: 'hsl(var(--sidebar-ring))'
     			},
-    			'mesh-gradient-start': '#F0F0F0',
-    			'mesh-gradient-middle': '#FAFAFA',
-    			'mesh-gradient-end': '#FFFFFF',
+    			// Removed mesh-gradient colors as they are not part of the new palette.
+    			// If they are needed for specific components, they can be re-added or refactored.
+    			// 'mesh-gradient-start': '#F0F0F0',
+    			// 'mesh-gradient-middle': '#FAFAFA',
+    			// 'mesh-gradient-end': '#FFFFFF',
     			chart: {
     				'1': 'hsl(var(--chart-1))',
     				'2': 'hsl(var(--chart-2))',
