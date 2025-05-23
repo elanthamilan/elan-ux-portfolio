@@ -1,96 +1,63 @@
 import React, { useEffect, useState } from 'react';
-import Hero from '../components/sections/Hero.tsx';
-import SkillsBentoGrid from '../components/Skills.tsx';
-import Contact from '../components/sections/Contact.tsx';
+import HeroWithSkills from '../components/sections/Hero.tsx';
 import Footer from '../components/layout/Footer.tsx';
 import Header from '../components/layout/Header.tsx';
-import CaseStudyCard from '../components/CaseStudyCard.tsx';
-import ScrollToTop from '../components/ui/ScrollToTop.tsx';
-import ThemeToggle from '../components/ui/ThemeToggle.tsx';
-
-const caseStudies = [
-  {
-    title: "Campus Hiring Platform",
-    description: "Redesigned the campus hiring experience for a leading university, reducing hiring time by 50% and improving student engagement.",
-    image: "/Elanable-uploads/Camu Campus Recruitment App.png",
-    tags: ["UX Research", "UI Design", "Education"],
-    link: "/case-study/campus-hiring",
-    index: 0,
-    year: "2023",
-    who: "Top Indian University",
-    what: "End-to-end campus hiring platform",
-    result: "50% reduction in hiring time",
-    backgroundColor: "#F2F8F7",
-    buttonColor: "#156152"
-  },
-  {
-    title: "Student Course Planner Redesign",
-    description: "Created an intuitive course planning tool that helps students make informed decisions about their academic journey.",
-    image: "/Elanable-uploads/Student Course Planner Redesign.png",
-    tags: ["UX Research", "UI Design", "Education"],
-    link: "/case-study/student-planner",
-    index: 1,
-    year: "2025",
-    who: "HR Teams, Recruiters, Students",
-    what: "Unified campus hiring platform.",
-    result: "40% faster hiring, 85% user satisfaction.",
-    backgroundColor: "#F3F6F9",
-    buttonColor: "#16325A"
-  }
-];
+import ScrollToTop from '@/components/ui/ScrollToTop.tsx';
 
 const HomePage = () => {
-  const [isThemeInitialized, setIsThemeInitialized] = useState(false);
+	const [isThemeInitialized, setIsThemeInitialized] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Check if theme is initialized
-    const savedTheme = localStorage.getItem('theme');
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const initialTheme = savedTheme || systemTheme;
-    
-    document.documentElement.classList.toggle('dark', initialTheme === 'dark');
-    setIsThemeInitialized(true);
-  }, []);
+	useEffect(() => {
+		// Initialize theme
+		const initializeTheme = () => {
+			try {
+				const savedTheme = localStorage.getItem('theme');
+				const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+					? 'dark'
+					: 'light';
+				const initialTheme = savedTheme || systemTheme;
+				document.documentElement.classList.toggle('dark', initialTheme === 'dark');
+				setIsThemeInitialized(true);
+			} catch (error) {
+				console.error('Error initializing theme:', error);
+				// Fallback to light theme if there's an error
+				document.documentElement.classList.remove('dark');
+				setIsThemeInitialized(true);
+			}
+		};
 
-  if (!isThemeInitialized) {
-    return null; // Don't render anything until theme is initialized
-  }
+		// Initialize theme and handle loading state
+		initializeTheme();
+		const timer = setTimeout(() => {
+			setIsLoading(false);
+		}, 500); // Add a small delay to ensure smooth transition
 
-  return (
-    <main className="min-h-screen">
-      <Header />
-      <ThemeToggle />
-      <Hero />
-      
-      <section className="py-20 px-4 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <h2 
-            className="text-3xl md:text-4xl font-serif font-bold text-center mb-12 text-gray-900 dark:text-white"
-          >
-            Featured Case Studies
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {caseStudies.map((study) => (
-              <div key={study.title} className="case-study-card">
-                <CaseStudyCard {...study} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+		return () => clearTimeout(timer);
+	}, []);
 
-      <div>
-        <SkillsBentoGrid />
-      </div>
-      
-      <div>
-        <Contact />
-      </div>
-      
-      <Footer />
-      <ScrollToTop />
-    </main>
-  );
+	if (!isThemeInitialized || isLoading) {
+		return (
+			<div className="min-h-screen flex items-center justify-center bg-background">
+				<div className="animate-pulse flex flex-col items-center space-y-4">
+					<div className="h-12 w-12 rounded-full bg-primary/20"></div>
+					<div className="h-4 w-32 bg-primary/20 rounded"></div>
+				</div>
+			</div>
+		);
+	}
+
+	return (
+		<div className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300">
+			<Header />
+			<main className="flex-1 p-6 mb-6">
+				{/* <HeroSection /> */}
+				<HeroWithSkills />
+			</main>
+			<Footer />
+			<ScrollToTop />
+		</div>
+	);
 };
 
 export default HomePage;

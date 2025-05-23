@@ -4,16 +4,16 @@ import Footer from "../components/layout/Footer.tsx";
 // Removed CaseStudySection and ElanThinking imports as their content will be integrated directly
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Badge } from "../components/ui/badge.tsx";
-import { Card, CardContent } from "../components/ui/card.tsx";
-import ZoomableImage from "../components/ui/ZoomableImage.tsx";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import ZoomableImage from "@/components/ui/ZoomableImage";
 
 const CaseStudyCampusHiring = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
-      <main id="main-content" className="flex-grow container mx-auto px-4 py-12 md:py-16 bg-brand-light-gray-accent/50">
+      <main id="main-content" className="flex-grow container mx-auto p-6 py-12 md:py-16 bg-brand-light-gray-accent/50">
         <Link to="/" className="inline-flex items-center text-foreground/80 hover:text-foreground transition-colors mb-8 text-sm font-medium">
           <ArrowLeft size={16} className="mr-1.5" />
           <span>Back to Home</span>
@@ -21,7 +21,7 @@ const CaseStudyCampusHiring = () => {
 
         <article className="max-w-7xl mx-auto">
            {/* Meta Info - Stays at the top */}
-           <Card isExpanded={true}> {/* Assuming Card is a custom component that doesn't need to be removed */}
+           <Card>
              <CardContent>
                <div className="mb-4 flex items-center space-x-3">
                  <Badge className="bg-brand-badge-bg text-foreground px-2.5 py-1 text-xs font-medium rounded">Case Study</Badge>

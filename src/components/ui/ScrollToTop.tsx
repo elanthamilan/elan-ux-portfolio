@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,18 +24,30 @@ const ScrollToTop = () => {
     });
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToTop();
+    }
+  };
+
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.5, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.5, y: 20 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors z-50"
+          onKeyDown={handleKeyDown}
+          className="fixed bottom-8 right-8 p-3 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2 transition-all duration-200 z-50"
           aria-label="Scroll to top"
+          role="button"
+          tabIndex={0}
         >
-          <ArrowUp className="w-6 h-6" />
+          <span className="material-symbols-outlined text-xl" aria-hidden="true">arrow_upward</span>
+          <span className="sr-only">Scroll to top</span>
         </motion.button>
       )}
     </AnimatePresence>

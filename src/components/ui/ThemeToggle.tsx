@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Moon, Sun } from 'lucide-react';
-import { Button } from './button.tsx';
+import { Button } from '../components/ui/button.tsx';
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
@@ -22,22 +21,56 @@ const ThemeToggle = () => {
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
   };
 
+  const handleRipple = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const button = e.currentTarget;
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
+    circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
+    circle.classList.add("ripple");
+    const ripple = button.getElementsByClassName("ripple")[0];
+    if (ripple) {
+      ripple.remove();
+    }
+    button.appendChild(circle);
+  };
+
   // Don't render anything until theme is initialized
   if (theme === null) return null;
 
   return (
     <Button
-      onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+      onClick={e => { handleRipple(e); toggleTheme(); }}
+      className="m3-btn relative overflow-hidden bg-primary text-on-primary hover:bg-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 transition-colors shadow-elevation-2 text-base font-medium py-3 px-6 rounded-full flex items-center gap-2"
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
     >
+      <style>{`
+        .ripple {
+          position: absolute;
+          border-radius: 9999px;
+          transform: scale(0);
+          animation: ripple 500ms linear;
+          background: rgba(25, 118, 210, 0.18);
+          pointer-events: none;
+          z-index: 10;
+        }
+        @keyframes ripple {
+          to {
+            transform: scale(2.5);
+            opacity: 0;
+          }
+        }
+      `}</style>
       {theme === 'light' ? (
-        <Moon className="h-5 w-5" />
+        <span className="material-symbols-outlined text-on-primary text-xl">dark_mode</span>
       ) : (
-        <Sun className="h-5 w-5" />
+        <span className="material-symbols-outlined text-on-primary text-xl">light_mode</span>
       )}
+      <span className="relative z-10">{theme === 'light' ? 'Dark' : 'Light'} Mode</span>
     </Button>
   );
 };
 
-export default ThemeToggle; 
+export default ThemeToggle;

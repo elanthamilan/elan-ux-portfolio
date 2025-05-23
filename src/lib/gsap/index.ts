@@ -76,7 +76,7 @@ export const typeText = (
 };
 
 // Utility function for bento grid animations
-export const animateBentoGrid = (elements: Element[]) => {
+export const animateBentoGrid = (elements: Element[], toggleActions: string = 'play none none reverse') => {
   elements.forEach((element, index) => {
     gsap.from(element, {
       opacity: 0,
@@ -87,11 +87,11 @@ export const animateBentoGrid = (elements: Element[]) => {
       scrollTrigger: {
         trigger: element,
         start: 'top bottom-=100',
-        toggleActions: 'play none none reverse'
+        toggleActions: toggleActions
       }
     });
   });
 };
 
 // Export GSAP instance for direct use
-export { gsap }; 
+export { gsap };

@@ -59,24 +59,29 @@ export const useGSAP = () => {
     return tween;
   };
 
-  const animateBentoGrid = (elements: Element[], toggleActions: string = 'play none none reverse') => {
+  const animateBentoGrid = (elements: Element[]) => {
     if (!initializedRef.current) {
       console.warn('GSAP not initialized yet');
       return;
     }
 
     elements.forEach((element, index) => {
-      const tween = gsap.from(element, {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        delay: index * 0.1,
-        scrollTrigger: {
-          trigger: element,
-          start: 'top bottom-=100',
-          toggleActions: toggleActions
+      const tween = gsap.fromTo(
+        element,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: index * 0.1,
+          scrollTrigger: {
+            trigger: element,
+            start: 'top bottom-=100',
+            toggleActions: 'play none none none', // Only play on enter, do not reverse
+            once: true // Animation only happens once
+          }
         }
-      });
+      );
       animationsRef.current.push(tween);
     });
   };
