@@ -1,4 +1,6 @@
 {
   ".js": "application/javascript",
-  ".mjs": "application/javascript"
+  ".mjs": "application/javascript",
+  ".ts": "application/javascript",
+  ".tsx": "application/javascript"
 }
