@@ -4,42 +4,44 @@
 
 @layer base {
   :root {
-    /* Theme Variables - User Interviews Inspired */
-    --background: 0 0% 100%; /* Very Light Gray / Off-white */
-    --foreground: 222.2 84% 4.9%; /* Dark Gray */
+    /* Theme Variables - New Color Scheme */
+    --background: 180 50% 97%; /* #F2F8F7 */
+    --foreground: 180 50% 20%; /* #2A7779 */
 
     --card: 0 0% 100%; /* White */
-    --card-foreground: 222.2 84% 4.9%; /* Dark Gray */
+    --card-foreground: 180 50% 20%; /* #2A7779 */
 
     --popover: 0 0% 100%; /* White */
-    --popover-foreground: 222.2 84% 4.9%; /* Dark Gray */
+    --popover-foreground: 180 50% 20%; /* #2A7779 */
 
-    /* Primary Color: Dark Teal */
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%; /* White */
-    --primary-color: 174 43% 33%; /* Use existing primary color as default */
+    /* Primary Color: Teal */
+    --primary: 180 50% 30%; /* #2A7779 */
+    --primary-foreground: 0 0% 100%; /* White */
 
-    /* Secondary Color: Dark Blue/Charcoal */
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%; /* White */
+    /* Secondary Color: Navy Blue */
+    --secondary: 220 60% 30%; /* #234574 */
+    --secondary-foreground: 0 0% 100%; /* White */
 
-    /* Muted text */
-    --muted: 210 40% 96.1%; /* Medium Gray */
-    --muted-foreground: 215.4 16.3% 46.9%; /* Lighter Gray */
+    /* Muted colors */
+    --muted: 180 20% 95%; /* #F3F6F9 */
+    --muted-foreground: 180 50% 40%; /* Darker teal */
 
     /* Accent colors */
-    --accent: 210 40% 96.1%; /* Light Blue */
-    --accent-foreground: 222.2 47.4% 11.2%; /* Darker Blue */
+    --accent: 340 50% 25%; /* #5A1738 */
+    --accent-foreground: 0 0% 100%; /* White */
     
     --destructive: 0 84.2% 60.2%; /* Modern Red */
-    --destructive-foreground: 210 40% 98%; /* White */
+    --destructive-foreground: 0 0% 100%; /* White */
 
-    --border: 214.3 31.8% 91.4%; /* Light Gray */
-    --input: 214.3 31.8% 91.4%; /* White */
-    --input-foreground: 0 0% 13%; /* Dark Gray */
-    --ring: 222.2 84% 4.9%; /* Lighter shade of primary for focus rings */
+    --border: 180 20% 90%; /* Light teal */
+    --input: 180 20% 95%; /* Very light teal */
+    --ring: 180 50% 30%; /* Primary teal */
 
-    --radius: 0.5rem; /* Slightly more rounded corners */
+    --radius: 0.5rem;
+
+    /* Additional colors */
+    --warm-bg: 30 20% 97%; /* #F8F4F2 */
+    --cool-bg: 180 20% 97%; /* #F3F6F9 */
 
     /* Sidebar specific colors (can be customized further if needed) */
     --sidebar-background: 0 0% 96%; /* Slightly off-white, similar to background */
@@ -55,30 +57,37 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+  }
 
-}
-
-  /* Dark theme can be added here if needed in the future */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 180 50% 10%; /* Dark teal */
+    --foreground: 180 20% 95%; /* Light teal */
+
+    --card: 180 50% 15%; /* Slightly lighter dark teal */
+    --card-foreground: 180 20% 95%; /* Light teal */
+
+    --popover: 180 50% 15%;
+    --popover-foreground: 180 20% 95%;
+
+    --primary: 180 50% 40%; /* Brighter teal */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 60% 40%; /* Brighter navy */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 180 30% 20%;
+    --muted-foreground: 180 20% 80%;
+
+    --accent: 340 50% 35%; /* Brighter burgundy */
+    --accent-foreground: 0 0% 100%;
+
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 30% 25%;
+    --input: 180 30% 25%;
+    --ring: 180 50% 40%;
+
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -94,7 +103,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', sans-serif; /* Default sans-serif font */
+    font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
