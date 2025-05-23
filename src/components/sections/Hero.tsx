@@ -1,16 +1,17 @@
-import React from "react"; // Added React import
-import { Button } from "@/components/ui/button";
+import React from "react";
+import SectionReveal from "../SectionReveal.tsx";
+import { Button } from "../../components/ui/button.tsx";
 import { ArrowRight, Download, GraduationCap, ShoppingCart, Network, Rocket, Linkedin } from "lucide-react";
-import { useIsMobile } from "@/components/hooks/use-mobile";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"; // Assuming Card related components are used, kept from original
+import { useIsMobile } from "../../components/hooks/use-mobile.ts";
+import { Badge } from "../../components/ui/badge.tsx";
+import { Card, CardContent, CardFooter, CardHeader } from "../../components/ui/card.tsx"; // Assuming Card related components are used, kept from original
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import CaseStudyCard from "@/components/CaseStudyCard";
+} from "../../components/ui/accordion.tsx";
+import CaseStudyCard from "../CaseStudyCard.tsx";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { useEffect, useState, useRef } from "react";
@@ -247,6 +248,8 @@ const Hero = () => {
                     <p className="mb-2 text-sm text-foreground/90">A platform to streamline campus hiring processes.</p>
                   </>}
                   index={0}
+                  backgroundColor="bg-accent"
+                  buttonColor="text-accent-foreground"
                 />
                 <CaseStudyCard
                   title="Student Course Planner Redesign"
@@ -261,6 +264,8 @@ const Hero = () => {
                     <p className="mb-2 text-sm text-foreground/90">A redesign of a student course planning tool with AI integration.</p>
                   </>}
                   index={1}
+                  backgroundColor="bg-accent"
+                  buttonColor="text-accent-foreground"
                 />
               </div>
             </div>

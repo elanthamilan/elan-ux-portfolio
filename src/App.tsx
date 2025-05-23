@@ -1,24 +1,21 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom'; // Import useLocation
+import { Routes, Route, useLocation, BrowserRouter } from 'react-router-dom';
 import { useEffect, Suspense, lazy } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // Import motion and AnimatePresence
+import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from './lib/gsap/useGSAP.ts';
 
-// Lazy load pages for better performance
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const CaseStudyCampusHiring = lazy(() => import('./pages/CaseStudyCampusHiring.tsx'));
 const CaseStudyStudentPlanner = lazy(() => import('./pages/CaseStudyStudentPlanner.tsx'));
 
-// Loading component
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
     <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
-// Error boundary component
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean }
@@ -60,7 +57,7 @@ class ErrorBoundary extends React.Component<
 
 function App() {
   const { isInitialized } = useGSAP();
-  const location = useLocation(); // Get location object
+  const location = useLocation();
 
   useEffect(() => {
     if (isInitialized && typeof window !== 'undefined') {
@@ -116,7 +113,7 @@ function App() {
               path="*"
               element={
                 <motion.div key="notfound" {...pageTransition}>
-                  <main className="min-h-screen flex items-center justify-center bg-background"> {/* Added main tag */}
+                  <main className="min-h-screen flex items-center justify-center bg-background">
                     <div className="text-center p-8">
                       <h1 className="text-2xl font-bold text-foreground mb-4">Page Not Found</h1>
                       <p className="text-foreground/80 mb-4">The page you're looking for doesn't exist.</p>
@@ -127,7 +124,7 @@ function App() {
                         Go Home
                       </a>
                     </div>
-                  </main> {/* Closed main tag */}
+                  </main>
                 </motion.div>
               }
             />
