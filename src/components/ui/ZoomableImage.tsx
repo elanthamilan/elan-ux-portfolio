@@ -14,6 +14,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className = '' 
   const [isLoading, setIsLoading] = useState(true);
   const imageRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null); // Ref for the close button
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current || !imageRef.current || !isZoomed) return;
@@ -32,32 +33,61 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className = '' 
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Escape' && isZoomed) {
-      setIsZoomed(false);
+      handleClose(); // Use centralized close handler
     } else if ((e.key === 'Enter' || e.key === ' ') && !isLoading) {
       e.preventDefault();
-      setIsZoomed(!isZoomed);
+      handleClick(); // Toggle zoom state
     }
+  };
+
+  const handleClose = () => {
+    setIsZoomed(false);
+    containerRef.current?.focus(); // Return focus to the trigger
   };
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (isZoomed && containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setIsZoomed(false);
+        handleClose();
       }
     };
 
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isZoomed) {
-        setIsZoomed(false);
+    const handleEscapeAndTab = (e: KeyboardEvent) => {
+      if (isZoomed) {
+        if (e.key === 'Escape') {
+          handleClose();
+        } else if (e.key === 'Tab') {
+          // Focus trap for the modal
+          if (closeButtonRef.current && document.activeElement === closeButtonRef.current) {
+            // If focus is on the close button, keep it there (as it's the only focusable element)
+            e.preventDefault(); 
+          } else if (closeButtonRef.current) {
+            // If focus is somehow elsewhere in the modal, move it to the close button
+            closeButtonRef.current.focus();
+            e.preventDefault();
+          }
+        }
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('keydown', handleEscape);
+    if (isZoomed) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscapeAndTab);
+      // Focus the close button when modal opens
+      const timer = setTimeout(() => {
+        closeButtonRef.current?.focus();
+      }, 100); // Small delay to ensure modal is rendered
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener('keydown', handleEscapeAndTab);
+      };
+    }
     
+    // Cleanup for when not zoomed (original listeners if any, or ensure no listeners if isZoomed is false from start)
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener('keydown', handleEscapeAndTab); // Ensure this is also cleaned up
     };
   }, [isZoomed]);
 
@@ -116,8 +146,9 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className = '' 
               className="max-w-full max-h-[90vh] object-contain"
             />
             <button
+              ref={closeButtonRef} // Assign ref to close button
               className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors"
-              onClick={() => setIsZoomed(false)}
+              onClick={handleClose} // Use centralized close handler
               aria-label="Close zoomed view"
             >
               <X className="w-6 h-6" />
