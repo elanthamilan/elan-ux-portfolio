@@ -11,28 +11,20 @@ export default defineConfig({
     },
   },
   server: {
-    headers: {
-      'Content-Type': 'application/javascript',
+    port: 3001,
+    strictPort: true,
+    host: true,
+    open: true,
+    hmr: {
+      overlay: true,
     },
   },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
-    sourcemap: false,
-    minify: true,
-    rollupOptions: {
-      output: {
-        manualChunks: undefined,
-        assetFileNames: (assetInfo) => {
-          const name = assetInfo.name || '';
-          if (name.endsWith('.js')) {
-            return 'assets/[name]-[hash][extname]';
-          }
-          return 'assets/[name]-[hash][extname]';
-        },
-      },
-    },
+    sourcemap: true,
+    minify: false,
   },
   preview: {
     port: 3000,
