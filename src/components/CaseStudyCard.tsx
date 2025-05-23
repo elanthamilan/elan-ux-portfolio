@@ -21,7 +21,7 @@ interface CaseStudyCardProps {
   index: number;
 }
 
-const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
+const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({ // Wrapped with React.memo
   title,
   year,
   who,
@@ -97,6 +97,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
       </Card>
     </motion.div>
   );
-};
+});
+CaseStudyCard.displayName = "CaseStudyCard"; // Optional: for better debugging names
 
 export default CaseStudyCard;

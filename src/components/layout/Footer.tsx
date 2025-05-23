@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Linkedin, Github, Twitter, Mail, Phone } from "lucide-react";
+import AnimatedFooterAccent from "@/components/ui/AnimatedFooterAccent"; // Import the accent component
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -72,9 +73,12 @@ const Footer = () => {
         </div>
         <div className="text-center text-foreground text-sm pt-8 border-t border-slate-200 dark:border-slate-700"> {/* text-foreground/90 to text-foreground, themed border, increased pt */}
           <p>&copy; {currentYear} Elan Thamilan. All rights reserved.</p>
-          <p className="mt-2 inline-flex items-center gap-1"> {/* Flex layout for heart icon */}
+          <p className="mt-2 inline-flex items-center gap-1">
             Built with <span className="material-symbols-outlined text-brand-primary align-middle text-base" aria-hidden="true">favorite</span> using React, TypeScript, and Tailwind CSS
           </p>
+          <div className="mt-6 flex justify-center"> {/* Container for the accent */}
+            <AnimatedFooterAccent />
+          </div>
         </div>
       </div>
     </footer>

@@ -8,9 +8,12 @@ interface ImageCarouselProps {
   options?: Record<string, unknown>;
 }
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, options }) => {
+const ImageCarousel: React.FC<ImageCarouselProps> = React.memo(({ images, options }) => { // Wrapped with React.memo
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: images.length > 1, 
+    // It's important that 'options' prop has a stable reference if ImageCarousel is memoized.
+    // If 'options' is defined inline in the parent, it will change on every parent render,
+    // breaking memoization for ImageCarousel. Assume 'options' is stable or not performance critical.
     align: 'start',
     containScroll: 'trimSnaps',
     ...options 
@@ -109,6 +112,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, options }) => {
       </div>
     </div>
   );
-};
+});
+ImageCarousel.displayName = "ImageCarousel"; // Optional: for better debugging
 
 export default ImageCarousel;

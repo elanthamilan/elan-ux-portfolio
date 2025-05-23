@@ -1,4 +1,4 @@
-import { useRef, useEffect, ReactNode } from 'react';
+import React, { useRef, useEffect, ReactNode } from 'react'; // Imported React for React.memo
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -9,10 +9,13 @@ interface SectionRevealProps {
   children: ReactNode;
 }
 
-export default function SectionReveal({ children }: SectionRevealProps) {
+const SectionReveal = React.memo(({ children }: SectionRevealProps) => { // Wrapped with React.memo
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // The children prop itself is not a dependency for this effect,
+    // as the animation targets DOM elements selected via ref.current.querySelectorAll.
+    // GSAP animations are tied to the DOM elements, not directly to the children prop's identity.
     let st: ScrollTrigger | undefined;
     if (ref.current) {
       // Ensure elements are visible by default
@@ -33,4 +36,7 @@ export default function SectionReveal({ children }: SectionRevealProps) {
   }, []);
 
   return <section ref={ref}>{children}</section>;
-}
+});
+SectionReveal.displayName = "SectionReveal"; // Optional: for better debugging
+
+export default SectionReveal;

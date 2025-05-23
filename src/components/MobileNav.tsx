@@ -1,10 +1,13 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react'; // Imported React for React.memo
 import { useGSAP } from '../lib/gsap/useGSAP.js';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const MobileNav = () => {
-  const { elementRef, scrollAnimation } = useGSAP();
+const MobileNav = React.memo(() => { // Wrapped with React.memo
+  // useGSAP hook likely returns stable functions or is context-based,
+  // so elementRef and scrollAnimation should be stable if useGSAP is well-designed.
+  // If they were unstable and dependencies for other hooks, they'd need memoization.
+  const { elementRef, scrollAnimation } = useGSAP(); 
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -121,6 +124,7 @@ const MobileNav = () => {
       </div>
     </motion.nav>
   );
-};
+});
+MobileNav.displayName = "MobileNav"; // Optional: for better debugging
 
 export default MobileNav; 

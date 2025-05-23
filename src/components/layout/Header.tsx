@@ -1,24 +1,20 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react"; // Imported useCallback
 import { Link } from "react-router-dom";
-// Removed duplicate React import
-import { Mail, Download } from "lucide-react"; // Removed Menu, X
-import { useState, useEffect } from "react";
+import { Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const Header = () => {
-  // Removed isMobileMenuOpen state and toggleMobileMenu function
+const Header = React.memo(() => { // Wrapped component with React.memo
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
+  // Memoized handleScroll function
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 0);
+  }, []); // No dependencies, as it only uses window.scrollY and setIsScrolled
 
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Removed useEffect for handleClickOutside
+  }, [handleScroll]); // Added handleScroll to dependency array
 
   return (
     <header 
@@ -87,6 +83,7 @@ const Header = () => {
       </div>
     </header>
   );
-};
+}); // Closing React.memo
+Header.displayName = "Header"; // Optional: for better debugging names
 
 export default Header;
