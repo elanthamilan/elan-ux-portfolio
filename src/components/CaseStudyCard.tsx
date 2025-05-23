@@ -1,105 +1,97 @@
-import { useEffect, useRef } from 'react';
-import { useGSAP } from '../lib/gsap/useGSAP.js';
-import { motion } from 'framer-motion';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import ZoomableImage from '@/components/ui/ZoomableImage';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./components/ui/card.tsx";
+import { Button } from "@/components/ui/button";
 
 interface CaseStudyCardProps {
   title: string;
-  description: string;
+  year: string;
+  who: string;
+  what: string;
+  result: string;
   image: string;
-  tags: string[];
   link: string;
+  tags: string[];
+  backgroundColor: string;
+  buttonColor: string;
+  description: React.ReactNode;
   index: number;
 }
 
-const CaseStudyCard = ({
+const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   title,
-  description,
+  year,
+  who,
+  what,
+  result,
   image,
-  tags,
   link,
-  index
-}: CaseStudyCardProps) => {
-  const { elementRef, scrollAnimation } = useGSAP();
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (cardRef.current) {
-      scrollAnimation(
-        cardRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out'
-        },
-        {
-          start: 'top bottom-=100',
-          end: 'bottom center',
-          toggleActions: 'play none none reverse'
-        }
-      );
-    }
-  }, []);
-
+  tags,
+  backgroundColor,
+  buttonColor,
+  description,
+  index,
+}) => {
   return (
     <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 50 }}
-      whileHover={{ y: -10 }}
-      transition={{ duration: 0.3 }}
-      className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <div className="aspect-w-16 aspect-h-9 overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
-          loading={index === 0 ? 'eager' : 'lazy'}
-        />
-      </div>
-      
-      <div className="p-6">
-        <h3 className="text-2xl font-serif font-bold mb-3 text-gray-900 dark:text-white">
-          {title}
-        </h3>
-        
-        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-          {description}
-        </p>
-        
-        <div className="flex flex-wrap gap-2 mb-6">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
+      <Card className="rounded-3xl shadow-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow duration-300" style={{ backgroundColor }}>
+        <div className="relative">
+          <ZoomableImage
+            src={image}
+            alt={title}
+            className="w-full h-48 md:h-64 object-cover"
+          />
+          <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-lg text-sm font-medium text-foreground">
+            {year}
+          </div>
         </div>
-        
-        <Link
-          to={link}
-          className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
-          aria-label={`Read case study: ${title}`}
-        >
-          Read Case Study
-          <svg
-            className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M17 8l4 4m0 0l-4 4m4-4H3"
-            />
-          </svg>
-        </Link>
-      </div>
+        <CardHeader>
+          <CardTitle className="text-2xl font-bold text-foreground mb-4">{title}</CardTitle>
+          <CardDescription>
+            <div className="space-y-4">
+              <div>
+                <span className="text-sm font-medium text-foreground/70">Who:</span>
+                <p className="text-foreground/90">{who}</p>
+              </div>
+              <div>
+                <span className="text-sm font-medium text-foreground/70">What:</span>
+                <p className="text-foreground/90">{what}</p>
+              </div>
+              <div>
+                <span className="text-sm font-medium text-foreground/70">Result:</span>
+                <p className="text-foreground/90">{result}</p>
+              </div>
+            </div>
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-6">
+            {description}
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1 bg-secondary/20 text-secondary-foreground text-sm rounded-lg"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </CardContent>
+        <Button asChild className="inline-flex items-center justify-center w-full text-white hover:opacity-90 px-6 py-3 text-base font-medium rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2" style={{ backgroundColor: buttonColor }}>
+          <Link to={link}>
+            <span>View Case Study</span>
+            <span className="material-symbols-outlined ml-2" aria-hidden="true">arrow_forward</span>
+          </Link>
+        </Button>
+      </Card>
     </motion.div>
   );
 };

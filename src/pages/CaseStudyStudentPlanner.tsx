@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "../components/layout/Header.tsx";
+import Footer from "../components/layout/Footer.tsx";
 // Removed ElanThinking import as blockquotes will be styled directly
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const CaseStudyStudentPlanner = () => {
   return (
@@ -20,10 +20,10 @@ const CaseStudyStudentPlanner = () => {
         
         <article className="max-w-3xl mx-auto">
            {/* Meta Info - Stays at the top */}
-           <Card isExpanded={true}> {/* Assuming Card is a custom component */}
+           <Card>
              <CardContent>
                <div className="mb-4 flex items-center space-x-3">
-                 <Badge className="bg-brand-badge-bg text-foreground px-2.5 py-1 text-xs font-medium rounded">Case Study</Badge>
+                 <Badge className="bg-secondary text-secondary-foreground px-2.5 py-1 text-xs font-medium rounded">Case Study</Badge>
                  <span className="text-xs text-foreground/60">Published May 2025</span>
                </div>
 

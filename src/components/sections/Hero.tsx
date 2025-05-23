@@ -1,197 +1,419 @@
-import { Button } from "../ui/button.tsx";
-import { ArrowRight, Download, Mail, Phone, Linkedin, MessageSquare } from "lucide-react";
-import { useIsMobile } from "../hooks/use-mobile.js";
-import { Badge } from "../components/ui/badge.tsx"; // Updated path
-// Card components were imported but not used in the final version
-// import { Card, CardContent, CardFooter, CardHeader } from "./ui/card.tsx";
+import { Button } from "../components/ui/button.tsx";
+import { ArrowRight, Download, GraduationCap, ShoppingCart, Network, Rocket, Linkedin } from "lucide-react";
+import { useIsMobile } from "../hooks/use-mobile.ts";
+import { Badge } from "../components/ui/badge.tsx";
+import { Card, CardContent, CardFooter, CardHeader } from "../components/ui/card.tsx";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion.tsx";
-import CaseStudyCard from "../components/CaseStudyCard.tsx"; // Updated path
+} from "../components/ui/accordion.tsx";
+import CaseStudyCard from "../CaseStudyCard.tsx";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useState, useEffect, useRef } from "react";
-import SectionReveal from "./SectionReveal.tsx";
-import { useGSAP } from '../../lib/gsap/useGSAP.js';
-import { motion } from 'framer-motion';
-import TypingAnimation from '../TypingAnimation.js';
+import { TextPlugin } from "gsap/TextPlugin";
+import { useEffect, useState, useRef } from "react";
+import SkillsBentoGrid from "../Skills.tsx";
 
-const phrases = [
-  'UX Designer',
-  'Product Designer',
-  'Interaction Designer',
-  'Design Systems Expert',
-  'Accessibility Advocate'
-];
+gsap.registerPlugin(TextPlugin);
+
+interface MatchMediaConditions {
+  isReduced: boolean;
+  isNotReduced: boolean;
+}
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
   const isMobile = useIsMobile();
-  const { elementRef, scrollAnimation } = useGSAP();
-  const heroRef = useRef<HTMLElement>(null);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const tl = gsap.timeline();
-
-    tl.fromTo(
-      ".hero-text",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, delay: 0.5, stagger: 0.2 }
-    );
-
-    tl.to(".hero-text", {
-      y: -50,
-      scrollTrigger: {
-        trigger: ".hero-text",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 1,
-      },
-    });
-
-    tl.fromTo(
-      ".elan-text",
-      { rotation: 0 },
-      { rotation: 5, duration: 0.5, yoyo: true, repeat: 1 }
-    );
-
-    setLoaded(true);
-  }, []);
+  const phrases = [
+    "Simplifying Enterprise Experiences",
+    "UX Designer specializing in Enterprise SaaS",
+    "Crafting User-Centric Digital Experiences",
+    "Transforming Complexity into Clarity",
+    "Expert in EdTech & HR Tech"
+  ];
 
   useEffect(() => {
-    if (heroRef.current) {
-      scrollAnimation(
-        heroRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out'
-        },
-        {
-          start: 'top center',
-          end: 'bottom center',
-          toggleActions: 'play none none reverse'
+    // Set loaded state immediately
+    setLoaded(true);
+
+    if (headlineRef.current) {
+      try {
+        const mm = gsap.matchMedia();
+
+        mm.add({
+          isReduced: "(prefers-reduced-motion: reduce)",
+          isNotReduced: "(prefers-reduced-motion: no-preference)"
+        }, (context) => {
+          if (!context.conditions) return;
+
+          const { isReduced, isNotReduced } = context.conditions as unknown as MatchMediaConditions;
+
+          if (isNotReduced) {
+            gsap.set(headlineRef.current, { text: "" });
+            const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+
+            phrases.forEach((phrase, index) => {
+              if (index === 0) {
+                tl.set(headlineRef.current, { text: "", opacity: 0, y: 20 })
+                  .to(headlineRef.current, {
+                      opacity: 1, y: 0, duration: 0.4, ease: "power1.out"
+                  })
+                  .to(headlineRef.current, {
+                      text: phrase, duration: phrase.length * 0.06, ease: "none",
+                  }, "+=0.2")
+                  .to(headlineRef.current, { duration: 2 }, "+=0.5");
+              } else {
+                tl.to(headlineRef.current, {
+                    opacity: 0, y: -20, duration: 0.4, ease: "power1.in"
+                });
+                tl.set(headlineRef.current, { text: "", opacity: 0, y: 20 })
+                  .to(headlineRef.current, {
+                      opacity: 1, y: 0, duration: 0.4, ease: "power1.out"
+                  })
+                  .to(headlineRef.current, {
+                      text: phrase, duration: phrase.length * 0.06, ease: "none",
+                  }, "+=0.2")
+                  .to(headlineRef.current, { duration: 2 }, "+=0.5");
+              }
+            });
+
+            tl.to(headlineRef.current, {
+                opacity: 0, y: -20, duration: 0.4, ease: "power1.in"
+            });
+
+          } else if (isReduced) {
+            gsap.set(headlineRef.current, { text: phrases[0], opacity: 0 });
+            gsap.to(headlineRef.current, { opacity: 1, duration: 1, ease: "power1.out" });
+          }
+
+          return () => {
+            gsap.killTweensOf(headlineRef.current);
+          };
+        });
+
+        return () => {
+            mm.revert();
+        };
+      } catch (error) {
+        console.error('Error in Hero animation:', error);
+        // Fallback to static text if animation fails
+        if (headlineRef.current) {
+          headlineRef.current.textContent = phrases[0];
         }
-      );
+      }
     }
   }, []);
 
   const industries = [
     {
       title: "EdTech",
+      iconName: "GraduationCap",
       content:
         "Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals.   Revamped SIS through evaluation, design systems, and redesign of 30+ features.    Directed LMS design focusing on accessibility, usability, and scalable workflows.    Designed Student Portal for seamless navigation and mobile responsiveness.    Created eLearning platform for trading courses.",
     },
     {
       title: "eCommerce",
+      iconName: "ShoppingCart",
       content:
         "Redesigned key flows for a B2B pharma eCommerce site.   Designed eCommerce experiences for brands like Robinson Co. and Natural Partners.    Improved product discovery, navigation and checkout flows.    Crafted scalable UI systems for quick orders, subscriptions, and account management.",
     },
     {
-      title: "Connected Home",
+      title: "Connected Tech",
+      iconName: "Network",
       content:
-        "Led design for connected home interfaces (consumer & industrial IoT).   Founding member of product/design team, revamped platform, built design system.    Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine.",
-    },
-    {
-      title: "Construction",
-      content:
-        "Designed construction asset management app for real-time tool tracking.   ",
+        "Led design for connected home interfaces (consumer & industrial IoT).   Founding member of product/design team, revamped platform, built design system.    Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine. Experience includes designing asset management solutions for real-time tool tracking in industrial IoT settings.",
     },
     {
       title: "Startup",
+      iconName: "Rocket",
       content: "Contributed to the design and development of various startup products, focusing on user-centered design and rapid iteration.  ",
     }
   ];
 
+  const iconMap: { [key: string]: React.ElementType } = {
+    GraduationCap: GraduationCap,
+    ShoppingCart: ShoppingCart,
+    Network: Network,
+    Rocket: Rocket,
+  };
+
+  // Add ripple effect handler
+  const handleRipple = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
+    const button = e.currentTarget;
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
+    circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
+    circle.classList.add("ripple");
+    const ripple = button.getElementsByClassName("ripple")[0];
+    if (ripple) {
+      ripple.remove();
+    }
+    button.appendChild(circle);
+  };
+
   return (
-    <motion.section
-      ref={heroRef}
-      initial={{ opacity: 0, y: 20 }}
-      className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
-    >
-      <div className="max-w-7xl mx-auto text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 dark:text-white"
-        >
-          Hi, I'm Elanthamilan
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-2xl md:text-4xl font-serif mb-8 text-gray-700 dark:text-gray-300"
-        >
-          <TypingAnimation
-            phrases={phrases}
-            className="inline-block min-h-[2.5em]"
-          />
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12"
-        >
-          I create intuitive and accessible digital experiences that solve real user problems.
-          Specializing in UX research, interaction design, and design systems.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex flex-wrap justify-center gap-4"
-        >
-          <a
-            href="/resume"
-            className="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
-            aria-label="View Resume"
-          >
-            View Resume
-          </a>
-          <a
-            href="/contact"
-            className="px-8 py-3 bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 rounded-full border border-blue-600 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors"
-            aria-label="Get in Touch"
-          >
-            Get in Touch
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-20"
-        >
-          <div className="flex justify-center">
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center"
-            >
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-1 h-2 bg-gray-400 dark:bg-gray-600 rounded-full mt-2"
-              />
-            </motion.div>
+    <section className={`py-16 md:py-24 text-foreground relative bg-background fade-in ${loaded ? 'loaded' : ''}`} style={{ opacity: loaded ? 1 : 0 }}>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 items-start">
+          <div className="space-y-8 md:space-y-10">
+            <div>
+              <Badge className="bg-primary text-primary-foreground px-3 py-1.5 text-sm font-medium rounded">
+                Enterprise UX Designer
+              </Badge>
+              <h1 ref={headlineRef} className="mt-4 mb-6 text-4xl md:text-5xl lg:text-6xl font-heading font-semibold leading-tight" style={{ minHeight: '150px' }}>
+                {phrases[0]}
+              </h1>
+              <div className="flex items-center mb-8 space-x-2">
+                <span className="text-xl md:text-2xl font-sans font-medium text-foreground font-dm-sans">Hi, I'm <span className="font-heading text-primary">Elan</span> <span role='img' aria-label='wave'>👋</span><span role='img' aria-label='nerd'>🤓</span></span>
+              </div>
+              <p className="text-foreground/80 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
+                Experienced UX designer specializing in enterprise SaaS, EdTech, and HR Tech. I transform complex business challenges into intuitive, user-centered solutions that drive measurable impact and enhance usability for large-scale products.
+              </p>
+              <div className="w-full mb-8 flex justify-start">
+                <Button
+                  className="bg-[#156152] text-white hover:bg-[#156152]/90 transition-colors shadow-md text-base font-medium py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#156152] focus:ring-offset-2 flex items-center gap-2"
+                  asChild
+                >
+                  <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                    <Download className="h-5 w-5" aria-hidden="true" />
+                    Download Resume
+                  </a>
+                </Button>
+              </div>
+              <div className="py-6 border-t border-b border-brand-light-gray-accent">
+                <div className="px-0">
+                  <h3 className="font-heading font-semibold text-foreground mb-4 text-lg">Brands I Have Worked With</h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+                    <div className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all text-center">
+                      <img src="/Elanable-uploads/Camu.png" alt="Camu" width="80" height="40" className="object-contain mx-auto" />
+                      <p className="text-xs text-foreground/70 mt-2">Camu</p>
+                    </div>
+                    <div className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all text-center">
+                      <img src="/Elanable-uploads/Mastek.png" alt="Mastek" width="80" height="40" className="object-contain mx-auto" />
+                      <p className="text-xs text-foreground/70 mt-2">Mastek</p>
+                    </div>
+                    <div className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all text-center">
+                      <img src="/Elanable-uploads/Geninfy.jpg" alt="Geninfy" width="80" height="40" className="object-contain mx-auto" />
+                      <p className="text-xs text-foreground/70 mt-2">Geninfy</p>
+                    </div>
+                    <div className="grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all text-center">
+                      <img src="/Elanable-uploads/Oceo.svg" alt="Oceo" width="80" height="40" className="object-contain mx-auto" />
+                      <p className="text-xs text-foreground/70 mt-2">Oceo</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 border-t border-b border-brand-light-gray-accent py-6">
+                <div className="text-center">
+                  <span className="text-xs text-foreground/60 block uppercase tracking-wider">Experience</span>
+                  <span className="font-semibold text-xl md:text-2xl block text-foreground mt-1">8+ Years</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-xs text-foreground/60 block uppercase tracking-wider">Products</span>
+                  <span className="font-semibold text-xl md:text-2xl block text-foreground mt-1">10+</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-xs text-foreground/60 block uppercase tracking-wider">Features</span>
+                  <span className="font-semibold text-xl md:text-2xl block text-foreground mt-1">30+</span>
+                </div>
+                <div className="text-center">
+                  <span className="text-xs text-foreground/60 block uppercase tracking-wider">Systems</span>
+                  <span className="font-semibold text-xl md:text-2xl block text-foreground mt-1">2</span>
+                </div>
+              </div>
+              {/* Industries Accordion - Apple-like, EdTech open by default, improved contrast */}
+              <div className="py-6 border-b border-brand-light-gray-accent">
+                <h3 className="font-heading font-semibold text-foreground mb-4 text-lg">Industries I have Worked In</h3>
+                <Accordion type="single" collapsible defaultValue="EdTech" className="w-full rounded-xl bg-transparent text-foreground shadow-md border border-gray-200">
+                  {industries.map((industry) => (
+                    <AccordionItem value={industry.title} key={industry.title} className="border-b border-brand-light-gray-accent last:border-b-0">
+                      <AccordionTrigger className="flex items-center w-full py-4 px-4 text-left font-semibold text-lg rounded-lg hover:bg-gray-100 focus:bg-gray-100 transition-colors data-[state=open]:bg-gray-50 data-[state=open]:text-primary">
+                        {(() => {
+                          const IconComponent = iconMap[industry.iconName];
+                          return IconComponent ? <IconComponent className="mr-3 h-6 w-6 flex-shrink-0 text-primary" aria-hidden="true" /> : null;
+                        })()}
+                        <span>{industry.title}</span>
+                      </AccordionTrigger>
+                      <AccordionContent className="pt-2 pb-4 px-6 text-foreground/90 text-base leading-relaxed bg-transparent rounded-b-lg">
+                        {industry.content}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+               <div className="py-6 border-t border-brand-light-gray-accent">
+                 <h3 className="font-heading font-semibold text-foreground mb-4 text-lg">Get In Touch</h3>
+                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <Button
+                      onClick={() => {
+                        navigator.clipboard.writeText("elanthamilan12@gmail.com");
+                        alert("Email copied to clipboard!");
+                      }}
+                      className="inline-flex items-center justify-center px-4 py-2.5 bg-accent text-accent-foreground hover:bg-gray-800 transition-colors rounded text-sm font-medium"
+                      aria-label="Copy Email to Clipboard"
+                    >
+                      <span className="material-symbols-outlined mr-2 flex-shrink-0 text-base" aria-hidden="true">mail</span>
+                      <span>elanthamilan12@gmail.com</span>
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        navigator.clipboard.writeText("+918148622302");
+                        alert("Phone number copied to clipboard!");
+                      }}
+                      className="inline-flex items-center justify-center px-4 py-2.5 bg-accent text-accent-foreground hover:bg-gray-800 transition-colors rounded text-sm font-medium"
+                      aria-label="Copy Phone to Clipboard"
+                    >
+                      <span className="material-symbols-outlined mr-2 flex-shrink-0 text-base" aria-hidden="true">call</span>
+                      <span>+918148622302</span>
+                    </Button>
+                    <a
+                      href="https://wa.me/918148622302"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center px-4 py-2.5 bg-accent text-accent-foreground hover:bg-accent/80 transition-colors rounded text-sm font-medium"
+                      aria-label="Copy via WhatsApp"
+                    >
+                      <span className="material-symbols-outlined mr-2 flex-shrink-0 text-base" aria-hidden="true">chat</span>
+                      <span>WhatsApp</span>
+                    </a>
+                    <a
+                      href="https://linkedin.com/in/elanthamilan"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center px-4 py-2.5 bg-accent text-accent-foreground hover:bg-accent/80 transition-colors rounded text-sm font-medium"
+                      aria-label="Visit LinkedIn Profile"
+                    >
+                      <Linkedin className="mr-2 h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                      <span>LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+            </div>
           </div>
-        </motion.div>
-      </div>
-    </motion.section>
-  );
-};
 
-export default Hero;
+          <div className={isMobile ? "mt-12 w-full" : "mt-12"} style={{maxWidth: "720px", width: "100%"}}>
+            <div className="h-full">
+              <div className="mb-8">
+                <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground">
+                  Case Studies
+                </h2>
+              </div>
+              <div className="space-y-8">
+                <CaseStudyCard
+                  title="Campus Hiring"
+                  year="2023"
+                  who="Top Indian University"
+                  what="End-to-end campus hiring platform"
+                  result="50% reduction in hiring time"
+                  image="/Elanable-uploads/Camu Campus Recruitment App.png"
+                  link="/case-study/campus-hiring"
+                  tags={['Education', 'Web Application', 'UI/UX']}
+                  backgroundColor="#F2F8F7"
+                  buttonColor="#156152"
+                  description={<>
+                    <p className="mb-2 text-base text-foreground/90">A platform to streamline campus hiring processes.</p>
+                  </>}
+                  index={0}
+                />
+                <CaseStudyCard
+                  title="Student Course Planner Redesign"
+                  year="2025"
+                  who="University Students"
+                  what="AI-powered course planning tool"
+                  result="60% reduction in scheduling time"
+                  image="/Elanable-uploads/78be9a59-8230-4ea5-b024-d96fd3cdd83e.png"
+                  link="/case-study/student-planner"
+                  tags={["AI Integration", "UX Research", "Education"]}
+                  backgroundColor="#F3F6F9"
+                  buttonColor="#16325A"
+                  description={<>
+                    <p className="mb-2 text-base text-foreground/90">A redesign of a student course planning tool with AI integration.</p>
+                  </>}
+                  index={1}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Render Skills section as a visually separated, Apple-like bento grid below Hero
+export default function HeroWithSkills() {
+  return (
+    <>
+      <Hero />
+      <section className="w-full py-24 bg-gradient-to-b from-background to-gray-50 dark:to-gray-900">
+        <div className="max-w-7xl mx-auto px-4">
+          <span className="bg-secondary text-secondary-foreground px-3 py-1.5 text-sm font-medium rounded mb-4 inline-block">My Expertise</span>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 text-center text-foreground">Skills & Expertise</h2>
+          <p className="text-foreground/80 max-w-2xl mx-auto text-lg leading-relaxed mb-12 text-center">
+            With over 8 years of experience, I've developed a comprehensive skill set focused on creating exceptional user experiences for enterprise products.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
+            <div className="col-span-2 row-span-2 bg-white/90 dark:bg-gray-900/80 rounded-3xl shadow-xl p-8 flex flex-col items-start justify-between border border-gray-100 dark:border-gray-800 hover:scale-[1.02] transition-transform">
+              <span className="text-5xl mb-4" role="img" aria-label="UI Design">🎨</span>
+              <h3 className="text-2xl font-bold mb-2 text-foreground">UI Design</h3>
+              <p className="text-foreground/80 text-base mb-4">Wireframing, prototyping, and visual design for enterprise products.</p>
+            </div>
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-3xl shadow-lg p-6 flex flex-col items-start border border-blue-100 dark:border-blue-800 hover:scale-[1.02] transition-transform">
+              <span className="text-4xl mb-3" role="img" aria-label="UX Research">🔍</span>
+              <h3 className="text-xl font-semibold mb-1 text-foreground">UX Research</h3>
+              <p className="text-foreground/80 text-base">User interviews, surveys, usability testing, and data analysis.</p>
+            </div>
+            <div className="bg-green-50 dark:bg-green-900/20 rounded-3xl shadow-lg p-6 flex flex-col items-start border border-green-100 dark:border-green-800 hover:scale-[1.02] transition-transform">
+              <span className="text-4xl mb-3" role="img" aria-label="Design Systems">🎯</span>
+              <h3 className="text-xl font-semibold mb-1 text-foreground">Design Systems</h3>
+              <p className="text-foreground/80 text-base">Component libraries, style guides, and design tokens.</p>
+            </div>
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-3xl shadow-lg p-6 flex flex-col items-start border border-yellow-100 dark:border-yellow-800 hover:scale-[1.02] transition-transform">
+              <span className="text-4xl mb-3" role="img" aria-label="Accessibility">♿</span>
+              <h3 className="text-xl font-semibold mb-1 text-foreground">Accessibility</h3>
+              <p className="text-foreground/80 text-base">WCAG compliance, inclusive design, and usability.</p>
+            </div>
+            <div className="bg-pink-50 dark:bg-pink-900/20 rounded-3xl shadow-lg p-6 flex flex-col items-start border border-pink-100 dark:border-pink-800 hover:scale-[1.02] transition-transform">
+              <span className="text-4xl mb-3" role="img" aria-label="Interaction Design">✨</span>
+              <h3 className="text-xl font-semibold mb-1 text-foreground">Interaction Design</h3>
+              <p className="text-foreground/80 text-base">Micro-interactions, animations, and motion design.</p>
+            </div>
+            <div className="bg-red-50 dark:bg-red-900/20 rounded-3xl shadow-lg p-6 flex flex-col items-start border border-red-100 dark:border-red-800 hover:scale-[1.02] transition-transform">
+              <span className="text-4xl mb-3" role="img" aria-label="Product Strategy">📈</span>
+              <h3 className="text-xl font-semibold mb-1 text-foreground">Product Strategy</h3>
+              <p className="text-foreground/80 text-base">User-centered design thinking and product roadmaps.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+<style>{`
+  .ripple {
+    position: absolute;
+    border-radius: 9999px;
+    transform: scale(0);
+    animation: ripple 500ms linear;
+    background: rgba(25, 118, 210, 0.18);
+    pointer-events: none;
+    z-index: 10;
+  }
+  @keyframes ripple {
+    to {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+  .m3-btn {
+    position: relative;
+    overflow: hidden;
+  }
+`}</style>

@@ -1,0 +1,1 @@
+All files in this folder except README-REMOVE-ME.txt and custom components can be deleted. UI primitives are now provided by shadcn/ui in src/components/components/ui/.
