@@ -18,10 +18,18 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    emptyOutDir: true,
+    sourcemap: false,
+    minify: true,
     rollupOptions: {
       output: {
         manualChunks: undefined,
       },
     },
   },
+  preview: {
+    port: 3000,
+    strictPort: true,
+    host: true
+  }
 }); 
