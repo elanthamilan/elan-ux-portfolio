@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const AnimatedHeroBackground: React.FC = React.memo(() => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<SVGSVGElement>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const AnimatedHeroBackground: React.FC = React.memo(() => {
       return;
     }
 
-    const svg = containerRef.current; // containerRef is the SVG element itself
+    const svg = containerRef.current;
     if (!svg) return;
 
     const numLines = 25;
@@ -33,7 +33,6 @@ const AnimatedHeroBackground: React.FC = React.memo(() => {
     // If not, we'll use the HSL values directly. For this example, using a placeholder for --primary-hsl
     // Let's use the HSL values for brand-primary: 181, 48%, 32%
     const brandPrimaryHsl = { h: 181, s: 48, l: 32 };
-
 
     for (let i = 0; i < numLines; i++) {
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -127,17 +126,12 @@ const AnimatedHeroBackground: React.FC = React.memo(() => {
   return (
     <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
       <svg ref={containerRef} width="100%" height="100%" className="block" preserveAspectRatio="xMidYMid slice">
-        {/* Lines dynamically added by GSAP */}
-      </svg>
-    </div>
-  );
-});
-AnimatedHeroBackground.displayName = "AnimatedHeroBackground";
         {/* Lines will be dynamically added here by GSAP */}
       </svg>
     </div>
   );
 });
+
 AnimatedHeroBackground.displayName = "AnimatedHeroBackground";
 
 export default AnimatedHeroBackground;
