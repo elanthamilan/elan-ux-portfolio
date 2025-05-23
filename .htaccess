@@ -1,8 +1,28 @@
+# Set correct MIME types for JavaScript files
 AddType application/javascript .js
 AddType application/javascript .mjs
 AddType application/javascript .ts
 AddType application/javascript .tsx
+AddType application/javascript .js.map
+AddType application/javascript .mjs.map
+AddType application/javascript .ts.map
+AddType application/javascript .tsx.map
 
-<FilesMatch "\.(js|mjs|ts|tsx)$">
+# Force JavaScript MIME type for all JavaScript files
+<FilesMatch "\.(js|mjs|ts|tsx|js\.map|mjs\.map|ts\.map|tsx\.map)$">
     Header set Content-Type "application/javascript"
+    Header set X-Content-Type-Options "nosniff"
+</FilesMatch>
+
+# Enable CORS
+Header set Access-Control-Allow-Origin "*"
+
+# Enable compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>
+
+# Cache control
+<FilesMatch "\.(js|mjs|ts|tsx|css|html|json)$">
+    Header set Cache-Control "public, max-age=31536000"
 </FilesMatch> 
