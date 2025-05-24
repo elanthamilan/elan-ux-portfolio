@@ -1,4 +1,4 @@
-import { R as React, r as reactExports, g as gsapWithCSS, S as ScrollTrigger, j as jsxRuntimeExports, A as AnimatePresence, m as motion, L as Link, u as useLocation } from "./index-CeAM5WGX.js";
+import { R as React, r as reactExports, g as gsapWithCSS, S as ScrollTrigger, j as jsxRuntimeExports, L as Link, u as useLocation, A as AnimatePresence, m as motion } from "./index-Cxmww_Gd.js";
 gsapWithCSS.registerPlugin(ScrollTrigger);
 const SectionReveal = React.memo(({ children }) => {
   const ref = reactExports.useRef(null);
@@ -2853,6 +2853,23 @@ const House = createLucideIcon("House", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
+const Linkedin = createLucideIcon("Linkedin", [
+  [
+    "path",
+    {
+      d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z",
+      key: "c2jq9f"
+    }
+  ],
+  ["rect", { width: "4", height: "12", x: "2", y: "9", key: "mk3on5" }],
+  ["circle", { cx: "4", cy: "4", r: "2", key: "bt5ra8" }]
+]);
+/**
+ * @license lucide-react v0.462.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
 const Mail = createLucideIcon("Mail", [
   ["rect", { width: "20", height: "16", x: "2", y: "4", rx: "2", key: "18n3k1" }],
   ["path", { d: "m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7", key: "1ocrg3" }]
@@ -2867,6 +2884,15 @@ const Menu = createLucideIcon("Menu", [
   ["line", { x1: "4", x2: "20", y1: "12", y2: "12", key: "1e0a9i" }],
   ["line", { x1: "4", x2: "20", y1: "6", y2: "6", key: "1owob3" }],
   ["line", { x1: "4", x2: "20", y1: "18", y2: "18", key: "yk5zj1" }]
+]);
+/**
+ * @license lucide-react v0.462.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const MessageSquare = createLucideIcon("MessageSquare", [
+  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ]);
 /**
  * @license lucide-react v0.462.0 - ISC
@@ -2913,142 +2939,6 @@ const badgeVariants = cva(
 function Badge({ className, variant, ...props }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: cn(badgeVariants({ variant }), className), ...props });
 }
-const ZoomableImage = React.memo(({ src, alt, className = "" }) => {
-  const [isZoomed, setIsZoomed] = reactExports.useState(false);
-  const [position, setPosition] = reactExports.useState({ x: 0, y: 0 });
-  const [isLoading, setIsLoading] = reactExports.useState(true);
-  const imageRef = reactExports.useRef(null);
-  const containerRef = reactExports.useRef(null);
-  const closeButtonRef = reactExports.useRef(null);
-  const handleClose = reactExports.useCallback(() => {
-    var _a;
-    setIsZoomed(false);
-    (_a = containerRef.current) == null ? void 0 : _a.focus();
-  }, []);
-  const handleClick = reactExports.useCallback(() => {
-    if (!isLoading) {
-      setIsZoomed((prevIsZoomed) => !prevIsZoomed);
-    }
-  }, [isLoading]);
-  const handleKeyDown = reactExports.useCallback((e) => {
-    if (e.key === "Escape" && isZoomed) {
-      handleClose();
-    } else if ((e.key === "Enter" || e.key === " ") && !isLoading) {
-      e.preventDefault();
-      handleClick();
-    }
-  }, [isZoomed, isLoading, handleClose, handleClick]);
-  const handleMouseMove = reactExports.useCallback((e) => {
-    if (!containerRef.current || !imageRef.current || !isZoomed) return;
-    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - left) / width * 100;
-    const y = (e.clientY - top) / height * 100;
-    setPosition({ x, y });
-  }, [isZoomed]);
-  reactExports.useEffect(() => {
-    const localHandleClickOutside = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
-        handleClose();
-      }
-    };
-    const localHandleEscapeAndTab = (e) => {
-      if (e.key === "Escape") {
-        handleClose();
-      } else if (e.key === "Tab") {
-        if (closeButtonRef.current && document.activeElement === closeButtonRef.current) {
-          e.preventDefault();
-        } else if (closeButtonRef.current) {
-          closeButtonRef.current.focus();
-          e.preventDefault();
-        }
-      }
-    };
-    if (isZoomed) {
-      document.addEventListener("mousedown", localHandleClickOutside);
-      document.addEventListener("keydown", localHandleEscapeAndTab);
-      const timer = setTimeout(() => {
-        var _a;
-        (_a = closeButtonRef.current) == null ? void 0 : _a.focus();
-      }, 100);
-      return () => {
-        clearTimeout(timer);
-        document.removeEventListener("mousedown", localHandleClickOutside);
-        document.removeEventListener("keydown", localHandleEscapeAndTab);
-      };
-    }
-  }, [isZoomed, handleClose]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
-    {
-      ref: containerRef,
-      className: `relative overflow-hidden ${!isLoading ? "cursor-zoom-in" : "cursor-wait"} ${className}`,
-      onClick: handleClick,
-      onMouseMove: handleMouseMove,
-      onKeyDown: handleKeyDown,
-      role: "button",
-      tabIndex: 0,
-      "aria-label": `${isZoomed ? "Close" : "Zoom"} image: ${alt}`,
-      children: [
-        isLoading && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 flex items-center justify-center bg-accent-bg dark:bg-slate-800 rounded-lg", children: [
-          " ",
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 border-4 border-brand-primary border-t-transparent rounded-full animate-spin" }),
-          " "
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "img",
-          {
-            ref: imageRef,
-            src,
-            alt,
-            className: `w-full h-full object-cover transition-transform duration-300 ${isZoomed ? "scale-150" : "hover:scale-105"} ${isLoading ? "opacity-0" : "opacity-100"}`,
-            style: isZoomed ? {
-              transformOrigin: `${position.x}% ${position.y}%`
-            } : {},
-            onLoad: () => setIsLoading(false),
-            loading: "lazy"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: isZoomed && /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          motion.div,
-          {
-            initial: { opacity: 0 },
-            animate: { opacity: 1 },
-            exit: { opacity: 0 },
-            className: "fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4",
-            onClick: (e) => e.stopPropagation(),
-            role: "dialog",
-            "aria-modal": "true",
-            "aria-label": "Zoomed image view",
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                motion.img,
-                {
-                  initial: { scale: 0.5 },
-                  animate: { scale: 1 },
-                  exit: { scale: 0.5 },
-                  src,
-                  alt,
-                  className: "max-w-full max-h-[90vh] object-contain"
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  ref: closeButtonRef,
-                  className: "absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors",
-                  onClick: handleClose,
-                  "aria-label": "Close zoomed view",
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-6 h-6" })
-                }
-              )
-            ]
-          }
-        ) })
-      ]
-    }
-  );
-});
-ZoomableImage.displayName = "ZoomableImage";
 const Card = reactExports.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   "div",
   {
@@ -3178,73 +3068,59 @@ const Footer = () => {
       label: "Call Phone"
     }
   ];
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "bg-accent-off-white/50 border-t border-slate-200 dark:border-slate-700 text-foreground mt-16", role: "contentinfo", children: [
-    " ",
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-12", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center mb-8 text-center md:text-left", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-          " ",
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            Link,
-            {
-              to: "/",
-              "aria-current": "page",
-              className: "text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors inline-flex items-center gap-2",
-              children: [
-                "Elan",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "material-symbols-outlined text-brand-tertiary", "aria-hidden": "true", children: "auto_awesome" })
-              ]
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground", children: "Enterprise UX Designer specializing in SaaS, EdTech, and HR Tech" }),
-          " "
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "flex flex-wrap gap-3 justify-center md:justify-self-end", "aria-label": "Social media links", children: [
-          " ",
-          socialLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "a",
-            {
-              href: link.href,
-              target: "_blank",
-              rel: "noopener noreferrer",
-              className: "group rounded-full p-2.5 text-foreground hover:text-brand-primary hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 transition-all duration-200",
-              "aria-label": link.label,
-              children: [
-                React.cloneElement(link.icon, { className: "w-5 h-5 group-hover:scale-110 transition-transform" }),
-                " ",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: link.label })
-              ]
-            },
-            link.name
-          ))
-        ] })
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "bg-accent-off-white/50 border-t border-slate-200 dark:border-slate-700 text-foreground mt-16", role: "contentinfo", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-12", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:grid md:grid-cols-[1fr_auto] gap-8 items-center mb-8 md:text-left", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          Link,
+          {
+            to: "/",
+            "aria-current": "page",
+            className: "text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors inline-flex items-center gap-2",
+            children: [
+              "Elan",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "material-symbols-outlined text-brand-tertiary", "aria-hidden": "true", children: "auto_awesome" })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground", children: "Enterprise UX Designer specializing in SaaS, EdTech, and HR Tech" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center text-foreground text-sm pt-8 border-t border-slate-200 dark:border-slate-700", children: [
-        " ",
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
-          "© ",
-          currentYear,
-          " Elan Thamilan. All rights reserved."
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-2 inline-flex items-center gap-1", children: [
-          "Built with ",
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "material-symbols-outlined text-brand-primary align-middle text-base", "aria-hidden": "true", children: "favorite" }),
-          " using React, TypeScript, and Tailwind CSS"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-6 flex justify-center", children: [
-          " ",
-          /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatedFooterAccent, {})
-        ] })
-      ] })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "flex flex-wrap gap-3 justify-center md:justify-self-end", "aria-label": "Social media links", children: socialLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "a",
+        {
+          href: link.href,
+          target: "_blank",
+          rel: "noopener noreferrer",
+          className: "group rounded-full p-2.5 text-foreground hover:text-brand-primary hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 transition-all duration-200",
+          "aria-label": link.label,
+          children: [
+            React.cloneElement(link.icon, { className: "w-5 h-5 group-hover:scale-110 transition-transform" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: link.label })
+          ]
+        },
+        link.name
+      )) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center text-foreground text-sm pt-8 border-t border-slate-200 dark:border-slate-700", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
+        "© ",
+        currentYear,
+        " Elan Thamilan. All rights reserved."
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "mt-2 inline-flex items-center gap-1", children: [
+        "Built with ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "material-symbols-outlined text-brand-primary align-middle text-base", "aria-hidden": "true", children: "favorite" }),
+        " using React, TypeScript, and Tailwind CSS"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 flex justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatedFooterAccent, {}) })
     ] })
-  ] });
+  ] }) });
 };
 const navItems = [
   { href: "/", label: "Home", icon: House },
   { href: "/case-study/campus-hiring", label: "Campus Hiring Case Study", icon: Briefcase },
-  { href: "/case-study/student-planner", label: "Student Planner Case Study", icon: Briefcase },
-  { href: "/Elanthamilan_UX_Resume.pdf", label: "Download Resume", icon: Download, isExternal: true },
-  { href: "mailto:elanthamilan12@gmail.com", label: "Email", icon: Mail, isExternal: true }
+  { href: "/case-study/student-planner", label: "Student Planner Case Study", icon: Briefcase }
+  // Removed Download Resume from navItems
 ];
 const MobileNav = React.memo(({ isOpen, onClose }) => {
   const location = useLocation();
@@ -3296,25 +3172,11 @@ const MobileNav = React.memo(({ isOpen, onClose }) => {
               ),
               /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { variant: "ghost", size: "icon", onClick: onClose, "aria-label": "Close navigation menu", children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-6 w-6 text-foreground" }) })
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col p-4 space-y-2 overflow-y-auto flex-grow", children: navItems.map((item) => item.isExternal ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "a",
-              {
-                href: item.href,
-                target: "_blank",
-                rel: "noopener noreferrer",
-                className: "flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors",
-                onClick: onClose,
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(item.icon, { className: "mr-3 h-5 w-5 text-brand-secondary" }),
-                  item.label
-                ]
-              },
-              item.label
-            ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col p-4 space-y-2 overflow-y-auto flex-grow", children: navItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
               Link,
               {
                 to: item.href,
-                className: "flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors",
+                className: "flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors w-full",
                 onClick: onClose,
                 children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx(item.icon, { className: "mr-3 h-5 w-5 text-brand-secondary" }),
@@ -3325,14 +3187,26 @@ const MobileNav = React.memo(({ isOpen, onClose }) => {
             )) }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 mt-auto border-t border-slate-200 dark:border-slate-700", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-medium text-foreground/70 mb-2", children: "Contact Information" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-foreground/70", children: "Email:" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium text-foreground", children: "elanthamilan12@gmail.com" })
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "mailto:elanthamilan12@gmail.com", className: "flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "w-5 h-5" }),
+                  "elanthamilan12@gmail.com"
                 ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-foreground/70", children: "Mobile:" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium text-foreground", children: "+918148622302" })
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "tel:+918148622302", className: "flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "w-5 h-5" }),
+                  "+918148622302"
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://wa.me/918148622302", target: "_blank", rel: "noopener noreferrer", className: "flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-5 h-5" }),
+                  "WhatsApp"
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://linkedin.com/in/elanthamilan", target: "_blank", rel: "noopener noreferrer", className: "flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Linkedin, { className: "w-5 h-5" }),
+                  "LinkedIn"
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/Elanthamilan_UX_Resume.pdf", target: "_blank", rel: "noopener noreferrer", className: "flex flex-row items-center gap-2 bg-brand-primary text-white border border-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Download, { className: "w-5 h-5" }),
+                  "Download Resume"
                 ] })
               ] })
             ] })
@@ -3435,10 +3309,11 @@ export {
   Download as D,
   Footer as F,
   Header as H,
+  Linkedin as L,
   Mail as M,
   Phone as P,
   SectionReveal as S,
-  ZoomableImage as Z,
+  X,
   createSlot as a,
   cn as b,
   createLucideIcon as c,
@@ -3447,6 +3322,7 @@ export {
   CardDescription as f,
   CardContent as g,
   Button as h,
+  MessageSquare as i,
   useComposedRefs as u
 };
-//# sourceMappingURL=Header-Cnl0bEpM.js.map
+//# sourceMappingURL=Header-BblcJzyT.js.map

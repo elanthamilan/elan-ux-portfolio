@@ -1,6 +1,7 @@
-import { j as jsxRuntimeExports, L as Link } from "./index-CeAM5WGX.js";
-import { H as Header, S as SectionReveal, C as Card, B as Badge, Z as ZoomableImage, F as Footer } from "./Header-Cnl0bEpM.js";
-import { A as ArrowLeft } from "./arrow-left-B-v4BWpG.js";
+import { j as jsxRuntimeExports, L as Link } from "./index-Cxmww_Gd.js";
+import { H as Header, S as SectionReveal, C as Card, B as Badge, F as Footer } from "./Header-BblcJzyT.js";
+import { Z as ZoomableImage } from "./ZoomableImage-BDfVuXWg.js";
+import { A as ArrowLeft, B as BigImageCarousel } from "./BigImageCarousel-BdWfKXRt.js";
 const CaseStudyCampusHiring = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-background", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
@@ -21,17 +22,14 @@ const CaseStudyCampusHiring = () => {
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl xs:text-4xl sm:text-5xl font-semibold mb-6 xs:mb-8 text-brand-primary leading-tight font-heading reveal", children: "40% Faster Campus Hiring: Camu Campus Recruitment App" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full bg-accent-bg overflow-hidden shadow-inner reveal border-y border-brand-primary/20", children: [
-            " ",
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              ZoomableImage,
-              {
-                src: "/Elanable-uploads/d194dd7b-4980-4860-bf9d-ece30b18149d.png",
-                alt: "Camu Campus Recruitment App Interface",
-                className: "aspect-video w-full"
-              }
-            )
-          ] })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            BigImageCarousel,
+            {
+              images: [
+                { src: "/src/components/ui/placeholder.svg", alt: "Camu Campus Recruitment App Interface" }
+              ]
+            }
+          )
         ] }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(SectionReveal, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-light shadow-lg border border-brand-primary/20", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal", children: "Overview/Challenge" }),
@@ -321,4 +319,4 @@ const CaseStudyCampusHiring = () => {
 export {
   CaseStudyCampusHiring as default
 };
-//# sourceMappingURL=CaseStudyCampusHiring-DKsFZ44H.js.map
+//# sourceMappingURL=CaseStudyCampusHiring-BdtqhZF-.js.map

@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/HomePage-Dg6xDQWq.js","assets/Header-Cnl0bEpM.js","assets/CaseStudyCampusHiring-DKsFZ44H.js","assets/arrow-left-B-v4BWpG.js","assets/CaseStudyStudentPlanner-B8IGo_n0.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/HomePage-D-7bItXo.js","assets/Header-BblcJzyT.js","assets/ZoomableImage-BDfVuXWg.js","assets/CaseStudyCampusHiring-BdtqhZF-.js","assets/BigImageCarousel-BdWfKXRt.js","assets/CaseStudyStudentPlanner-BMNGNWjL.js"])))=>i.map(i=>d[i]);
 function _mergeNamespaces(n2, m2) {
   for (var i = 0; i < m2.length; i++) {
     const e = m2[i];
@@ -28461,9 +28461,9 @@ const useGSAP = () => {
     isInitialized: initializedRef.current
   };
 };
-const HomePage = reactExports.lazy(() => __vitePreload(() => import("./HomePage-Dg6xDQWq.js"), true ? __vite__mapDeps([0,1]) : void 0));
-const CaseStudyCampusHiring = reactExports.lazy(() => __vitePreload(() => import("./CaseStudyCampusHiring-DKsFZ44H.js"), true ? __vite__mapDeps([2,1,3]) : void 0));
-const CaseStudyStudentPlanner = reactExports.lazy(() => __vitePreload(() => import("./CaseStudyStudentPlanner-B8IGo_n0.js"), true ? __vite__mapDeps([4,1,3]) : void 0));
+const HomePage = reactExports.lazy(() => __vitePreload(() => import("./HomePage-D-7bItXo.js"), true ? __vite__mapDeps([0,1,2]) : void 0));
+const CaseStudyCampusHiring = reactExports.lazy(() => __vitePreload(() => import("./CaseStudyCampusHiring-BdtqhZF-.js"), true ? __vite__mapDeps([3,1,2,4]) : void 0));
+const CaseStudyStudentPlanner = reactExports.lazy(() => __vitePreload(() => import("./CaseStudyStudentPlanner-BMNGNWjL.js"), true ? __vite__mapDeps([5,1,4]) : void 0));
 const LoadingSpinner = () => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-screen flex items-center justify-center bg-background", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin" }) });
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -28633,4 +28633,4 @@ export {
   reactExports as r,
   useLocation as u
 };
-//# sourceMappingURL=index-CeAM5WGX.js.map
+//# sourceMappingURL=index-Cxmww_Gd.js.map

@@ -1,5 +1,6 @@
-import { r as reactExports, j as jsxRuntimeExports, R as React, a as React$1, m as motion, L as Link, g as gsapWithCSS, S as ScrollTrigger, T as TextPlugin, A as AnimatePresence } from "./index-CeAM5WGX.js";
-import { c as createLucideIcon, u as useComposedRefs, a as createSlot, b as cn, C as Card, Z as ZoomableImage, d as CardHeader, e as CardTitle, f as CardDescription, g as CardContent, B as Badge, h as Button, S as SectionReveal, D as Download, M as Mail, P as Phone, H as Header$1, F as Footer } from "./Header-Cnl0bEpM.js";
+import { r as reactExports, j as jsxRuntimeExports, R as React, a as React$1, m as motion, L as Link, g as gsapWithCSS, S as ScrollTrigger, T as TextPlugin, A as AnimatePresence } from "./index-Cxmww_Gd.js";
+import { c as createLucideIcon, u as useComposedRefs, a as createSlot, b as cn, C as Card, d as CardHeader, e as CardTitle, f as CardDescription, g as CardContent, B as Badge, h as Button, S as SectionReveal, D as Download, M as Mail, P as Phone, i as MessageSquare, L as Linkedin, H as Header$1, F as Footer } from "./Header-BblcJzyT.js";
+import { Z as ZoomableImage } from "./ZoomableImage-BDfVuXWg.js";
 /**
  * @license lucide-react v0.462.0 - ISC
  *
@@ -35,32 +36,6 @@ const GraduationCap = createLucideIcon("GraduationCap", [
   ],
   ["path", { d: "M22 10v6", key: "1lu8f3" }],
   ["path", { d: "M6 12.5V16a6 3 0 0 0 12 0v-3.5", key: "1r8lef" }]
-]);
-/**
- * @license lucide-react v0.462.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const Linkedin = createLucideIcon("Linkedin", [
-  [
-    "path",
-    {
-      d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z",
-      key: "c2jq9f"
-    }
-  ],
-  ["rect", { width: "4", height: "12", x: "2", y: "9", key: "mk3on5" }],
-  ["circle", { cx: "4", cy: "4", r: "2", key: "bt5ra8" }]
-]);
-/**
- * @license lucide-react v0.462.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const MessageSquare = createLucideIcon("MessageSquare", [
-  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ]);
 /**
  * @license lucide-react v0.462.0 - ISC
@@ -1008,24 +983,24 @@ const CaseStudyCard = React.memo(({
           " ",
           /* @__PURE__ */ jsxRuntimeExports.jsxs(CardDescription, { className: "text-sm text-foreground/80", children: [
             " ",
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "space-y-2 text-sm", children: [
               " ",
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-semibold text-foreground/60 uppercase tracking-wider", children: "Client:" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-foreground", children: "Who:" }),
                 " ",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground mt-0.5", children: who }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-foreground/90 ml-1", children: who }),
                 " "
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-semibold text-foreground/60 uppercase tracking-wider", children: "Service:" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-foreground", children: "What:" }),
                 " ",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground mt-0.5", children: what }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-foreground/90 ml-1", children: what }),
                 " "
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-semibold text-foreground/60 uppercase tracking-wider", children: "Impact:" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-foreground", children: "Result:" }),
                 " ",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground mt-0.5", children: result }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-foreground/90 ml-1", children: result }),
                 " "
               ] })
             ] })
@@ -1412,8 +1387,8 @@ const Hero = React.memo(() => {
               variant: "default",
               size: "lg",
               asChild: true,
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/Elanthamilan_UX_Resume.pdf", target: "_blank", rel: "noopener noreferrer", className: "flex items-center gap-2.5", children: [
-                " ",
+              className: "w-full flex flex-row items-center justify-center gap-2.5 min-h-[56px] text-base font-medium",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "/Elanthamilan_UX_Resume.pdf", target: "_blank", rel: "noopener noreferrer", "aria-label": "Download Resume", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx(Download, { className: "h-5 w-5", "aria-hidden": "true" }),
                 "Download Resume"
               ] })
@@ -1425,15 +1400,10 @@ const Hero = React.memo(() => {
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-0", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-heading font-semibold text-foreground mb-3 text-md xs:text-lg", children: "Brands I Have Worked With" }),
             " ",
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center overflow-x-auto space-x-8 py-2", children: [
-              " ",
-              [{ src: "/Elanable-uploads/Camu.png", alt: "Camu" }, { src: "/Elanable-uploads/Mastek.png", alt: "Mastek" }, { src: "/Elanable-uploads/Geninfy.jpg", alt: "Geninfy" }, { src: "/Elanable-uploads/Oceo.svg", alt: "Oceo" }].map((brand) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all text-center flex-shrink-0", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: brand.src, alt: brand.alt, width: "80", height: "40", className: "object-contain mx-auto" }),
-                " ",
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-foreground/80 mt-1.5", children: brand.alt }),
-                " "
-              ] }, brand.alt))
-            ] })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row items-center overflow-x-auto space-x-12 py-2 w-full", children: [{ src: "/Elanable-uploads/Camu.png", alt: "Camu" }, { src: "/Elanable-uploads/Mastek.png", alt: "Mastek" }, { src: "/Elanable-uploads/Geninfy.jpg", alt: "Geninfy" }, { src: "/Elanable-uploads/Oceo.svg", alt: "Oceo" }].map((brand) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-auto flex flex-col items-center justify-center min-w-[120px] max-w-[180px] px-2 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all text-center p-4 md:p-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: brand.src, alt: brand.alt, width: "100", height: "48", className: "object-contain mx-auto" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-foreground/80 mt-2", children: brand.alt })
+            ] }, brand.alt)) })
           ] })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-3 xs:gap-4 sm:grid-cols-4 border-b border-slate-200 dark:border-slate-700 py-5", children: [
@@ -1467,47 +1437,59 @@ const Hero = React.memo(() => {
           " ",
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-heading font-semibold text-foreground mb-3 text-md xs:text-lg", children: "Get In Touch" }),
           " ",
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 xs:grid-cols-2 gap-2.5", children: [
-            " ",
-            [
-              { label: "elanthamilan12@gmail.com", text: "elanthamilan12@gmail.com", icon: Mail, action: () => {
-                navigator.clipboard.writeText("elanthamilan12@gmail.com");
-                alert("Email copied to clipboard!");
-              }, aria: "Copy Email to Clipboard" },
-              { label: "+918148622302", text: "+918148622302", icon: Phone, action: () => {
-                navigator.clipboard.writeText("+918148622302");
-                alert("Phone number copied to clipboard!");
-              }, aria: "Copy Phone to Clipboard" },
-              { label: "WhatsApp", text: "WhatsApp", icon: MessageSquare, href: "https://wa.me/918148622302", aria: "Chat on WhatsApp" },
-              { label: "LinkedIn", text: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/elanthamilan", aria: "Visit LinkedIn Profile" }
-            ].map((item) => item.href ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6 w-full max-w-2xl mx-auto", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "a",
               {
-                href: item.href,
+                href: "mailto:elanthamilan12@gmail.com",
+                className: "flex flex-row items-center gap-3 border border-brand-primary text-brand-primary rounded-lg py-4 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[56px] text-base font-medium justify-center",
+                "aria-label": "Send Email",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "w-5 h-5" }),
+                  "elanthamilan12@gmail.com"
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "a",
+              {
+                href: "tel:+918148622302",
+                className: "flex flex-row items-center gap-3 border border-brand-primary text-brand-primary rounded-lg py-4 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[56px] text-base font-medium justify-center",
+                "aria-label": "Call Phone",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "w-5 h-5" }),
+                  "+918148622302"
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "a",
+              {
+                href: "https://wa.me/918148622302",
                 target: "_blank",
                 rel: "noopener noreferrer",
-                className: "w-full inline-flex items-center justify-center px-4 py-3 rounded-md text-xs xs:text-sm font-medium min-h-[44px] border border-brand-primary/50 bg-transparent text-brand-primary shadow-sm hover:bg-brand-primary/10 hover:text-brand-primary hover:border-brand-primary focus-visible:ring-1 focus-visible:ring-brand-primary active:scale-95 transition-all duration-200 ease-in-out",
-                "aria-label": item.aria,
+                className: "flex flex-row items-center gap-3 border border-brand-primary text-brand-primary rounded-lg py-4 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[56px] text-base font-medium justify-center",
+                "aria-label": "Chat on WhatsApp",
                 children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(item.icon, { className: "mr-1.5 h-3.5 w-3.5 xs:h-4 xs:w-4 flex-shrink-0", "aria-hidden": "true" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item.text })
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-5 h-5" }),
+                  "WhatsApp"
                 ]
-              },
-              item.label
-            ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              Button,
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "a",
               {
-                variant: "outline",
-                onClick: item.action,
-                className: "w-full inline-flex items-center justify-center px-4 py-3 rounded-md text-xs xs:text-sm font-medium focus-visible:ring-1 focus-visible:ring-brand-primary min-h-[44px]",
-                "aria-label": item.aria,
+                href: "https://linkedin.com/in/elanthamilan",
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "flex flex-row items-center gap-3 border border-brand-primary text-brand-primary rounded-lg py-4 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[56px] text-base font-medium justify-center",
+                "aria-label": "Connect on LinkedIn",
                 children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(item.icon, { className: "mr-1.5 h-3.5 w-3.5 xs:h-4 xs:w-4 flex-shrink-0", "aria-hidden": "true" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item.text })
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Linkedin, { className: "w-5 h-5" }),
+                  "LinkedIn"
                 ]
-              },
-              item.label
-            ))
+              }
+            )
           ] })
         ] })
       ] }) }),
@@ -1527,7 +1509,7 @@ const Hero = React.memo(() => {
               tags: ["EdTech", "SaaS", "UX/UI"],
               description: /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mb-2 text-sm text-foreground", children: "A platform to streamline campus hiring processes." }) }),
               index: 0,
-              cardClassName: "bg-accent-light dark:bg-slate-800/60",
+              cardClassName: "bg-accent-light dark:bg-slate-800/60 w-full",
               accentColorName: "brand-primary"
             }
           ),
@@ -1544,7 +1526,7 @@ const Hero = React.memo(() => {
               tags: ["AI", "UX Research", "EdTech"],
               description: /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mb-2 text-sm text-foreground", children: "A redesign of a student course planning tool with AI integration." }) }),
               index: 1,
-              cardClassName: "bg-accent-bg",
+              cardClassName: "bg-accent-bg w-full",
               accentColorName: "brand-secondary",
               buttonVariant: "secondary"
             }
@@ -1646,4 +1628,4 @@ const HomePage = () => {
 export {
   HomePage as default
 };
-//# sourceMappingURL=HomePage-Dg6xDQWq.js.map
+//# sourceMappingURL=HomePage-D-7bItXo.js.map
