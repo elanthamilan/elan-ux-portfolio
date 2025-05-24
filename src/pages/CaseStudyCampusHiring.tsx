@@ -24,7 +24,7 @@ const CaseStudyCampusHiring = () => {
         <article className="max-w-7xl mx-auto">
            {/* Meta Info - Stays at the top */}
           <SectionReveal>
-            <Card className="reveal shadow-xl bg-accent-bg dark:bg-slate-800/50 border-t-4 border-brand-primary overflow-hidden">
+            <Card className="reveal shadow-lg bg-accent-bg dark:bg-slate-800/50 border-t-4 border-brand-primary overflow-hidden">
               {/* Responsive padding for text content: px-3 py-4 xs:px-4 xs:py-5 sm:p-6 md:p-8 */}
               <div className="px-3 py-4 xs:px-4 xs:py-5 sm:p-6 md:p-8">
                 <div className="mb-3 xs:mb-4 flex items-center space-x-2 xs:space-x-3 reveal"> {/* Adjusted margin and space */}

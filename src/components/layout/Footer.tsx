@@ -8,24 +8,6 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      name: "LinkedIn",
-      href: "https://linkedin.com/in/elanthamilan",
-      icon: <Linkedin className="w-5 h-5" />,
-      label: "LinkedIn Profile"
-    },
-    {
-      name: "GitHub",
-      href: "https://github.com/elanthamilan",
-      icon: <Github className="w-5 h-5" />,
-      label: "GitHub Profile"
-    },
-    {
-      name: "Twitter",
-      href: "https://twitter.com/elanthamilan",
-      icon: <Twitter className="w-5 h-5" />,
-      label: "Twitter Profile"
-    },
-    {
       name: "Email",
       href: "mailto:elanthamilan12@gmail.com",
       icon: <Mail className="w-5 h-5" />,

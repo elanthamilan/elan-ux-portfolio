@@ -14,53 +14,60 @@ interface SkillCardData { // Renamed interface for clarity
 // Moved skills array outside to ensure it's a stable reference if SkillsBentoGrid is memoized
 const SKILLS_DATA: SkillCardData[] = [
   {
-    title: 'Product Strategy',
-    description: 'Applying user-centered design thinking and creating product roadmaps to align product vision with user needs.',
-    icon: '📈', // Consider updating icon if desired
+    title: 'UX Strategist',
+    description: 'Objectives clarification, Employs methodology, Vision and solutioning, Planning prioritization, Roadmap strategies, Execution oversight, Measurement.',
+    icon: '📈', // Or '💼'
     size: 'large',
-    color: 'bg-accent-light border-brand-primary' // Prominent background and border
+    color: 'bg-accent-light border-brand-primary'
   },
   {
-    title: 'Interaction Design',
-    description: 'Designing engaging user experiences through micro-interactions, animations, and motion design.',
-    icon: '✨', // Consider updating icon if desired
+    title: 'User Researcher',
+    description: 'Owns research strategy, Performs heuristic reviews, Plans and conducts research, Reviews analytics, Builds personas, empathy maps, journeys, Voice of the user/customer.',
+    icon: '🔍', // Or '💼'
     size: 'large',
-    color: 'bg-accent-light border-brand-secondary' // Prominent background and border
+    color: 'bg-accent-light border-brand-secondary'
   },
   {
-    title: 'UI Design',
-    description: 'Creating visually appealing and user-friendly interfaces through wireframing, prototyping, and visual design.',
-    icon: '🎨',
+    title: 'Business Analyst',
+    description: 'Understands business strategy, scope, Articulates and clarifies business objectives, Deep product knowledge, Defines business value, Voice of the business.',
+    icon: '📊', // Or '⚙️'
     size: 'medium',
     color: 'bg-accent-bg border-slate-200'
   },
   {
-    title: 'UX Research',
-    description: 'Conducting user interviews, surveys, usability testing, and analyzing data to understand user needs and behaviors.',
-    icon: '🔍',
+    title: 'Information Architect',
+    description: 'Person-logical architectures, Navigation schemas, Organization schemas, Scalable patterns, Journey maps, Taxonomies.',
+    icon: '🧭', // Or '⚙️'
     size: 'medium',
     color: 'bg-accent-off-white border-slate-200'
   },
   {
-    title: 'Design Systems',
-    description: 'Creating and maintaining component libraries, style guides, and design tokens to ensure consistency and scalability.',
-    icon: '🎯',
+    title: 'Interaction Designer',
+    description: 'Interaction modeling, Experience design, Mental modeling, Storyboards, Wireframes, Mockups, UI accessibility.',
+    icon: '✨', // Or '⚙️'
     size: 'medium',
     color: 'bg-accent-bg border-slate-200'
   },
   {
-    title: 'Accessibility',
-    description: 'Ensuring WCAG compliance, inclusive design, and usability for all users.',
-    icon: '♿',
+    title: 'Content Strategist',
+    description: 'Content mapping, Tone, voice, style, Content creation, Cultural context review, Content organization, Copy editing, Communications.',
+    icon: '✍️', // Or '⚙️'
     size: 'medium',
     color: 'bg-accent-off-white border-slate-200'
   },
   {
-    title: 'Coding',
-    description: 'Building interactive prototypes and implementing designs using React, TypeScript, and modern web technologies.',
-    icon: '💻',
-    size: 'medium',
+    title: 'Visual Designer',
+    description: 'Graphics and art, Iconography, Typography, Color, Style, Branding, Spacing and hierarchy.',
+    icon: '🎨', // Or '⚙️'
+    size: 'large',
     color: 'bg-accent-bg border-slate-200'
+  },
+  {
+    title: 'Front-End Developer',
+    description: 'Code to implement designs, Front-end frameworks, Development languages, Web, native, hybrid management, Functionality and integration, Coded accessibility.',
+    icon: '💻', // Or '⚙️'
+    size: 'large',
+    color: 'bg-accent-off-white border-slate-200'
   }
 ];
 
@@ -72,7 +79,7 @@ const SkillCardDisplay = React.memo(({ skill, index, onCardClick }: { skill: Ski
       // key prop is correctly on the SkillCardDisplay in the map, not needed here
     >
       <Card
-        className={`flex flex-col items-start justify-between rounded-3xl shadow-lg hover:scale-[1.02] focus-within:ring-2 focus-within:ring-brand-primary focus-within:ring-offset-2 transition-all duration-300 ease-in-out ${skill.color} px-3 py-4 xs:p-4 ${skill.size === 'large' ? 'md:p-8' : 'sm:p-6'} h-full border`} // Responsive padding
+        className={`flex flex-col items-start justify-between rounded-3xl shadow-md hover:shadow-lg hover:scale-[1.02] focus-within:ring-2 focus-within:ring-brand-primary focus-within:ring-offset-2 transition-all duration-300 ease-in-out ${skill.color} px-3 py-4 xs:p-4 ${skill.size === 'large' ? 'md:p-8' : 'sm:p-6'} h-full border`} // Responsive padding
         tabIndex={0}
         aria-label={skill.title}
         onClick={onCardClick}

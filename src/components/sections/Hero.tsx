@@ -112,7 +112,7 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                 {PHRASES[0]} 
               </h1>
               <div className="flex items-center mb-6 space-x-2">
-                <span className="text-xl md:text-2xl font-sans font-medium text-foreground">Hi, I'm <span className="font-heading text-brand-primary">Elan</span> <span role='img' aria-label='wave'>👋</span><span role='img' aria-label='nerd face'>🤓</span></span>
+                <span className="text-xl md:text-2xl font-sans font-medium text-foreground">Hi, I'm <span className="font-heading text-brand-primary">Elanthamilan</span> <span role='img' aria-label='wave'>👋</span><span role='img' aria-label='nerd face'>🤓</span></span>
               </div>
               <p className="text-foreground text-base xs:text-lg md:text-xl max-w-xl mb-8 leading-relaxed"> {/* Adjusted typography and margin */}
                 Experienced UX designer specializing in enterprise SaaS, EdTech, and HR Tech. I transform complex business challenges into intuitive, user-centered solutions that drive measurable impact and enhance usability for large-scale products.
@@ -133,9 +133,9 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
               <div className="py-5 border-t border-b border-slate-200 dark:border-slate-700"> {/* Adjusted padding */}
                 <div className="px-0">
                   <h3 className="font-heading font-semibold text-foreground mb-3 text-md xs:text-lg">Brands I Have Worked With</h3> {/* Adjusted typography and margin */}
-                  <div className="grid grid-cols-2 xs:grid-cols-4 gap-4 items-center justify-items-center"> {/* Adjusted gap */}
+                  <div className="flex flex-row items-center overflow-x-auto space-x-8 py-2"> {/* Adjusted gap */}
                     {[{src:"/Elanable-uploads/Camu.png", alt:"Camu"}, {src:"/Elanable-uploads/Mastek.png", alt:"Mastek"}, {src:"/Elanable-uploads/Geninfy.jpg", alt:"Geninfy"}, {src:"/Elanable-uploads/Oceo.svg", alt:"Oceo"}].map(brand => (
-                      <div key={brand.alt} className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all text-center">
+                      <div key={brand.alt} className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all text-center flex-shrink-0">
                         <img src={brand.src} alt={brand.alt} width="80" height="40" className="object-contain mx-auto" /> {/* Adjusted size */}
                         <p className="text-xs text-foreground/80 mt-1.5">{brand.alt}</p> {/* Adjusted margin */}
                       </div>
@@ -145,7 +145,7 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
               </div>
               {/* Stats Section */}
               <div className="grid grid-cols-2 gap-3 xs:gap-4 sm:grid-cols-4 border-b border-slate-200 dark:border-slate-700 py-5"> {/* Adjusted padding and gap */}
-                {[{label:"Experience", value:"8+ Years"}, {label:"Products", value:"10+"}, {label:"Features", value:"30+"}, {label:"Systems", value:"2"}].map(stat => (
+                {[{label:"Experience", value:"8+ Years"}, {label:"Products", value:"10+"}, {label:"Features", value:"30+"}, {label:"Design systems", value:"2"}].map(stat => (
                   <div key={stat.label} className="text-center">
                     <span className="text-xs text-foreground/70 block uppercase tracking-wider">{stat.label}</span> 
                     <span className="font-semibold text-lg xs:text-xl md:text-2xl block text-foreground mt-0.5">{stat.value}</span> {/* Adjusted typography and margin */}
@@ -184,7 +184,7 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                   ].map(item => (
                     item.href ? (
                       <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
-                         className="inline-flex items-center justify-center px-4 py-3 bg-accent-bg text-foreground hover:bg-brand-primary/10 hover:text-brand-primary transition-colors rounded-md text-xs xs:text-sm font-medium shadow-sm focus-visible:ring-1 focus-visible:ring-brand-primary min-h-[44px]" // Ensured min height and adjusted padding
+                         className="w-full inline-flex items-center justify-center px-4 py-3 rounded-md text-xs xs:text-sm font-medium min-h-[44px] border border-brand-primary/50 bg-transparent text-brand-primary shadow-sm hover:bg-brand-primary/10 hover:text-brand-primary hover:border-brand-primary focus-visible:ring-1 focus-visible:ring-brand-primary active:scale-95 transition-all duration-200 ease-in-out" // Ensured min height and adjusted padding
                          aria-label={item.aria}>
                         <item.icon className="mr-1.5 h-3.5 w-3.5 xs:h-4 xs:w-4 flex-shrink-0" aria-hidden="true" />
                         <span>{item.text}</span>
@@ -192,7 +192,7 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                     ) : (
                       <Button key={item.label} variant="outline" 
                               onClick={item.action}
-                              className="inline-flex items-center justify-center px-4 py-3 hover:bg-accent-bg transition-colors rounded-md text-xs xs:text-sm font-medium border-slate-300 dark:border-slate-600 focus-visible:ring-1 focus-visible:ring-brand-primary min-h-[44px]" // Ensured min height and adjusted padding
+                              className="w-full inline-flex items-center justify-center px-4 py-3 rounded-md text-xs xs:text-sm font-medium focus-visible:ring-1 focus-visible:ring-brand-primary min-h-[44px]"
                               aria-label={item.aria}>
                         <item.icon className="mr-1.5 h-3.5 w-3.5 xs:h-4 xs:w-4 flex-shrink-0" aria-hidden="true" />
                         <span>{item.text}</span>
@@ -241,8 +241,9 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                     <p className="mb-2 text-sm text-foreground">A redesign of a student course planning tool with AI integration.</p>
                   </>}
                   index={1}
-                  cardClassName="bg-accent-off-white dark:bg-slate-800/40" // Custom background for second card
-                  accentColorName="brand-secondary" // Accent for second card
+                  cardClassName="bg-accent-bg" // Changed to bg-accent-bg for #F3F6F9
+                  accentColorName="brand-secondary" // Keep this, it might be used for tags/borders
+                  buttonVariant="secondary" // Added this for button color #234574
                 />
               </div>
             </div>

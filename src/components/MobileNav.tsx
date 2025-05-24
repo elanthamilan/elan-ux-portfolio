@@ -14,10 +14,7 @@ const navItems = [
   { href: "/case-study/campus-hiring", label: "Campus Hiring Case Study", icon: Briefcase },
   { href: "/case-study/student-planner", label: "Student Planner Case Study", icon: Briefcase },
   { href: "/Elanthamilan_UX_Resume.pdf", label: "Download Resume", icon: Download, isExternal: true },
-  { href: "mailto:elanthamilan12@gmail.com", label: "Email", icon: Mail, isExternal: true },
-  { href: "https://linkedin.com/in/elanthamilan", label: "LinkedIn", icon: Linkedin, isExternal: true },
-  { href: "https://github.com/elanthamilan", label: "GitHub", icon: Github, isExternal: true },
-  { href: "https://wa.me/918148622302", label: "WhatsApp", icon: MessageSquare, isExternal: true },
+  { href: "mailto:elanthamilan12@gmail.com", label: "Email", icon: Mail, isExternal: true }
 ];
 
 const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
@@ -104,6 +101,20 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
                   </Link>
                 )
               ))}
+            </div>
+            {/* New Section for Explicit Contact Info */}
+            <div className="p-4 mt-auto border-t border-slate-200 dark:border-slate-700">
+              <h3 className="text-sm font-medium text-foreground/70 mb-2">Contact Information</h3>
+              <div className="space-y-1">
+                <div>
+                  <span className="text-xs text-foreground/70">Email:</span>
+                  <p className="text-sm font-medium text-foreground">elanthamilan12@gmail.com</p>
+                </div>
+                <div>
+                  <span className="text-xs text-foreground/70">Mobile:</span>
+                  <p className="text-sm font-medium text-foreground">+918148622302</p>
+                </div>
+              </div>
             </div>
           </motion.nav>
         </motion.div>

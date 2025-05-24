@@ -22,6 +22,7 @@ interface CaseStudyCardProps {
   index: number;
   cardClassName?: string; // New prop for custom card background
   accentColorName?: 'brand-primary' | 'brand-secondary' | 'brand-tertiary' | string; // New prop for accent colors
+  buttonVariant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
 }
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
@@ -37,6 +38,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
   index,
   cardClassName = "bg-accent-bg dark:bg-slate-800/50", // Default background
   accentColorName = "brand-primary", // Default accent color
+  buttonVariant = "default",
 }) => {
 
   // Dynamically construct classes for elements based on accentColorName
@@ -111,7 +113,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
         {/* Button now part of CardFooter for consistent spacing if needed, or directly here */}
         {/* Using default variant for button, which is already themed with brand-primary. */}
         {/* If specific accentColorName override is needed for button: className={`w-full rounded-t-none ${buttonClasses}`} */}
-        <Button asChild variant="default" size="default" className="w-full rounded-t-none mt-auto"> 
+        <Button asChild variant={buttonVariant} size="default" className="w-full rounded-t-none mt-auto"> 
           {/* Added mt-auto to push button to bottom if CardContent isn't flex-grow enough, size default */}
           <Link to={link} className="flex items-center justify-center"> {/* Ensured flex centering for link content */}
             <span>View Case Study</span>

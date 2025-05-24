@@ -71,7 +71,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = React.memo(({ images, option
               <ZoomableImage
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-auto object-contain aspect-video p-2 bg-white dark:bg-gray-800 rounded-md shadow-sm"
+                className="w-full h-auto object-contain aspect-[4/3] p-2 bg-white dark:bg-gray-800 rounded-md shadow-sm"
               />
             </div>
           ))}
