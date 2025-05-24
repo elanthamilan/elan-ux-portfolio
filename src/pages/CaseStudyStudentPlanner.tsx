@@ -4,17 +4,11 @@ import Footer from "../components/layout/Footer.tsx";
 // Removed ElanThinking import as blockquotes will be styled directly
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card"; // Removed unused CardHeader, CardTitle, CardDescription
-import SectionReveal from '@/components/SectionReveal';
-import ZoomableImage from "@/components/ui/ZoomableImage"; // Ensure ZoomableImage is correctly imported
-import ImageCarousel from "@/components/ui/ImageCarousel"; // Import the new ImageCarousel component
-
-const placeholderImages = [
-  { src: "/placeholder.svg", alt: "Placeholder Image 1 for carousel" },
-  { src: "/placeholder.svg", alt: "Placeholder Image 2 for carousel" },
-  { src: "/placeholder.svg", alt: "Placeholder Image 3 for carousel" },
-];
+import { Badge } from "../components/ui/badge.tsx";
+import { Card, CardContent } from "../components/ui/card.tsx";
+import SectionReveal from '../components/SectionReveal.tsx';
+import ZoomableImage from "../components/ui/ZoomableImage.tsx";
+import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
 
 const CaseStudyStudentPlanner = () => {
   return (
@@ -44,13 +38,11 @@ const CaseStudyStudentPlanner = () => {
                 </h1>
               </div>
               {/* Full-width image container: Vertical padding py-4 xs:py-6 */}
-              <div className="w-full bg-accent-bg overflow-hidden shadow-inner reveal border-y border-brand-secondary/20"> {/* shadow-inner for depth, themed border */}
-                <ZoomableImage
-                  src="/Elanable-uploads/78be9a59-8230-4ea5-b024-d96fd3cdd83e.png"
-                  alt="Student Course Planner AI Advisor Interface"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+<BigImageCarousel
+  images={[
+    { src: "/src/components/ui/placeholder.svg", alt: "Student Course Planner AI Advisor Interface" },
+  ]}
+/>
               {/* Add a padded div for any content below the image if needed, or adjust main padding div */}
             </Card>
           </SectionReveal>
@@ -145,7 +137,11 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20"> 
-                   <ImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "User research insights")}))} />
+                   <BigImageCarousel images={[
+                      { svgPlaceholder: true },
+                      { svgPlaceholder: true },
+                      { svgPlaceholder: true }
+                    ]} />
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
@@ -165,7 +161,11 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20">
-                   <ImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Solution concepts")}))} />
+                   <BigImageCarousel images={[
+                      { svgPlaceholder: true },
+                      { svgPlaceholder: true },
+                      { svgPlaceholder: true }
+                    ]} />
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
@@ -190,7 +190,11 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-tertiary/20">
-                   <ImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Wireframes and prototypes")}))} />
+                   <BigImageCarousel images={[
+                      { svgPlaceholder: true },
+                      { svgPlaceholder: true },
+                      { svgPlaceholder: true }
+                    ]} />
               </div>
             </section>
           </SectionReveal>
@@ -217,7 +221,11 @@ const CaseStudyStudentPlanner = () => {
               </div>
               {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my (removed from here, applied to section). */}
               <div className="bg-accent-bg py-4 xs:py-6 rounded-b-lg shadow-inner reveal border-t border-brand-secondary/20"> 
-                   <ImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Final UI mockups")}))} />
+                   <BigImageCarousel images={[
+                      { svgPlaceholder: true },
+                      { svgPlaceholder: true },
+                      { svgPlaceholder: true }
+                    ]} />
               </div>
             </section>
           </SectionReveal>

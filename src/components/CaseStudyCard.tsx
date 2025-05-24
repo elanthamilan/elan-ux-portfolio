@@ -78,20 +78,20 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
         <CardHeader className="pb-4"> {/* Reduced bottom padding */}
           <CardTitle className="text-xl lg:text-2xl font-bold font-heading text-foreground mb-2">{title}</CardTitle> {/* Reduced mb */}
           <CardDescription className="text-sm text-foreground/80"> {/* text-foreground/70 to text-foreground/80 */}
-            <div className="space-y-2"> {/* Reduced space-y */}
-              <div>
-                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Client:</span> {/* Adjusted styling */}
-                <p className="text-foreground mt-0.5">{who}</p> {/* text-foreground/90 to text-foreground */}
-              </div>
-              <div>
-                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Service:</span> {/* Adjusted styling */}
-                <p className="text-foreground mt-0.5">{what}</p> {/* text-foreground/90 to text-foreground */}
-              </div>
-              <div>
-                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Impact:</span> {/* Adjusted styling */}
-                <p className="text-foreground mt-0.5">{result}</p> {/* text-foreground/90 to text-foreground */}
-              </div>
-            </div>
+            <ul className="space-y-2 text-sm"> {/* Use ul for list, reduced space-y, added text-sm */}
+              <li>
+                <span className="font-bold text-foreground">Who:</span> {/* Bold label */}
+                <span className="text-foreground/90 ml-1">{who}</span> {/* Value with slight opacity */}
+              </li>
+              <li>
+                <span className="font-bold text-foreground">What:</span> {/* Bold label */}
+                <span className="text-foreground/90 ml-1">{what}</span> {/* Value with slight opacity */}
+              </li>
+              <li>
+                <span className="font-bold text-foreground">Result:</span> {/* Bold label */}
+                <span className="text-foreground/90 ml-1">{result}</span> {/* Value with slight opacity */}
+              </li>
+            </ul>
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-grow pt-0 pb-4"> {/* flex-grow to push footer (button) down, adjusted padding */}

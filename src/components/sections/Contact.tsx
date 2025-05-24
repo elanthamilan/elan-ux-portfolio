@@ -12,20 +12,20 @@ const Contact = () => {
 
   useEffect(() => {
     if (contactRef.current) {
-      scrollAnimation(
-        contactRef.current,
-        {
+      scrollAnimation({
+        element: contactRef.current,
+        animation: {
           opacity: 1,
           y: 0,
           duration: 1,
           ease: 'power3.out'
         },
-        {
+        scrollTrigger: {
           start: 'top center',
           end: 'bottom center',
           toggleActions: 'play none none reverse'
         }
-      );
+      });
     }
   }, []);
 
@@ -79,7 +79,7 @@ const Contact = () => {
             Interested in collaborating or have a question? Reach out via any method below.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+<div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
           {contactMethods.map((method) => (
             <Button
               key={method.label}

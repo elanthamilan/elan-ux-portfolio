@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'; // Removed useRef as GSAP animation is
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom'; // Added useLocation
 import { Button } from '@/components/ui/button'; // For close button
-import { X, Home, FileText, Briefcase, Mail, Download, Linkedin, MessageSquare, Github } from 'lucide-react'; // Added icons
+import { X, Home, FileText, Briefcase, Mail, Download, Linkedin, MessageSquare, Github, Phone } from 'lucide-react'; // Added Phone
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -13,8 +13,7 @@ const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/case-study/campus-hiring", label: "Campus Hiring Case Study", icon: Briefcase },
   { href: "/case-study/student-planner", label: "Student Planner Case Study", icon: Briefcase },
-  { href: "/Elanthamilan_UX_Resume.pdf", label: "Download Resume", icon: Download, isExternal: true },
-  { href: "mailto:elanthamilan12@gmail.com", label: "Email", icon: Mail, isExternal: true }
+  // Removed Download Resume from navItems
 ];
 
 const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
@@ -77,43 +76,42 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
             </div>
             <div className="flex flex-col p-4 space-y-2 overflow-y-auto flex-grow">
               {navItems.map((item) => (
-                item.isExternal ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors"
-                    onClick={onClose} 
-                  >
-                    <item.icon className="mr-3 h-5 w-5 text-brand-secondary" />
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors"
-                    onClick={onClose}
-                  >
-                    <item.icon className="mr-3 h-5 w-5 text-brand-secondary" />
-                    {item.label}
-                  </Link>
-                )
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors w-full"
+                  onClick={onClose}
+                >
+                  <item.icon className="mr-3 h-5 w-5 text-brand-secondary" />
+                  {item.label}
+                </Link>
               ))}
             </div>
-            {/* New Section for Explicit Contact Info */}
+            {/* New Section for Explicit Contact Info + Download Resume */}
             <div className="p-4 mt-auto border-t border-slate-200 dark:border-slate-700">
               <h3 className="text-sm font-medium text-foreground/70 mb-2">Contact Information</h3>
-              <div className="space-y-1">
-                <div>
-                  <span className="text-xs text-foreground/70">Email:</span>
-                  <p className="text-sm font-medium text-foreground">elanthamilan12@gmail.com</p>
-                </div>
-                <div>
-                  <span className="text-xs text-foreground/70">Mobile:</span>
-                  <p className="text-sm font-medium text-foreground">+918148622302</p>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <a href="mailto:elanthamilan12@gmail.com" className="flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center">
+                  <Mail className="w-5 h-5" />
+                  elanthamilan12@gmail.com
+                </a>
+                <a href="tel:+918148622302" className="flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center">
+                  <Phone className="w-5 h-5" />
+                  +918148622302
+                </a>
+                <a href="https://wa.me/918148622302" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center">
+                  <MessageSquare className="w-5 h-5" />
+                  WhatsApp
+                </a>
+                <a href="https://linkedin.com/in/elanthamilan" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center">
+                  <Linkedin className="w-5 h-5" />
+                  LinkedIn
+                </a>
+                {/* Download Resume button, styled as a primary button */}
+                <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center gap-2 bg-brand-primary text-white border border-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center">
+                  <Download className="w-5 h-5" />
+                  Download Resume
+                </a>
               </div>
             </div>
           </motion.nav>
@@ -124,4 +122,4 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
 });
 MobileNav.displayName = "MobileNav"; // Optional: for better debugging
 
-export default MobileNav; 
+export default MobileNav;

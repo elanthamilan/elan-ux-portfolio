@@ -4,10 +4,11 @@ import Footer from "../components/layout/Footer.tsx";
 // Removed CaseStudySection and ElanThinking imports as their content will be integrated directly
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import ZoomableImage from "@/components/ui/ZoomableImage";
-import SectionReveal from '@/components/SectionReveal'; // Import SectionReveal
+import { Badge } from "../components/ui/badge.tsx";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "../components/ui/card.tsx";
+import ZoomableImage from "../components/ui/ZoomableImage.tsx";
+import SectionReveal from '../components/SectionReveal.tsx';
+import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
 
 const CaseStudyCampusHiring = () => {
   return (
@@ -37,13 +38,11 @@ const CaseStudyCampusHiring = () => {
                 </h1>
               </div>
               {/* Full-width image container: Vertical padding py-4 xs:py-6 */}
-              <div className="w-full bg-accent-bg overflow-hidden shadow-inner reveal border-y border-brand-primary/20"> {/* shadow-inner for depth, themed border */}
-                <ZoomableImage
-                  src="/Elanable-uploads/d194dd7b-4980-4860-bf9d-ece30b18149d.png"
-                  alt="Camu Campus Recruitment App Interface"
-                  className="aspect-video w-full"
-                />
-              </div>
+<BigImageCarousel
+  images={[
+    { src: "/src/components/ui/placeholder.svg", alt: "Camu Campus Recruitment App Interface" },
+  ]}
+/>
               {/* Add a padded div for any content below the image if needed, or adjust main padding div */}
             </Card>
           </SectionReveal>

@@ -118,12 +118,13 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                 Experienced UX designer specializing in enterprise SaaS, EdTech, and HR Tech. I transform complex business challenges into intuitive, user-centered solutions that drive measurable impact and enhance usability for large-scale products.
               </p>
               <div className="w-full mb-6 flex justify-start"> {/* Adjusted margin */}
-                <Button // This button is already styled by buttonVariants, which was updated
-                  variant="default" // Uses bg-brand-primary, text-white, shadow-lg
-                  size="lg" // Use larger size for hero CTA
+                <Button
+                  variant="default"
+                  size="lg"
                   asChild
+                  className="w-full flex flex-row items-center justify-center gap-2.5 min-h-[56px] text-base font-medium"
                 >
-                  <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5"> {/* Adjusted gap */}
+                  <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download Resume">
                     <Download className="h-5 w-5" aria-hidden="true" />
                     Download Resume
                   </a>
@@ -133,11 +134,11 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
               <div className="py-5 border-t border-b border-slate-200 dark:border-slate-700"> {/* Adjusted padding */}
                 <div className="px-0">
                   <h3 className="font-heading font-semibold text-foreground mb-3 text-md xs:text-lg">Brands I Have Worked With</h3> {/* Adjusted typography and margin */}
-                  <div className="flex flex-row items-center overflow-x-auto space-x-8 py-2"> {/* Adjusted gap */}
+<div className="flex flex-row items-center overflow-x-auto space-x-12 py-2 w-full">
                     {[{src:"/Elanable-uploads/Camu.png", alt:"Camu"}, {src:"/Elanable-uploads/Mastek.png", alt:"Mastek"}, {src:"/Elanable-uploads/Geninfy.jpg", alt:"Geninfy"}, {src:"/Elanable-uploads/Oceo.svg", alt:"Oceo"}].map(brand => (
-                      <div key={brand.alt} className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all text-center flex-shrink-0">
-                        <img src={brand.src} alt={brand.alt} width="80" height="40" className="object-contain mx-auto" /> {/* Adjusted size */}
-                        <p className="text-xs text-foreground/80 mt-1.5">{brand.alt}</p> {/* Adjusted margin */}
+                      <div key={brand.alt} className="flex-auto flex flex-col items-center justify-center min-w-[120px] max-w-[180px] px-2 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all text-center p-4 md:p-6">
+                        <img src={brand.src} alt={brand.alt} width="100" height="48" className="object-contain mx-auto" />
+                        <p className="text-xs text-foreground/80 mt-2">{brand.alt}</p>
                       </div>
                     ))}
                   </div>
@@ -175,30 +176,43 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
               {/* Get In Touch Section */}
               <div className="pt-5"> {/* Adjusted padding */}
                 <h3 className="font-heading font-semibold text-foreground mb-3 text-md xs:text-lg">Get In Touch</h3> {/* Adjusted typography and margin */}
-                <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5"> {/* Adjusted gap */}
-                  {[
-                    { label: "elanthamilan12@gmail.com", text: "elanthamilan12@gmail.com", icon: Mail, action: () => { navigator.clipboard.writeText("elanthamilan12@gmail.com"); alert("Email copied to clipboard!"); }, aria: "Copy Email to Clipboard" },
-                    { label: "+918148622302", text: "+918148622302", icon: Phone, action: () => { navigator.clipboard.writeText("+918148622302"); alert("Phone number copied to clipboard!"); }, aria: "Copy Phone to Clipboard" },
-                    { label: "WhatsApp", text: "WhatsApp", icon: MessageSquare, href: "https://wa.me/918148622302", aria: "Chat on WhatsApp" },
-                    { label: "LinkedIn", text: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/elanthamilan", aria: "Visit LinkedIn Profile" }
-                  ].map(item => (
-                    item.href ? (
-                      <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
-                         className="w-full inline-flex items-center justify-center px-4 py-3 rounded-md text-xs xs:text-sm font-medium min-h-[44px] border border-brand-primary/50 bg-transparent text-brand-primary shadow-sm hover:bg-brand-primary/10 hover:text-brand-primary hover:border-brand-primary focus-visible:ring-1 focus-visible:ring-brand-primary active:scale-95 transition-all duration-200 ease-in-out" // Ensured min height and adjusted padding
-                         aria-label={item.aria}>
-                        <item.icon className="mr-1.5 h-3.5 w-3.5 xs:h-4 xs:w-4 flex-shrink-0" aria-hidden="true" />
-                        <span>{item.text}</span>
-                      </a>
-                    ) : (
-                      <Button key={item.label} variant="outline" 
-                              onClick={item.action}
-                              className="w-full inline-flex items-center justify-center px-4 py-3 rounded-md text-xs xs:text-sm font-medium focus-visible:ring-1 focus-visible:ring-brand-primary min-h-[44px]"
-                              aria-label={item.aria}>
-                        <item.icon className="mr-1.5 h-3.5 w-3.5 xs:h-4 xs:w-4 flex-shrink-0" aria-hidden="true" />
-                        <span>{item.text}</span>
-                      </Button>
-                    )
-                  ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6 w-full max-w-2xl mx-auto">
+                  <a
+                    href="mailto:elanthamilan12@gmail.com"
+                    className="flex flex-row items-center gap-3 border border-brand-primary text-brand-primary rounded-lg py-4 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[56px] text-base font-medium justify-center"
+                    aria-label="Send Email"
+                  >
+                    <Mail className="w-5 h-5" />
+                    elanthamilan12@gmail.com
+                  </a>
+                  <a
+                    href="tel:+918148622302"
+                    className="flex flex-row items-center gap-3 border border-brand-primary text-brand-primary rounded-lg py-4 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[56px] text-base font-medium justify-center"
+                    aria-label="Call Phone"
+                  >
+                    <Phone className="w-5 h-5" />
+                    +918148622302
+                  </a>
+                  <a
+                    href="https://wa.me/918148622302"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-row items-center gap-3 border border-brand-primary text-brand-primary rounded-lg py-4 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[56px] text-base font-medium justify-center"
+                    aria-label="Chat on WhatsApp"
+                  >
+                    <MessageSquare className="w-5 h-5" />
+                    WhatsApp
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/elanthamilan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-row items-center gap-3 border border-brand-primary text-brand-primary rounded-lg py-4 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[56px] text-base font-medium justify-center"
+                    aria-label="Connect on LinkedIn"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                    LinkedIn
+                  </a>
                 </div>
               </div>
             </div>
@@ -216,8 +230,8 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                   title="Campus Hiring Platform" 
                   year="2023"
                   who="Top Indian University"
-                  what="End-to-end campus hiring solution" // Slightly shortened
-                  result="50% faster hiring" // More concise
+                  what="End-to-end campus hiring solution"
+                  result="50% faster hiring"
                   image="/Elanable-uploads/Camu Campus Recruitment App.png"
                   link="/case-study/campus-hiring"
                   tags={['EdTech', 'SaaS', 'UX/UI']}
@@ -225,8 +239,8 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                     <p className="mb-2 text-sm text-foreground">A platform to streamline campus hiring processes.</p>
                   </>}
                   index={0}
-                  cardClassName="bg-accent-light dark:bg-slate-800/60" // Custom background for first card
-                  accentColorName="brand-primary" // Accent for first card
+                  cardClassName="bg-accent-light dark:bg-slate-800/60 w-full"
+                  accentColorName="brand-primary"
                 />
                 <CaseStudyCard
                   title="AI Student Course Planner"
@@ -241,9 +255,9 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                     <p className="mb-2 text-sm text-foreground">A redesign of a student course planning tool with AI integration.</p>
                   </>}
                   index={1}
-                  cardClassName="bg-accent-bg" // Changed to bg-accent-bg for #F3F6F9
-                  accentColorName="brand-secondary" // Keep this, it might be used for tags/borders
-                  buttonVariant="secondary" // Added this for button color #234574
+                  cardClassName="bg-accent-bg w-full"
+                  accentColorName="brand-secondary"
+                  buttonVariant="secondary"
                 />
               </div>
             </div>
