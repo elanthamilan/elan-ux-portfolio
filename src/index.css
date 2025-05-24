@@ -3,46 +3,74 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* Theme Variables - User Interviews Inspired */
-    --background: 0 0% 100%; /* Very Light Gray / Off-white */
-    --foreground: 222.2 84% 4.9%; /* Dark Gray */
+  /* Remove the old :root and .dark variable definitions for HSL colors
+     as we are now using direct hex values in tailwind.config.ts.
+     Tailwind will automatically generate CSS variables for the new colors
+     if needed, or apply them directly.
+  */
 
-    --card: 0 0% 100%; /* White */
-    --card-foreground: 222.2 84% 4.9%; /* Dark Gray */
+  * {
+    @apply border-border; /* border-border will now use the HSL variable if kept, or a new direct value if tailwind.config.ts is changed */
+  }
 
-    --popover: 0 0% 100%; /* White */
-    --popover-foreground: 222.2 84% 4.9%; /* Dark Gray */
+  body {
+    @apply bg-background text-foreground; /* These will use #FFFFFF and #000000 from tailwind.config.ts */
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    /* Primary Color: Dark Teal */
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%; /* White */
-    --primary-color: 174 43% 33%; /* Use existing primary color as default */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Serif Text', serif; /* Ensure headings use DM Serif Text */
+  }
 
-    /* Secondary Color: Dark Blue/Charcoal */
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%; /* White */
+  a {
+    @apply text-brand-primary hover:text-brand-secondary; /* Apply new brand colors for links */
+  }
 
-    /* Muted text */
-    --muted: 210 40% 96.1%; /* Medium Gray */
-    --muted-foreground: 215.4 16.3% 46.9%; /* Lighter Gray */
+  /* Retain dark mode HSL variables if they are still intended for use with the ThemeProvider.
+     If the goal is to have dark mode also use the new palette directly,
+     these would need to be updated or refactored. For now, we assume they might still be used.
+     However, the explicit background/foreground in tailwind.config.ts will override for light mode.
+  */
+  :root { /* These are the light mode HSL variables - they will be overridden by direct hex in tailwind.config.ts for light mode */
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 0%;   /* Black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Primary Color: Teal (example, will be #2A7779 from config) */
+    --primary: 181 48% 32%; /* HSL for #2A7779 */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary Color: Navy Blue (example, will be #234574 from config) */
+    --secondary: 216 53% 30%; /* HSL for #234574 */
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted colors */
+    --muted: 210 20% 96%;    /* HSL for #F3F6F9 (accent-bg) */
+    --muted-foreground: 0 0% 40%; /* Darker gray */
 
     /* Accent colors */
-    --accent: 210 40% 96.1%; /* Light Blue */
-    --accent-foreground: 222.2 47.4% 11.2%; /* Darker Blue */
+    --accent: 337 61% 22%;    /* HSL for #5A1738 (brand-tertiary) */
+    --accent-foreground: 0 0% 100%;
     
-    --destructive: 0 84.2% 60.2%; /* Modern Red */
-    --destructive-foreground: 210 40% 98%; /* White */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%; /* Light Gray */
-    --input: 214.3 31.8% 91.4%; /* White */
-    --input-foreground: 0 0% 13%; /* Dark Gray */
-    --ring: 222.2 84% 4.9%; /* Lighter shade of primary for focus rings */
+    --border: 0 0% 87%; /* Lighter gray for border */
+    --input: 0 0% 95%; /* Very light gray for input */
+    --ring: 181 48% 32%; /* Primary brand color for ring */
 
-    --radius: 0.5rem; /* Slightly more rounded corners */
+    --radius: 0.5rem;
 
     /* Sidebar specific colors (can be customized further if needed) */
-    --sidebar-background: 0 0% 96%; /* Slightly off-white, similar to background */
+    /* These should also be reviewed if dark mode needs to follow the new palette */
+    --sidebar-background: 0 0% 96%;
     --sidebar-foreground: 0 0% 13%;
     --sidebar-primary: 174 43% 33%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -55,30 +83,37 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+  }
 
-}
+  .dark { /* These dark mode variables will still apply if ThemeProvider toggles the 'dark' class */
+    --background: 0 0% 13%; /* Dark Gray for background */
+    --foreground: 0 0% 95%; /* Light Gray for text */
 
-  /* Dark theme can be added here if needed in the future */
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --card: 0 0% 18%; /* Slightly lighter dark gray for cards */
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 18%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 181 48% 42%; /* Brighter Teal for dark mode */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 216 53% 40%; /* Brighter Navy for dark mode */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 80%;
+
+    --accent: 337 61% 32%; /* Brighter Tertiary for dark mode */
+    --accent-foreground: 0 0% 100%;
+
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 30%;
+    --input: 0 0% 30%;
+    --ring: 181 48% 42%;
+
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -87,24 +122,7 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'DM Sans', sans-serif; /* Default sans-serif font */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* Headings will be styled via tailwind.config.ts and component classes */
-  h1, h2, h3, h4, h5, h6 {
-     /* font-family set in tailwind.config.ts for headings */
-  }
-}
-
+/* Keep existing utility classes as they might be used by components */
 .card {
   overflow: hidden;
   transition: height 0.3s ease;
@@ -137,40 +155,18 @@
 
 /* Glowing shadow effect on hover */
 .case-study-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Updated transition */
-  position: relative; /* Required for pseudo-element */
-  /* border: 4px solid transparent; */
-  /* overflow: hidden;  Clip the shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .group:hover .case-study-card {
-  transform: scale(1.03); /* Added scale effect */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1); /* Updated box-shadow */
-  /* Removed pulse animation and other complex styles */
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
 }
-
-/* Removed @keyframes pulse */
 
 .glitter-border {
   border: none;
 }
-/* Case study card hover effect */
-.group:hover .card {
-  /* height: auto; */
-  /* transition: height 0.3s ease; */ /* This transition might conflict, ensure only transform/box-shadow are transitioned for hover effect */
-}
-
-/* .case-study-card { */ /* This declaration is a duplicate, ensure properties are consolidated or removed if not needed */
-  /* height: 300px; */
-  /* overflow: hidden; */
-  /* transition: height 0.3s ease; */ /* This transition might conflict */
-/* } */
-
-/* .group:hover .case-study-card { */ /* This declaration is a duplicate */
-  /* height: auto; */
-  /* overflow: visible; */
-  /* max-height: auto; */
-/* } */
 
 .long-description p {
   font-size: 1rem;

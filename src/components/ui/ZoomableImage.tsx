@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react'; // Imported useCallback
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -8,58 +8,82 @@ interface ZoomableImageProps {
   className?: string;
 }
 
-const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className = '' }) => {
+const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, className = '' }) => { // Wrapped with React.memo
   const [isZoomed, setIsZoomed] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isLoading, setIsLoading] = useState(true);
   const imageRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleClose = useCallback(() => { // Wrapped handleClose with useCallback
+    setIsZoomed(false);
+    containerRef.current?.focus();
+  }, []); // No dependencies as setIsZoomed is stable and containerRef is a ref
+
+  const handleClick = useCallback(() => { // Wrapped handleClick with useCallback
+    if (!isLoading) {
+      setIsZoomed(prevIsZoomed => !prevIsZoomed); // Use functional update for setIsZoomed
+    }
+  }, [isLoading]); // Dependency: isLoading
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => { // Wrapped handleKeyDown with useCallback
+    if (e.key === 'Escape' && isZoomed) {
+      handleClose();
+    } else if ((e.key === 'Enter' || e.key === ' ') && !isLoading) {
+      e.preventDefault();
+      handleClick();
+    }
+  }, [isZoomed, isLoading, handleClose, handleClick]); // Dependencies: isZoomed, isLoading, handleClose, handleClick
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => { // Wrapped handleMouseMove with useCallback
     if (!containerRef.current || !imageRef.current || !isZoomed) return;
 
     const { left, top, width, height } = containerRef.current.getBoundingClientRect();
     const x = ((e.clientX - left) / width) * 100;
     const y = ((e.clientY - top) / height) * 100;
     setPosition({ x, y });
-  };
-
-  const handleClick = () => {
-    if (!isLoading) {
-      setIsZoomed(!isZoomed);
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape' && isZoomed) {
-      setIsZoomed(false);
-    } else if ((e.key === 'Enter' || e.key === ' ') && !isLoading) {
-      e.preventDefault();
-      setIsZoomed(!isZoomed);
-    }
-  };
+  }, [isZoomed]); // Dependency: isZoomed
 
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (isZoomed && containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setIsZoomed(false);
+    // Define event handlers within useEffect or ensure they are stable via useCallback if defined outside
+    // For this effect, handleClickOutside and handleEscapeAndTab are only relevant when isZoomed is true
+    // and are re-added/removed based on isZoomed.
+    // handleClose is already memoized with useCallback.
+
+    const localHandleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        handleClose(); // handleClose is stable
       }
     };
 
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isZoomed) {
-        setIsZoomed(false);
+    const localHandleEscapeAndTab = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleClose(); // handleClose is stable
+      } else if (e.key === 'Tab') {
+        if (closeButtonRef.current && document.activeElement === closeButtonRef.current) {
+          e.preventDefault(); 
+        } else if (closeButtonRef.current) {
+          closeButtonRef.current.focus();
+          e.preventDefault();
+        }
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('keydown', handleEscape);
-    
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [isZoomed]);
+    if (isZoomed) {
+      document.addEventListener('mousedown', localHandleClickOutside);
+      document.addEventListener('keydown', localHandleEscapeAndTab);
+      const timer = setTimeout(() => {
+        closeButtonRef.current?.focus();
+      }, 100);
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener('mousedown', localHandleClickOutside);
+        document.removeEventListener('keydown', localHandleEscapeAndTab);
+      };
+    }
+    // No explicit cleanup needed for the 'else' case here if listeners are only added when isZoomed
+  }, [isZoomed, handleClose]); // Dependency: isZoomed and the stable handleClose
 
   return (
     <div
@@ -73,8 +97,8 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className = '' 
       aria-label={`${isZoomed ? 'Close' : 'Zoom'} image: ${alt}`}
     >
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
-          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <div className="absolute inset-0 flex items-center justify-center bg-accent-bg dark:bg-slate-800 rounded-lg"> {/* Themed loading background, added rounded-lg to match image container */}
+          <div className="w-8 h-8 border-4 border-brand-primary border-t-transparent rounded-full animate-spin"></div> {/* Ensured border-brand-primary */}
         </div>
       )}
       <img
@@ -116,8 +140,9 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className = '' 
               className="max-w-full max-h-[90vh] object-contain"
             />
             <button
+              ref={closeButtonRef} // Assign ref to close button
               className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors"
-              onClick={() => setIsZoomed(false)}
+              onClick={handleClose} // Use centralized close handler
               aria-label="Close zoomed view"
             >
               <X className="w-6 h-6" />
@@ -127,6 +152,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className = '' 
       </AnimatePresence>
     </div>
   );
-};
+});
+ZoomableImage.displayName = "ZoomableImage"; // Optional: for better debugging
 
 export default ZoomableImage; 

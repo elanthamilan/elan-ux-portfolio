@@ -1,116 +1,99 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Mail, Download } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Mail, Download, Menu, X } from "lucide-react"; // Added Menu and X icons
 import { Button } from "@/components/ui/button";
+import MobileNav from "../MobileNav"; // Import MobileNav
 
-const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Header = React.memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 0);
   }, []);
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (isMobileMenuOpen && !target.closest('header')) {
-        setIsMobileMenuOpen(false);
-      }
-    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = ''; // Cleanup on component unmount
+    };
   }, [isMobileMenuOpen]);
 
   return (
-    <header 
-      className={`sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-brand-light-gray-accent transition-all duration-300 ${
-        isScrolled ? 'shadow-md' : ''
-      }`}
-    >
-      <div className="container mx-auto px-4 flex justify-between items-center h-16">
-        <Link 
-          to="/" 
-          className="text-xl font-heading font-bold text-primary tracking-tight hover:text-primary/90 transition-colors" 
-          aria-label="Home"
-        >
-          Elan
-        </Link>
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6" aria-label="Main navigation">
-          <Button
-            className="bg-[#156152] text-white hover:bg-[#156152]/90 transition-colors shadow-md text-base font-medium py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#156152] focus:ring-offset-2 flex items-center gap-2"
-            asChild
+    <>
+      <header 
+        className={`sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 transition-all duration-300 ${
+          isScrolled ? 'shadow-lg' : 'shadow-none'
+        }`}
+        role="banner"
+      >
+        <div className="container mx-auto px-4 flex justify-between items-center h-16">
+          <Link 
+            to="/" 
+            className="text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors" 
+            aria-label="Elan, Back to Homepage"
+            onClick={() => isMobileMenuOpen && toggleMobileMenu()} // Close menu on site navigation
           >
-            <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
-              <Download className="h-5 w-5" aria-hidden="true" />
-              Download Resume
-            </a>
-          </Button>
-          <a
-            href="mailto:elanthamilan12@gmail.com"
-            className="text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center gap-2"
-            aria-label="Send Email"
-          >
-            <Mail size={16} className="flex-shrink-0" />
-            Email
-          </a>
-        </nav>
-        {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center space-x-2">
-          <button
-            className="p-2 focus:outline-none focus:ring-2 focus:ring-primary rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
-            onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-        {/* Mobile Menu Overlay */}
-        <div 
-          id="mobile-menu"
-          className={`md:hidden absolute top-16 left-0 w-full bg-background/95 backdrop-blur-sm border-b border-brand-light-gray-accent shadow-lg py-4 z-40 transition-all duration-300 ${
-            isMobileMenuOpen 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 -translate-y-2 pointer-events-none'
-          }`}
-        >
-          <nav className="flex flex-col items-center space-y-4" aria-label="Mobile navigation">
+            Elan
+          </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-4" aria-label="Main navigation">
             <Button
-              className="bg-[#156152] text-white hover:bg-[#156152]/90 transition-colors shadow-md text-base font-medium py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#156152] focus:ring-offset-2 flex items-center justify-center gap-2"
+              variant="default" 
+              className="shadow-lg hover:shadow-xl transition-shadow text-base font-medium py-2.5 px-5 rounded-lg flex items-center gap-2 bg-brand-primary hover:bg-brand-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2" 
               asChild
             >
               <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
-                <Download className="h-5 w-5" aria-hidden="true" />
+                <Download className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
                 Download Resume
               </a>
             </Button>
-            <a
-              href="mailto:elanthamilan12@gmail.com"
-              className="w-full text-center text-sm font-medium text-foreground hover:text-primary transition-colors flex items-center justify-center gap-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-              aria-label="Send Email"
+            <Button
+              variant="ghost" 
+              asChild
+              className="text-sm font-medium text-foreground hover:text-brand-primary hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 rounded-md transition-colors flex items-center gap-1.5"
             >
-              <Mail size={16} className="flex-shrink-0" />
-              Email
-            </a>
+              <a href="mailto:elanthamilan12@gmail.com" aria-label="Send Email">
+                <Mail size={16} className="flex-shrink-0 h-4 w-4 sm:h-5 sm:w-5" />
+                Email
+              </a>
+            </Button>
           </nav>
+          {/* Mobile Navigation Trigger (Hamburger Menu) */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleMobileMenu}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav-overlay"
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              className="text-foreground hover:text-brand-primary hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 rounded-md"
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+      {/* Conditionally rendered MobileNav overlay */}
+      <MobileNav isOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
+    </>
   );
-};
+}); // Closing React.memo
+Header.displayName = "Header"; // Optional: for better debugging names
 
 export default Header;

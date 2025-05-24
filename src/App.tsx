@@ -1,23 +1,21 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, Suspense, lazy } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from './lib/gsap/useGSAP.ts';
 
-// Lazy load pages for better performance
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const CaseStudyCampusHiring = lazy(() => import('./pages/CaseStudyCampusHiring.tsx'));
 const CaseStudyStudentPlanner = lazy(() => import('./pages/CaseStudyStudentPlanner.tsx'));
 
-// Loading component
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
     <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
-// Error boundary component
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean }
@@ -59,6 +57,7 @@ class ErrorBoundary extends React.Component<
 
 function App() {
   const { isInitialized } = useGSAP();
+  const location = useLocation();
 
   useEffect(() => {
     if (isInitialized && typeof window !== 'undefined') {
@@ -74,32 +73,64 @@ function App() {
     };
   }, [isInitialized]);
 
+  const pageTransition = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    transition: { duration: 0.3 }
+  };
+
   return (
     <ErrorBoundary>
-      <Suspense fallback={<LoadingSpinner />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/case-study/campus-hiring" element={<CaseStudyCampusHiring />} />
-          <Route path="/case-study/student-planner" element={<CaseStudyStudentPlanner />} />
-          <Route
-            path="*"
-            element={
-              <div className="min-h-screen flex items-center justify-center bg-background">
-                <div className="text-center p-8">
-                  <h1 className="text-2xl font-bold text-foreground mb-4">Page Not Found</h1>
-                  <p className="text-foreground/80 mb-4">The page you're looking for doesn't exist.</p>
-                  <a
-                    href="/"
-                    className="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors inline-block"
-                  >
-                    Go Home
-                  </a>
-                </div>
-              </div>
-            }
-          />
-        </Routes>
-      </Suspense>
+      <AnimatePresence mode="wait">
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes location={location} key={location.pathname}>
+            <Route 
+              path="/" 
+              element={
+                <motion.div key="home" {...pageTransition}>
+                  <HomePage />
+                </motion.div>
+              } 
+            />
+            <Route 
+              path="/case-study/campus-hiring" 
+              element={
+                <motion.div key="cs-campus" {...pageTransition}>
+                  <CaseStudyCampusHiring />
+                </motion.div>
+              } 
+            />
+            <Route 
+              path="/case-study/student-planner" 
+              element={
+                <motion.div key="cs-student-planner" {...pageTransition}>
+                  <CaseStudyStudentPlanner />
+                </motion.div>
+              } 
+            />
+            <Route
+              path="*"
+              element={
+                <motion.div key="notfound" {...pageTransition}>
+                  <main className="min-h-screen flex items-center justify-center bg-background">
+                    <div className="text-center p-8">
+                      <h1 className="text-2xl font-bold text-foreground mb-4">Page Not Found</h1>
+                      <p className="text-foreground/80 mb-4">The page you're looking for doesn't exist.</p>
+                      <a
+                        href="/"
+                        className="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors inline-block"
+                      >
+                        Go Home
+                      </a>
+                    </div>
+                  </main>
+                </motion.div>
+              }
+            />
+          </Routes>
+        </Suspense>
+      </AnimatePresence>
     </ErrorBoundary>
   );
 }
