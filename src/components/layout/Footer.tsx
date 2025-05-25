@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Linkedin, Github, Twitter, Mail, Phone } from "lucide-react";
-import AnimatedFooterAccent from "@/components/ui/AnimatedFooterAccent"; // Import the accent component
+import { Linkedin, Mail, Phone, MessageSquare } from "lucide-react";
+import AnimatedFooterAccent from "../ui/AnimatedFooterAccent";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,13 +18,25 @@ const Footer = () => {
       href: "tel:+918148622302",
       icon: <Phone className="w-5 h-5" />,
       label: "Call Phone"
+    },
+    {
+      name: "WhatsApp",
+      href: "https://wa.me/918148622302",
+      icon: <MessageSquare className="w-5 h-5" />,
+      label: "WhatsApp"
+    },
+    {
+      name: "LinkedIn",
+      href: "https://linkedin.com/in/elanthamilan",
+      icon: <Linkedin className="w-5 h-5" />,
+      label: "LinkedIn Profile"
     }
   ];
 
   return (
     <footer className="bg-accent-off-white/50 border-t border-slate-200 dark:border-slate-700 text-foreground mt-16" role="contentinfo">
-      <div className="container mx-auto px-4 py-12">
-<div className="flex flex-col md:grid md:grid-cols-[1fr_auto] gap-8 items-center mb-8 md:text-left">
+      <div className="container mx-auto px-4 py-8 sm:py-12">
+        <div className="flex flex-col items-center text-center space-y-6 mb-8">
           <div className="space-y-3">
             <Link
               to="/"
@@ -34,9 +46,9 @@ const Footer = () => {
               Elan
               <span className="material-symbols-outlined text-brand-tertiary" aria-hidden="true">auto_awesome</span>
             </Link>
-            <p className="text-foreground">Enterprise UX Designer specializing in SaaS, EdTech, and HR Tech</p>
+            <p className="text-foreground text-sm sm:text-base max-w-md">Enterprise UX Designer specializing in SaaS, EdTech, and HR Tech</p>
           </div>
-          <nav className="flex flex-wrap gap-3 justify-center md:justify-self-end" aria-label="Social media links">
+          <nav className="flex flex-wrap gap-3 justify-center" aria-label="Social media links">
             {socialLinks.map((link) => (
               <a
                 key={link.name}
@@ -54,9 +66,6 @@ const Footer = () => {
         </div>
         <div className="text-center text-foreground text-sm pt-8 border-t border-slate-200 dark:border-slate-700">
           <p>&copy; {currentYear} Elan Thamilan. All rights reserved.</p>
-          <p className="mt-2 inline-flex items-center gap-1">
-            Built with <span className="material-symbols-outlined text-brand-primary align-middle text-base" aria-hidden="true">favorite</span> using React, TypeScript, and Tailwind CSS
-          </p>
           <div className="mt-6 flex justify-center">
             <AnimatedFooterAccent />
           </div>

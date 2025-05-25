@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'; // Removed useRef as GSAP animation is removed
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom'; // Added useLocation
-import { Button } from '@/components/ui/button'; // For close button
-import { X, Home, FileText, Briefcase, Mail, Download, Linkedin, MessageSquare, Github, Phone } from 'lucide-react'; // Added Phone
+import { useTheme } from "next-themes";
+import { Button } from './ui/button';
+import { X, Home, Briefcase, Mail, Download, Linkedin, MessageSquare, Phone, Sun, Moon } from 'lucide-react';
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -18,6 +19,7 @@ const navItems = [
 
 const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     // Close menu on route change
@@ -36,7 +38,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
     hidden: { x: "-100%" },
     visible: { x: 0, transition: { type: "spring", stiffness: 300, damping: 30, duration: 0.4 } },
   };
-  
+
   // This component no longer uses GSAP directly, so useGSAP hook and related useEffect are removed.
 
   return (
@@ -63,16 +65,28 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside nav
           >
             <div className="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700">
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="text-xl font-heading font-bold text-brand-primary"
                 onClick={onClose}
               >
                 Elan
               </Link>
-              <Button variant="ghost" size="icon" onClick={onClose} aria-label="Close navigation menu">
-                <X className="h-6 w-6 text-foreground" />
-              </Button>
+              <div className="flex items-center gap-2">
+                {/* Theme toggle button */}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  aria-label="Toggle theme"
+                >
+                  <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                </Button>
+                <Button variant="ghost" size="icon" onClick={onClose} aria-label="Close navigation menu">
+                  <X className="h-6 w-6 text-foreground" />
+                </Button>
+              </div>
             </div>
             <div className="flex flex-col p-4 space-y-2 overflow-y-auto flex-grow">
               {navItems.map((item) => (

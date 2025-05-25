@@ -1,13 +1,11 @@
-import React from "react";
+
 import Header from "../components/layout/Header.tsx";
 import Footer from "../components/layout/Footer.tsx";
 // Removed ElanThinking import as blockquotes will be styled directly
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "../components/ui/badge.tsx";
-import { Card, CardContent } from "../components/ui/card.tsx";
 import SectionReveal from '../components/SectionReveal.tsx';
-import ZoomableImage from "../components/ui/ZoomableImage.tsx";
 import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
 
 const CaseStudyStudentPlanner = () => {
@@ -15,37 +13,40 @@ const CaseStudyStudentPlanner = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
-      {/* Adjusted page container padding: px-2 xs:px-4 sm:px-6, py-8 xs:py-12 md:py-16 */}
-      <main id="main-content" className="flex-grow container mx-auto px-2 xs:px-4 sm:px-6 py-8 xs:py-12 md:py-16 bg-background">
-        <Link to="/" className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mb-6 xs:mb-8 text-sm font-medium"> {/* Adjusted margin */}
-          <ArrowLeft size={16} className="mr-1.5" />
-          <span>Back to Home</span>
-        </Link>
-        
-        <article className="max-w-7xl mx-auto">
-           {/* Meta Info - Stays at the top */}
-          <SectionReveal>
-            <Card className="reveal shadow-lg bg-accent-bg dark:bg-slate-800/50 border-t-4 border-brand-secondary overflow-hidden">
-              {/* Responsive padding for text content: px-3 py-4 xs:px-4 xs:py-5 sm:p-6 md:p-8 */}
-              <div className="px-3 py-4 xs:px-4 xs:py-5 sm:p-6 md:p-8">
-                <div className="mb-3 xs:mb-4 flex items-center space-x-2 xs:space-x-3 reveal"> {/* Adjusted margin and space */}
-                  <Badge variant="secondary" className="bg-brand-secondary text-white text-xs xs:text-sm">Case Study</Badge> {/* Responsive text size */}
-                  <span className="text-xs text-foreground/70">Published May 2025</span>
+      <main id="main-content" className="flex-grow bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+          <Link to="/" className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mb-8 text-sm font-medium group">
+            <ArrowLeft size={16} className="mr-2 group-hover:-translate-x-1 transition-transform" />
+            <span>Back to Home</span>
+          </Link>
+
+          <article className="max-w-4xl mx-auto space-y-12">
+            {/* Hero Section */}
+            <SectionReveal>
+              <div className="text-center space-y-6">
+                <div className="flex items-center justify-center space-x-3">
+                  <Badge variant="secondary" className="bg-brand-secondary text-white text-sm">Case Study</Badge>
+                  <span className="text-sm text-foreground/70">Published May 2025</span>
                 </div>
-                {/* Adaptive Typography for H1: text-3xl xs:text-4xl sm:text-5xl. Adjusted mb. */}
-                <h1 className="text-3xl xs:text-4xl sm:text-5xl font-semibold mb-6 xs:mb-8 text-brand-secondary leading-tight font-heading reveal">
-                  From Chaos to Clarity: Student Course Planner Redesign
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-secondary leading-tight font-heading">
+                  From Chaos to Clarity
                 </h1>
+                <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+                  Redesigning the Student Course Planner with AI integration to eliminate scheduling frustrations and empower students
+                </p>
               </div>
-              {/* Full-width image container: Vertical padding py-4 xs:py-6 */}
-<BigImageCarousel
-  images={[
-    { src: "/src/components/ui/placeholder.svg", alt: "Student Course Planner AI Advisor Interface" },
-  ]}
-/>
-              {/* Add a padded div for any content below the image if needed, or adjust main padding div */}
-            </Card>
-          </SectionReveal>
+            </SectionReveal>
+
+            {/* Hero Image */}
+            <SectionReveal>
+              <div className="w-full bg-white rounded-xl shadow-lg overflow-hidden border border-brand-secondary/20">
+                <BigImageCarousel
+                  images={[
+                    { src: "/Elanable-uploads/78be9a59-8230-4ea5-b024-d96fd3cdd83e.png", alt: "Student Course Planner AI Advisor Interface" },
+                  ]}
+                />
+              </div>
+            </SectionReveal>
 
                {/* New Storytelling Structure Starts Here */}
             {/* Standard sections below hero image will retain their original padding and styling */}
@@ -54,13 +55,13 @@ const CaseStudyStudentPlanner = () => {
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-light shadow-lg border border-brand-secondary/20">
                {/* Adaptive Typography for H2: text-2xl xs:text-3xl sm:text-4xl. Adjusted mb. */}
               <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-secondary font-heading reveal">Overview/Challenge</h2>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 <strong className="font-medium text-foreground">Project Name:</strong> Student Course Planner Redesign (AI Advisor Integration) (Shipped: May 2025).
               </p>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The existing Student Course Planner was outdated and a major source of frustration for students like Priya, a part-time undergrad juggling a job. She voiced a common sentiment: "I spend hours cross-referencing courses, and I still end up with conflicts. I just want something that fits my life!" The planner was a bottleneck, overwhelming students with manual conflict checks, poor visualization, and a disjointed flow from planning to registration. Administrators were also swamped with scheduling tickets.
               </p>
-              <div className="text-foreground text-base xs:text-lg leading-relaxed space-y-2.5 xs:space-y-3 reveal"> 
+              <div className="text-foreground text-base xs:text-lg leading-relaxed space-y-2.5 xs:space-y-3 reveal">
                 <p className="reveal"><strong className="font-medium text-foreground">Business Goals:</strong></p>
                 <ul className="list-disc pl-4 xs:pl-5 space-y-1 xs:space-y-1.5 reveal"> {/* Adjusted padding and spacing */}
                   <li className="reveal">Reduce scheduling bottlenecks by 60%.</li>
@@ -80,7 +81,7 @@ const CaseStudyStudentPlanner = () => {
               </div>
               {/* Responsive padding and margin for blockquote */}
               <blockquote className="border-l-4 border-brand-secondary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
-                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-secondary text-base xs:text-lg">Elan's Thinking: Identifying the Core Problem</strong></p> 
+                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-secondary text-base xs:text-lg">Elan's Thinking: Identifying the Core Problem</strong></p>
                 <p className="text-foreground text-sm xs:text-base">"Sitting in that focus group, watching Priya's frustration, I realized we weren't just fixing a tool—we were fixing a broken experience. The manual conflict checks were wasting hours of students' lives. The poor visualization meant students couldn't 'see' their schedules easily. And the disconnected steps between planning and registration? Pure friction. I kept thinking: how can we make this tool adapt to students' lives, not force students to adapt to the tool?"</p>
               </blockquote>
             </section>
@@ -91,11 +92,11 @@ const CaseStudyStudentPlanner = () => {
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-bg shadow-lg border border-brand-primary/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
               <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">My Role & Responsibilities</h2>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 <strong className="font-medium text-foreground">Role:</strong> Staff UX Designer (Lead).
               </p>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg reveal"><strong className="font-medium text-foreground">Key Responsibilities:</strong></p> 
-              <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1 xs:space-y-1.5 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg reveal"><strong className="font-medium text-foreground">Key Responsibilities:</strong></p>
+              <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1 xs:space-y-1.5 reveal">
                 <li className="reveal">Leading User Research (focus groups, surveys, interviews)</li>
                 <li className="reveal">Persona Development and Journey Mapping (e.g., Priya's story)</li>
                 <li className="reveal">Defining UX Strategy for AI integration and personalization</li>
@@ -116,11 +117,11 @@ const CaseStudyStudentPlanner = () => {
 
               {/* Adaptive Typography for H3. Adjusted mb. */}
               <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-brand-secondary font-heading reveal">Discovery & Research</h3>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The process began with deep user research. Elan conducted surveys and interviews with undergraduates and part-time working students. The findings were stark: 75% felt overwhelmed by the existing planner, and 60% craved a simpler, more intuitive tool. Priya's story became a cornerstone persona; she needed a schedule that avoided her work hours (1:00 PM–2:00 PM, Monday to Thursday) and prioritized morning classes. The existing system offered no easy way to input such nuanced constraints. Stakeholders, including administrators and advisors, also desired fewer support tickets and better insights into student scheduling needs.
               </p>
               {/* Responsive padding for info box container. Adjusted my. */}
-              <div className="border border-brand-secondary/30 rounded-lg p-3 xs:p-4 sm:p-6 my-4 xs:my-6 reveal bg-white shadow-sm"> 
+              <div className="border border-brand-secondary/30 rounded-lg p-3 xs:p-4 sm:p-6 my-4 xs:my-6 reveal bg-card shadow-sm">
                 {/* Adaptive Typography for H4. Adjusted mb. */}
                 <h4 className="text-lg xs:text-xl font-semibold mb-2 xs:mb-3 text-brand-secondary font-heading reveal">Key Pain Points Highlighted:</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 xs:gap-x-6 gap-y-2 xs:gap-y-3 text-foreground text-sm xs:text-base reveal"> {/* Adjusted gap and typography */}
@@ -131,12 +132,12 @@ const CaseStudyStudentPlanner = () => {
                 </div>
               </div>
               {/* Responsive padding and margin for blockquote */}
-              <blockquote className="border-l-4 border-brand-secondary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
-                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-secondary text-base xs:text-lg">Elan's Thinking: Digging Deeper into User Needs</strong></p> 
+              <blockquote className="border-l-4 border-brand-secondary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-card p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
+                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-secondary text-base xs:text-lg">Elan's Thinking: Digging Deeper into User Needs</strong></p>
                 <p className="text-foreground text-sm xs:text-base">"Priya's story kept coming back to me—she wasn't just struggling with a tool; she was struggling to fit education into her complex life. The data showed 75% of students felt overwhelmed, but the stories revealed why: rigid systems that didn't bend to real life. I sketched scenarios: a student working night shifts, another taking care of family mid-day, a third with back-to-back intensive labs needing breaks. Our system had to adapt to their lives, not force standardization."</p>
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
-                 <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20"> 
+                 <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20">
                    <BigImageCarousel images={[
                       { svgPlaceholder: true },
                       { svgPlaceholder: true },
@@ -146,17 +147,17 @@ const CaseStudyStudentPlanner = () => {
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
               <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-brand-primary font-heading reveal">Ideation & Design</h3>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The team reimagined the planner based on three core principles: <strong className="font-medium text-foreground">Flexibility</strong> (allowing nuanced constraints), <strong className="font-medium text-foreground">Visualization</strong> (clear calendar views), and <strong className="font-medium text-foreground">AI Integration</strong> (personalized suggestions with user control). Elan started with low-fidelity wireframes focusing on the core flow: inputting constraints, viewing AI-driven suggestions, customizing, and registering. The AI Advisor was envisioned as a key feature, learning student preferences to suggest optimal schedules. However, a crucial aspect was to avoid a "black box" approach—students needed to understand AI suggestions and retain the ability to override and customize.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 xs:gap-6 my-6 xs:my-8 reveal"> {/* Adjusted gap and my */}
                  {/* Responsive padding and typography for principle boxes */}
-                <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm"><h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-primary font-semibold">Flexibility</h4><p className="text-foreground text-xs xs:text-sm leading-relaxed">Allow students to input nuanced constraints, like work hours and preferred times.</p></div>
-                <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm"><h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-primary font-semibold">Visualization</h4><p className="text-foreground text-xs xs:text-sm leading-relaxed">Offer a clear, intuitive calendar view that highlights conflicts and available options.</p></div>
-                <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm"><h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-primary font-semibold">AI Integration</h4><p className="text-foreground text-xs xs:text-sm leading-relaxed">Use AI to suggest personalized schedules while keeping students in control.</p></div>
+                <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-card shadow-sm"><h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-primary font-semibold">Flexibility</h4><p className="text-foreground text-xs xs:text-sm leading-relaxed">Allow students to input nuanced constraints, like work hours and preferred times.</p></div>
+                <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-card shadow-sm"><h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-primary font-semibold">Visualization</h4><p className="text-foreground text-xs xs:text-sm leading-relaxed">Offer a clear, intuitive calendar view that highlights conflicts and available options.</p></div>
+                <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-card shadow-sm"><h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-primary font-semibold">AI Integration</h4><p className="text-foreground text-xs xs:text-sm leading-relaxed">Use AI to suggest personalized schedules while keeping students in control.</p></div>
               </div>
-              <blockquote className="border-l-4 border-brand-primary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
-                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-primary text-base xs:text-lg">Elan's Thinking: Balancing AI and User Control</strong></p> 
+              <blockquote className="border-l-4 border-brand-primary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-card p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
+                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-primary text-base xs:text-lg">Elan's Thinking: Balancing AI and User Control</strong></p>
                 <p className="text-foreground text-sm xs:text-base">"AI was the key to personalization, but I didn't want to create a system that felt like a 'magic box.' Students needed to understand why the AI was suggesting certain schedules and have the power to override those suggestions. I sketched interfaces that showed the AI's reasoning—'This schedule avoids your work hours'—and made it easy to tweak the AI's recommendations. It was about empowering students, not replacing them."</p>
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
@@ -170,22 +171,22 @@ const CaseStudyStudentPlanner = () => {
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
               <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-brand-tertiary font-heading reveal">Testing & Iteration</h3>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The team progressed to high-fidelity prototypes, testing different calendar views and AI suggestion interfaces. Usability testing was crucial. It revealed that while students loved the AI suggestions, they also desired more granular control over the calendar view. This feedback led to the addition of filters for course types and instructors, allowing students to fine-tune their schedules more effectively.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 my-6 xs:my-8 reveal"> {/* Adjusted gap and my */}
                  {/* Responsive padding and typography for iteration boxes */}
-                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-white shadow-sm"> 
+                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-card shadow-sm">
                   <h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">Wireframes</h4>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Focused on the core flow: inputting constraints, viewing suggestions, and registering for courses.</p> 
+                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Focused on the core flow: inputting constraints, viewing suggestions, and registering for courses.</p>
                 </div>
-                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-white shadow-sm"> 
+                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-card shadow-sm">
                   <h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">Prototypes</h4>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Tested different calendar views and AI suggestion interfaces, gathering critical user feedback.</p> 
+                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Tested different calendar views and AI suggestion interfaces, gathering critical user feedback.</p>
                 </div>
               </div>
-              <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
-                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-tertiary text-base xs:text-lg">Elan's Thinking: Iterating Based on User Feedback</strong></p> 
+              <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-card p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
+                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-tertiary text-base xs:text-lg">Elan's Thinking: Iterating Based on User Feedback</strong></p>
                 <p className="text-foreground text-sm xs:text-base">"Usability testing was brutal but essential. Students loved the AI suggestions, but they also wanted to 'zoom in' on the calendar and filter courses by type and instructor. I realized I had over-engineered the AI and under-engineered the basic calendar view. It was a humbling lesson: AI is powerful, but it's not a substitute for a solid foundation."</p>
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
@@ -204,7 +205,7 @@ const CaseStudyStudentPlanner = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal rounded-lg bg-accent-light shadow-lg border border-brand-secondary/20">
               {/* Responsive padding for text content container */}
-              <div className="px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8"> 
+              <div className="px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8">
                 {/* Adaptive Typography for H2. Adjusted mb. */}
                 <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-secondary font-heading reveal">The Solution</h2>
                 <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
@@ -220,7 +221,7 @@ const CaseStudyStudentPlanner = () => {
                 </ul>
               </div>
               {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my (removed from here, applied to section). */}
-              <div className="bg-accent-bg py-4 xs:py-6 rounded-b-lg shadow-inner reveal border-t border-brand-secondary/20"> 
+              <div className="bg-accent-bg py-4 xs:py-6 rounded-b-lg shadow-inner reveal border-t border-brand-secondary/20">
                    <BigImageCarousel images={[
                       { svgPlaceholder: true },
                       { svgPlaceholder: true },
@@ -235,26 +236,26 @@ const CaseStudyStudentPlanner = () => {
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-bg shadow-lg border border-brand-primary/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
               <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">Impact/Results</h2>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
                 While specific metrics post-launch are pending collection, the project targeted the following outcomes based on the business goals and usability improvements:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 xs:gap-6 mb-4 xs:mb-6 reveal"> {/* Adjusted gap and mb */}
                  {/* Responsive padding for stat boxes */}
-                <div className="border border-brand-primary/30 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm"> 
+                <div className="border border-brand-primary/30 bg-card p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
                   {/* Adaptive Typography for stats. Adjusted mb. */}
                   <p className="text-2xl xs:text-3xl sm:text-4xl font-semibold text-brand-primary mb-0.5 xs:mb-1">60%</p>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Targeted Reduction in Scheduling Bottlenecks</p> 
+                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Targeted Reduction in Scheduling Bottlenecks</p>
                 </div>
-                <div className="border border-brand-primary/30 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
+                <div className="border border-brand-primary/30 bg-card p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
                   <p className="text-2xl xs:text-3xl sm:text-4xl font-semibold text-brand-primary mb-0.5 xs:mb-1">30%</p>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Targeted Increase in Schedule-to-Cart Conversions</p> 
+                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Targeted Increase in Schedule-to-Cart Conversions</p>
                 </div>
-                <div className="border border-brand-primary/30 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
+                <div className="border border-brand-primary/30 bg-card p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
                   <p className="text-2xl xs:text-3xl sm:text-4xl font-semibold text-brand-primary mb-0.5 xs:mb-1">40%</p>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Targeted Adoption of AI Recommendations</p> 
+                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Targeted Adoption of AI Recommendations</p>
                 </div>
               </div>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg reveal">
                 Qualitative feedback from usability testing indicated a significant improvement in user satisfaction, with students finding the new design more intuitive, less overwhelming, and better equipped to handle their complex scheduling needs.
               </p>
             </section>
@@ -265,54 +266,103 @@ const CaseStudyStudentPlanner = () => {
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-off-white shadow-lg border border-brand-tertiary/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
               <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-tertiary font-heading reveal">Learnings/Reflections</h2>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The Student Course Planner redesign was a journey of balancing advanced AI capabilities with fundamental user needs for control and clarity. The key lessons learned were:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 xs:gap-6 my-6 xs:my-8 reveal"> {/* Adjusted gap and my */}
                  {/* Responsive padding and typography for learning boxes */}
-                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-white shadow-sm"> 
+                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-card shadow-sm">
                   <h3 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">Empathy is Foundational</h3>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Deeply understanding user frustrations (like Priya's) is crucial to designing meaningful solutions.</p> 
+                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Deeply understanding user frustrations (like Priya's) is crucial to designing meaningful solutions.</p>
                 </div>
-                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-white shadow-sm">
+                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-card shadow-sm">
                   <h3 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">Iterate Relentlessly</h3>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">User feedback, especially during usability testing, is invaluable. Be prepared to pivot and refine (e.g., enhancing calendar controls).</p> 
+                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">User feedback, especially during usability testing, is invaluable. Be prepared to pivot and refine (e.g., enhancing calendar controls).</p>
                 </div>
-                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-white shadow-sm">
+                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-card shadow-sm">
                   <h3 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">AI Augments, Not Replaces</h3>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Use AI to empower users and simplify complex tasks, but always ensure they remain in control and understand the system's suggestions.</p> 
+                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Use AI to empower users and simplify complex tasks, but always ensure they remain in control and understand the system's suggestions.</p>
                 </div>
               </div>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal"> 
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 This project reinforced that even with advanced technology, the core principles of user-centered design—empathy, clarity, and iterative improvement—are paramount to success.
               </p>
               {/* Responsive padding and margin for blockquote */}
-              <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
-                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-tertiary text-base xs:text-lg">Elan's Thinking: The Bigger Picture</strong></p> 
+              <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-card p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
+                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-tertiary text-base xs:text-lg">Elan's Thinking: The Bigger Picture</strong></p>
                 <p className="text-foreground text-sm xs:text-base">"This project taught me that UX design is more than just a job—it's a chance to make a positive impact on the world. By understanding people's struggles and creating solutions that make their lives a little easier, we can create a better future for everyone."</p>
               </blockquote>
             </section>
           </SectionReveal>
 
-               {/* End of Case Study and Links - Stays at the bottom */}
+               {/* End of Case Study and Navigation */}
           <SectionReveal>
-            {/* Responsive padding and mt. */}
-            <div className="text-center mt-12 xs:mt-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-light shadow-lg border border-brand-secondary/20"> 
-              <p className="text-base xs:text-lg text-foreground/80 mb-4 xs:mb-6 reveal">⭐ End of Case Study ⭐</p> {/* Adjusted typography and mb */}
-              <div className="mb-6 xs:mb-8 reveal"> {/* Adjusted mb */}
-                 {/* Adaptive Typography for H3. Adjusted mb. */}
-                <h3 className="text-lg xs:text-xl sm:text-2xl font-heading font-semibold mb-1.5 xs:mb-2 text-brand-secondary">Next Case Study</h3> 
-                <Link to="/case-study/campus-hiring" className="text-brand-primary hover:underline font-medium text-sm xs:text-base"> {/* Adjusted typography */}
-                  Camu Campus Recruitment App →
-                </Link>
+            {/* Next Case Study - Prominent Section */}
+            <div className="mt-12 xs:mt-16 reveal">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-brand-secondary font-heading mb-4">Continue Reading</h2>
+                <p className="text-foreground/80 text-lg">Explore my next case study</p>
               </div>
-              <Link to="/" className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors text-sm font-medium reveal"> 
-                <ArrowLeft size={16} className="mr-1.5" />
-                <span>Back to Portfolio</span>
+
+              <Link to="/case-study/campus-hiring" className="block group">
+                <div className="bg-accent-light dark:bg-slate-800/60 p-6 md:p-8 rounded-3xl shadow-md hover:shadow-lg transition-all duration-300 border-b-4 border-brand-primary group-hover:shadow-xl overflow-hidden">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="bg-background/80 backdrop-blur-sm px-2.5 py-1 rounded-md text-xs font-medium text-foreground shadow-sm">
+                          2023
+                        </div>
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold text-brand-primary font-heading mb-3 group-hover:text-brand-secondary transition-colors">
+                        Campus Hiring Platform
+                      </h3>
+                      <div className="mb-4 text-sm text-foreground/80">
+                        <ul className="space-y-2">
+                          <li>
+                            <span className="font-bold text-foreground">Who:</span>
+                            <span className="text-foreground/90 ml-1">Top Indian University</span>
+                          </li>
+                          <li>
+                            <span className="font-bold text-foreground">What:</span>
+                            <span className="text-foreground/90 ml-1">End-to-end campus hiring solution</span>
+                          </li>
+                          <li>
+                            <span className="font-bold text-foreground">Result:</span>
+                            <span className="text-foreground/90 ml-1">50% faster hiring</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <p className="text-foreground/80 mb-4 leading-relaxed text-sm">
+                        A platform to streamline campus hiring processes, connecting recruiters, students, and placement officers in one unified system.
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        <span className="px-2.5 py-0.5 text-xs border bg-brand-primary/10 text-brand-primary border-brand-primary/20 rounded">EdTech</span>
+                        <span className="px-2.5 py-0.5 text-xs border bg-brand-primary/10 text-brand-primary border-brand-primary/20 rounded">SaaS</span>
+                        <span className="px-2.5 py-0.5 text-xs border bg-brand-primary/10 text-brand-primary border-brand-primary/20 rounded">UX/UI</span>
+                      </div>
+                      <div className="flex items-center text-brand-primary group-hover:text-brand-secondary transition-colors font-medium">
+                        <span>View Case Study</span>
+                        <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                    <div className="w-full md:w-48 h-32 bg-accent-bg rounded-lg flex items-center justify-center border border-brand-primary/20 overflow-hidden">
+                      <span className="text-brand-primary/60 text-sm">Preview Coming Soon</span>
+                    </div>
+                  </div>
+                </div>
               </Link>
             </div>
+
+              {/* Back to Home */}
+              <div className="text-center mt-8">
+                <Link to="/" className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors font-medium px-6 py-3 rounded-lg hover:bg-brand-primary/5">
+                  <ArrowLeft size={18} className="mr-2" />
+                  <span>Back to Home</span>
+                </Link>
+              </div>
           </SectionReveal>
-        </article>
+          </article>
+        </div>
       </main>
       <Footer />
     </div>

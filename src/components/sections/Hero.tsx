@@ -1,23 +1,23 @@
 import React from "react";
 import SectionReveal from "../SectionReveal.tsx";
-import { Button } from "@/components/ui/button"; // Updated path
-import { ArrowRight, Download, GraduationCap, ShoppingCart, Network, Rocket, Linkedin, Mail, Phone, MessageSquare } from "lucide-react"; // Added Mail, Phone, MessageSquare
-import { useIsMobile } from "@/components/hooks/use-mobile"; // Updated path
-import { Badge } from "@/components/ui/badge"; // Updated path
+import { Button } from "../ui/button";
+import { Download, GraduationCap, ShoppingCart, Network, Rocket, Linkedin, Mail, Phone, MessageSquare } from "lucide-react";
+import { useIsMobile } from "../hooks/use-mobile";
+import { Badge } from "../ui/badge";
 // Card components are not directly used in Hero, but CaseStudyCard might use them.
-// import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"; 
+// import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"; // Updated path
+} from "../ui/accordion";
 import CaseStudyCard from "../CaseStudyCard.tsx";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { useEffect, useState, useRef } from "react";
-import SkillsBentoGrid from "@/components/Skills"; // Import the actual SkillsBentoGrid
-import AnimatedHeroBackground from "@/components/ui/AnimatedHeroBackground"; // Import the new background component
+import SkillsBentoGrid from "../Skills";
+import UXAnimatedBackground from "../ui/UXAnimatedBackground";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -99,7 +99,7 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
 
   return (
     <section className={`py-12 xs:py-16 md:py-24 text-foreground relative bg-background fade-in ${loaded ? 'loaded' : ''}`} style={{ opacity: loaded ? 1 : 0 }} aria-labelledby="hero-headline">
-      <AnimatedHeroBackground /> 
+      <UXAnimatedBackground />
       <div className="container mx-auto px-2 xs:px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 items-start">
           {/* Left Column */}
@@ -109,7 +109,7 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                 Enterprise UX Designer
               </Badge>
               <h1 ref={headlineRef} id="hero-headline" className="mt-3 mb-5 text-3xl xs:text-4xl md:text-5xl lg:text-6xl font-heading font-semibold leading-tight text-foreground" style={{ minHeight: '120px' }}>
-                {PHRASES[0]} 
+                {PHRASES[0]}
               </h1>
               <div className="flex items-center mb-6 space-x-2">
                 <span className="text-xl md:text-2xl font-sans font-medium text-foreground">Hi, I'm <span className="font-heading text-brand-primary">Elanthamilan</span> <span role='img' aria-label='wave'>👋</span><span role='img' aria-label='nerd face'>🤓</span></span>
@@ -148,7 +148,7 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
               <div className="grid grid-cols-2 gap-3 xs:gap-4 sm:grid-cols-4 border-b border-slate-200 dark:border-slate-700 py-5"> {/* Adjusted padding and gap */}
                 {[{label:"Experience", value:"8+ Years"}, {label:"Products", value:"10+"}, {label:"Features", value:"30+"}, {label:"Design systems", value:"2"}].map(stat => (
                   <div key={stat.label} className="text-center">
-                    <span className="text-xs text-foreground/70 block uppercase tracking-wider">{stat.label}</span> 
+                    <span className="text-xs text-foreground/70 block uppercase tracking-wider">{stat.label}</span>
                     <span className="font-semibold text-lg xs:text-xl md:text-2xl block text-foreground mt-0.5">{stat.value}</span> {/* Adjusted typography and margin */}
                   </div>
                 ))}
@@ -157,17 +157,17 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
               <div className="py-5 border-b border-slate-200 dark:border-slate-700"> {/* Adjusted padding */}
                 <h3 className="font-heading font-semibold text-foreground mb-3 text-md xs:text-lg">Industries I have Worked In</h3> {/* Adjusted typography and margin */}
                 <Accordion type="single" collapsible defaultValue="EdTech" className="w-full text-foreground">
-                  {INDUSTRIES.map((industry) => ( 
+                  {INDUSTRIES.map((industry) => (
                     <AccordionItem value={industry.title} key={industry.title} className="border-b border-slate-200 dark:border-slate-700 last:border-b-0">
                       <AccordionTrigger className="flex items-center w-full py-3 px-1 text-left font-semibold text-base xs:text-lg rounded-md hover:bg-accent-bg focus-visible:bg-accent-bg focus-visible:ring-1 focus-visible:ring-brand-primary transition-colors data-[state=open]:bg-accent-light data-[state=open]:text-brand-primary"> {/* Adjusted padding and typography */}
                         {(() => {
-                          const IconComponent = ICON_MAP[industry.iconName]; 
+                          const IconComponent = ICON_MAP[industry.iconName];
                           return IconComponent ? <IconComponent className="mr-2.5 h-4 w-4 xs:h-5 xs:w-5 flex-shrink-0 text-brand-primary" aria-hidden="true" /> : null; {/* Adjusted size and margin */}
                         })()}
                         <span>{industry.title}</span>
                       </AccordionTrigger>
                       <AccordionContent className="pt-2 pb-3 px-1 text-foreground text-sm xs:text-base leading-relaxed bg-transparent rounded-b-md"> {/* Adjusted padding and typography */}
-                        {industry.content} 
+                        {industry.content}
                       </AccordionContent>
                     </AccordionItem>
                   ))}
@@ -227,7 +227,7 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
               </div>
               <div className="space-y-6" role="list" aria-labelledby="case-studies-heading">
                 <CaseStudyCard
-                  title="Campus Hiring Platform" 
+                  title="Campus Hiring Platform"
                   year="2023"
                   who="Top Indian University"
                   what="End-to-end campus hiring solution"
@@ -277,7 +277,7 @@ const HeroWithSkills = React.memo(() => { // Wrapped HeroWithSkills with React.m
       {/* Render the actual SkillsBentoGrid component within a SectionReveal for animations */}
       {/* The SkillsBentoGrid already has its own <section> and theming, so no need to wrap it in another one here. */}
       {/* SkillsBentoGrid itself should be memoized if it's expensive or takes complex props */}
-      <SectionReveal> 
+      <SectionReveal>
         <SkillsBentoGrid />
       </SectionReveal>
     </>
