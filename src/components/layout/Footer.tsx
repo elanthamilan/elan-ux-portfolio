@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Linkedin, Mail, Phone, MessageSquare } from "lucide-react";
+import { ExternalLink, Mail, Phone, MessageSquare } from "lucide-react";
 import AnimatedFooterAccent from "../ui/AnimatedFooterAccent";
 
 const Footer = () => {
@@ -28,7 +28,7 @@ const Footer = () => {
     {
       name: "LinkedIn",
       href: "https://linkedin.com/in/elanthamilan",
-      icon: <Linkedin className="w-5 h-5" />,
+      icon: <ExternalLink className="w-5 h-5" />,
       label: "LinkedIn Profile"
     }
   ];

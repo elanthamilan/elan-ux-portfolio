@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom'; // Added useLocation
 import { useTheme } from "next-themes";
 import { Button } from './ui/button';
-import { X, Home, Briefcase, Mail, Download, Linkedin, MessageSquare, Phone, Sun, Moon } from 'lucide-react';
+import { X, Home, Briefcase, Mail, Download, MessageSquare, Phone, Sun, Moon, ExternalLink } from 'lucide-react';
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -118,7 +118,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
                   WhatsApp
                 </a>
                 <a href="https://linkedin.com/in/elanthamilan" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center">
-                  <Linkedin className="w-5 h-5" />
+                  <ExternalLink className="w-5 h-5" />
                   LinkedIn
                 </a>
                 {/* Download Resume button, styled as a primary button */}

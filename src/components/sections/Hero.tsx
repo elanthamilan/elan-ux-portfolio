@@ -1,7 +1,7 @@
 import React from "react";
 import SectionReveal from "../SectionReveal.tsx";
 import { Button } from "../ui/button";
-import { Download, GraduationCap, ShoppingCart, Network, Rocket, Linkedin, Mail, Phone, MessageSquare } from "lucide-react";
+import { Download, GraduationCap, ShoppingCart, Network, Rocket, ExternalLink, Mail, Phone, MessageSquare } from "lucide-react";
 import { useIsMobile } from "../hooks/use-mobile";
 import { Badge } from "../ui/badge";
 // Card components are not directly used in Hero, but CaseStudyCard might use them.
@@ -210,7 +210,7 @@ const Hero = React.memo(() => { // Wrapped Hero with React.memo
                     className="flex flex-row items-center gap-3 border border-brand-primary text-brand-primary rounded-lg py-4 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[56px] text-base font-medium justify-center"
                     aria-label="Connect on LinkedIn"
                   >
-                    <Linkedin className="w-5 h-5" />
+                    <ExternalLink className="w-5 h-5" />
                     LinkedIn
                   </a>
                 </div>
