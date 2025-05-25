@@ -1,6 +1,6 @@
-import { j as jsxRuntimeExports, L as Link } from "./index-BL9bZZ2a.js";
-import { H as Header, S as SectionReveal, C as Card, B as Badge, Z as ZoomableImage, F as Footer } from "./Header-C6Vyp1kE.js";
-import { A as ArrowLeft, B as BigImageCarousel } from "./BigImageCarousel-qDmV8UL2.js";
+import { j as jsxRuntimeExports, L as Link } from "./index-_Pnv69Rk.js";
+import { H as Header, S as SectionReveal, C as Card, B as Badge, Z as ZoomableImage, F as Footer } from "./Header-MKRXhXpG.js";
+import { A as ArrowLeft, B as BigImageCarousel } from "./BigImageCarousel-BeJ44eqn.js";
 const CaseStudyCampusHiring = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen flex flex-col bg-background", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
@@ -27,8 +27,8 @@ const CaseStudyCampusHiring = () => {
               BigImageCarousel,
               {
                 images: [
-                  { src: "/placeholder-ux-design.svg", alt: "Camu Campus Recruitment App Interface" },
-                  { svgPlaceholder: true, alt: "UX Design Process Overview" },
+                  { src: "/Elanable-uploads/Camu Campus Recruitment App.png", alt: "Camu Campus Recruitment App Interface" },
+                  { src: "/Elanable-uploads/Camu.png", alt: "Camu Brand Identity" },
                   { svgPlaceholder: true, alt: "User Journey Mapping" }
                 ]
               }
@@ -101,7 +101,7 @@ const CaseStudyCampusHiring = () => {
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg overflow-hidden reveal border border-brand-primary/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             ZoomableImage,
             {
-              src: "/placeholder-ux-design.svg",
+              src: "/Elanable-uploads/Camu.png",
               alt: "User Personas and Journey Map",
               className: "aspect-video"
             }
@@ -126,7 +126,7 @@ const CaseStudyCampusHiring = () => {
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg overflow-hidden reveal border border-brand-secondary/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             ZoomableImage,
             {
-              src: "/placeholder-ux-design.svg",
+              src: "/Elanable-uploads/Camu Campus Recruitment App.png",
               alt: "Wireframes and Prototypes",
               className: "aspect-video"
             }
@@ -172,7 +172,7 @@ const CaseStudyCampusHiring = () => {
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg overflow-hidden reveal border border-brand-tertiary/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             ZoomableImage,
             {
-              src: "/placeholder-ux-design.svg",
+              src: "/Elanable-uploads/Camu.png",
               alt: "Iteration Examples and UI Mockups",
               className: "aspect-video"
             }
@@ -242,7 +242,7 @@ const CaseStudyCampusHiring = () => {
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg overflow-hidden reveal border border-brand-primary/20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             ZoomableImage,
             {
-              src: "/placeholder-ux-design.svg",
+              src: "/Elanable-uploads/Camu Campus Recruitment App.png",
               alt: "Final UI Screens and Key Flows",
               className: "aspect-video"
             }
@@ -323,4 +323,4 @@ const CaseStudyCampusHiring = () => {
 export {
   CaseStudyCampusHiring as default
 };
-//# sourceMappingURL=CaseStudyCampusHiring-ub_mJCUk.js.map
+//# sourceMappingURL=CaseStudyCampusHiring-M6TCp1vo.js.map

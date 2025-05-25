@@ -1,6 +1,6 @@
-import { R as React, r as reactExports, j as jsxRuntimeExports, L as Link } from "./index-BL9bZZ2a.js";
-import { Z as ZoomableImage, H as Header, S as SectionReveal, C as Card, B as Badge, F as Footer } from "./Header-C6Vyp1kE.js";
-import { u as useEmblaCarousel, C as ChevronLeft, a as ChevronRight, A as ArrowLeft, B as BigImageCarousel } from "./BigImageCarousel-qDmV8UL2.js";
+import { R as React, r as reactExports, j as jsxRuntimeExports, L as Link } from "./index-_Pnv69Rk.js";
+import { Z as ZoomableImage, H as Header, S as SectionReveal, C as Card, B as Badge, F as Footer } from "./Header-MKRXhXpG.js";
+import { u as useEmblaCarousel, C as ChevronLeft, a as ChevronRight, A as ArrowLeft, B as BigImageCarousel } from "./BigImageCarousel-BeJ44eqn.js";
 const ImageCarousel = React.memo(({ images, options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: images.length > 1,
@@ -132,8 +132,8 @@ const CaseStudyStudentPlanner = () => {
               BigImageCarousel,
               {
                 images: [
-                  { src: "/placeholder-ux-design.svg", alt: "Student Course Planner AI Advisor Interface" },
-                  { svgPlaceholder: true, alt: "AI Recommendation Engine" },
+                  { src: "/Elanable-uploads/Geninfy.jpg", alt: "Student Course Planner AI Advisor Interface" },
+                  { src: "/Elanable-uploads/Mastek.png", alt: "AI Recommendation Engine" },
                   { svgPlaceholder: true, alt: "Calendar Visualization System" }
                 ]
               }
@@ -397,4 +397,4 @@ const CaseStudyStudentPlanner = () => {
 export {
   CaseStudyStudentPlanner as default
 };
-//# sourceMappingURL=CaseStudyStudentPlanner-wUrk9X3y.js.map
+//# sourceMappingURL=CaseStudyStudentPlanner-DfNxBN4H.js.map
