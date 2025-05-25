@@ -1,4 +1,4 @@
-import { R as React, r as reactExports, g as gsapWithCSS, S as ScrollTrigger, j as jsxRuntimeExports, A as AnimatePresence, m as motion, L as Link, u as useLocation } from "./index-BNYEzncT.js";
+import { R as React, r as reactExports, g as gsapWithCSS, S as ScrollTrigger, j as jsxRuntimeExports, A as AnimatePresence, m as motion, L as Link, u as useLocation } from "./index-NIhqPbeC.js";
 gsapWithCSS.registerPlugin(ScrollTrigger);
 const SectionReveal = React.memo(({ children }) => {
   const ref = reactExports.useRef(null);
@@ -2837,7 +2837,7 @@ const Download = createLucideIcon("Download", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const ExternalLink$1 = createLucideIcon("ExternalLink", [
+const ExternalLink = createLucideIcon("ExternalLink", [
   ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
   ["path", { d: "M10 14 21 3", key: "gplh6r" }],
   ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
@@ -2885,7 +2885,7 @@ const Menu = createLucideIcon("Menu", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const MessageSquare$1 = createLucideIcon("MessageSquare", [
+const MessageSquare = createLucideIcon("MessageSquare", [
   ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ]);
 /**
@@ -3425,11 +3425,11 @@ const MobileNav = React.memo(({ isOpen, onClose }) => {
               ] }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://wa.me/918148622302", target: "_blank", rel: "noopener noreferrer", className: "flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare$1, { className: "w-5 h-5" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-5 h-5" }),
                   "WhatsApp"
                 ] }),
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://linkedin.com/in/elanthamilan", target: "_blank", rel: "noopener noreferrer", className: "flex flex-row items-center gap-2 border border-brand-primary text-brand-primary rounded-lg py-3 px-4 hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all w-full min-h-[52px] text-base font-medium justify-center", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink$1, { className: "w-5 h-5" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { className: "w-5 h-5" }),
                   "LinkedIn"
                 ] })
               ] })
@@ -3546,7 +3546,7 @@ export {
   CardDescription as f,
   CardContent as g,
   Button as h,
-  MessageSquare$1 as i,
+  MessageSquare as i,
   useComposedRefs as u
 };
-//# sourceMappingURL=Header-B1MboO8Y.js.map
+//# sourceMappingURL=Header-4c9rqc9L.js.map
