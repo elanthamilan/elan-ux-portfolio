@@ -5,6 +5,7 @@ import Skills from "../Skills";
 import CaseStudyCard from "../CaseStudyCard";
 import ScrambleIn from "../../fancy/components/text/scramble-in";
 import { motion } from 'motion/react';
+import { Button } from '@/components/ui/button';
 
 // Simple HomePage component that matches the attachment layout
 const HomePage = () => {
@@ -29,13 +30,13 @@ const HomePage = () => {
                   scrambledClassName="text-gray-400"
                 />
               </h1>
-              <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+              <h2 className="text-2xl font-semibold text-[#177863] mb-4">
                 <ScrambleIn
                   text="Expert in EdTech & HR Tech"
                   scrambleSpeed={40}
                   scrambledLetterCount={2}
-                  className="text-blue-600"
-                  scrambledClassName="text-blue-300"
+                  className="text-[#177863]"
+                  scrambledClassName="text-[#177863]/50"
                   autoStart={true}
                 />
               </h2>
@@ -50,7 +51,7 @@ const HomePage = () => {
                   className="font-semibold"
                   whileHover={{
                     scale: 1.1,
-                    color: "#3B82F6",
+                    color: "#177863",
                     transition: { duration: 0.2 }
                   }}
                 >
@@ -67,23 +68,26 @@ const HomePage = () => {
                 Experienced UX designer specializing in enterprise SaaS, EdTech, and HR Tech. I transform complex business challenges into intuitive, user-centered solutions that drive measurable impact and enhance usability for large-scale products.
               </motion.p>
 
-              <motion.a
-                href="/Elanthamilan_UX_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-brand-primary text-primary-foreground rounded-lg hover:bg-brand-primary/90 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                  transition: { duration: 0.2 }
-                }}
-                whileTap={{ scale: 0.95 }}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                📄 Download Resume
-              </motion.a>
+                <Button
+                  asChild
+                  variant="default"
+                  size="lg"
+                  className="text-base"
+                >
+                  <a
+                    href="/Elanthamilan_UX_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    📄 Download Resume
+                  </a>
+                </Button>
+              </motion.div>
             </div>
 
             {/* Case Studies - Prominent in Left Column */}
@@ -110,8 +114,9 @@ const HomePage = () => {
                   link="/case-study/campus-hiring"
                   tags={["UX Design", "Enterprise", "HR Tech"]}
                   index={0}
-                  cardClassName="bg-accent-bg dark:bg-slate-800/50"
+                  cardClassName="bg-gradient-to-br from-[#177863]/5 to-[#177863]/10 border-[#177863]/20"
                   accentColorName="brand-primary"
+                  buttonVariant="default"
                 />
                 <CaseStudyCard
                   title="Student Course Planner"
@@ -124,8 +129,9 @@ const HomePage = () => {
                   link="/case-study/student-planner"
                   tags={["AI/ML", "EdTech", "Product Design"]}
                   index={1}
-                  cardClassName="bg-accent-bg dark:bg-slate-800/50"
+                  cardClassName="bg-gradient-to-br from-[#16325A]/5 to-[#16325A]/10 border-[#16325A]/20"
                   accentColorName="brand-secondary"
+                  buttonVariant="secondary"
                 />
               </div>
             </section>
@@ -247,43 +253,82 @@ const HomePage = () => {
 
             {/* Industries Section */}
             <section className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Industries I have Worked In</h3>
+              <motion.h3
+                className="text-xl font-semibold mb-4"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                <ScrambleIn
+                  text="Industries I have Worked In"
+                  scrambleSpeed={30}
+                  scrambledLetterCount={2}
+                  className="text-gray-900"
+                  scrambledClassName="text-gray-400"
+                  autoStart={true}
+                />
+              </motion.h3>
               <div className="space-y-2">
-                <details className="border rounded-lg" open>
-                  <summary className="p-4 cursor-pointer font-medium flex items-center">
+                <motion.details
+                  className="border border-[#177863]/20 rounded-lg hover:border-[#177863]/40 transition-colors"
+                  open
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                  whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
+                >
+                  <summary className="p-4 cursor-pointer font-medium flex items-center text-[#177863] hover:text-[#177863]/80 transition-colors">
                     🎓 EdTech
                   </summary>
                   <div className="p-4 pt-0 text-gray-700">
                     Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals. Revamped SIS through evaluation, design systems, and redesign of 30+ features. Directed LMS design focusing on accessibility, usability, and scalable workflows. Designed Student Portal for seamless navigation and mobile responsiveness. Created eLearning platform for trading courses.
                   </div>
-                </details>
+                </motion.details>
 
-                <details className="border rounded-lg">
-                  <summary className="p-4 cursor-pointer font-medium flex items-center">
+                <motion.details
+                  className="border border-[#16325A]/20 rounded-lg hover:border-[#16325A]/40 transition-colors"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
+                  whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
+                >
+                  <summary className="p-4 cursor-pointer font-medium flex items-center text-[#16325A] hover:text-[#16325A]/80 transition-colors">
                     🛒 eCommerce
                   </summary>
                   <div className="p-4 pt-0 text-gray-700">
                     Redesigned key flows for a B2B pharma eCommerce site. Designed eCommerce experiences for brands like Robinson Co. and Natural Partners. Improved product discovery, navigation and checkout flows. Crafted scalable UI systems for quick orders, subscriptions, and account management.
                   </div>
-                </details>
+                </motion.details>
 
-                <details className="border rounded-lg">
-                  <summary className="p-4 cursor-pointer font-medium flex items-center">
+                <motion.details
+                  className="border border-[#177863]/20 rounded-lg hover:border-[#177863]/40 transition-colors"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
+                  whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
+                >
+                  <summary className="p-4 cursor-pointer font-medium flex items-center text-[#177863] hover:text-[#177863]/80 transition-colors">
                     🔗 Connected Tech
                   </summary>
                   <div className="p-4 pt-0 text-gray-700">
                     Led design for connected home interfaces (consumer & industrial IoT). Founding member of product/design team, revamped platform, built design system. Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine. Experience includes designing asset management solutions for real-time tool tracking in industrial IoT settings.
                   </div>
-                </details>
+                </motion.details>
 
-                <details className="border rounded-lg">
-                  <summary className="p-4 cursor-pointer font-medium flex items-center">
+                <motion.details
+                  className="border border-[#16325A]/20 rounded-lg hover:border-[#16325A]/40 transition-colors"
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.25, ease: "easeOut" }}
+                  whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
+                >
+                  <summary className="p-4 cursor-pointer font-medium flex items-center text-[#16325A] hover:text-[#16325A]/80 transition-colors">
                     🚀 Startup
                   </summary>
                   <div className="p-4 pt-0 text-gray-700">
                     Contributed to the design and development of various startup products, focusing on user-centered design and rapid iteration.
                   </div>
-                </details>
+                </motion.details>
               </div>
             </section>
 
@@ -302,33 +347,35 @@ const HomePage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <motion.a
                   href="mailto:elanthamilan12@gmail.com"
-                  className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                  className="flex items-center p-3 border border-[#177863] text-[#177863] rounded-lg hover:bg-[#177863]/5 transition-colors"
                   whileHover={{
-                    scale: 1.02,
-                    borderColor: "#1D4ED8",
-                    backgroundColor: "#EFF6FF",
+                    scale: 1.01,
+                    borderColor: "#177863",
+                    backgroundColor: "#177863",
+                    color: "#FFFFFF",
                     transition: { duration: 0.2 }
                   }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
+                  whileTap={{ scale: 0.99 }}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.05, ease: "easeOut" }}
                 >
                   📧 elanthamilan12@gmail.com
                 </motion.a>
                 <motion.a
                   href="tel:+918148622302"
-                  className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                  className="flex items-center p-3 border border-[#16325A] text-[#16325A] rounded-lg hover:bg-[#16325A]/5 transition-colors"
                   whileHover={{
-                    scale: 1.02,
-                    borderColor: "#1D4ED8",
-                    backgroundColor: "#EFF6FF",
+                    scale: 1.01,
+                    borderColor: "#16325A",
+                    backgroundColor: "#16325A",
+                    color: "#FFFFFF",
                     transition: { duration: 0.2 }
                   }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                  whileTap={{ scale: 0.99 }}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
                 >
                   📞 +918148622302
                 </motion.a>
@@ -336,17 +383,18 @@ const HomePage = () => {
                   href="https://wa.me/918148622302"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                  className="flex items-center p-3 border border-[#177863] text-[#177863] rounded-lg hover:bg-[#177863]/5 transition-colors"
                   whileHover={{
-                    scale: 1.02,
-                    borderColor: "#1D4ED8",
-                    backgroundColor: "#EFF6FF",
+                    scale: 1.01,
+                    borderColor: "#177863",
+                    backgroundColor: "#177863",
+                    color: "#FFFFFF",
                     transition: { duration: 0.2 }
                   }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                  whileTap={{ scale: 0.99 }}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
                 >
                   💬 WhatsApp
                 </motion.a>
@@ -354,17 +402,18 @@ const HomePage = () => {
                   href="https://linkedin.com/in/elanthamilan"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                  className="flex items-center p-3 border border-[#16325A] text-[#16325A] rounded-lg hover:bg-[#16325A]/5 transition-colors"
                   whileHover={{
-                    scale: 1.02,
-                    borderColor: "#1D4ED8",
-                    backgroundColor: "#EFF6FF",
+                    scale: 1.01,
+                    borderColor: "#16325A",
+                    backgroundColor: "#16325A",
+                    color: "#FFFFFF",
                     transition: { duration: 0.2 }
                   }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
+                  whileTap={{ scale: 0.99 }}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
                 >
                   💼 LinkedIn
                 </motion.a>

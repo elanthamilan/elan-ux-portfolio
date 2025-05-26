@@ -42,14 +42,14 @@ module.exports = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
 
-        // Custom Brand Colors
-        'brand-primary': '#1B4B4C',
-        'brand-secondary': '#0F1D30',
-        'brand-tertiary': '#5A1738',
-        'accent-bg': '#F3F6F9',
+        // Custom Brand Colors - uxelan.com theme
+        'brand-primary': '#177863',
+        'brand-secondary': '#16325A',
+        'brand-tertiary': '#177863',
+        'accent-bg': '#F8F4F2',
         'accent-light': '#FFFFFF',
-        'accent-off-white': '#FBF9F8',
-        'brand-light-gray-accent': '#E0E7EF',
+        'accent-off-white': '#F8F4F2',
+        'brand-light-gray-accent': '#F8F4F2',
       },
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],

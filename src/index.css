@@ -2,48 +2,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --background: 0 0% 100%;  /* #FFFFFF */
+    --foreground: 0 0% 0%;    /* #000000 */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
-    --primary: 184 46% 20%;
+    --primary: 162 65% 28%;   /* #177863 - Teal green */
     --primary-foreground: 0 0% 100%;
-    --secondary: 215 65% 12%;
+    --secondary: 213 56% 22%; /* #16325A - Navy blue */
     --secondary-foreground: 0 0% 100%;
-    --muted: 215 25% 96%;
+    --muted: 30 17% 97%;      /* #F8F4F2 - Warm off-white */
     --muted-foreground: 0 0% 30%;
-    --accent: 330 65% 28%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 30 17% 97%;     /* #F8F4F2 - Warm off-white */
+    --accent-foreground: 0 0% 0%;
     --destructive: 8 100% 59%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 87%;
-    --input: 0 0% 95%;
-    --ring: 184 46% 20%;
+    --border: 30 17% 90%;
+    --input: 30 17% 95%;
+    --ring: 162 65% 28%;      /* #177863 */
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 0 0% 7%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 7%;
+    --card: 0 0% 10%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 98%;
-    --primary: 184 46% 20%;
+    --primary: 162 65% 35%;  /* Lighter #177863 for dark mode */
     --primary-foreground: 0 0% 100%;
-    --secondary: 215 65% 12%;
+    --secondary: 213 56% 30%;  /* Lighter #16325A for dark mode */
     --secondary-foreground: 0 0% 100%;
-    --muted: 215 25% 15%;
+    --muted: 0 0% 15%;
     --muted-foreground: 0 0% 70%;
-    --accent: 330 65% 28%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 8 100% 59%;
     --destructive-foreground: 0 0% 100%;
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 184 46% 20%;
+    --ring: 162 65% 35%;
   }
 
   * {
@@ -63,11 +63,11 @@
   }
 
   a {
-    color: #3E8385;
+    color: #177863;
   }
 
   a:hover {
-    color: #385681;
+    color: #16325A;
   }
 }
 
@@ -126,7 +126,7 @@
   border-radius: 9999px;
   transform: scale(0);
   animation: ripple 500ms linear;
-  background: rgba(42, 119, 121, 0.2);
+  background: rgba(23, 120, 99, 0.2);
   pointer-events: none;
   z-index: 10;
 }

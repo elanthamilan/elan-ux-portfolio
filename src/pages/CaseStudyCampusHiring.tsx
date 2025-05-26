@@ -26,13 +26,13 @@ const CaseStudyCampusHiring = () => {
             <div className="reveal">
               {/* Meta badges and info */}
               <div className="mb-6 flex flex-wrap items-center gap-3">
-                <Badge className="bg-brand-primary text-white px-3 py-1.5 text-sm font-medium rounded-md shadow-sm">
+                <Badge className="bg-[#177863] text-white px-3 py-1.5 text-sm font-medium rounded-md shadow-sm border border-[#177863]">
                   Case Study
                 </Badge>
-                <Badge className="bg-brand-secondary/10 text-brand-secondary border-brand-secondary/20 px-3 py-1.5 text-sm font-medium rounded-md">
+                <Badge className="bg-[#16325A]/15 text-[#16325A] border-[#16325A]/30 px-3 py-1.5 text-sm font-medium rounded-md border">
                   EdTech
                 </Badge>
-                <Badge className="bg-brand-tertiary/10 text-brand-tertiary border-brand-tertiary/20 px-3 py-1.5 text-sm font-medium rounded-md">
+                <Badge className="bg-[#F8F4F2] text-[#177863] border-[#177863]/25 px-3 py-1.5 text-sm font-medium rounded-md border">
                   UX Research
                 </Badge>
                 <span className="text-sm text-foreground/70 ml-auto">Published April 2025</span>
@@ -49,19 +49,19 @@ const CaseStudyCampusHiring = () => {
               </p>
 
               {/* Key metrics in a clean grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 p-6 bg-accent-bg rounded-2xl border border-brand-primary/10">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 p-6 bg-gradient-to-br from-[#177863]/8 to-[#16325A]/8 rounded-2xl border border-[#177863]/20">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-brand-primary mb-1">6 months</div>
+                  <div className="text-2xl font-bold text-[#177863] mb-1">6 months</div>
                   <div className="text-sm text-foreground/70 uppercase tracking-wider">Timeline</div>
                   <div className="text-sm text-foreground/60">Jan - June 2024</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-brand-secondary mb-1">Lead UX</div>
+                  <div className="text-2xl font-bold text-[#16325A] mb-1">Lead UX</div>
                   <div className="text-sm text-foreground/70 uppercase tracking-wider">My Role</div>
                   <div className="text-sm text-foreground/60">Research, Design, Testing</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-brand-tertiary mb-1">40% faster</div>
+                  <div className="text-2xl font-bold text-[#177863] mb-1">40% faster</div>
                   <div className="text-sm text-foreground/70 uppercase tracking-wider">Impact</div>
                   <div className="text-sm text-foreground/60">$500K new revenue</div>
                 </div>
@@ -85,9 +85,9 @@ const CaseStudyCampusHiring = () => {
             {/* REVISED Overview/Challenge START */}
             <SectionReveal>
               {/* Responsive padding: px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8. Adjusted mb. */}
-              <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-light shadow-lg border border-brand-primary/20">
+              <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/3 shadow-lg border border-[#177863]/20">
                 {/* Adaptive Typography for H2: text-2xl xs:text-3xl sm:text-4xl. Adjusted mb. */}
-                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">Overview/Challenge</h2>
+                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal">Overview/Challenge</h2>
                 <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                   <strong className="font-medium text-foreground">Project Name:</strong> Camu Campus Recruitment App (Shipped: April 2025).
                 </p>
@@ -111,9 +111,9 @@ const CaseStudyCampusHiring = () => {
 
           <SectionReveal>
              {/* Responsive padding and mb. */}
-            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-bg shadow-lg border border-brand-secondary/20">
+            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/6 to-[#16325A]/3 shadow-lg border border-[#16325A]/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-secondary font-heading reveal">My Role & Responsibilities</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal">My Role & Responsibilities</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 <strong className="font-medium text-foreground">Role:</strong> Lead Interaction Designer.
               </p>
@@ -131,9 +131,9 @@ const CaseStudyCampusHiring = () => {
 
           <SectionReveal>
             {/* Responsive padding and mb. */}
-            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-off-white shadow-lg border border-brand-tertiary/20">
+            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#F8F4F2]/40 to-[#F8F4F2]/60 shadow-lg border border-[#177863]/15">
                {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-tertiary font-heading reveal">The Process</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal">The Process</h2>
 
               {/* Adaptive Typography for H3. Adjusted mb. */}
               <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-brand-primary font-heading reveal">Discovery & Research</h3>
@@ -234,7 +234,7 @@ const CaseStudyCampusHiring = () => {
           {/* REVISED The Solution START */}
           <SectionReveal>
              {/* Responsive padding and mb. */}
-            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-light shadow-lg border border-brand-primary/20">
+            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/10 shadow-lg border border-[#177863]/25">
               {/* Adaptive Typography for H2. Adjusted mb. */}
               <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">The Solution</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
@@ -283,7 +283,7 @@ const CaseStudyCampusHiring = () => {
           {/* REVISED Impact/Results START */}
           <SectionReveal>
             {/* Responsive padding and mb. */}
-            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-bg shadow-lg border border-brand-secondary/20">
+            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/6 to-[#16325A]/10 shadow-lg border border-[#16325A]/25">
               {/* Adaptive Typography for H2. Adjusted mb. */}
               <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-secondary font-heading reveal">Impact/Results</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
@@ -319,9 +319,9 @@ const CaseStudyCampusHiring = () => {
           {/* Learnings/Reflections (Original Content) */}
           <SectionReveal>
             {/* Responsive padding and mb. */}
-            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-off-white shadow-lg border border-brand-tertiary/20">
+            <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/8 to-[#16325A]/12 shadow-lg border border-[#16325A]/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-tertiary font-heading reveal">Learnings/Reflections</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal">Learnings/Reflections</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The project underscored the importance of user-centric design and iterative development. Challenges like initial user resistance to AI autofill and confusion over external link tracking highlighted the need to prioritize user trust and clarity above all.
               </p>
@@ -416,7 +416,7 @@ const CaseStudyCampusHiring = () => {
                {/* End of Case Study and Links - Stays at the bottom (Original Content) */}
           <SectionReveal>
             {/* Responsive padding and mt. */}
-            <div className="text-center mt-12 xs:mt-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-accent-light shadow-lg border border-brand-primary/20">
+            <div className="text-center mt-12 xs:mt-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/10 shadow-lg border border-[#177863]/25">
               <p className="text-base xs:text-lg text-foreground/80 mb-4 xs:mb-6 reveal">⭐ End of Case Study ⭐</p> {/* Adjusted typography and mb */}
               <div className="mb-6 xs:mb-8 reveal"> {/* Adjusted mb */}
                  {/* Adaptive Typography for H3. Adjusted mb. */}
