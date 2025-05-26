@@ -125,13 +125,13 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
               href="mailto:elanthamilan12@gmail.com"
-              className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="flex items-center p-4 font-semibold border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
             >
               📧 elanthamilan12@gmail.com
             </a>
             <a
               href="tel:+918148622302"
-              className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="flex items-center p-4 font-semibold border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
             >
               📞 +918148622302
             </a>
@@ -139,7 +139,7 @@ const HomePage = () => {
               href="https://wa.me/918148622302"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="flex items-center p-4 font-semibold border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
             >
               💬 WhatsApp
             </a>
@@ -147,7 +147,7 @@ const HomePage = () => {
               href="https://linkedin.com/in/elanthamilan"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="flex items-center p-4 font-semibold border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
             >
               💼 LinkedIn
             </a>

@@ -123,7 +123,7 @@ const SkillsBentoGrid = React.memo(() => { // Wrapped SkillsBentoGrid with React
             With over 8 years of experience, I've developed a comprehensive skill set focused on creating exceptional user experiences for enterprise products.
           </p>
         </div>
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 xs:gap-6 md:gap-8 max-w-7xl mx-auto"> {/* Adjusted gap */}
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-items-center gap-4 xs:gap-6 md:gap-8 max-w-7xl mx-auto"> {/* Adjusted gap & Added justify-items-center */}
           {SKILLS_DATA.map((skill, index) => (
             <SkillCardDisplay
               key={skill.title}
