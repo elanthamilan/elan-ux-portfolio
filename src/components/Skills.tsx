@@ -33,6 +33,27 @@ const SKILLS_DATA: SkillCardData[] = [
     icon: '🎨',
     size: 'large',
     color: 'bg-accent-bg border-brand-primary'
+  },
+  {
+    title: 'Information Architecture',
+    description: 'Structuring and organizing content, Creating navigation systems, Developing site maps and user flows.',
+    icon: '🏗️',
+    size: 'small',
+    color: 'bg-accent-bg border-brand-secondary'
+  },
+  {
+    title: 'Product Management',
+    description: 'Product strategy, Roadmap planning, Stakeholder management, Feature prioritization.',
+    icon: '📊',
+    size: 'large',
+    color: 'bg-accent-light border-brand-primary'
+  },
+  {
+    title: 'Content Strategy',
+    description: 'Content planning, Information design, Content audits, Editorial guidelines.',
+    icon: '📝',
+    size: 'small',
+    color: 'bg-accent-light border-brand-secondary'
   }
 ];
 
@@ -142,24 +163,4 @@ SkillsBentoGrid.displayName = "SkillsBentoGrid"; // For better debugging
 
 export default SkillsBentoGrid;
 
-<style>{`
-  .ripple {
-    position: absolute;
-    border-radius: 9999px;
-    transform: scale(0);
-    animation: ripple 500ms linear;
-    background: rgba(42, 119, 121, 0.2); /* Ripple color based on brand-primary */
-    pointer-events: none;
-    z-index: 10;
-  }
-  @keyframes ripple {
-    to {
-      transform: scale(2.5);
-      opacity: 0;
-    }
-  }
-  .m3-card { /* This class seems unused in the component, can be removed if not needed elsewhere */
-    position: relative;
-    overflow: hidden;
-  }
-`}</style>
+

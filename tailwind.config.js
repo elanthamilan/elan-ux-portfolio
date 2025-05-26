@@ -16,40 +16,36 @@ module.exports = {
     extend: {
       colors: {
         // Light Mode & Base Colors (Shadcn UI compatible names)
-        // Using pre-validated/adjusted colors for AAA where critical
-        background: '#FFFFFF',
-        foreground: '#000000',
-        card: '#FFFFFF',
-        'card-foreground': '#000000',
-        popover: '#FFFFFF',
-        'popover-foreground': '#000000',
-        
-        primary: '#1B4B4C', // AAA-compliant (formerly #2A7779)
-        'primary-foreground': '#FFFFFF',
-        
-        secondary: '#0F1D30', // AAA-compliant (formerly #234574)
-        'secondary-foreground': '#FFFFFF',
-        
-        muted: '#F3F6F9',
-        'muted-foreground': '#4D4D4D', // AAA-compliant for white bg (formerly #666666)
-        
-        accent: '#5A1738', // Original - Check for AAA if used with light fg
-        'accent-foreground': '#FFFFFF', // Passes on #5A1738 for large text, fails for normal.
-                                        // Consider darkening accent or using a lighter accent-foreground if normal text is used.
-                                        // For now, keeping as per previous findings for buttons/large text.
-        
-        destructive: '#FF3B30', // Approx from HSL, standard red
-        'destructive-foreground': '#FFFFFF',
-        
-        border: '#DEDEDE',
-        input: '#F2F2F2',
-        ring: '#1B4B4C',       // AAA-compliant (aligned with new primary)
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: 'hsl(var(--card))',
+        'card-foreground': 'hsl(var(--card-foreground))',
+        popover: 'hsl(var(--popover))',
+        'popover-foreground': 'hsl(var(--popover-foreground))',
 
-        // Custom Brand Colors (aliases or specific shades)
-        // Ensure these are also AAA compliant where used text-on-background
-        'brand-primary': '#1B4B4C',    // AAA-compliant
-        'brand-secondary': '#0F1D30',  // AAA-compliant
-        'brand-tertiary': '#5A1738',   // Passes for large text on white FG. Use with caution for normal text.
+        primary: 'hsl(var(--primary))',
+        'primary-foreground': 'hsl(var(--primary-foreground))',
+
+        secondary: 'hsl(var(--secondary))',
+        'secondary-foreground': 'hsl(var(--secondary-foreground))',
+
+        muted: 'hsl(var(--muted))',
+        'muted-foreground': 'hsl(var(--muted-foreground))',
+
+        accent: 'hsl(var(--accent))',
+        'accent-foreground': 'hsl(var(--accent-foreground))',
+
+        destructive: 'hsl(var(--destructive))',
+        'destructive-foreground': 'hsl(var(--destructive-foreground))',
+
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+
+        // Custom Brand Colors
+        'brand-primary': '#1B4B4C',
+        'brand-secondary': '#0F1D30',
+        'brand-tertiary': '#5A1738',
         'accent-bg': '#F3F6F9',
         'accent-light': '#FFFFFF',
         'accent-off-white': '#FBF9F8',

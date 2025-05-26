@@ -3,10 +3,49 @@
 @tailwind utilities;
 
 @layer base {
-  /* Color variables are now managed by tailwind.config.js */
-
   :root {
-    --radius: 0.5rem; /* Standard Shadcn UI radius variable */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 184 46% 20%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 65% 12%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 25% 96%;
+    --muted-foreground: 0 0% 30%;
+    --accent: 330 65% 28%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 8 100% 59%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 87%;
+    --input: 0 0% 95%;
+    --ring: 184 46% 20%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 184 46% 20%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 65% 12%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 25% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 330 65% 28%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 8 100% 59%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 184 46% 20%;
   }
 
   * {
@@ -27,35 +66,6 @@
   a {
     @apply text-brand-primary hover:text-brand-secondary;
   }
-
-  /* 
-    The :root and .dark HSL variable blocks have been removed.
-    Tailwind's 'darkMode: class' strategy will apply dark mode styles
-    based on the presence of the 'dark' class on a parent element (usually html or body).
-    The color definitions in tailwind.config.js under `theme.extend.colors`
-    will be used directly by Tailwind utilities. For dark mode, if you need
-    different hex values, you would typically define them like:
-    'primary': {
-      DEFAULT: '#LIGHT_PRIMARY_HEX',
-      dark: '#DARK_PRIMARY_HEX', // This is not how Shadcn/Tailwind typically does it with CSS vars
-    }
-    Or, more commonly with CSS variables managed by a theme provider or by Tailwind itself
-    if you were to keep HSL variables and have Tailwind generate them.
-    Since we've moved to direct hex in the config, the ThemeProvider or a similar mechanism
-    would toggle the 'dark' class, and Tailwind utilities would apply the correct colors
-    if they were defined with dark variants in the config (e.g. `dark:bg-dark-background`).
-    
-    The current tailwind.config.js defines single hex values for each color.
-    If different colors are needed for dark mode, they should be added to the
-    Tailwind config with `dark:` prefixes for utilities (e.g., `bg-background dark:bg-gray-900`)
-    or by defining dark mode variants directly in the `colors` object if a more complex
-    CSS variable strategy for dark mode was to be maintained via Tailwind plugin (less common for this setup).
-
-    For this refactor, we assume the `darkMode: 'class'` in tailwind.config.js
-    and utility classes like `dark:bg-whatever` will be used throughout the components
-    to define dark mode-specific styles, leveraging the palette defined in the config.
-    The :root and .dark blocks previously defined HSL variables which are now superseded.
-  */
 }
 
 /* Keep existing utility classes as they might be used by components */
@@ -106,4 +116,27 @@
 
 .long-description p {
   font-size: 1rem;
+}
+
+/* Skills component ripple effect */
+.ripple {
+  position: absolute;
+  border-radius: 9999px;
+  transform: scale(0);
+  animation: ripple 500ms linear;
+  background: rgba(42, 119, 121, 0.2);
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.m3-card {
+  position: relative;
+  overflow: hidden;
 }
