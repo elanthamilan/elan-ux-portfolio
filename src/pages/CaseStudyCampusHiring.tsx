@@ -160,7 +160,7 @@ const CaseStudyCampusHiring = () => {
                 A user-centric approach involved interviews and surveys to identify key pain points and goals for these personas. This foundational research was critical in shaping the design direction.
               </p>
               {/* Full width image container, adjust vertical margin */}
-              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg overflow-hidden reveal border border-brand-primary/20">
+              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu.png"
                   alt="User Personas and Journey Map"
@@ -186,7 +186,7 @@ const CaseStudyCampusHiring = () => {
               {/* REVISED Ideation & Design END */}
 
               {/* Full width image container, adjust vertical margin */}
-              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg overflow-hidden reveal border border-brand-secondary/20">
+              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu Campus Recruitment App.png"
                   alt="Wireframes and Prototypes"
@@ -220,7 +220,7 @@ const CaseStudyCampusHiring = () => {
                 </div>
               </div>
                {/* Full width image container, adjust vertical margin */}
-              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg overflow-hidden reveal border border-brand-tertiary/20">
+              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-tertiary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu.png"
                   alt="Iteration Examples and UI Mockups"
@@ -269,7 +269,7 @@ const CaseStudyCampusHiring = () => {
                 </div>
               </div>
               {/* Full width image container, adjust vertical margin */}
-              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg overflow-hidden reveal border border-brand-primary/20">
+              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu Campus Recruitment App.png"
                   alt="Final UI Screens and Key Flows"

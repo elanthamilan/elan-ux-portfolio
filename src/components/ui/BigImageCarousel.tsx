@@ -138,7 +138,22 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options, ca
                 {img.svgPlaceholder ? (
                   <PlaceholderSVG />
                 ) : (
-                  <img src={img.src} alt={img.alt || ''} className="w-full h-auto object-contain aspect-video rounded-xl shadow-md" loading="lazy" />
+                  img.src && ( // Ensure img.src is defined before creating srcset
+                    <img 
+                      src={img.src} 
+                      alt={img.alt || ''} 
+                      className="w-full h-auto object-contain aspect-video rounded-xl shadow-md" 
+                      srcSet={
+                        (() => {
+                          const baseSrc = img.src.substring(0, img.src.lastIndexOf('.'));
+                          const extension = img.src.substring(img.src.lastIndexOf('.'));
+                          return [480, 800, 1200, 1920].map(w => `${baseSrc}-${w}w${extension} ${w}w`).join(', ');
+                        })()
+                      }
+                      sizes="100vw" // Carousel images are effectively full viewport width at their display time
+                      fetchpriority="high"
+                    />
+                  )
                 )}
               </div>
               <button
