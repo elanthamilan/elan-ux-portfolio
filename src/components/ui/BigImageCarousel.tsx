@@ -117,8 +117,8 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options, ca
 
   return (
     <div className="relative w-full">
-      <div 
-        className="overflow-hidden rounded-xl" 
+      <div
+        className="overflow-hidden rounded-xl"
         ref={emblaRef}
         role="region"
         aria-roledescription="carousel"
@@ -126,8 +126,8 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options, ca
       >
         <div className="flex"> {/* This is the track */}
           {images.map((img, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="min-w-0 flex-[0_0_100%] flex justify-center items-center relative"
               role="group"
               aria-roledescription="slide"
@@ -139,10 +139,10 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options, ca
                   <PlaceholderSVG />
                 ) : (
                   img.src && ( // Ensure img.src is defined before creating srcset
-                    <img 
-                      src={img.src} 
-                      alt={img.alt || ''} 
-                      className="w-full h-auto object-contain aspect-video rounded-xl shadow-md" 
+                    <img
+                      src={img.src}
+                      alt={img.alt || ''}
+                      className="w-full h-auto object-contain aspect-video rounded-xl shadow-md"
                       srcSet={
                         (() => {
                           const baseSrc = img.src.substring(0, img.src.lastIndexOf('.'));
@@ -151,7 +151,7 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options, ca
                         })()
                       }
                       sizes="100vw" // Carousel images are effectively full viewport width at their display time
-                      fetchpriority="high"
+                      fetchPriority="high"
                     />
                   )
                 )}

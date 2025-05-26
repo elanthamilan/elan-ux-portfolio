@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { X, Home, FileText, Briefcase, Mail, Download, ExternalLink, MessageSquare, Github, Sun, Moon } from 'lucide-react';
-import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
+import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion';
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -58,7 +58,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
       const lastElement = focusableElements[focusableElements.length - 1];
 
       // Initially focus the first element in the nav, or the nav itself if no focusable children
-      firstElement?.focus(); 
+      firstElement?.focus();
 
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key !== 'Tab') return;
@@ -92,14 +92,14 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
   };
 
   const navVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0, // Always start with opacity 0 for fade-in effect
-      x: prefersReducedMotion ? 0 : "-100%" 
+      x: prefersReducedMotion ? 0 : "-100%"
     },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
-      transition: prefersReducedMotion 
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: prefersReducedMotion
         ? { duration: 0.1, ease: "easeInOut" } // Quick fade for reduced motion
         : { type: "spring", stiffness: 300, damping: 30, duration: 0.4 } // Original spring
     },
@@ -155,10 +155,10 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
                 >
                   {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
                 </Button>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  onClick={onClose} 
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={onClose}
                   aria-label="Close navigation menu"
                   className="text-foreground hover:text-brand-primary hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background rounded-md"
                 >

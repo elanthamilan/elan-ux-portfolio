@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ZoomableImage from '@/components/ui/ZoomableImage';
-import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'; // Import the hook
+import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion'; // Import the hook
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge"; // Import Badge component
@@ -63,9 +63,9 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
     <motion.div
       initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: prefersReducedMotion ? 0 : 0.5, 
-        delay: prefersReducedMotion ? 0 : index * 0.1 
+      transition={{
+        duration: prefersReducedMotion ? 0 : 0.5,
+        delay: prefersReducedMotion ? 0 : index * 0.1
       }}
       className="h-full" // Ensure motion div takes full height of its container if any
     >
@@ -120,7 +120,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
         {/* Button now part of CardFooter for consistent spacing if needed, or directly here */}
         {/* Using default variant for button, which is already themed with brand-primary. */}
         {/* If specific accentColorName override is needed for button: className={`w-full rounded-t-none ${buttonClasses}`} */}
-        <Button asChild variant={buttonVariant} size="default" className="w-full rounded-t-none mt-auto"> 
+        <Button asChild variant={buttonVariant} size="default" className="w-full rounded-t-none mt-auto">
           {/* Added mt-auto to push button to bottom if CardContent isn't flex-grow enough, size default */}
           <Link to={link} className="flex items-center justify-center"> {/* Ensured flex centering for link content */}
             <span>View Case Study</span>

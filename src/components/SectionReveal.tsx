@@ -18,7 +18,7 @@ const SectionReveal = React.memo(({ children }: SectionRevealProps) => { // Wrap
     const elementsToReveal = ref.current?.querySelectorAll('.reveal');
     if (!elementsToReveal || elementsToReveal.length === 0) return;
 
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: reduce)", () => {
       // Reduced motion: Set elements directly to their final state upon trigger
@@ -27,7 +27,7 @@ const SectionReveal = React.memo(({ children }: SectionRevealProps) => { // Wrap
       gsap.set(elementsToReveal, { opacity: 0, y: 0 }); // Keep them hidden initially
       const st = ScrollTrigger.create({
         trigger: ref.current,
-        start: 'top 80%', 
+        start: 'top 80%',
         onEnter: () => gsap.set(elementsToReveal, { opacity: 1, y: 0 }),
         // onLeaveBack: () => gsap.set(elementsToReveal, { opacity: 0, y: 0 }) // Optional: hide again on scroll up
       });
@@ -46,16 +46,16 @@ const SectionReveal = React.memo(({ children }: SectionRevealProps) => { // Wrap
           if (elementsToReveal.length > 0) { // Check if elements exist
             gsap.fromTo(elementsToReveal,
               { opacity: 0, y: 10 }, // From state
-              { 
-                opacity: 1, 
-                y: 0, 
+              {
+                opacity: 1,
+                y: 0,
                 stagger: 0.1,
                 duration: 0.45,
                 ease: 'power4.out',
                 onComplete: function() {
                   // `this.targets()` refers to the elements animated by this tween
                   if (this.targets().length > 0) { // Ensure targets exist before calling set
-                      gsap.set(this.targets(), { clearProps: "transform" }); 
+                      gsap.set(this.targets(), { clearProps: "transform" });
                   }
                 }
               } // To state

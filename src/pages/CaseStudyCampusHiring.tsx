@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Badge } from "../components/ui/badge.tsx";
 import ZoomableImage from "../components/ui/ZoomableImage.tsx";
 import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
-import SectionReveal from '../components/SectionReveal.tsx';
+import SectionReveal from '@/components/SectionReveal';
 
 const CaseStudyCampusHiring = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import SimpleHomePage from '../components/sections/Hero.tsx';
+import SimpleHomePage from '@/components/sections/Hero';
 
 const HomePage = () => {
   return (

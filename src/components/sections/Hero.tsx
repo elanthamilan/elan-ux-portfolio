@@ -62,19 +62,20 @@ const HomePage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <div className="text-sm text-foreground/70 dark:text-foreground/60">Experience</div>
-            <div className="text-xl font-semibold text-foreground">8+ Years</div>
-          </div>
-          <div>
-            <div className="text-sm text-foreground/70 dark:text-foreground/60">Products</div>
-            <div className="text-xl font-semibold text-foreground">10+</div>
-          </div>
-          <div>
-            <div className="text-sm text-foreground/70 dark:text-foreground/60">Features</div>
-            <div className="text-xl font-semibold text-foreground">30+</div>
-          </div>
-          <div>
-            <div className="text-sm text-foreground/70 dark:text-foreground/60">Design systems</div>
-            <div className="text-xl font-semibold text-foreground">2</div>
+              <div className="text-xl font-semibold text-foreground">8+ Years</div>
+            </div>
+            <div>
+              <div className="text-sm text-foreground/70 dark:text-foreground/60">Products</div>
+              <div className="text-xl font-semibold text-foreground">10+</div>
+            </div>
+            <div>
+              <div className="text-sm text-foreground/70 dark:text-foreground/60">Features</div>
+              <div className="text-xl font-semibold text-foreground">30+</div>
+            </div>
+            <div>
+              <div className="text-sm text-foreground/70 dark:text-foreground/60">Design systems</div>
+              <div className="text-xl font-semibold text-foreground">2</div>
+            </div>
           </div>
         </section>
 
@@ -174,7 +175,7 @@ const HomePage = () => {
                   /Elanable-uploads/Camu Campus Recruitment App-1200w.png 1200w
                 `}
                 sizes="(max-width: 600px) 90vw, (max-width: 1024px) 60vw, 800px"
-                fetchpriority="high"
+                fetchPriority="high"
               />
               <div className="p-4">
                 <h4 className="font-semibold mb-2">Camu Recruiter</h4>
@@ -182,7 +183,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </div>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Badge } from "../components/ui/badge.tsx";
 // import ImageCarousel from "../components/ui/ImageCarousel.tsx"; // Replaced with BigImageCarousel
 import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
-import SectionReveal from '../components/SectionReveal.tsx';
+import SectionReveal from '@/components/SectionReveal';
 
 const placeholderImages = [
   { src: "/placeholder.svg", alt: "Placeholder Image 1 for carousel" },
