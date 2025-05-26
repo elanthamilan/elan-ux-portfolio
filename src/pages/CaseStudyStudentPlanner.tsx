@@ -178,7 +178,7 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20">
-                   <BigImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "User research insights")}))} />
+                   <BigImageCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for User research insights - Example ${index + 1}`}))} />
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
@@ -198,7 +198,7 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20">
-                   <BigImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Solution concepts")}))} />
+                   <BigImageCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Solution concepts - Example ${index + 1}`}))} />
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
@@ -223,7 +223,7 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-tertiary/20">
-                   <BigImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Wireframes and prototypes")}))} />
+                   <BigImageCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Wireframes and prototypes - Example ${index + 1}`}))} />
               </div>
             </section>
           </SectionReveal>
@@ -250,7 +250,7 @@ const CaseStudyStudentPlanner = () => {
               </div>
               {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my (removed from here, applied to section). */}
               <div className="bg-accent-bg py-4 xs:py-6 rounded-b-lg shadow-inner reveal border-t border-brand-secondary/20">
-                   <BigImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Final UI mockups")}))} />
+                   <BigImageCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Final UI mockups - Example ${index + 1}`}))} />
               </div>
             </section>
           </SectionReveal>

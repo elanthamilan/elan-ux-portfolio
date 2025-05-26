@@ -28,8 +28,8 @@ const AnimatedFooterAccent: React.FC = React.memo(() => {
 
     if (!circle) return;
 
-    // HSL for brand-secondary #234574 is approx H:216, S:53%, L:30%
-    const brandSecondaryHsl = { h: 216, s: 53, l: 30 };
+    // HSL for brand-secondary #0F1D30 is approx H:216, S:53%, L:13%
+    const brandSecondaryHsl = { h: 216, s: 53, l: 13 };
 
     gsap.set(circle, { 
       attr: { r: 4 }, 
@@ -59,9 +59,9 @@ const AnimatedFooterAccent: React.FC = React.memo(() => {
   }, [prefersReducedMotion]);
 
   // Static fallback for reduced motion
-  const staticRadius = 5; // Slightly smaller static radius
-  const staticOpacity = 0.3; // Slightly lower static opacity
-  const brandSecondaryHslStatic = { h: 216, s: 53, l: 30 };
+  const staticRadius = 5; 
+  const staticOpacity = 0.3;
+  const brandSecondaryHslStatic = { h: 216, s: 53, l: 13 }; // Updated L value for #0F1D30
 
 
   return (

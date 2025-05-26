@@ -5,6 +5,10 @@
 @layer base {
   /* Color variables are now managed by tailwind.config.js */
 
+  :root {
+    --radius: 0.5rem; /* Standard Shadcn UI radius variable */
+  }
+
   * {
     @apply border-border; /* Uses 'border' color from Tailwind config */
   }

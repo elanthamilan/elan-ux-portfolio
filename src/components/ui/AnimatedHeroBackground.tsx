@@ -29,10 +29,8 @@ const AnimatedHeroBackground: React.FC = React.memo(() => {
 
     const numLines = 25;
     const lines: SVGLineElement[] = [];
-    // Assuming --primary-hsl is defined e.g., as `181 48% 32%` for brand-primary #2A7779
-    // If not, we'll use the HSL values directly. For this example, using a placeholder for --primary-hsl
-    // Let's use the HSL values for brand-primary: 181, 48%, 32%
-    const brandPrimaryHsl = { h: 181, s: 48, l: 32 };
+    // HSL for brand-primary #1B4B4C is approx H:181, S:48%, L:20%
+    const brandPrimaryHsl = { h: 181, s: 48, l: 20 };
 
     for (let i = 0; i < numLines; i++) {
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -110,13 +108,13 @@ const AnimatedHeroBackground: React.FC = React.memo(() => {
 
   // Fallback for reduced motion
   if (prefersReducedMotion) {
-    const brandPrimaryHsl = { h: 181, s: 48, l: 32 }; // HSL for brand-primary #2A7779
+    const brandPrimaryHslStaticFallback = { h: 181, s: 48, l: 20 }; // Updated HSL for brand-primary #1B4B4C
     return (
       <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
         <svg width="100%" height="100%" className="block">
-          <line x1="10%" y1="20%" x2="90%" y2="30%" stroke={`hsla(${brandPrimaryHsl.h}, ${brandPrimaryHsl.s}%, ${brandPrimaryHsl.l}%, 0.07)`} strokeWidth="0.2" />
-          <line x1="20%" y1="80%" x2="70%" y2="10%" stroke={`hsla(${brandPrimaryHsl.h}, ${brandPrimaryHsl.s}%, ${brandPrimaryHsl.l}%, 0.07)`} strokeWidth="0.2" />
-          <line x1="50%" y1="50%" x2="30%" y2="70%" stroke={`hsla(${brandPrimaryHsl.h}, ${brandPrimaryHsl.s}%, ${brandPrimaryHsl.l}%, 0.07)`} strokeWidth="0.2" />
+          <line x1="10%" y1="20%" x2="90%" y2="30%" stroke={`hsla(${brandPrimaryHslStaticFallback.h}, ${brandPrimaryHslStaticFallback.s}%, ${brandPrimaryHslStaticFallback.l}%, 0.07)`} strokeWidth="0.2" />
+          <line x1="20%" y1="80%" x2="70%" y2="10%" stroke={`hsla(${brandPrimaryHslStaticFallback.h}, ${brandPrimaryHslStaticFallback.s}%, ${brandPrimaryHslStaticFallback.l}%, 0.07)`} strokeWidth="0.2" />
+          <line x1="50%" y1="50%" x2="30%" y2="70%" stroke={`hsla(${brandPrimaryHslStaticFallback.h}, ${brandPrimaryHslStaticFallback.s}%, ${brandPrimaryHslStaticFallback.l}%, 0.07)`} strokeWidth="0.2" />
         </svg>
       </div>
     );

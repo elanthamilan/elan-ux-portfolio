@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react"; // Added useRef
 import { Link } from "react-router-dom";
-import { Mail, Download, Menu, X } from "lucide-react"; // Added Menu and X icons
+import { Mail, Download, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import MobileNav from "../MobileNav"; // Import MobileNav
+import MobileNav from "../MobileNav";
 
 const Header = React.memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuTriggerRef = useRef<HTMLButtonElement>(null); // Ref for the menu trigger button
 
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 0);
@@ -27,6 +28,8 @@ const Header = React.memo(() => {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      // Restore focus when menu closes
+      menuTriggerRef.current?.focus();
     }
     return () => {
       document.body.style.overflow = ''; // Cleanup on component unmount
@@ -76,6 +79,7 @@ const Header = React.memo(() => {
           {/* Mobile Navigation Trigger (Hamburger Menu) */}
           <div className="md:hidden">
             <Button
+              ref={menuTriggerRef} // Assign ref to the button
               variant="ghost"
               size="icon"
               onClick={toggleMobileMenu}

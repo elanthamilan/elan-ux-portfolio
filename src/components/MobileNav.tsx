@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'; // Removed useRef as GSAP animation is removed
+import React, { useEffect, useRef } from 'react'; // Added useRef
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom'; // Added useLocation
-import { Button } from '@/components/ui/button'; // For close button
-import { X, Home, FileText, Briefcase, Mail, Download, ExternalLink, MessageSquare, Github, Sun, Moon } from 'lucide-react'; // Added icons
+import { Link, useLocation } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { X, Home, FileText, Briefcase, Mail, Download, ExternalLink, MessageSquare, Github, Sun, Moon } from 'lucide-react';
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -19,6 +20,8 @@ const navItems = [
 
 const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
   const location = useLocation();
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const navRef = useRef<HTMLElement>(null); // Ref for the nav container
 
   // Theme toggle functionality
   const [isDark, setIsDark] = React.useState(() => {
@@ -41,16 +44,67 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
       onClose();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname]); // Only re-run if pathname changes while open
+  }, [location.pathname]);
+
+  // Focus Trapping Logic
+  useEffect(() => {
+    if (isOpen && navRef.current) {
+      const focusableElements = navRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusableElements.length === 0) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      // Initially focus the first element in the nav, or the nav itself if no focusable children
+      firstElement?.focus(); 
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key !== 'Tab') return;
+
+        if (e.shiftKey) { // Shift + Tab
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else { // Tab
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      };
+
+      const currentNavRef = navRef.current;
+      currentNavRef.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        currentNavRef.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [isOpen]);
+
 
   const overlayVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.3 } },
+    visible: { opacity: 1, transition: { duration: prefersReducedMotion ? 0 : 0.3 } },
   };
 
   const navVariants = {
-    hidden: { x: "-100%" },
-    visible: { x: 0, transition: { type: "spring", stiffness: 300, damping: 30, duration: 0.4 } },
+    hidden: { 
+      opacity: 0, // Always start with opacity 0 for fade-in effect
+      x: prefersReducedMotion ? 0 : "-100%" 
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: prefersReducedMotion 
+        ? { duration: 0.1, ease: "easeInOut" } // Quick fade for reduced motion
+        : { type: "spring", stiffness: 300, damping: 30, duration: 0.4 } // Original spring
+    },
+    // Exit animation will also respect these by reversing 'visible' to 'hidden'
+    // If x is 0 in hidden for reduced motion, it will fade out in place.
   };
 
   // This component no longer uses GSAP directly, so useGSAP hook and related useEffect are removed.
@@ -71,13 +125,18 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
           aria-label="Mobile Navigation Menu"
         >
           <motion.nav
+            ref={navRef} // Attach ref here
             initial="hidden"
             animate="visible"
             exit="hidden"
             variants={navVariants}
             className="fixed top-0 left-0 h-full w-11/12 max-w-md bg-background shadow-xl flex flex-col"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside nav
+            aria-labelledby="mobile-nav-title" // Assuming a title is present or can be added
           >
+            {/* Optional: Add a visually hidden title for aria-labelledby if no visible title exists */}
+            <h2 id="mobile-nav-title" className="sr-only">Mobile Navigation Menu</h2>
+
             <div className="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700">
               <Link
                 to="/"

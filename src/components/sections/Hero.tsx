@@ -166,8 +166,15 @@ const HomePage = () => {
             <div className="border rounded-lg overflow-hidden">
               <img
                 src="/Elanable-uploads/Camu Campus Recruitment App.png"
-                alt="Camu Recruiter"
+                alt="Preview of Camu Recruiter case study"
                 className="w-full h-48 object-cover"
+                srcSet={`
+                  /Elanable-uploads/Camu Campus Recruitment App-480w.png 480w,
+                  /Elanable-uploads/Camu Campus Recruitment App-800w.png 800w,
+                  /Elanable-uploads/Camu Campus Recruitment App-1200w.png 1200w
+                `}
+                sizes="(max-width: 600px) 90vw, (max-width: 1024px) 60vw, 800px"
+                fetchpriority="high"
               />
               <div className="p-4">
                 <h4 className="font-semibold mb-2">Camu Recruiter</h4>
