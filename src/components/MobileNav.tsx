@@ -75,7 +75,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
             animate="visible"
             exit="hidden"
             variants={navVariants}
-            className="fixed top-0 left-0 h-full w-4/5 max-w-xs bg-background shadow-xl flex flex-col"
+            className="fixed top-0 left-0 h-full w-5/6 max-w-sm bg-background shadow-xl flex flex-col"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside nav
           >
             <div className="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700">

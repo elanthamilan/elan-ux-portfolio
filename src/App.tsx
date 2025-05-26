@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from './lib/gsap/useGSAP.ts';
+import ScrollToTop from './components/ui/ScrollToTop';
 
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const CaseStudyCampusHiring = lazy(() => import('./pages/CaseStudyCampusHiring.tsx'));
@@ -82,6 +83,7 @@ function App() {
 
   return (
     <ErrorBoundary>
+      <ScrollToTop />
       <AnimatePresence mode="wait">
         <Suspense fallback={<LoadingSpinner />}>
           <Routes location={location} key={location.pathname}>

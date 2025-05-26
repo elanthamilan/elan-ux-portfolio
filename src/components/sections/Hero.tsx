@@ -1,23 +1,12 @@
 import React from "react";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 // Simple HomePage component that matches the attachment layout
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
-      {/* Header */}
-      <header className="flex justify-between items-center p-4 border-b">
-        <div className="text-xl font-semibold text-blue-600">Elan</div>
-        <nav className="flex space-x-6">
-          <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Download Resume</a>
-          <a href="mailto:elanthamilan12@gmail.com" className="text-blue-600 underline">Email</a>
-        </nav>
-        <button className="md:hidden">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </header>
-
+      <Header />
       {/* Main Content */}
       <main className="max-w-4xl mx-auto p-6">
         {/* Title Section */}
@@ -44,7 +33,7 @@ const HomePage = () => {
         </div>
 
         {/* Brands Section */}
-        <div className="mb-8">
+        <div className="mt-8 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-semibold mb-4">Brands I Have Worked With</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
@@ -66,10 +55,12 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 text-center">
-          <div>
-            <div className="text-sm text-gray-600">Experience</div>
+        {/* Stats Section */}
+        <div className="mt-8 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-lg shadow-md">
+          <h3 className="text-xl font-semibold mb-4">Key Metrics</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center"> {/* Removed mb-8 from here as parent has mt-8 */}
+            <div>
+              <div className="text-sm text-gray-600">Experience</div>
             <div className="text-xl font-semibold">8+ Years</div>
           </div>
           <div>
@@ -87,10 +78,10 @@ const HomePage = () => {
         </div>
 
         {/* Industries Section */}
-        <div className="mb-8">
+        <div className="mt-8 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-lg shadow-md">
           <h3 className="text-xl font-semibold mb-4">Industries I have Worked In</h3>
           <div className="space-y-2">
-            <details className="border rounded-lg" open>
+            <details className="border border-slate-300 dark:border-slate-700 rounded-lg" open>
               <summary className="p-4 cursor-pointer font-medium flex items-center">
                 🎓 EdTech
               </summary>
@@ -99,7 +90,7 @@ const HomePage = () => {
               </div>
             </details>
 
-            <details className="border rounded-lg">
+            <details className="border border-slate-300 dark:border-slate-700 rounded-lg">
               <summary className="p-4 cursor-pointer font-medium flex items-center">
                 🛒 eCommerce
               </summary>
@@ -108,7 +99,7 @@ const HomePage = () => {
               </div>
             </details>
 
-            <details className="border rounded-lg">
+            <details className="border border-slate-300 dark:border-slate-700 rounded-lg">
               <summary className="p-4 cursor-pointer font-medium flex items-center">
                 🔗 Connected Tech
               </summary>
@@ -117,7 +108,7 @@ const HomePage = () => {
               </div>
             </details>
 
-            <details className="border rounded-lg">
+            <details className="border border-slate-300 dark:border-slate-700 rounded-lg">
               <summary className="p-4 cursor-pointer font-medium flex items-center">
                 🚀 Startup
               </summary>
@@ -129,7 +120,7 @@ const HomePage = () => {
         </div>
 
         {/* Get In Touch */}
-        <div className="mb-8">
+        <div className="mb-8"> {/* This section is not part of the task, but ensuring its mb-8 is not removed if it was part of a larger div previously */}
           <h3 className="text-xl font-semibold mb-4">Get In Touch</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
@@ -181,6 +172,7 @@ const HomePage = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
