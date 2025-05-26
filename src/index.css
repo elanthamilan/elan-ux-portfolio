@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   :root {
@@ -49,11 +47,12 @@
   }
 
   * {
-    @apply border-border; /* Uses 'border' color from Tailwind config */
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground; /* Uses 'background' and 'foreground' from Tailwind config */
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -64,7 +63,11 @@
   }
 
   a {
-    @apply text-brand-primary hover:text-brand-secondary;
+    color: #3E8385;
+  }
+
+  a:hover {
+    color: #385681;
   }
 }
 
@@ -97,7 +100,6 @@
 .group:hover .card-hover-details {
   opacity: 1;
 }
-
 
 /* Glowing shadow effect on hover */
 .case-study-card {
@@ -140,3 +142,5 @@
   position: relative;
   overflow: hidden;
 }
+
+

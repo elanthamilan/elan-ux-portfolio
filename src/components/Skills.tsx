@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useCallback } from 'react'; // Imported React
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from 'motion/react';
+import ScrambleIn from "../fancy/components/text/scramble-in";
 
 interface SkillCardData { // Renamed interface for clarity
   title: string;
@@ -66,11 +68,20 @@ const SkillCardDisplay = React.memo(({ skill, index, onCardClick }: { skill: Ski
   };
 
   return (
-    <div
+    <motion.div
       className={`reveal ${getColSpan()} sm:col-span-1`}
+      whileHover={{
+        scale: 1.05,
+        y: -5,
+        transition: { duration: 0.2, ease: "easeOut" }
+      }}
+      whileTap={{ scale: 0.98 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <Card
-        className={`flex flex-col items-start justify-between rounded-3xl shadow-md hover:shadow-lg hover:scale-[1.02] focus-within:ring-2 focus-within:ring-brand-primary focus-within:ring-offset-2 transition-all duration-300 ease-in-out ${skill.color} px-3 py-4 xs:p-4 ${skill.size === 'large' ? 'md:p-8' : skill.size === 'small' ? 'sm:p-4' : 'sm:p-6'} h-full border`}
+        className={`flex flex-col items-start justify-between rounded-3xl shadow-md hover:shadow-xl focus-within:ring-2 focus-within:ring-brand-primary focus-within:ring-offset-2 transition-shadow duration-300 ease-in-out ${skill.color} px-3 py-4 xs:p-4 ${skill.size === 'large' ? 'md:p-8' : skill.size === 'small' ? 'sm:p-4' : 'sm:p-6'} h-full border cursor-pointer`}
         tabIndex={0}
         aria-label={skill.title}
         onClick={onCardClick}
@@ -84,7 +95,7 @@ const SkillCardDisplay = React.memo(({ skill, index, onCardClick }: { skill: Ski
           <p className="text-foreground text-sm xs:text-base flex-grow">{skill.description}</p>
         </CardContent>
       </Card>
-    </div>
+    </motion.div>
   );
 });
 SkillCardDisplay.displayName = "SkillCardDisplay"; // For better debugging
@@ -140,7 +151,16 @@ const SkillsBentoGrid = React.memo(() => { // Wrapped SkillsBentoGrid with React
       <div className="container mx-auto px-2 xs:px-4 sm:px-6 lg:px-8"> {/* Adjusted horizontal padding */}
         <div className="text-center mb-10 md:mb-14"> {/* Adjusted margin */}
           {/* Adaptive Typography for Skills H2 */}
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-heading font-semibold mb-3 xs:mb-4 text-foreground">Skills & Expertise</h2>
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-heading font-semibold mb-3 xs:mb-4 text-foreground">
+            <ScrambleIn
+              text="Skills & Expertise"
+              scrambleSpeed={35}
+              scrambledLetterCount={2}
+              className="text-gray-900"
+              scrambledClassName="text-gray-400"
+              autoStart={true}
+            />
+          </h2>
           <p className="text-foreground max-w-2xl mx-auto text-base xs:text-lg leading-relaxed"> {/* Adjusted typography */}
             With over 8 years of experience, I've developed a comprehensive skill set focused on creating exceptional user experiences for enterprise products.
           </p>

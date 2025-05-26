@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'; // Import the hook
 
@@ -111,16 +111,8 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
         className={`w-full h-full object-cover transition-transform duration-300 ${
           isZoomed ? 'scale-150' : 'hover:scale-105'
         } ${isLoading ? 'opacity-0' : 'opacity-100'}`}
-        srcSet={
-          (() => {
-            if (!src) return undefined;
-            const baseSrc = src.substring(0, src.lastIndexOf('.'));
-            const extension = src.substring(src.lastIndexOf('.'));
-            // Common widths for content images
-            return [480, 800, 1200, 1600].map(w => `${baseSrc}-${w}w${extension} ${w}w`).join(', ');
-          })()
-        }
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px" // General purpose sizes
+        // Removed srcset generation since responsive images don't exist
+        // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
         style={
           isZoomed
             ? {

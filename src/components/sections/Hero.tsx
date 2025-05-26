@@ -3,6 +3,8 @@ import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import Skills from "../Skills";
 import CaseStudyCard from "../CaseStudyCard";
+import ScrambleIn from "../../fancy/components/text/scramble-in";
+import { motion } from 'motion/react';
 
 // Simple HomePage component that matches the attachment layout
 const HomePage = () => {
@@ -18,31 +20,83 @@ const HomePage = () => {
           <div className="space-y-8">
             {/* Title Section (the original mb-8 content) */}
             <div className="mb-8">
-              <h1 className="text-4xl font-bold mb-2">Enterprise UX Designer</h1>
-              <h2 className="text-2xl font-semibold text-blue-600 mb-4">Expert in EdTech & HR Tech</h2>
+              <h1 className="text-4xl font-bold mb-2">
+                <ScrambleIn
+                  text="Enterprise UX Designer"
+                  scrambleSpeed={30}
+                  scrambledLetterCount={3}
+                  className="text-gray-900"
+                  scrambledClassName="text-gray-400"
+                />
+              </h1>
+              <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+                <ScrambleIn
+                  text="Expert in EdTech & HR Tech"
+                  scrambleSpeed={40}
+                  scrambledLetterCount={2}
+                  className="text-blue-600"
+                  scrambledClassName="text-blue-300"
+                  autoStart={true}
+                />
+              </h2>
 
-              <p className="text-lg mb-6">
-                Hi, I'm <span className="font-semibold">Elanthamilan</span> 👋🤓
-              </p>
+              <motion.p
+                className="text-lg mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                Hi, I'm <motion.span
+                  className="font-semibold"
+                  whileHover={{
+                    scale: 1.1,
+                    color: "#3B82F6",
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  Elanthamilan
+                </motion.span> 👋🤓
+              </motion.p>
 
-              <p className="text-gray-700 mb-8 leading-relaxed">
+              <motion.p
+                className="text-gray-700 mb-8 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
                 Experienced UX designer specializing in enterprise SaaS, EdTech, and HR Tech. I transform complex business challenges into intuitive, user-centered solutions that drive measurable impact and enhance usability for large-scale products.
-              </p>
+              </motion.p>
 
-              <a
+              <motion.a
                 href="/Elanthamilan_UX_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-brand-primary text-primary-foreground rounded-lg hover:bg-brand-primary/90 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
               >
                 📄 Download Resume
-              </a>
+              </motion.a>
             </div>
 
             {/* Case Studies - Prominent in Left Column */}
             <section aria-labelledby="case-studies-title">
               <h2 id="case-studies-title" className="text-2xl lg:text-3xl font-bold mb-6 text-foreground">
-                Featured Case Studies
+                <ScrambleIn
+                  text="Featured Case Studies"
+                  scrambleSpeed={25}
+                  scrambledLetterCount={2}
+                  className="text-gray-900"
+                  scrambledClassName="text-gray-400"
+                  autoStart={true}
+                />
               </h2>
               <div className="space-y-6">
                 <CaseStudyCard
@@ -81,47 +135,113 @@ const HomePage = () => {
           <div className="space-y-8">
             {/* Brands Section */}
             <section className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Brands I Have Worked With</h3>
+              <h3 className="text-xl font-semibold mb-4">
+                <ScrambleIn
+                  text="Brands I Have Worked With"
+                  scrambleSpeed={30}
+                  scrambledLetterCount={2}
+                  className="text-gray-900"
+                  scrambledClassName="text-gray-400"
+                  autoStart={true}
+                />
+              </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="text-center">
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                >
                   <img src="/Elanable-uploads/Camu.png" alt="Camu" className="h-12 mx-auto mb-2 object-contain" />
                   <p className="text-sm">Camu</p>
-                </div>
-                <div className="text-center">
+                </motion.div>
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                >
                   <img src="/Elanable-uploads/Mastek.png" alt="Mastek" className="h-12 mx-auto mb-2 object-contain" />
                   <p className="text-sm">Mastek</p>
-                </div>
-                <div className="text-center">
+                </motion.div>
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                >
                   <img src="/Elanable-uploads/Geninfy.jpg" alt="Geninfy" className="h-12 mx-auto mb-2 object-contain" />
                   <p className="text-sm">Geninfy</p>
-                </div>
-                <div className="text-center">
+                </motion.div>
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                >
                   <img src="/Elanable-uploads/Oceo.svg" alt="Oceo" className="h-12 mx-auto mb-2 object-contain" />
                   <p className="text-sm">Oceo</p>
-                </div>
+                </motion.div>
               </div>
             </section>
 
             {/* Stats Section */}
             <section className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Key Metrics</h3>
+              <h3 className="text-xl font-semibold mb-4">
+                <ScrambleIn
+                  text="Key Metrics"
+                  scrambleSpeed={30}
+                  scrambledLetterCount={2}
+                  className="text-gray-900"
+                  scrambledClassName="text-gray-400"
+                  autoStart={true}
+                />
+              </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  className="p-3 rounded-lg bg-blue-50 dark:bg-slate-800"
+                >
                   <div className="text-sm text-gray-600">Years Exp</div>
                   <div className="text-xl font-semibold">9+</div>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  className="p-3 rounded-lg bg-green-50 dark:bg-slate-800"
+                >
                   <div className="text-sm text-gray-600">Products</div>
                   <div className="text-xl font-semibold">10+</div>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  className="p-3 rounded-lg bg-purple-50 dark:bg-slate-800"
+                >
                   <div className="text-sm text-gray-600">Features</div>
                   <div className="text-xl font-semibold">30+</div>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                  className="p-3 rounded-lg bg-orange-50 dark:bg-slate-800"
+                >
                   <div className="text-sm text-gray-600">Design systems</div>
                   <div className="text-xl font-semibold">2</div>
-                </div>
+                </motion.div>
               </div>
             </section>
 
@@ -169,36 +289,85 @@ const HomePage = () => {
 
             {/* Get In Touch */}
             <section className="mb-8">
-              <h3 className="text-xl font-semibold mb-4">Get In Touch</h3>
+              <h3 className="text-xl font-semibold mb-4">
+                <ScrambleIn
+                  text="Get In Touch"
+                  scrambleSpeed={30}
+                  scrambledLetterCount={2}
+                  className="text-gray-900"
+                  scrambledClassName="text-gray-400"
+                  autoStart={true}
+                />
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <a
+                <motion.a
                   href="mailto:elanthamilan12@gmail.com"
                   className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                  whileHover={{
+                    scale: 1.02,
+                    borderColor: "#1D4ED8",
+                    backgroundColor: "#EFF6FF",
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
                 >
                   📧 elanthamilan12@gmail.com
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="tel:+918148622302"
                   className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                  whileHover={{
+                    scale: 1.02,
+                    borderColor: "#1D4ED8",
+                    backgroundColor: "#EFF6FF",
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   📞 +918148622302
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="https://wa.me/918148622302"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                  whileHover={{
+                    scale: 1.02,
+                    borderColor: "#1D4ED8",
+                    backgroundColor: "#EFF6FF",
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   💬 WhatsApp
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="https://linkedin.com/in/elanthamilan"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center p-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+                  whileHover={{
+                    scale: 1.02,
+                    borderColor: "#1D4ED8",
+                    backgroundColor: "#EFF6FF",
+                    transition: { duration: 0.2 }
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
                 >
                   💼 LinkedIn
-                </a>
+                </motion.a>
               </div>
             </section>
 

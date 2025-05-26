@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import ZoomableImage from '@/components/ui/ZoomableImage';
 import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion'; // Import the hook
@@ -63,13 +63,19 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
     <motion.div
       initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
       animate={{ opacity: 1, y: 0 }}
+      whileHover={{
+        y: prefersReducedMotion ? 0 : -8,
+        scale: prefersReducedMotion ? 1 : 1.02,
+        transition: { duration: 0.3, ease: "easeOut" }
+      }}
+      whileTap={{ scale: prefersReducedMotion ? 1 : 0.98 }}
       transition={{
         duration: prefersReducedMotion ? 0 : 0.5,
         delay: prefersReducedMotion ? 0 : index * 0.1
       }}
-      className="h-full" // Ensure motion div takes full height of its container if any
+      className="h-full cursor-pointer" // Ensure motion div takes full height of its container if any
     >
-      <Card className={`rounded-3xl overflow-hidden transition-shadow duration-300 flex flex-col h-full ${cardClassName} ${cardBorderClasses}`}>
+      <Card className={`rounded-3xl overflow-hidden transition-all duration-300 flex flex-col h-full shadow-lg hover:shadow-2xl ${cardClassName} ${cardBorderClasses}`}>
         <div className="relative">
           <ZoomableImage
             src={image}
