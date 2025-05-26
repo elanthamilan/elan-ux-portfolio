@@ -11,25 +11,25 @@ const Footer = () => {
       name: "Email",
       href: "mailto:elanthamilan12@gmail.com",
       icon: <Mail className="w-5 h-5" />,
-      label: "Send Email"
+      label: "Send Email (opens in new tab)"
     },
     {
       name: "Phone",
       href: "tel:+918148622302",
       icon: <Phone className="w-5 h-5" />,
-      label: "Call Phone"
+      label: "Call Phone (opens in new tab)"
     },
     {
       name: "WhatsApp",
       href: "https://wa.me/918148622302",
       icon: <MessageSquare className="w-5 h-5" />,
-      label: "WhatsApp"
+      label: "WhatsApp (opens in new tab)"
     },
     {
       name: "LinkedIn",
       href: "https://linkedin.com/in/elanthamilan",
       icon: <Linkedin className="w-5 h-5" />, // Changed to Linkedin icon
-      label: "LinkedIn Profile"
+      label: "LinkedIn Profile (opens in new tab)"
     }
   ];
 

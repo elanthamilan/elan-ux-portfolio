@@ -4,6 +4,7 @@ import { useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { usePrefersReducedMotion } from './components/hooks/usePrefersReducedMotion'; // Import the hook
 import { useGSAP } from './lib/gsap/useGSAP.ts';
 import ScrollToTop from './components/ui/ScrollToTop';
 
@@ -59,6 +60,7 @@ class ErrorBoundary extends React.Component<
 function App() {
   const { isInitialized } = useGSAP();
   const location = useLocation();
+  const prefersReducedMotion = usePrefersReducedMotion(); // Use the hook
 
   useEffect(() => {
     if (isInitialized && typeof window !== 'undefined') {
@@ -78,11 +80,17 @@ function App() {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     exit: { opacity: 0 },
-    transition: { duration: 0.3 }
+    transition: { duration: prefersReducedMotion ? 0 : 0.3 } // Conditional duration
   };
 
   return (
     <ErrorBoundary>
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:fixed focus:z-[9999] focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-background focus:text-foreground focus:border focus:border-brand-primary focus:shadow-lg rounded-md"
+      >
+        Skip to main content
+      </a>
       <ScrollToTop />
       <AnimatePresence mode="wait">
         <Suspense fallback={<LoadingSpinner />}>

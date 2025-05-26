@@ -166,7 +166,7 @@ const HomePage = () => {
             <div className="border rounded-lg overflow-hidden">
               <img
                 src="/Elanable-uploads/Camu Campus Recruitment App.png"
-                alt="Camu Recruiter"
+                alt="Preview of Camu Recruiter case study"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">

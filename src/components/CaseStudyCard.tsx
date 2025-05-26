@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ZoomableImage from '@/components/ui/ZoomableImage';
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'; // Import the hook
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge"; // Import Badge component
@@ -40,6 +41,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
   accentColorName = "brand-primary", // Default accent color
   buttonVariant = "default",
 }) => {
+  const prefersReducedMotion = usePrefersReducedMotion(); // Use the hook
 
   // Dynamically construct classes for elements based on accentColorName
   // Note: For Tailwind JIT to work, full class names should ideally be present.
@@ -59,9 +61,12 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ 
+        duration: prefersReducedMotion ? 0 : 0.5, 
+        delay: prefersReducedMotion ? 0 : index * 0.1 
+      }}
       className="h-full" // Ensure motion div takes full height of its container if any
     >
       <Card className={`rounded-3xl overflow-hidden transition-shadow duration-300 flex flex-col h-full ${cardClassName} ${cardBorderClasses}`}>

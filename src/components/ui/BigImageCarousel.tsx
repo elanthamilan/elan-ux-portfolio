@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react'; // Added useRef
 import { createPortal } from 'react-dom';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'; // Import the hook
 
 // Enhanced UX-related SVG placeholder generator with more design elements
 const PlaceholderSVG = ({ width = 800, height = 450, text = 'UX Design Mockup' }) => (
@@ -42,17 +43,21 @@ const PlaceholderSVG = ({ width = 800, height = 450, text = 'UX Design Mockup' }
 interface BigImageCarouselProps {
   images: Array<{ src?: string; alt?: string; svgPlaceholder?: boolean }>;
   options?: Record<string, unknown>;
+  carouselLabel?: string; // Optional label for the carousel region
 }
 
-const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) => {
+const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options, carouselLabel = "Image gallery" }) => {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: images.length > 1,
     align: 'center',
     containScroll: 'trimSnaps',
+    duration: prefersReducedMotion ? 0 : undefined, // Adjust duration for reduced motion
     ...options
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const liveRegionRef = useRef<HTMLDivElement>(null); // Ref for ARIA live region
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
 
@@ -60,11 +65,16 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
+    if (!emblaApi || !liveRegionRef.current) return;
+    const newSelectedIndex = emblaApi.selectedScrollSnap();
+    setSelectedIndex(newSelectedIndex);
     setCanScrollPrev(emblaApi.canScrollPrev());
     setCanScrollNext(emblaApi.canScrollNext());
-  }, [emblaApi]);
+
+    // Update ARIA live region
+    const imageAlt = images[newSelectedIndex]?.alt || `Image ${newSelectedIndex + 1}`;
+    liveRegionRef.current.textContent = `Image ${newSelectedIndex + 1} of ${images.length}. ${imageAlt}`;
+  }, [emblaApi, images]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -107,15 +117,28 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
 
   return (
     <div className="relative w-full">
-      <div className="overflow-hidden rounded-xl" ref={emblaRef}>
-        <div className="flex">
+      <div 
+        className="overflow-hidden rounded-xl" 
+        ref={emblaRef}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label={carouselLabel}
+      >
+        <div className="flex"> {/* This is the track */}
           {images.map((img, idx) => (
-            <div key={idx} className="min-w-0 flex-[0_0_100%] flex justify-center items-center relative">
+            <div 
+              key={idx} 
+              className="min-w-0 flex-[0_0_100%] flex justify-center items-center relative"
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Image ${idx + 1} of ${images.length}`}
+              // aria-hidden={idx !== selectedIndex} // Embla typically handles visibility, but this can be added
+            >
               <div className="w-full cursor-pointer" onClick={handleImageClick}>
                 {img.svgPlaceholder ? (
                   <PlaceholderSVG />
                 ) : (
-                  <img src={img.src} alt={img.alt || `Image ${idx+1}`} className="w-full h-auto object-contain aspect-video rounded-xl shadow-md" loading="lazy" />
+                  <img src={img.src} alt={img.alt || ''} className="w-full h-auto object-contain aspect-video rounded-xl shadow-md" loading="lazy" />
                 )}
               </div>
               <button
@@ -130,12 +153,15 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
         </div>
       </div>
 
+      {/* ARIA Live Region for screen reader announcements */}
+      <div ref={liveRegionRef} className="sr-only" aria-live="polite" aria-atomic="true"></div>
+
       {/* Navigation buttons */}
       {images.length > 1 && (
         <>
           <button
             onClick={scrollPrev}
-            disabled={!canScrollPrev}
+            disabled={!canScrollPrev} // aria-disabled is implicitly set
             className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-brand-primary p-2 rounded-full shadow-md hover:shadow-lg transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             aria-label="Previous image"
           >
@@ -143,7 +169,7 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
           </button>
           <button
             onClick={scrollNext}
-            disabled={!canScrollNext}
+            disabled={!canScrollNext} // aria-disabled is implicitly set
             className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-brand-primary p-2 rounded-full shadow-md hover:shadow-lg transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             aria-label="Next image"
           >
@@ -154,7 +180,7 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
 
       {/* Dot indicators */}
       {images.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 bg-black/20 backdrop-blur-sm rounded-full px-3 py-2">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 bg-black/20 backdrop-blur-sm rounded-full px-3 py-2" role="tablist" aria-label="Image navigation dots">
           {images.map((_, index) => (
             <button
               key={index}
@@ -164,8 +190,10 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
                   ? 'bg-white scale-125'
                   : 'bg-white/50 hover:bg-white/75'
               } focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50`}
+              role="tab"
               aria-label={`Go to image ${index + 1}`}
-              aria-current={index === selectedIndex ? 'true' : 'false'}
+              aria-selected={index === selectedIndex} // Use aria-selected for tabs
+              aria-current={index === selectedIndex ? 'true' : 'false'} // Keep for visual indication if needed, but aria-selected is more semantic for tabs
             />
           ))}
         </div>
