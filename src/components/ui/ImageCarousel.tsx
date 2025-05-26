@@ -59,7 +59,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = React.memo(({ images, option
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
+    // Scroll to start initially
+    emblaApi.scrollTo(0, true); // Instant scroll to the beginning
+
+    onSelect(); // This updates button states etc.
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
     return () => {

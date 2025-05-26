@@ -75,13 +75,13 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
             animate="visible"
             exit="hidden"
             variants={navVariants}
-            className="fixed top-0 left-0 h-full w-5/6 max-w-sm bg-background shadow-xl flex flex-col"
+            className="fixed top-0 left-0 h-full w-11/12 max-w-md bg-background shadow-xl flex flex-col"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside nav
           >
             <div className="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700">
               <Link
                 to="/"
-                className="text-xl font-heading font-bold text-brand-primary"
+                className="text-xl font-heading font-bold text-brand-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                 onClick={onClose}
               >
                 Elan
@@ -92,11 +92,17 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
                   size="icon"
                   onClick={toggleTheme}
                   aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-                  className="text-foreground hover:text-brand-primary hover:bg-brand-primary/10"
+                  className="text-foreground hover:text-brand-primary hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background rounded-md"
                 >
                   {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
                 </Button>
-                <Button variant="ghost" size="icon" onClick={onClose} aria-label="Close navigation menu">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  onClick={onClose} 
+                  aria-label="Close navigation menu"
+                  className="text-foreground hover:text-brand-primary hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background rounded-md"
+                >
                   <X className="h-6 w-6 text-foreground" />
                 </Button>
               </div>
@@ -109,7 +115,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors"
+                    className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
                     onClick={onClose}
                   >
                     <item.icon className="mr-3 h-5 w-5 text-brand-secondary" />
@@ -119,7 +125,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
                   <Link
                     key={item.label}
                     to={item.href}
-                    className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors"
+                    className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-accent-bg hover:text-brand-primary rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
                     onClick={onClose}
                   >
                     <item.icon className="mr-3 h-5 w-5 text-brand-secondary" />

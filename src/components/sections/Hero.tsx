@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
+import { ChevronDown } from "lucide-react"; // Import ChevronDown
 
 // Simple HomePage component that matches the attachment layout
 const HomePage = () => {
@@ -26,112 +27,116 @@ const HomePage = () => {
             href="/Elanthamilan_UX_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center px-6 py-3 bg-brand-primary text-primary-foreground rounded-lg hover:bg-brand-primary/90 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
           >
             📄 Download Resume
           </a>
         </div>
 
         {/* Brands Section */}
-        <div className="mt-8 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold mb-4">Brands I Have Worked With</h3>
+        <section aria-labelledby="brands-title" className="mt-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 rounded-lg shadow-md">
+          <h3 id="brands-title" className="text-xl font-semibold mb-4 text-foreground">Brands I Have Worked With</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
               <img src="/Elanable-uploads/Camu.png" alt="Camu" className="h-12 mx-auto mb-2 object-contain" />
-              <p className="text-sm">Camu</p>
+              <p className="text-sm text-foreground/80 dark:text-foreground/70">Camu</p>
             </div>
             <div className="text-center">
               <img src="/Elanable-uploads/Mastek.png" alt="Mastek" className="h-12 mx-auto mb-2 object-contain" />
-              <p className="text-sm">Mastek</p>
+              <p className="text-sm text-foreground/80 dark:text-foreground/70">Mastek</p>
             </div>
             <div className="text-center">
               <img src="/Elanable-uploads/Geninfy.jpg" alt="Geninfy" className="h-12 mx-auto mb-2 object-contain" />
-              <p className="text-sm">Geninfy</p>
+              <p className="text-sm text-foreground/80 dark:text-foreground/70">Geninfy</p>
             </div>
             <div className="text-center">
               <img src="/Elanable-uploads/Oceo.svg" alt="Oceo" className="h-12 mx-auto mb-2 object-contain" />
-              <p className="text-sm">Oceo</p>
+              <p className="text-sm text-foreground/80 dark:text-foreground/70">Oceo</p>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Stats Section */}
-        <div className="mt-8 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold mb-4">Key Metrics</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center"> {/* Removed mb-8 from here as parent has mt-8 */}
+        <section aria-labelledby="metrics-title" className="mt-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 rounded-lg shadow-md">
+          <h3 id="metrics-title" className="text-xl font-semibold mb-4 text-foreground">Key Metrics</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
-              <div className="text-sm text-gray-600">Experience</div>
-            <div className="text-xl font-semibold">8+ Years</div>
+              <div className="text-sm text-foreground/70 dark:text-foreground/60">Experience</div>
+            <div className="text-xl font-semibold text-foreground">8+ Years</div>
           </div>
           <div>
-            <div className="text-sm text-gray-600">Products</div>
-            <div className="text-xl font-semibold">10+</div>
+            <div className="text-sm text-foreground/70 dark:text-foreground/60">Products</div>
+            <div className="text-xl font-semibold text-foreground">10+</div>
           </div>
           <div>
-            <div className="text-sm text-gray-600">Features</div>
-            <div className="text-xl font-semibold">30+</div>
+            <div className="text-sm text-foreground/70 dark:text-foreground/60">Features</div>
+            <div className="text-xl font-semibold text-foreground">30+</div>
           </div>
           <div>
-            <div className="text-sm text-gray-600">Design systems</div>
-            <div className="text-xl font-semibold">2</div>
+            <div className="text-sm text-foreground/70 dark:text-foreground/60">Design systems</div>
+            <div className="text-xl font-semibold text-foreground">2</div>
           </div>
-        </div>
+        </section>
 
         {/* Industries Section */}
-        <div className="mt-8 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold mb-4">Industries I have Worked In</h3>
+        <section aria-labelledby="industries-title" className="mt-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 rounded-lg shadow-md">
+          <h3 id="industries-title" className="text-xl font-semibold mb-4 text-foreground">Industries I have Worked In</h3>
           <div className="space-y-2">
-            <details className="border border-slate-300 dark:border-slate-700 rounded-lg" open>
-              <summary className="p-4 cursor-pointer font-medium flex items-center">
-                🎓 EdTech
+            <details className="group border border-slate-300 dark:border-slate-700 rounded-lg" open>
+              <summary className="p-4 cursor-pointer font-medium flex items-center justify-between list-none hover:bg-slate-100 dark:hover:bg-slate-700/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1">
+                <span className="flex items-center">🎓 EdTech</span>
+                <ChevronDown className="h-5 w-5 transition-transform duration-200 group-open:rotate-180 text-foreground/70" />
               </summary>
-              <div className="p-4 pt-0 text-gray-700">
+              <div className="p-4 pt-0 text-foreground/80 dark:text-foreground/70">
                 Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals. Revamped SIS through evaluation, design systems, and redesign of 30+ features. Directed LMS design focusing on accessibility, usability, and scalable workflows. Designed Student Portal for seamless navigation and mobile responsiveness. Created eLearning platform for trading courses.
               </div>
             </details>
 
-            <details className="border border-slate-300 dark:border-slate-700 rounded-lg">
-              <summary className="p-4 cursor-pointer font-medium flex items-center">
-                🛒 eCommerce
+            <details className="group border border-slate-300 dark:border-slate-700 rounded-lg">
+              <summary className="p-4 cursor-pointer font-medium flex items-center justify-between list-none hover:bg-slate-100 dark:hover:bg-slate-700/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1">
+                <span className="flex items-center">🛒 eCommerce</span>
+                <ChevronDown className="h-5 w-5 transition-transform duration-200 group-open:rotate-180 text-foreground/70" />
               </summary>
-              <div className="p-4 pt-0 text-gray-700">
+              <div className="p-4 pt-0 text-foreground/80 dark:text-foreground/70">
                 Redesigned key flows for a B2B pharma eCommerce site. Designed eCommerce experiences for brands like Robinson Co. and Natural Partners. Improved product discovery, navigation and checkout flows. Crafted scalable UI systems for quick orders, subscriptions, and account management.
               </div>
             </details>
 
-            <details className="border border-slate-300 dark:border-slate-700 rounded-lg">
-              <summary className="p-4 cursor-pointer font-medium flex items-center">
-                🔗 Connected Tech
+            <details className="group border border-slate-300 dark:border-slate-700 rounded-lg">
+              <summary className="p-4 cursor-pointer font-medium flex items-center justify-between list-none hover:bg-slate-100 dark:hover:bg-slate-700/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1">
+                <span className="flex items-center">🔗 Connected Tech</span>
+                <ChevronDown className="h-5 w-5 transition-transform duration-200 group-open:rotate-180 text-foreground/70" />
               </summary>
-              <div className="p-4 pt-0 text-gray-700">
+              <div className="p-4 pt-0 text-foreground/80 dark:text-foreground/70">
                 Led design for connected home interfaces (consumer & industrial IoT). Founding member of product/design team, revamped platform, built design system. Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine. Experience includes designing asset management solutions for real-time tool tracking in industrial IoT settings.
               </div>
             </details>
 
-            <details className="border border-slate-300 dark:border-slate-700 rounded-lg">
-              <summary className="p-4 cursor-pointer font-medium flex items-center">
-                🚀 Startup
+            <details className="group border border-slate-300 dark:border-slate-700 rounded-lg">
+              <summary className="p-4 cursor-pointer font-medium flex items-center justify-between list-none hover:bg-slate-100 dark:hover:bg-slate-700/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1">
+                <span className="flex items-center">🚀 Startup</span>
+                <ChevronDown className="h-5 w-5 transition-transform duration-200 group-open:rotate-180 text-foreground/70" />
               </summary>
-              <div className="p-4 pt-0 text-gray-700">
+              <div className="p-4 pt-0 text-foreground/80 dark:text-foreground/70">
                 Contributed to the design and development of various startup products, focusing on user-centered design and rapid iteration.
               </div>
             </details>
           </div>
-        </div>
+        </section>
 
         {/* Get In Touch */}
-        <div className="mb-8"> {/* This section is not part of the task, but ensuring its mb-8 is not removed if it was part of a larger div previously */}
-          <h3 className="text-xl font-semibold mb-4">Get In Touch</h3>
+        <section aria-labelledby="get-in-touch-title" className="mb-8">
+          <h3 id="get-in-touch-title" className="text-xl font-semibold mb-4 text-foreground">Get In Touch</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
               href="mailto:elanthamilan12@gmail.com"
-              className="flex items-center p-4 font-semibold border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="flex items-center justify-center p-4 font-bold rounded-lg bg-brand-primary text-white hover:bg-brand-primary/90 hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               📧 elanthamilan12@gmail.com
             </a>
             <a
               href="tel:+918148622302"
-              className="flex items-center p-4 font-semibold border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="flex items-center justify-center p-4 font-bold rounded-lg bg-brand-primary text-white hover:bg-brand-primary/90 hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               📞 +918148622302
             </a>
@@ -139,7 +144,7 @@ const HomePage = () => {
               href="https://wa.me/918148622302"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center p-4 font-semibold border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="flex items-center justify-center p-4 font-bold rounded-lg bg-brand-primary text-white hover:bg-brand-primary/90 hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               💬 WhatsApp
             </a>
@@ -147,16 +152,16 @@ const HomePage = () => {
               href="https://linkedin.com/in/elanthamilan"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center p-4 font-semibold border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+              className="flex items-center justify-center p-4 font-bold rounded-lg bg-brand-primary text-white hover:bg-brand-primary/90 hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               💼 LinkedIn
             </a>
           </div>
-        </div>
+        </section>
 
         {/* Case Studies */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4">Case Studies</h3>
+        <section aria-labelledby="case-studies-title">
+          <h3 id="case-studies-title" className="text-xl font-semibold mb-4 text-foreground">Case Studies</h3>
           <div className="space-y-6">
             <div className="border rounded-lg overflow-hidden">
               <img

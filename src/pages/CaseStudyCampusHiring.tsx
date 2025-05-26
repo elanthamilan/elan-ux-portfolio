@@ -360,14 +360,14 @@ const CaseStudyCampusHiring = () => {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Next Case Study Card */}
-                    <div className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-brand-primary/10">
+                    {/* Next Case Study Card - Target Theme: brand-secondary */}
+                    <div className="group bg-white dark:bg-background rounded-2xl p-6 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border border-brand-secondary/10">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 w-12 h-12 bg-brand-secondary/10 rounded-xl flex items-center justify-center">
                           <span className="text-2xl">🎯</span>
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-lg text-brand-secondary mb-2 group-hover:text-brand-primary transition-colors">
+                          <h4 className="font-semibold text-lg text-brand-secondary mb-2 group-hover:text-brand-primary transition-colors duration-200">
                             AI Student Course Planner
                           </h4>
                           <p className="text-foreground/70 text-sm mb-3 leading-relaxed">
@@ -375,7 +375,7 @@ const CaseStudyCampusHiring = () => {
                           </p>
                           <Link
                             to="/case-study/student-planner"
-                            className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors text-sm font-medium group-hover:translate-x-1 transform transition-transform duration-200"
+                            className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors duration-200 text-sm font-medium group-hover:translate-x-1 transform"
                           >
                             Read Case Study
                             <ArrowLeft size={14} className="ml-1.5 rotate-180" />
@@ -384,14 +384,14 @@ const CaseStudyCampusHiring = () => {
                       </div>
                     </div>
 
-                    {/* Back to Portfolio Card */}
-                    <div className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-brand-primary/10">
+                    {/* Back to Portfolio Card - Neutral Theme, Hover to Current Page Theme: brand-primary */}
+                    <div className="group bg-white dark:bg-background rounded-2xl p-6 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border border-slate-200 dark:border-slate-700">
                       <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center">
+                        <div className="flex-shrink-0 w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center">
                           <span className="text-2xl">🏠</span>
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-lg text-brand-primary mb-2 group-hover:text-brand-secondary transition-colors">
+                          <h4 className="font-semibold text-lg text-foreground/80 mb-2 group-hover:text-brand-primary transition-colors duration-200">
                             Back to Portfolio
                           </h4>
                           <p className="text-foreground/70 text-sm mb-3 leading-relaxed">
@@ -399,7 +399,7 @@ const CaseStudyCampusHiring = () => {
                           </p>
                           <Link
                             to="/"
-                            className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors text-sm font-medium group-hover:-translate-x-1 transform transition-transform duration-200"
+                            className="inline-flex items-center text-foreground/70 hover:text-brand-primary transition-colors duration-200 text-sm font-medium group-hover:-translate-x-1 transform"
                           >
                             <ArrowLeft size={14} className="mr-1.5" />
                             View All Work

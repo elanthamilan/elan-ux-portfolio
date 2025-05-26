@@ -75,30 +75,32 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
             {year}
           </div>
         </div>
-        <CardHeader className="pb-4"> {/* Reduced bottom padding */}
-          <CardTitle className="text-xl lg:text-2xl font-bold font-heading text-foreground mb-2">{title}</CardTitle> {/* Reduced mb */}
-          <CardDescription className="text-sm text-foreground/80"> {/* text-foreground/70 to text-foreground/80 */}
-            <div className="space-y-2"> {/* Reduced space-y */}
+        <CardHeader className="pb-6"> {/* Increased bottom padding after moving description here */}
+          <CardTitle className="text-xl lg:text-2xl font-bold font-heading text-foreground mb-2">{title}</CardTitle>
+          {/* Moved Description Here - Placed before Who/What/Result */}
+          <div className="text-sm text-foreground mt-1 mb-3"> {/* Added mt-1 and adjusted mb for spacing */}
+            {description}
+          </div>
+          <CardDescription className="text-sm text-foreground/80">
+            <div className="space-y-2">
               <div>
-                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Client:</span> {/* Adjusted styling */}
-                <p className="text-foreground mt-0.5">{who}</p> {/* text-foreground/90 to text-foreground */}
+                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Client:</span>
+                <p className="text-foreground mt-0.5">{who}</p>
               </div>
               <div>
-                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Service:</span> {/* Adjusted styling */}
-                <p className="text-foreground mt-0.5">{what}</p> {/* text-foreground/90 to text-foreground */}
+                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Service:</span>
+                <p className="text-foreground mt-0.5">{what}</p>
               </div>
               <div>
-                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Impact:</span> {/* Adjusted styling */}
-                <p className="text-foreground mt-0.5">{result}</p> {/* text-foreground/90 to text-foreground */}
+                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Impact:</span>
+                <p className="text-foreground mt-0.5">{result}</p>
               </div>
             </div>
           </CardDescription>
         </CardHeader>
-        <CardContent className="flex-grow pt-0 pb-4"> {/* flex-grow to push footer (button) down, adjusted padding */}
-          <div className="mb-4 text-sm text-foreground"> {/* Adjusted margin and text size */}
-            {description}
-          </div>
-          <div className="flex flex-wrap gap-1.5"> {/* Adjusted gap */}
+        <CardContent className="flex-grow pt-4 pb-4"> {/* Adjusted pt to 4 as description moved out, pb remains 4 */}
+          {/* Tags remain in CardContent */}
+          <div className="flex flex-wrap gap-1.5">
             {tags.map((tag) => (
               <Badge
                 key={tag}

@@ -59,7 +59,8 @@ const SkillCardDisplay = React.memo(({ skill, index, onCardClick }: { skill: Ski
             <span className={`text-3xl xs:text-4xl ${index < 2 ? 'text-brand-primary' : 'text-brand-secondary'}`} role="img" aria-label={skill.title}>{skill.icon}</span>
             <h3 className={`font-semibold text-foreground ${skill.size === 'large' ? 'text-xl xs:text-2xl' : skill.size === 'small' ? 'text-base xs:text-lg' : 'text-lg xs:text-xl'}`}>{skill.title}</h3>
           </div>
-          <p className="text-foreground text-sm xs:text-base">{skill.description}</p>
+          {/* Added flex-grow to the description paragraph to make it take available vertical space */}
+          <p className="text-foreground text-sm xs:text-base flex-grow">{skill.description}</p>
         </CardContent>
       </Card>
     </div>

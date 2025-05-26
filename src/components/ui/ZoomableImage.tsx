@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react'; // Imported useCallback
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom'; // Import createPortal
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -88,7 +89,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden ${!isLoading ? 'cursor-zoom-in' : 'cursor-wait'} ${className}`}
+      className={`relative overflow-hidden ${!isLoading ? 'cursor-zoom-in' : 'cursor-wait'} ${className} focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg`}
       onClick={handleClick}
       onMouseMove={handleMouseMove}
       onKeyDown={handleKeyDown}
@@ -120,13 +121,13 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
       />
 
       <AnimatePresence>
-        {isZoomed && (
+        {isZoomed && typeof document !== 'undefined' && createPortal(
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/95 z-[10000] flex items-center justify-center p-4 backdrop-blur-sm"
-            style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh' }}
+            // style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh' }} // These are covered by "fixed inset-0"
             onClick={handleClose}
             role="dialog"
             aria-modal="true"
@@ -156,7 +157,8 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm">
               Click outside or press Escape to close
             </div>
-          </motion.div>
+          </motion.div>,
+          document.body
         )}
       </AnimatePresence>
     </div>

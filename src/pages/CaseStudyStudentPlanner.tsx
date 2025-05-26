@@ -4,7 +4,7 @@ import Footer from "../components/layout/Footer.tsx";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "../components/ui/badge.tsx";
-import ImageCarousel from "../components/ui/ImageCarousel.tsx";
+// import ImageCarousel from "../components/ui/ImageCarousel.tsx"; // Replaced with BigImageCarousel
 import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
 import SectionReveal from '../components/SectionReveal.tsx';
 
@@ -178,7 +178,7 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20">
-                   <ImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "User research insights")}))} />
+                   <BigImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "User research insights")}))} />
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
@@ -198,7 +198,7 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20">
-                   <ImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Solution concepts")}))} />
+                   <BigImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Solution concepts")}))} />
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
@@ -223,7 +223,7 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-tertiary/20">
-                   <ImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Wireframes and prototypes")}))} />
+                   <BigImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Wireframes and prototypes")}))} />
               </div>
             </section>
           </SectionReveal>
@@ -250,7 +250,7 @@ const CaseStudyStudentPlanner = () => {
               </div>
               {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my (removed from here, applied to section). */}
               <div className="bg-accent-bg py-4 xs:py-6 rounded-b-lg shadow-inner reveal border-t border-brand-secondary/20">
-                   <ImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Final UI mockups")}))} />
+                   <BigImageCarousel images={placeholderImages.map(img => ({...img, alt: img.alt.replace("Placeholder Image", "Final UI mockups")}))} />
               </div>
             </section>
           </SectionReveal>
@@ -334,14 +334,14 @@ const CaseStudyStudentPlanner = () => {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Next Case Study Card */}
-                    <div className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-brand-secondary/10">
+                    {/* Next Case Study Card - Target Theme: brand-primary */}
+                    <div className="group bg-white dark:bg-background rounded-2xl p-6 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border border-brand-primary/10">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center">
                           <span className="text-2xl">🎓</span>
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-lg text-brand-primary mb-2 group-hover:text-brand-secondary transition-colors">
+                          <h4 className="font-semibold text-lg text-brand-primary mb-2 group-hover:text-brand-secondary transition-colors duration-200">
                             Campus Hiring Platform
                           </h4>
                           <p className="text-foreground/70 text-sm mb-3 leading-relaxed">
@@ -349,7 +349,7 @@ const CaseStudyStudentPlanner = () => {
                           </p>
                           <Link
                             to="/case-study/campus-hiring"
-                            className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors text-sm font-medium group-hover:translate-x-1 transform transition-transform duration-200"
+                            className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors duration-200 text-sm font-medium group-hover:translate-x-1 transform"
                           >
                             Read Case Study
                             <ArrowLeft size={14} className="ml-1.5 rotate-180" />
@@ -358,14 +358,14 @@ const CaseStudyStudentPlanner = () => {
                       </div>
                     </div>
 
-                    {/* Back to Portfolio Card */}
-                    <div className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-brand-secondary/10">
+                    {/* Back to Portfolio Card - Neutral Theme, Hover to Current Page Theme: brand-secondary */}
+                    <div className="group bg-white dark:bg-background rounded-2xl p-6 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border border-slate-200 dark:border-slate-700">
                       <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-brand-secondary/10 rounded-xl flex items-center justify-center">
+                        <div className="flex-shrink-0 w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center">
                           <span className="text-2xl">🏠</span>
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-lg text-brand-secondary mb-2 group-hover:text-brand-primary transition-colors">
+                          <h4 className="font-semibold text-lg text-foreground/80 mb-2 group-hover:text-brand-secondary transition-colors duration-200">
                             Back to Portfolio
                           </h4>
                           <p className="text-foreground/70 text-sm mb-3 leading-relaxed">
@@ -373,7 +373,7 @@ const CaseStudyStudentPlanner = () => {
                           </p>
                           <Link
                             to="/"
-                            className="inline-flex items-center text-brand-secondary hover:text-brand-primary transition-colors text-sm font-medium group-hover:-translate-x-1 transform transition-transform duration-200"
+                            className="inline-flex items-center text-foreground/70 hover:text-brand-secondary transition-colors duration-200 text-sm font-medium group-hover:-translate-x-1 transform"
                           >
                             <ArrowLeft size={14} className="mr-1.5" />
                             View All Work

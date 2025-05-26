@@ -30,8 +30,8 @@ const SectionReveal = React.memo(({ children }: SectionRevealProps) => { // Wrap
                                   { 
                                     opacity: 1, 
                                     y: 0, 
-                                    stagger: 0.15, // Slightly faster stagger
-                                    duration: 0.65, // Slightly faster duration
+                                    stagger: 0.1,     // Updated stagger
+                                    duration: 0.45,   // Updated duration
                                     ease: 'power4.out' 
                                   } // To: fully visible, original position
                                  )

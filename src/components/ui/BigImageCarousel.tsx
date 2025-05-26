@@ -68,7 +68,10 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
+    // Scroll to start initially
+    emblaApi.scrollTo(0, true); // Instant scroll to the beginning
+
+    onSelect(); // This updates button states etc.
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
     return () => {
@@ -116,7 +119,7 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
                 )}
               </div>
               <button
-                className="absolute top-2 right-2 bg-white/80 hover:bg-white rounded-full p-1.5 shadow-md hover:shadow-lg transition-all z-10"
+                className="absolute top-2 right-2 bg-white/80 hover:bg-white rounded-full p-1.5 shadow-md hover:shadow-lg transition-all z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
                 onClick={(e) => { e.stopPropagation(); handleImageClick(); }}
                 aria-label="Full screen view"
               >
@@ -133,7 +136,7 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
           <button
             onClick={scrollPrev}
             disabled={!canScrollPrev}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-brand-primary p-2 rounded-full shadow-md hover:shadow-lg transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-brand-primary p-2 rounded-full shadow-md hover:shadow-lg transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -141,7 +144,7 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
           <button
             onClick={scrollNext}
             disabled={!canScrollNext}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-brand-primary p-2 rounded-full shadow-md hover:shadow-lg transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-brand-primary p-2 rounded-full shadow-md hover:shadow-lg transition-all z-10 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             aria-label="Next image"
           >
             <ChevronRight className="w-5 h-5" />
@@ -160,7 +163,7 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
                 index === selectedIndex
                   ? 'bg-white scale-125'
                   : 'bg-white/50 hover:bg-white/75'
-              }`}
+              } focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50`}
               aria-label={`Go to image ${index + 1}`}
               aria-current={index === selectedIndex ? 'true' : 'false'}
             />
@@ -176,7 +179,7 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
           onClick={handleCloseFullscreen}
         >
           <button
-            className="absolute top-4 right-4 z-[10001] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-3 backdrop-blur-sm"
+            className="absolute top-4 right-4 z-[10001] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-3 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/70"
             onClick={handleCloseFullscreen}
             aria-label="Close full screen (Press Escape)"
           >
@@ -188,14 +191,14 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options }) 
             <>
               <button
                 onClick={(e) => { e.stopPropagation(); scrollPrev(); }}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors backdrop-blur-sm z-[10001]"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors backdrop-blur-sm z-[10001] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/70"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); scrollNext(); }}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors backdrop-blur-sm z-[10001]"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors backdrop-blur-sm z-[10001] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/70"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-6 h-6" />
