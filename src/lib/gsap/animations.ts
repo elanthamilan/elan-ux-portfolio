@@ -1,187 +1,336 @@
 
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Register plugin
 gsap.registerPlugin(ScrollTrigger);
 
-export interface AnimationConfig {
-  element: Element | string;
-  duration?: number;
-  delay?: number;
-  ease?: string;
-  stagger?: number;
-  respectReducedMotion?: boolean;
-}
-
-export interface ScrollAnimationConfig extends AnimationConfig {
-  trigger?: Element | string;
-  start?: string;
-  end?: string;
-  toggleActions?: string;
-  scrub?: boolean | number;
-}
-
-class AnimationManager {
-  private animations: gsap.core.Tween[] = [];
-  private scrollTriggers: ScrollTrigger[] = [];
-  private prefersReducedMotion: boolean;
-
-  constructor() {
-    this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    // Listen for changes in motion preference
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const handleChange = (e: MediaQueryListEvent) => {
-      this.prefersReducedMotion = e.matches;
-    };
-    
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener('change', handleChange);
-    } else {
-      mediaQuery.addListener(handleChange);
+// Basic fade in animation
+export const fadeIn = (
+  element: string | Element | Element[],
+  options: {
+    duration?: number;
+    delay?: number;
+    y?: number;
+    ease?: string;
+  } = {}
+) => {
+  const { duration = 0.8, delay = 0, y = 30, ease = 'power2.out' } = options;
+  
+  return gsap.fromTo(
+    element,
+    {
+      opacity: 0,
+      y: y,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration,
+      delay,
+      ease,
     }
-  }
+  );
+};
 
-  private shouldAnimate(respectReducedMotion = true): boolean {
-    return !respectReducedMotion || !this.prefersReducedMotion;
-  }
-
-  fadeIn(config: AnimationConfig): gsap.core.Tween | null {
-    if (!this.shouldAnimate(config.respectReducedMotion)) {
-      gsap.set(config.element, { opacity: 1, y: 0 });
-      return null;
+// Slide in from left
+export const slideInLeft = (
+  element: string | Element | Element[],
+  options: {
+    duration?: number;
+    delay?: number;
+    x?: number;
+    ease?: string;
+  } = {}
+) => {
+  const { duration = 0.8, delay = 0, x = -100, ease = 'power2.out' } = options;
+  
+  return gsap.fromTo(
+    element,
+    {
+      opacity: 0,
+      x: x,
+    },
+    {
+      opacity: 1,
+      x: 0,
+      duration,
+      delay,
+      ease,
     }
+  );
+};
 
-    const tween = gsap.fromTo(config.element, 
-      { opacity: 0, y: 20 },
-      {
+// Slide in from right
+export const slideInRight = (
+  element: string | Element | Element[],
+  options: {
+    duration?: number;
+    delay?: number;
+    x?: number;
+    ease?: string;
+  } = {}
+) => {
+  const { duration = 0.8, delay = 0, x = 100, ease = 'power2.out' } = options;
+  
+  return gsap.fromTo(
+    element,
+    {
+      opacity: 0,
+      x: x,
+    },
+    {
+      opacity: 1,
+      x: 0,
+      duration,
+      delay,
+      ease,
+    }
+  );
+};
+
+// Scale in animation
+export const scaleIn = (
+  element: string | Element | Element[],
+  options: {
+    duration?: number;
+    delay?: number;
+    scale?: number;
+    ease?: string;
+  } = {}
+) => {
+  const { duration = 0.6, delay = 0, scale = 0.8, ease = 'back.out(1.7)' } = options;
+  
+  return gsap.fromTo(
+    element,
+    {
+      opacity: 0,
+      scale: scale,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration,
+      delay,
+      ease,
+    }
+  );
+};
+
+// Stagger animation for multiple elements
+export const staggerIn = (
+  elements: string | Element[],
+  options: {
+    duration?: number;
+    stagger?: number;
+    y?: number;
+    ease?: string;
+  } = {}
+) => {
+  const { duration = 0.8, stagger = 0.1, y = 30, ease = 'power2.out' } = options;
+  
+  return gsap.fromTo(
+    elements,
+    {
+      opacity: 0,
+      y: y,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration,
+      stagger,
+      ease,
+    }
+  );
+};
+
+// Scroll-triggered animation
+export const scrollReveal = (
+  element: string | Element | Element[],
+  options: {
+    duration?: number;
+    y?: number;
+    ease?: string;
+    trigger?: string | Element;
+    start?: string;
+    end?: string;
+    toggleActions?: string;
+  } = {}
+) => {
+  const {
+    duration = 0.8,
+    y = 50,
+    ease = 'power2.out',
+    trigger,
+    start = 'top 80%',
+    end = 'bottom 20%',
+    toggleActions = 'play none none reverse',
+  } = options;
+
+  return gsap.fromTo(
+    element,
+    {
+      opacity: 0,
+      y: y,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration,
+      ease,
+      scrollTrigger: {
+        trigger: trigger || element,
+        start,
+        end,
+        toggleActions,
+      },
+    }
+  );
+};
+
+// Batch scroll reveal for multiple elements
+export const batchScrollReveal = (
+  selector: string,
+  options: {
+    duration?: number;
+    y?: number;
+    stagger?: number;
+    ease?: string;
+    start?: string;
+    end?: string;
+  } = {}
+) => {
+  const {
+    duration = 0.8,
+    y = 50,
+    stagger = 0.15,
+    ease = 'power2.out',
+    start = 'top 80%',
+    end = 'bottom 20%',
+  } = options;
+
+  const elements = document.querySelectorAll(selector);
+  
+  if (elements.length === 0) return null;
+
+  return ScrollTrigger.batch(elements, {
+    onEnter: (elements) => {
+      gsap.fromTo(
+        elements,
+        {
+          opacity: 0,
+          y: y,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration,
+          stagger,
+          ease,
+        }
+      );
+    },
+    onLeave: (elements) => {
+      gsap.to(elements, {
+        opacity: 0,
+        y: -y,
+        duration: duration * 0.5,
+        stagger,
+        ease,
+      });
+    },
+    onEnterBack: (elements) => {
+      gsap.to(elements, {
         opacity: 1,
         y: 0,
-        duration: config.duration || 0.6,
-        delay: config.delay || 0,
-        ease: config.ease || 'power2.out',
-        stagger: config.stagger || 0
-      }
-    );
-
-    this.animations.push(tween);
-    return tween;
-  }
-
-  slideIn(config: AnimationConfig & { direction?: 'left' | 'right' | 'up' | 'down' }): gsap.core.Tween | null {
-    if (!this.shouldAnimate(config.respectReducedMotion)) {
-      gsap.set(config.element, { opacity: 1, x: 0, y: 0 });
-      return null;
-    }
-
-    const { direction = 'up' } = config;
-    const fromValues: any = { opacity: 0 };
-    const toValues: any = { opacity: 1, x: 0, y: 0 };
-
-    switch (direction) {
-      case 'left':
-        fromValues.x = -50;
-        break;
-      case 'right':
-        fromValues.x = 50;
-        break;
-      case 'up':
-        fromValues.y = 50;
-        break;
-      case 'down':
-        fromValues.y = -50;
-        break;
-    }
-
-    const tween = gsap.fromTo(config.element, fromValues, {
-      ...toValues,
-      duration: config.duration || 0.8,
-      delay: config.delay || 0,
-      ease: config.ease || 'power3.out',
-      stagger: config.stagger || 0
-    });
-
-    this.animations.push(tween);
-    return tween;
-  }
-
-  scale(config: AnimationConfig & { from?: number; to?: number }): gsap.core.Tween | null {
-    if (!this.shouldAnimate(config.respectReducedMotion)) {
-      gsap.set(config.element, { scale: config.to || 1, opacity: 1 });
-      return null;
-    }
-
-    const tween = gsap.fromTo(config.element,
-      { scale: config.from || 0.8, opacity: 0 },
-      {
-        scale: config.to || 1,
-        opacity: 1,
-        duration: config.duration || 0.5,
-        delay: config.delay || 0,
-        ease: config.ease || 'back.out(1.7)',
-        stagger: config.stagger || 0
-      }
-    );
-
-    this.animations.push(tween);
-    return tween;
-  }
-
-  scrollAnimation(config: ScrollAnimationConfig): ScrollTrigger | null {
-    if (!this.shouldAnimate(config.respectReducedMotion)) {
-      gsap.set(config.element, { opacity: 1, y: 0, x: 0, scale: 1 });
-      return null;
-    }
-
-    const trigger = ScrollTrigger.create({
-      trigger: config.trigger || config.element,
-      start: config.start || 'top 80%',
-      end: config.end,
-      toggleActions: config.toggleActions || 'play none none reverse',
-      scrub: config.scrub,
-      onEnter: () => {
-        this.fadeIn({
-          element: config.element,
-          duration: config.duration,
-          delay: config.delay,
-          ease: config.ease,
-          stagger: config.stagger
-        });
-      }
-    });
-
-    this.scrollTriggers.push(trigger);
-    return trigger;
-  }
-
-  cleanup(): void {
-    this.animations.forEach(tween => tween.kill());
-    this.scrollTriggers.forEach(trigger => trigger.kill());
-    this.animations = [];
-    this.scrollTriggers = [];
-  }
-}
-
-export const animationManager = new AnimationManager();
-
-// Utility functions for common animations
-export const fadeInElements = (selector: string, stagger = 0.1) => {
-  const elements = document.querySelectorAll(selector);
-  return animationManager.fadeIn({ element: elements, stagger });
-};
-
-export const slideInElements = (selector: string, direction: 'left' | 'right' | 'up' | 'down' = 'up') => {
-  const elements = document.querySelectorAll(selector);
-  return animationManager.slideIn({ element: elements, direction });
-};
-
-export const createScrollAnimations = (selector: string) => {
-  const elements = document.querySelectorAll(selector);
-  elements.forEach((element, index) => {
-    animationManager.scrollAnimation({
-      element,
-      delay: index * 0.1
-    });
+        duration,
+        stagger,
+        ease,
+      });
+    },
+    start,
+    end,
   });
+};
+
+// Text reveal animation
+export const textReveal = (
+  element: string | Element,
+  options: {
+    duration?: number;
+    delay?: number;
+    ease?: string;
+    stagger?: number;
+  } = {}
+) => {
+  const { duration = 0.8, delay = 0, ease = 'power2.out', stagger = 0.02 } = options;
+
+  const target = typeof element === 'string' ? document.querySelector(element) : element;
+  if (!target) return null;
+
+  // Split text into characters
+  const text = target.textContent || '';
+  const chars = text.split('');
+  
+  target.innerHTML = chars
+    .map((char) => `<span style="display: inline-block;">${char === ' ' ? '&nbsp;' : char}</span>`)
+    .join('');
+
+  const charElements = target.querySelectorAll('span');
+
+  return gsap.fromTo(
+    Array.from(charElements),
+    {
+      opacity: 0,
+      y: 20,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration,
+      delay,
+      stagger,
+      ease,
+    }
+  );
+};
+
+// Hover animations
+export const createHoverEffect = (
+  element: string | Element,
+  options: {
+    scale?: number;
+    duration?: number;
+    ease?: string;
+  } = {}
+) => {
+  const { scale = 1.05, duration = 0.3, ease = 'power2.out' } = options;
+
+  const target = typeof element === 'string' ? document.querySelector(element) : element;
+  if (!target) return null;
+
+  const onMouseEnter = () => {
+    gsap.to(target, {
+      scale,
+      duration,
+      ease,
+    });
+  };
+
+  const onMouseLeave = () => {
+    gsap.to(target, {
+      scale: 1,
+      duration,
+      ease,
+    });
+  };
+
+  target.addEventListener('mouseenter', onMouseEnter);
+  target.addEventListener('mouseleave', onMouseLeave);
+
+  // Return cleanup function
+  return () => {
+    target.removeEventListener('mouseenter', onMouseEnter);
+    target.removeEventListener('mouseleave', onMouseLeave);
+  };
 };

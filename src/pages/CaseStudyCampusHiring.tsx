@@ -7,6 +7,7 @@ import { Badge } from "../components/ui/badge.tsx";
 import ZoomableImage from "../components/ui/ZoomableImage.tsx";
 import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
 import SectionReveal from '@/components/SectionReveal';
+import { OptimizedImage } from '../components/ui/OptimizedImage';
 
 const CaseStudyCampusHiring = () => {
   return (
@@ -72,12 +73,13 @@ const CaseStudyCampusHiring = () => {
           {/* Hero Image Section */}
           <SectionReveal>
             <div className="reveal w-full bg-card rounded-3xl overflow-hidden shadow-xl border border-brand-primary/10">
-              <BigImageCarousel
-                images={[
-                  { src: "/Elanable-uploads/Camu Campus Recruitment App.png", alt: "Camu Campus Recruitment App Interface" },
-                  { src: "/Elanable-uploads/Camu.png", alt: "Camu Brand Identity" },
-                  { svgPlaceholder: true, alt: "User Journey Mapping" }
-                ]}
+              <OptimizedImage
+                src="/Elanable-uploads/Camu Campus Recruitment App.png"
+                alt="Camu Campus Recruitment App Interface"
+                priority={true}
+                width={800}
+                height={600}
+                className="w-full aspect-video"
               />
             </div>
           </SectionReveal>

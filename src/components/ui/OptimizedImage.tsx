@@ -10,6 +10,9 @@ interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
   loadingClassName?: string;
   errorClassName?: string;
   lazy?: boolean;
+  priority?: boolean;
+  width?: number;
+  height?: number;
 }
 
 const OptimizedImage: React.FC<OptimizedImageProps> = ({
@@ -20,15 +23,18 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   loadingClassName,
   errorClassName,
   lazy = true,
+  priority = false,
+  width,
+  height,
   ...props
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [isIntersecting, setIsIntersecting] = useState(!lazy);
+  const [isIntersecting, setIsIntersecting] = useState(!lazy || priority);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (!lazy) return;
+    if (!lazy || priority) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -37,7 +43,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
     if (imgRef.current) {
@@ -45,7 +51,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     }
 
     return () => observer.disconnect();
-  }, [lazy]);
+  }, [lazy, priority]);
 
   const handleLoad = () => {
     setIsLoading(false);
@@ -108,7 +114,10 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
             'w-full h-full object-cover transition-opacity duration-300',
             isLoading ? 'opacity-0' : 'opacity-100'
           )}
-          loading={lazy ? 'lazy' : 'eager'}
+          loading={priority ? 'eager' : lazy ? 'lazy' : 'eager'}
+          decoding="async"
+          width={width}
+          height={height}
           {...props}
         />
       )}

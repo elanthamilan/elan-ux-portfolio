@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, Suspense, lazy } from 'react';
+import { useEffect, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useReducedMotion } from './components/hooks/useReducedMotion';
 import { SkipLink } from './components/ui/SkipLink';
