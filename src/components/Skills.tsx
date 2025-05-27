@@ -12,6 +12,11 @@ interface SkillData {
 
 const SKILLS_DATA: SkillData[] = [
   {
+    title: 'Product Design',
+    description: 'End-to-end design process from wireframing to high-fidelity prototypes and usability testing',
+    icon: 'design_services'
+  },
+  {
     title: 'UX Strategy',
     description: 'Strategic planning and methodology to align user needs with business objectives across enterprise products',
     icon: 'target'
@@ -20,11 +25,6 @@ const SKILLS_DATA: SkillData[] = [
     title: 'User Research',
     description: 'Comprehensive research strategy including interviews, analytics, personas, and user journey mapping',
     icon: 'search'
-  },
-  {
-    title: 'Product Design',
-    description: 'End-to-end design process from wireframing to high-fidelity prototypes and usability testing',
-    icon: 'palette'
   },
   {
     title: 'Information Architecture',
@@ -54,7 +54,7 @@ const SkillListItem = React.memo(({ skill, index }: { skill: SkillData, index: n
     >
       {/* Icon */}
       <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
-        <span className="material-symbols-outlined text-xl text-gray-600" aria-label={skill.title}>
+        <span className="material-symbols-outlined text-xl text-[#177863]" aria-label={skill.title}>
           {skill.icon}
         </span>
       </div>

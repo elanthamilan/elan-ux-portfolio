@@ -130,7 +130,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
                 className="text-xl font-heading font-bold text-brand-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                 onClick={onClose}
               >
-                Elan
+                Elanthamilan
               </Link>
               <Button
                 variant="ghost"

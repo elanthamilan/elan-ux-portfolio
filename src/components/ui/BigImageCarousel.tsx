@@ -222,7 +222,7 @@ const BigImageCarousel: React.FC<BigImageCarouselProps> = ({ images, options, ca
           onClick={handleCloseFullscreen}
         >
           <button
-            className="absolute top-4 right-4 z-[10001] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-3 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/70"
+            className="absolute top-4 right-4 z-[10001] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-3 backdrop-blur-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/70 cursor-pointer"
             onClick={handleCloseFullscreen}
             aria-label="Close full screen (Press Escape)"
           >

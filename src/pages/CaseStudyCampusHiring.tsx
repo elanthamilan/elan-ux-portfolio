@@ -10,7 +10,32 @@ import SectionReveal from '@/components/SectionReveal';
 
 const CaseStudyCampusHiring = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-background" style={{background: 'linear-gradient(135deg, hsl(30 17% 97% / 0.4) 0%, hsl(0 0% 100%) 50%, hsl(162 65% 28% / 0.08) 100%)'}}>
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      {/* Subtle mesh gradient background for case study */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: `
+              radial-gradient(circle at 15% 25%, rgba(248, 244, 242, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 85% 15%, rgba(23, 120, 99, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 45% 75%, rgba(248, 244, 242, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 95% 85%, rgba(23, 120, 99, 0.06) 0%, transparent 50%),
+              linear-gradient(135deg, rgba(248, 244, 242, 0.08) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(23, 120, 99, 0.04) 100%)
+            `
+          }}
+        />
+        {/* Additional mesh layer for depth */}
+        <div
+          className="absolute inset-0 opacity-15"
+          style={{
+            background: `
+              conic-gradient(from 45deg at 25% 25%, rgba(248, 244, 242, 0.06), rgba(23, 120, 99, 0.03), rgba(248, 244, 242, 0.08), rgba(23, 120, 99, 0.04)),
+              conic-gradient(from 225deg at 75% 75%, rgba(23, 120, 99, 0.03), rgba(248, 244, 242, 0.05), rgba(23, 120, 99, 0.02), rgba(248, 244, 242, 0.04))
+            `
+          }}
+        />
+      </div>
       <Header />
 
       {/* Adjusted page container padding: px-2 xs:px-4 sm:px-6, py-8 xs:py-12 md:py-16 */}
