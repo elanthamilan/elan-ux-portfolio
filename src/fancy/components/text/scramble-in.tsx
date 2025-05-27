@@ -5,6 +5,7 @@ import {
   useImperativeHandle,
   useState,
 } from "react"
+import { usePrefersReducedMotion } from "@/components/hooks/usePrefersReducedMotion" // Import the hook
 
 interface ScrambleInProps {
   text: string
@@ -42,13 +43,30 @@ const ScrambleIn = forwardRef<ScrambleInHandle, ScrambleInProps>(
     const [isAnimating, setIsAnimating] = useState(false)
     const [visibleLetterCount, setVisibleLetterCount] = useState(0)
     const [scrambleOffset, setScrambleOffset] = useState(0)
+    const prefersReducedMotion = usePrefersReducedMotion() // Call the hook
 
     const startAnimation = useCallback(() => {
+      if (prefersReducedMotion) {
+        setDisplayText(text)
+        setVisibleLetterCount(text.length)
+        setScrambleOffset(scrambledLetterCount) // Ensure this is available in scope
+        setIsAnimating(false)
+        onStart?.()
+        onComplete?.()
+        return
+      }
+      // Original animation logic
       setIsAnimating(true)
       setVisibleLetterCount(0)
       setScrambleOffset(0)
       onStart?.()
-    }, [onStart])
+    }, [
+      prefersReducedMotion,
+      text,
+      onStart,
+      onComplete,
+      scrambledLetterCount,
+    ]) // Add scrambledLetterCount to dependencies
 
     const reset = useCallback(() => {
       setIsAnimating(false)

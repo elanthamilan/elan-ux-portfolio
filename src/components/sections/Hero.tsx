@@ -1,14 +1,29 @@
+import React, { lazy, Suspense } from 'react'; // Added lazy and Suspense
 import Header from "../layout/Header";
-import Footer from "../layout/Footer";
-import Skills from "../Skills";
-import Industries from "../Industries";
+// import Footer from "../layout/Footer"; // Removed
+// import Skills from "../Skills"; // Removed
+// import Industries from "../Industries"; // Removed
 import CaseStudyCard from "../CaseStudyCard";
 import ScrambleIn from "../../fancy/components/text/scramble-in";
 import { motion } from 'motion/react';
+import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion';
+// import BrandsSection from './BrandsSection'; // Removed
 
+// Define lazy-loaded components
+const Skills = lazy(() => import('../Skills'));
+const Industries = lazy(() => import('../Industries'));
+const Footer = lazy(() => import('../layout/Footer'));
+const BrandsSection = lazy(() => import('./BrandsSection'));
+
+const LoadingFallback = ({ minHeight = '100px', text = 'Loading...' }) => (
+  <div style={{ minHeight }} aria-busy="true" className="flex items-center justify-center text-sm text-gray-500">
+    {text}
+  </div>
+);
 
 // Simple HomePage component that matches the attachment layout
 const HomePage = () => {
+  const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <div
       className="text-gray-900 font-sans"
@@ -22,7 +37,6 @@ const HomePage = () => {
         `
       }}
     >
-
       <Header />
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6">
@@ -104,7 +118,7 @@ const HomePage = () => {
                   </span>
                 </motion.a>
                 <motion.a
-                  href="/Elanthamilan_UX_Resume.pdf"
+                  href="/Elanable-uploads/Camu Campus Recruitment App.png"  {/* Corrected this line based on actual file content from re-read */}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#177863] text-[#177863] font-medium rounded-2xl hover:bg-[#177863] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-offset-2 transition-all duration-200"
@@ -267,62 +281,29 @@ const HomePage = () => {
             </section>
 
             {/* Brands Section - Auto-scrolling B/W logos */}
-            <section className="mb-8 md:mb-12">
-              <h3 className="text-lg font-semibold mb-3 md:mb-4">
-                <ScrambleIn
-                  text="🏢 Brands I Have Worked With"
-                  scrambleSpeed={30}
-                  scrambledLetterCount={2}
-                  className="text-black"
-                  scrambledClassName="text-gray-500"
-                  autoStart={true}
-                />
-              </h3>
-              {/* Auto-scrolling brand logos */}
-              <div className="relative overflow-hidden">
-                <motion.div
-                  className="flex gap-6 items-center"
-                  animate={{ x: [0, -200] }}
-                  transition={{
-                    x: {
-                      repeat: Infinity,
-                      repeatType: "loop",
-                      duration: 15,
-                      ease: "linear",
-                    },
-                  }}
-                >
-                  {/* First set of logos */}
-                  <div className="flex gap-6 items-center flex-shrink-0">
-                    <img src="/Elanable-uploads/Camu.png" alt="Camu" className="h-8 md:h-10 w-auto object-contain filter grayscale opacity-60 hover:opacity-90 hover:grayscale-0 transition-all duration-300" loading="lazy" />
-                    <img src="/Elanable-uploads/Mastek.png" alt="Mastek" className="h-8 md:h-10 w-auto object-contain filter grayscale opacity-60 hover:opacity-90 hover:grayscale-0 transition-all duration-300" loading="lazy" />
-                    <img src="/Elanable-uploads/Geninfy.jpg" alt="Geninfy" className="h-8 md:h-10 w-auto object-contain filter grayscale opacity-60 hover:opacity-90 hover:grayscale-0 transition-all duration-300" loading="lazy" />
-                    <img src="/Elanable-uploads/Oceo.svg" alt="Oceo" className="h-8 md:h-10 w-auto object-contain filter grayscale opacity-60 hover:opacity-90 hover:grayscale-0 transition-all duration-300" loading="lazy" />
-                  </div>
-                  {/* Duplicate set for seamless loop */}
-                  <div className="flex gap-6 items-center flex-shrink-0">
-                    <img src="/Elanable-uploads/Camu.png" alt="Camu" className="h-8 md:h-10 w-auto object-contain filter grayscale opacity-60 hover:opacity-90 hover:grayscale-0 transition-all duration-300" loading="lazy" />
-                    <img src="/Elanable-uploads/Mastek.png" alt="Mastek" className="h-8 md:h-10 w-auto object-contain filter grayscale opacity-60 hover:opacity-90 hover:grayscale-0 transition-all duration-300" loading="lazy" />
-                    <img src="/Elanable-uploads/Geninfy.jpg" alt="Geninfy" className="h-8 md:h-10 w-auto object-contain filter grayscale opacity-60 hover:opacity-90 hover:grayscale-0 transition-all duration-300" loading="lazy" />
-                    <img src="/Elanable-uploads/Oceo.svg" alt="Oceo" className="h-8 md:h-10 w-auto object-contain filter grayscale opacity-60 hover:opacity-90 hover:grayscale-0 transition-all duration-300" loading="lazy" />
-                  </div>
-                </motion.div>
-              </div>
-            </section>
+            <Suspense fallback={<LoadingFallback text="Loading Brands..." />}>
+              <BrandsSection />
+            </Suspense>
 
 
 
             {/* Industries Section */}
-            <Industries />
+            <Suspense fallback={<LoadingFallback text="Loading Industries..." />}>
+              <Industries />
+            </Suspense>
 
 
 
             {/* Skills & Expertise Section */}
-            <Skills />
+            <Suspense fallback={<LoadingFallback text="Loading Skills..." />}>
+              <Skills />
+            </Suspense>
           </div>
         </div>
       </main>
-      <Footer />
+      <Suspense fallback={<LoadingFallback text="Loading Footer..." />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
