@@ -158,32 +158,42 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
                 <X className="h-6 w-6" />
               </Button>
             </div>
-            <div className="flex flex-col p-4 space-y-2 overflow-y-auto flex-grow">
-              {navItems.map((item) => (
-                item.isExternal ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-brand-primary/10 hover:text-brand-primary rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
-                    onClick={onClose}
-                  >
-                    <item.icon className="mr-3 h-5 w-5 text-brand-secondary" />
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-brand-primary/10 hover:text-brand-primary rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
-                    onClick={onClose}
-                  >
-                    <item.icon className="mr-3 h-5 w-5 text-brand-secondary" />
-                    {item.label}
-                  </Link>
-                )
-              ))}
+            <div className="flex flex-col p-4 overflow-y-auto flex-grow">
+              <ul className="space-y-1">
+                {navItems.map((item) => {
+                  const isActive = !item.isExternal && location.pathname === item.href;
+                  return (
+                    <li key={item.label}>
+                      {item.isExternal ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center py-3 px-3 text-md font-medium text-foreground hover:bg-brand-primary/10 hover:text-brand-primary rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background"
+                          onClick={onClose}
+                        >
+                          <item.icon className="mr-3 h-5 w-5 text-brand-secondary" />
+                          {item.label}
+                        </a>
+                      ) : (
+                        <Link
+                          to={item.href}
+                          className={`flex items-center py-3 px-3 text-md font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 focus-visible:ring-offset-background ${
+                            isActive
+                              ? "bg-brand-primary/10 text-brand-primary font-semibold"
+                              : "text-foreground hover:bg-brand-primary/10 hover:text-brand-primary"
+                          }`}
+                          onClick={onClose}
+                          aria-current={isActive ? "page" : undefined}
+                        >
+                          <item.icon className={`mr-3 h-5 w-5 ${isActive ? "text-brand-primary" : "text-brand-secondary"}`} />
+                          {item.label}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
             {/* New Section for Explicit Contact Info */}
             <div className="p-4 mt-auto border-t border-slate-200">

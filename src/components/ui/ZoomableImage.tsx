@@ -98,6 +98,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
       role="button"
       tabIndex={0}
       aria-label={`${isZoomed ? 'Close' : 'Zoom'} image: ${alt}`}
+      aria-expanded={isZoomed} // Added this attribute
     >
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-accent-bg dark:bg-slate-800 rounded-lg"> {/* Themed loading background, added rounded-lg to match image container */}
