@@ -98,12 +98,12 @@ const SkillsList = React.memo(() => {
   }, []);
 
   return (
-    <section className="mb-8 bg-background text-foreground">
+    <section className="mb-6 md:mb-8 bg-background text-foreground">
       <div>
-        <div className="text-left mb-6">
-          <h3 className="text-lg font-medium mb-4 text-foreground">
+        <div className="text-left mb-3 md:mb-4">
+          <h3 className="text-lg font-medium mb-3 md:mb-4 text-foreground">
             <ScrambleIn
-              text="🛠️ My Problem-Solving Toolkit"
+              text="My Problem-Solving Toolkit"
               scrambleSpeed={35}
               scrambledLetterCount={2}
               className="text-gray-900"

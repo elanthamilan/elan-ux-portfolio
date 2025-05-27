@@ -122,7 +122,7 @@ const HomePage = () => {
             <section aria-labelledby="case-studies-title">
               <h2 id="case-studies-title" className="text-2xl font-semibold mb-6 text-foreground">
                 <ScrambleIn
-                  text="🔥 Problems I've Actually Solved"
+                  text="Problems I've Actually Solved"
                   scrambleSpeed={25}
                   scrambledLetterCount={2}
                   className="text-gray-900"
