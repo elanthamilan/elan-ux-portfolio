@@ -3,7 +3,6 @@ import { ArrowLeft, ExternalLink, Users, Calendar, Target } from 'lucide-react';
 import { Button } from '@/components/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/components/ui/card';
 import { Badge } from '@/components/components/ui/badge';
-import OptimizedImage from '@/components/ui/OptimizedImage';
 import ZoomableImage from '@/components/ui/ZoomableImage';
 
 const CaseStudyCampusHiring = () => {

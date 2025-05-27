@@ -1,9 +1,10 @@
+
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, Users, Calendar, Target } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/components/ui/card';
 import { Badge } from '@/components/components/ui/badge';
-import OptimizedImage from '@/components/ui/OptimizedImage';
+import { OptimizedImage } from '@/components/ui/OptimizedImage';
 import ZoomableImage from '@/components/ui/ZoomableImage';
 
 const CaseStudyStudentPlanner = () => {
@@ -120,8 +121,6 @@ const CaseStudyStudentPlanner = () => {
             <ZoomableImage
               src="/images/student-planner/calendar.png"
               alt="Calendar Design"
-              width={600}
-              height={400}
               className="rounded-md"
             />
             <p className="text-sm text-muted-foreground mt-2 text-center">
@@ -132,8 +131,6 @@ const CaseStudyStudentPlanner = () => {
             <ZoomableImage
               src="/images/student-planner/tasks.png"
               alt="Task Management Design"
-              width={600}
-              height={400}
               className="rounded-md"
             />
             <p className="text-sm text-muted-foreground mt-2 text-center">
