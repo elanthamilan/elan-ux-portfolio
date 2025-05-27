@@ -150,7 +150,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
             />
             <button
               ref={closeButtonRef}
-              className="absolute top-4 right-4 z-[10001] text-white bg-black/50 rounded-full p-3 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors backdrop-blur-sm"
+              className="absolute top-4 right-4 z-[10001] text-white bg-black/50 rounded-full p-3 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors backdrop-blur-sm cursor-pointer"
               onClick={handleClose}
               aria-label="Close zoomed view (Press Escape)"
               title="Close zoomed view (Press Escape)"

@@ -9,13 +9,32 @@ import { motion } from 'motion/react';
 // Simple HomePage component that matches the attachment layout
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans relative overflow-hidden">
-      {/* Background decorative elements - optimized for low bit-depth displays */}
+    <div className="min-h-screen text-gray-900 font-sans relative overflow-hidden">
+      {/* Subtle mesh gradient background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#177863]/8 rounded-full blur-xl"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-[#16325A]/8 rounded-full blur-xl"></div>
-        <div className="absolute bottom-40 left-20 w-40 h-40 bg-[#F8F4F2]/30 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-20 right-10 w-28 h-28 bg-[#177863]/6 rounded-full blur-xl"></div>
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            background: `
+              radial-gradient(circle at 20% 20%, rgba(23, 120, 99, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(22, 50, 90, 0.06) 0%, transparent 50%),
+              radial-gradient(circle at 40% 70%, rgba(248, 244, 242, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 90% 80%, rgba(23, 120, 99, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 10% 90%, rgba(22, 50, 90, 0.04) 0%, transparent 50%),
+              linear-gradient(135deg, rgba(248, 244, 242, 0.02) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(23, 120, 99, 0.02) 100%)
+            `
+          }}
+        />
+        {/* Additional subtle mesh overlay */}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            background: `
+              conic-gradient(from 0deg at 30% 30%, rgba(23, 120, 99, 0.03), rgba(22, 50, 90, 0.02), rgba(248, 244, 242, 0.04), rgba(23, 120, 99, 0.03)),
+              conic-gradient(from 180deg at 70% 70%, rgba(22, 50, 90, 0.02), rgba(248, 244, 242, 0.03), rgba(23, 120, 99, 0.02), rgba(22, 50, 90, 0.02))
+            `
+          }}
+        />
       </div>
 
       <Header />
@@ -63,7 +82,7 @@ const HomePage = () => {
                   }}
                 >
                   Elanthamilan
-                </motion.span> 👋
+                </motion.span>
               </motion.p>
 
               <motion.p
@@ -103,7 +122,10 @@ const HomePage = () => {
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  🚀 Let's Solve Together
+                  <span className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-lg">rocket_launch</span>
+                    Let's Solve Together
+                  </span>
                 </motion.a>
                 <motion.a
                   href="/Elanthamilan_UX_Resume.pdf"
@@ -113,7 +135,10 @@ const HomePage = () => {
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  📄 See Track Record
+                  <span className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-lg">description</span>
+                    See Track Record
+                  </span>
                 </motion.a>
               </motion.div>
             </div>
@@ -187,7 +212,7 @@ const HomePage = () => {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 >
-                  <img src="/Elanable-uploads/Camu.png" alt="Camu" className="h-8 md:h-10 mx-auto mb-1 md:mb-2 object-contain" />
+                  <img src="/Elanable-uploads/Camu.png" alt="Camu" className="h-8 md:h-10 mx-auto mb-1 md:mb-2 object-contain" loading="lazy" width="120" height="40" />
                   <p className="text-gray-700 font-normal text-xs md:text-sm">Camu</p>
                 </motion.div>
                 <motion.div
@@ -197,7 +222,7 @@ const HomePage = () => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 >
-                  <img src="/Elanable-uploads/Mastek.png" alt="Mastek" className="h-8 md:h-10 mx-auto mb-1 md:mb-2 object-contain" />
+                  <img src="/Elanable-uploads/Mastek.png" alt="Mastek" className="h-8 md:h-10 mx-auto mb-1 md:mb-2 object-contain" loading="lazy" width="120" height="40" />
                   <p className="text-gray-700 font-normal text-xs md:text-sm">Mastek</p>
                 </motion.div>
                 <motion.div
@@ -207,7 +232,7 @@ const HomePage = () => {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 >
-                  <img src="/Elanable-uploads/Geninfy.jpg" alt="Geninfy" className="h-8 md:h-10 mx-auto mb-1 md:mb-2 object-contain" />
+                  <img src="/Elanable-uploads/Geninfy.jpg" alt="Geninfy" className="h-8 md:h-10 mx-auto mb-1 md:mb-2 object-contain" loading="lazy" width="120" height="40" />
                   <p className="text-gray-700 font-normal text-xs md:text-sm">Geninfy</p>
                 </motion.div>
                 <motion.div
@@ -217,7 +242,7 @@ const HomePage = () => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 >
-                  <img src="/Elanable-uploads/Oceo.svg" alt="Oceo" className="h-8 md:h-10 mx-auto mb-1 md:mb-2 object-contain" />
+                  <img src="/Elanable-uploads/Oceo.svg" alt="Oceo" className="h-8 md:h-10 mx-auto mb-1 md:mb-2 object-contain" loading="lazy" width="120" height="40" />
                   <p className="text-gray-700 font-normal text-xs md:text-sm">Oceo</p>
                 </motion.div>
               </div>
@@ -250,7 +275,7 @@ const HomePage = () => {
                   transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
                 >
                   <motion.button
-                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left"
+                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left cursor-pointer"
                     onClick={() => {
                       const content = document.getElementById('edtech-content');
                       const icon = document.getElementById('edtech-icon');
@@ -262,7 +287,7 @@ const HomePage = () => {
                     }}
                   >
                     <span className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-lg">school</span>
+                      <span className="material-symbols-outlined text-lg text-[#177863]">school</span>
                       EdTech
                     </span>
                     <motion.svg
@@ -295,7 +320,7 @@ const HomePage = () => {
                   transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
                 >
                   <motion.button
-                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left"
+                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left cursor-pointer"
                     onClick={() => {
                       const content = document.getElementById('ecommerce-content');
                       const icon = document.getElementById('ecommerce-icon');
@@ -307,7 +332,7 @@ const HomePage = () => {
                     }}
                   >
                     <span className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-lg">shopping_cart</span>
+                      <span className="material-symbols-outlined text-lg text-[#177863]">shopping_cart</span>
                       eCommerce
                     </span>
                     <motion.svg
@@ -338,7 +363,7 @@ const HomePage = () => {
                   transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
                 >
                   <motion.button
-                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left"
+                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left cursor-pointer"
                     onClick={() => {
                       const content = document.getElementById('connected-content');
                       const icon = document.getElementById('connected-icon');
@@ -350,7 +375,7 @@ const HomePage = () => {
                     }}
                   >
                     <span className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-lg">link</span>
+                      <span className="material-symbols-outlined text-lg text-[#177863]">device_hub</span>
                       Connected Tech
                     </span>
                     <motion.svg
@@ -381,7 +406,7 @@ const HomePage = () => {
                   transition={{ duration: 0.3, delay: 0.25, ease: "easeOut" }}
                 >
                   <motion.button
-                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left"
+                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left cursor-pointer"
                     onClick={() => {
                       const content = document.getElementById('startup-content');
                       const icon = document.getElementById('startup-icon');
@@ -393,7 +418,7 @@ const HomePage = () => {
                     }}
                   >
                     <span className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-lg">rocket_launch</span>
+                      <span className="material-symbols-outlined text-lg text-[#177863]">rocket_launch</span>
                       Startup
                     </span>
                     <motion.svg
@@ -444,7 +469,10 @@ const HomePage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.05, ease: "easeOut" }}
                 >
-                  <span className="truncate">elanthamilan12@gmail.com</span>
+                  <span className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-lg text-[#177863]">mail</span>
+                    <span className="truncate">elanthamilan12@gmail.com</span>
+                  </span>
                 </motion.a>
                 <motion.a
                   href="tel:+918148622302"
@@ -458,7 +486,10 @@ const HomePage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
                 >
-                  +918148622302
+                  <span className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-lg text-[#177863]">call</span>
+                    +918148622302
+                  </span>
                 </motion.a>
                 <motion.a
                   href="https://wa.me/918148622302"
@@ -474,7 +505,12 @@ const HomePage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
                 >
-                  WhatsApp
+                  <span className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-[#177863]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                    </svg>
+                    WhatsApp
+                  </span>
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/elanthamilan/"
@@ -491,7 +527,9 @@ const HomePage = () => {
                   transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
                 >
                   <span className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-lg">work</span>
+                    <svg className="w-5 h-5 text-[#177863]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
                     LinkedIn Profile
                   </span>
                 </motion.a>

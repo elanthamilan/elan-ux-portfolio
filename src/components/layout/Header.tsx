@@ -48,10 +48,10 @@ const Header = React.memo(() => {
           <Link
             to="/"
             className="text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors"
-            aria-label="Elan, Back to Homepage"
+            aria-label="Elanthamilan, Back to Homepage"
             onClick={() => isMobileMenuOpen && toggleMobileMenu()} // Close menu on site navigation
           >
-            Elan
+            Elanthamilan
           </Link>
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-4" aria-label="Main navigation">

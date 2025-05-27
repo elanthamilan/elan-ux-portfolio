@@ -5,11 +5,11 @@ const LoadingScreen = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const mainTransition = prefersReducedMotion ? { duration: 0 } : { duration: 0.5 };
-  const textTransition = prefersReducedMotion 
-    ? { duration: 0, delay: 0 } 
+  const textTransition = prefersReducedMotion
+    ? { duration: 0, delay: 0 }
     : { duration: 0.5, ease: [0, 0.71, 0.2, 1.01] };
-  const barTransition = prefersReducedMotion 
-    ? { duration: 0, delay: 0 } 
+  const barTransition = prefersReducedMotion
+    ? { duration: 0, delay: 0 }
     : { duration: 1, ease: 'easeInOut' };
 
   return (
@@ -26,7 +26,7 @@ const LoadingScreen = () => {
           transition={textTransition}
           className="text-4xl font-heading font-bold text-foreground dark:text-foreground mb-4" // Use theme colors
         >
-          Elan Thamilan
+          Elanthamilan
         </motion.div>
         {!prefersReducedMotion && ( // Conditionally render progress bar animation
           <motion.div
@@ -44,4 +44,4 @@ const LoadingScreen = () => {
   );
 };
 
-export default LoadingScreen; 
+export default LoadingScreen;
