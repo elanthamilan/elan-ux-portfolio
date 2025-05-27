@@ -367,7 +367,7 @@ const HomePage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.05, ease: "easeOut" }}
                 >
-                  <span className="truncate">📧 elanthamilan12@gmail.com</span>
+                  <span className="truncate">elanthamilan12@gmail.com</span>
                 </motion.a>
                 <motion.a
                   href="tel:+918148622302"
@@ -381,7 +381,7 @@ const HomePage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
                 >
-                  📞 +918148622302
+                  +918148622302
                 </motion.a>
                 <motion.a
                   href="https://wa.me/918148622302"
@@ -397,7 +397,7 @@ const HomePage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
                 >
-                  💬 WhatsApp
+                  WhatsApp
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/elanthamilan/"
