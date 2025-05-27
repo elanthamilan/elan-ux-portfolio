@@ -10,12 +10,12 @@ import { motion } from 'motion/react';
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans relative overflow-hidden">
-      {/* Background decorative elements */}
+      {/* Background decorative elements - optimized for low bit-depth displays */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-[#177863]/10 to-[#177863]/5 rounded-full blur-xl"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-[#16325A]/10 to-[#16325A]/5 rounded-full blur-xl"></div>
-        <div className="absolute bottom-40 left-20 w-40 h-40 bg-gradient-to-br from-[#F8F4F2]/40 to-[#F8F4F2]/20 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-20 right-10 w-28 h-28 bg-gradient-to-br from-[#177863]/8 to-[#177863]/4 rounded-full blur-xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#177863]/8 rounded-full blur-xl"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-[#16325A]/8 rounded-full blur-xl"></div>
+        <div className="absolute bottom-40 left-20 w-40 h-40 bg-[#F8F4F2]/30 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-[#177863]/6 rounded-full blur-xl"></div>
       </div>
 
       <Header />

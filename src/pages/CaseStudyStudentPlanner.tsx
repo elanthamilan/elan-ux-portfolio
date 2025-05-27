@@ -1,4 +1,4 @@
-import React from "react";
+
 import Header from "../components/layout/Header.tsx";
 import Footer from "../components/layout/Footer.tsx";
 import { ArrowLeft } from "lucide-react";
@@ -16,7 +16,7 @@ const placeholderImages = [
 
 const CaseStudyStudentPlanner = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#16325A]/8 via-background to-[#F8F4F2]/40">
+    <div className="min-h-screen flex flex-col bg-background" style={{background: 'linear-gradient(135deg, hsl(213 56% 22% / 0.08) 0%, hsl(0 0% 100%) 50%, hsl(30 17% 97% / 0.4) 100%)'}}>
       <Header />
 
       {/* Adjusted page container padding: px-2 xs:px-4 sm:px-6, py-8 xs:py-12 md:py-16 */}

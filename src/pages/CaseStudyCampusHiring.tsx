@@ -1,4 +1,4 @@
-import React from "react";
+
 import Header from "../components/layout/Header.tsx";
 import Footer from "../components/layout/Footer.tsx";
 import { ArrowLeft } from "lucide-react";
@@ -10,7 +10,7 @@ import SectionReveal from '@/components/SectionReveal';
 
 const CaseStudyCampusHiring = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#F8F4F2]/40 via-background to-[#177863]/8">
+    <div className="min-h-screen flex flex-col bg-background" style={{background: 'linear-gradient(135deg, hsl(30 17% 97% / 0.4) 0%, hsl(0 0% 100%) 50%, hsl(162 65% 28% / 0.08) 100%)'}}>
       <Header />
 
       {/* Adjusted page container padding: px-2 xs:px-4 sm:px-6, py-8 xs:py-12 md:py-16 */}
