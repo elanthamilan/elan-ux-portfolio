@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react'; // Added useRef
+import React, { useEffect, useRef, useState } from 'react'; // Added useRef and useState
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { X, Home, Briefcase, Mail, Download, ExternalLink, MessageSquare } from 'lucide-react';
+import { X, Home, Briefcase, Download, ExternalLink, MessageSquare, Copy, Check } from 'lucide-react';
 import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion';
 
 interface MobileNavProps {
@@ -14,14 +14,30 @@ const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/case-study/campus-hiring", label: "Campus Hiring Case Study", icon: Briefcase },
   { href: "/case-study/student-planner", label: "Student Planner Case Study", icon: Briefcase },
-  { href: "/Elanthamilan_UX_Resume.pdf", label: "Download Resume", icon: Download, isExternal: true },
-  { href: "mailto:elanthamilan12@gmail.com", label: "Email", icon: Mail, isExternal: true }
+  { href: "/Elanthamilan_UX_Resume.pdf", label: "Download Resume", icon: Download, isExternal: true }
 ];
 
 const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
   const location = useLocation();
   const prefersReducedMotion = usePrefersReducedMotion();
   const navRef = useRef<HTMLElement>(null); // Ref for the nav container
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+
+  const copyToClipboard = async (text: string, type: 'email' | 'phone') => {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (type === 'email') {
+        setCopiedEmail(true);
+        setTimeout(() => setCopiedEmail(false), 2000);
+      } else {
+        setCopiedPhone(true);
+        setTimeout(() => setCopiedPhone(false), 2000);
+      }
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
 
 
 
@@ -130,7 +146,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
                 className="text-xl font-heading font-bold text-brand-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                 onClick={onClose}
               >
-                Elanthamilan
+                Elan
               </Link>
               <Button
                 variant="ghost"
@@ -173,13 +189,39 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
             <div className="p-4 mt-auto border-t border-slate-200">
               <h3 className="text-sm font-medium text-foreground/70 mb-3">Contact Information</h3>
               <div className="space-y-2 mb-4">
-                <div>
-                  <span className="text-xs text-foreground/70">Email:</span>
-                  <p className="text-sm font-medium text-foreground">elanthamilan12@gmail.com</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-xs text-foreground/70">Email:</span>
+                    <p className="text-sm font-medium text-foreground">elanthamilan12@gmail.com</p>
+                  </div>
+                  <button
+                    onClick={() => copyToClipboard('elanthamilan12@gmail.com', 'email')}
+                    className="p-2 hover:bg-gray-100 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary"
+                    aria-label="Copy email address"
+                  >
+                    {copiedEmail ? (
+                      <Check className="h-4 w-4 text-green-600" />
+                    ) : (
+                      <Copy className="h-4 w-4 text-gray-500" />
+                    )}
+                  </button>
                 </div>
-                <div>
-                  <span className="text-xs text-foreground/70">Mobile:</span>
-                  <p className="text-sm font-medium text-foreground">+918148622302</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-xs text-foreground/70">Mobile:</span>
+                    <p className="text-sm font-medium text-foreground">+918148622302</p>
+                  </div>
+                  <button
+                    onClick={() => copyToClipboard('+918148622302', 'phone')}
+                    className="p-2 hover:bg-gray-100 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary"
+                    aria-label="Copy phone number"
+                  >
+                    {copiedPhone ? (
+                      <Check className="h-4 w-4 text-green-600" />
+                    ) : (
+                      <Copy className="h-4 w-4 text-gray-500" />
+                    )}
+                  </button>
                 </div>
               </div>
               <div className="flex gap-3">

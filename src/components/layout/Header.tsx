@@ -48,10 +48,10 @@ const Header = React.memo(() => {
           <Link
             to="/"
             className="text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors"
-            aria-label="Elanthamilan, Back to Homepage"
+            aria-label="Elan, Back to Homepage"
             onClick={() => isMobileMenuOpen && toggleMobileMenu()} // Close menu on site navigation
           >
-            Elanthamilan
+            Elan
           </Link>
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-4" aria-label="Main navigation">
@@ -64,16 +64,7 @@ const Header = React.memo(() => {
                 Download Resume
               </a>
             </Button>
-            <Button
-              variant="ghost"
-              asChild
-              className="text-sm font-medium text-foreground hover:text-brand-primary hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 rounded-md transition-colors flex items-center gap-1.5"
-            >
-              <a href="mailto:elanthamilan12@gmail.com" aria-label="Send Email">
-                <Mail size={16} className="flex-shrink-0 h-4 w-4 sm:h-5 sm:w-5" />
-                Email
-              </a>
-            </Button>
+
           </nav>
           {/* Mobile Navigation Trigger (Hamburger Menu) */}
           <div className="md:hidden">

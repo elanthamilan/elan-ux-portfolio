@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
-import AnimatedFooterAccent from "@/components/ui/AnimatedFooterAccent"; // Import the accent component
-
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
@@ -42,16 +39,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-accent-off-white/50 border-t border-slate-200 text-foreground mt-16" role="contentinfo"> {/* Added ARIA role and themed background/border */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center mb-8 text-center md:text-left">
+    <footer className="bg-accent-off-white/50 border-t border-slate-200 text-foreground mt-8" role="contentinfo"> {/* Added ARIA role and themed background/border */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-center text-center md:text-left">
           <div className="space-y-3"> {/* Reduced space-y slightly */}
             <Link
               to="/"
               aria-current="page"
               className="text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors inline-flex items-center gap-2"
             >
-              Elanthamilan
+              Elan
               {/* Consider replacing material-symbols-outlined with an SVG or Lucide icon if not used elsewhere, or ensure it's loaded */}
               <span className="material-symbols-outlined text-brand-tertiary" aria-hidden="true">auto_awesome</span>
             </Link>
@@ -73,10 +70,7 @@ const Footer = () => {
             ))}
           </nav>
         </div>
-        <div className="text-center text-foreground text-sm pt-8 border-t border-slate-200"> {/* text-foreground/90 to text-foreground, themed border, increased pt */}
-          <p>&copy; {currentYear} Elanthamilan. All rights reserved.</p>
-          <AnimatedFooterAccent />
-        </div>
+
       </div>
     </footer>
   );
