@@ -23,8 +23,8 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
-    sourcemap: true,
-    minify: false,
+    sourcemap: true, // Keep sourcemap for production debugging if desired
+    minify: 'esbuild', // Enable minification using esbuild
     rollupOptions: {
       output: {
         manualChunks: undefined,

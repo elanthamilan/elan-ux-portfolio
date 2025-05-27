@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Linkedin, Github, Twitter, Mail, Phone } from "lucide-react";
+import { ExternalLink, Mail, Phone, MessageSquare, Linkedin } from "lucide-react"; // Added Linkedin
 import AnimatedFooterAccent from "@/components/ui/AnimatedFooterAccent"; // Import the accent component
 
 const Footer = () => {
@@ -11,13 +11,25 @@ const Footer = () => {
       name: "Email",
       href: "mailto:elanthamilan12@gmail.com",
       icon: <Mail className="w-5 h-5" />,
-      label: "Send Email"
+      label: "Send Email (opens in new tab)"
     },
     {
       name: "Phone",
       href: "tel:+918148622302",
       icon: <Phone className="w-5 h-5" />,
-      label: "Call Phone"
+      label: "Call Phone (opens in new tab)"
+    },
+    {
+      name: "WhatsApp",
+      href: "https://wa.me/918148622302",
+      icon: <MessageSquare className="w-5 h-5" />,
+      label: "WhatsApp (opens in new tab)"
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/elanthamilan/",
+      icon: <Linkedin className="w-5 h-5" />, // Changed to Linkedin icon
+      label: "LinkedIn Profile (opens in new tab)"
     }
   ];
 
@@ -26,16 +38,16 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center mb-8 text-center md:text-left">
           <div className="space-y-3"> {/* Reduced space-y slightly */}
-            <Link 
-              to="/" 
-              aria-current="page" 
+            <Link
+              to="/"
+              aria-current="page"
               className="text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors inline-flex items-center gap-2"
             >
               Elan
               {/* Consider replacing material-symbols-outlined with an SVG or Lucide icon if not used elsewhere, or ensure it's loaded */}
               <span className="material-symbols-outlined text-brand-tertiary" aria-hidden="true">auto_awesome</span>
             </Link>
-            <p className="text-foreground">Enterprise UX Designer specializing in SaaS, EdTech, and HR Tech</p> {/* text-foreground/90 to text-foreground */}
+            <p className="text-foreground">Enterprise UX Designer specializing in Complex enterprise design</p> {/* text-foreground/90 to text-foreground */}
           </div>
           <nav className="flex flex-wrap gap-3 justify-center md:justify-self-end" aria-label="Social media links"> {/* Added ARIA label, reduced gap slightly */}
             {socialLinks.map((link) => (

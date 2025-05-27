@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useCallback } from 'react'; // Imported React
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from 'motion/react';
+import ScrambleIn from "../fancy/components/text/scramble-in";
 
 interface SkillCardData { // Renamed interface for clarity
   title: string;
@@ -14,86 +16,86 @@ interface SkillCardData { // Renamed interface for clarity
 // Moved skills array outside to ensure it's a stable reference if SkillsBentoGrid is memoized
 const SKILLS_DATA: SkillCardData[] = [
   {
-    title: 'UX Strategist',
-    description: 'Objectives clarification, Employs methodology, Vision and solutioning, Planning prioritization, Roadmap strategies, Execution oversight, Measurement.',
-    icon: '📈', // Or '💼'
+    title: 'UX Strategy',
+    description: 'Strategic planning and methodology to align user needs with business objectives across enterprise products',
+    icon: '🎯',
     size: 'large',
-    color: 'bg-accent-light border-brand-primary'
+    color: 'bg-[#f0f0f0] border-[#177863]/20'
   },
   {
-    title: 'User Researcher',
-    description: 'Owns research strategy, Performs heuristic reviews, Plans and conducts research, Reviews analytics, Builds personas, empathy maps, journeys, Voice of the user/customer.',
-    icon: '🔍', // Or '💼'
+    title: 'User Research',
+    description: 'Comprehensive research strategy including interviews, analytics, personas, and user journey mapping',
+    icon: '🔍',
+    size: 'small',
+    color: 'bg-[#f0f0f0] border-[#16325A]/20'
+  },
+  {
+    title: 'Product Design',
+    description: 'End-to-end design process from wireframing to high-fidelity prototypes and usability testing',
+    icon: '🎨',
     size: 'large',
-    color: 'bg-accent-light border-brand-secondary'
+    color: 'bg-[#f0f0f0] border-[#177863]/15'
   },
   {
-    title: 'Business Analyst',
-    description: 'Understands business strategy, scope, Articulates and clarifies business objectives, Deep product knowledge, Defines business value, Voice of the business.',
-    icon: '📊', // Or '⚙️'
-    size: 'medium',
-    color: 'bg-accent-bg border-slate-200'
+    title: 'Information Architecture',
+    description: 'Structuring content, navigation systems, site maps and user flows for intuitive experiences',
+    icon: '🏗️',
+    size: 'small',
+    color: 'bg-[#f0f0f0] border-[#16325A]/15'
   },
   {
-    title: 'Information Architect',
-    description: 'Person-logical architectures, Navigation schemas, Organization schemas, Scalable patterns, Journey maps, Taxonomies.',
-    icon: '🧭', // Or '⚙️'
-    size: 'medium',
-    color: 'bg-accent-off-white border-slate-200'
-  },
-  {
-    title: 'Interaction Designer',
-    description: 'Interaction modeling, Experience design, Mental modeling, Storyboards, Wireframes, Mockups, UI accessibility.',
-    icon: '✨', // Or '⚙️'
-    size: 'medium',
-    color: 'bg-accent-bg border-slate-200'
-  },
-  {
-    title: 'Content Strategist',
-    description: 'Content mapping, Tone, voice, style, Content creation, Cultural context review, Content organization, Copy editing, Communications.',
-    icon: '✍️', // Or '⚙️'
-    size: 'medium',
-    color: 'bg-accent-off-white border-slate-200'
-  },
-  {
-    title: 'Visual Designer',
-    description: 'Graphics and art, Iconography, Typography, Color, Style, Branding, Spacing and hierarchy.',
-    icon: '🎨', // Or '⚙️'
+    title: 'Product Management',
+    description: 'Strategic roadmap planning, stakeholder alignment, and feature prioritization for product success',
+    icon: '📊',
     size: 'large',
-    color: 'bg-accent-bg border-slate-200'
+    color: 'bg-[#f0f0f0] border-[#177863]/20'
   },
   {
-    title: 'Front-End Developer',
-    description: 'Code to implement designs, Front-end frameworks, Development languages, Web, native, hybrid management, Functionality and integration, Coded accessibility.',
-    icon: '💻', // Or '⚙️'
-    size: 'large',
-    color: 'bg-accent-off-white border-slate-200'
+    title: 'Content Strategy',
+    description: 'Content planning, information design, and editorial guidelines for consistent user experiences',
+    icon: '✍️',
+    size: 'small',
+    color: 'bg-[#f0f0f0] border-[#16325A]/15'
   }
 ];
 
 // Memoized SkillCardDisplay component
 const SkillCardDisplay = React.memo(({ skill, index, onCardClick }: { skill: SkillCardData, index: number, onCardClick: (e: React.MouseEvent<HTMLDivElement>) => void }) => {
   return (
-    <div
-      className={`reveal ${skill.size === 'large' ? 'md:col-span-2' : 'md:col-span-1'} sm:col-span-1`}
-      // key prop is correctly on the SkillCardDisplay in the map, not needed here
+    <motion.div
+      className="reveal w-full"
+      whileHover={{
+        scale: 1.02,
+        y: -2,
+        transition: { duration: 0.3, ease: "easeOut" }
+      }}
+      whileTap={{ scale: 0.99 }}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
     >
       <Card
-        className={`flex flex-col items-start justify-between rounded-3xl shadow-md hover:shadow-lg hover:scale-[1.02] focus-within:ring-2 focus-within:ring-brand-primary focus-within:ring-offset-2 transition-all duration-300 ease-in-out ${skill.color} px-3 py-4 xs:p-4 ${skill.size === 'large' ? 'md:p-8' : 'sm:p-6'} h-full border`} // Responsive padding
+        className="relative rounded-lg cursor-pointer overflow-hidden group transition-all duration-300 bg-gray-50/50 hover:bg-gray-100/50 border border-gray-200/50 hover:border-gray-300/50"
         tabIndex={0}
         aria-label={skill.title}
         onClick={onCardClick}
       >
-        <CardContent className="flex flex-col items-start p-0 h-full text-foreground">
-          <div className="flex items-center gap-2 xs:gap-3 mb-3 xs:mb-4"> {/* Adjusted gap and margin */}
-            <span className={`text-3xl xs:text-4xl ${index < 2 ? 'text-brand-primary' : 'text-brand-secondary'}`} role="img" aria-label={skill.title}>{skill.icon}</span> {/* Responsive icon size */}
-            {/* Adaptive Typography for skill title H3 */}
-            <h3 className={`font-semibold text-foreground ${skill.size === 'large' ? 'text-xl xs:text-2xl' : 'text-lg xs:text-xl'}`}>{skill.title}</h3>
+        <CardContent className="p-4 text-foreground relative h-full flex flex-col">
+          {/* Icon at top */}
+          <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-4 bg-gray-100/50 transition-all duration-300 group-hover:scale-105">
+            <span className="text-2xl text-gray-700 transition-all duration-300 group-hover:scale-110" role="img" aria-label={skill.title}>
+              {skill.icon}
+            </span>
           </div>
-          <p className="text-foreground text-sm xs:text-base">{skill.description}</p> {/* Responsive description text */}
+
+          {/* Content */}
+          <div className="flex-1">
+            <h3 className="font-semibold text-gray-800 mb-3 transition-all duration-300 group-hover:text-gray-900">{skill.title}</h3>
+            <p className="text-gray-600 leading-relaxed font-normal">{skill.description}</p>
+          </div>
         </CardContent>
       </Card>
-    </div>
+    </motion.div>
   );
 });
 SkillCardDisplay.displayName = "SkillCardDisplay"; // For better debugging
@@ -145,22 +147,31 @@ const SkillsBentoGrid = React.memo(() => { // Wrapped SkillsBentoGrid with React
   }, []); // No dependencies
 
   return (
-    <section className="py-12 xs:py-16 md:py-24 bg-background text-foreground"> {/* Adjusted vertical padding */}
-      <div className="container mx-auto px-2 xs:px-4 sm:px-6 lg:px-8"> {/* Adjusted horizontal padding */}
-        <div className="text-center mb-10 md:mb-14"> {/* Adjusted margin */}
-          {/* Adaptive Typography for Skills H2 */}
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-heading font-semibold mb-3 xs:mb-4 text-foreground">Skills & Expertise</h2>
-          <p className="text-foreground max-w-2xl mx-auto text-base xs:text-lg leading-relaxed"> {/* Adjusted typography */}
-            With over 8 years of experience, I've developed a comprehensive skill set focused on creating exceptional user experiences for enterprise products.
+    <section className="mb-8 bg-background text-foreground"> {/* Removed padding, match other sections */}
+      <div> {/* Removed container and padding */}
+        <div className="text-left mb-8"> {/* Match other sections spacing */}
+          {/* Bold brutalist typography */}
+          <h3 className="text-lg font-medium mb-4 text-foreground">
+            <ScrambleIn
+              text="🛠️ My Problem-Solving Toolkit"
+              scrambleSpeed={35}
+              scrambledLetterCount={2}
+              className="text-gray-900"
+              scrambledClassName="text-gray-400"
+              autoStart={true}
+            />
+          </h3>
+          <p className="text-foreground leading-relaxed font-normal"> {/* Left aligned, removed max-width and centering */}
+            <strong>"I design complex software and make it usable."</strong> Here's how I turn chaos into clarity - each skill is a weapon against complexity, tested in the real world of enterprise systems where failure isn't an option.
           </p>
         </div>
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 xs:gap-6 md:gap-8 max-w-7xl mx-auto"> {/* Adjusted gap */}
+        <div ref={gridRef} className="grid grid-cols-1 gap-4"> {/* Single column bento grid */}
           {SKILLS_DATA.map((skill, index) => (
-            <SkillCardDisplay 
-              key={skill.title} 
-              skill={skill} 
-              index={index} 
-              onCardClick={handleRipple} 
+            <SkillCardDisplay
+              key={skill.title}
+              skill={skill}
+              index={index}
+              onCardClick={handleRipple}
             />
           ))}
         </div>
@@ -172,24 +183,4 @@ SkillsBentoGrid.displayName = "SkillsBentoGrid"; // For better debugging
 
 export default SkillsBentoGrid;
 
-<style>{`
-  .ripple {
-    position: absolute;
-    border-radius: 9999px;
-    transform: scale(0);
-    animation: ripple 500ms linear;
-    background: rgba(42, 119, 121, 0.2); /* Ripple color based on brand-primary */
-    pointer-events: none;
-    z-index: 10;
-  }
-  @keyframes ripple {
-    to {
-      transform: scale(2.5);
-      opacity: 0;
-    }
-  }
-  .m3-card { /* This class seems unused in the component, can be removed if not needed elsewhere */
-    position: relative;
-    overflow: hidden;
-  }
-`}</style>
+

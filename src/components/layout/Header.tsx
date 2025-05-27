@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react"; // Added useRef
 import { Link } from "react-router-dom";
-import { Mail, Download, Menu, X } from "lucide-react"; // Added Menu and X icons
+import { Mail, Download, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import MobileNav from "../MobileNav"; // Import MobileNav
+import MobileNav from "../MobileNav";
 
 const Header = React.memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuTriggerRef = useRef<HTMLButtonElement>(null); // Ref for the menu trigger button
 
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 0);
@@ -27,6 +28,8 @@ const Header = React.memo(() => {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      // Restore focus when menu closes
+      menuTriggerRef.current?.focus();
     }
     return () => {
       document.body.style.overflow = ''; // Cleanup on component unmount
@@ -35,16 +38,16 @@ const Header = React.memo(() => {
 
   return (
     <>
-      <header 
+      <header
         className={`sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 transition-all duration-300 ${
           isScrolled ? 'shadow-lg' : 'shadow-none'
         }`}
         role="banner"
       >
         <div className="container mx-auto px-4 flex justify-between items-center h-16">
-          <Link 
-            to="/" 
-            className="text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors" 
+          <Link
+            to="/"
+            className="text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors"
             aria-label="Elan, Back to Homepage"
             onClick={() => isMobileMenuOpen && toggleMobileMenu()} // Close menu on site navigation
           >
@@ -53,8 +56,7 @@ const Header = React.memo(() => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-4" aria-label="Main navigation">
             <Button
-              variant="default" 
-              className="shadow-lg hover:shadow-xl transition-shadow text-base font-medium py-2.5 px-5 rounded-lg flex items-center gap-2 bg-brand-primary hover:bg-brand-primary/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2" 
+              variant="default"
               asChild
             >
               <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -63,7 +65,7 @@ const Header = React.memo(() => {
               </a>
             </Button>
             <Button
-              variant="ghost" 
+              variant="ghost"
               asChild
               className="text-sm font-medium text-foreground hover:text-brand-primary hover:bg-brand-primary/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-1 rounded-md transition-colors flex items-center gap-1.5"
             >
@@ -76,6 +78,7 @@ const Header = React.memo(() => {
           {/* Mobile Navigation Trigger (Hamburger Menu) */}
           <div className="md:hidden">
             <Button
+              ref={menuTriggerRef} // Assign ref to the button
               variant="ghost"
               size="icon"
               onClick={toggleMobileMenu}

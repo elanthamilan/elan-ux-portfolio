@@ -5,22 +5,22 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/components/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0", // Updated base: rounded-lg, transition-all, focus ring, disabled opacity, svg sizing
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transform", // Added transform for better animations
   {
     variants: {
       variant: {
-        default: // Primary action button
-          "bg-brand-primary text-white shadow-lg hover:bg-brand-primary/90 hover:shadow-xl active:scale-95",
+        default: // Primary action button with gradient and lively effects
+          "bg-gradient-to-r from-[#177863] to-[#177863]/90 text-white font-semibold shadow-lg hover:from-[#177863]/90 hover:to-[#177863] hover:shadow-2xl hover:scale-105 active:scale-95 border border-[#177863]/20",
         destructive: // For destructive actions
-          "bg-red-600 text-white shadow-md hover:bg-red-700 hover:shadow-lg active:scale-95",
-        outline: // Secondary action, often with a border
-          "border border-brand-primary/50 bg-transparent text-brand-primary shadow-sm hover:bg-brand-primary/10 hover:border-brand-primary active:scale-95",
-        secondary: // Alternative secondary action
-          "bg-brand-secondary text-white shadow-md hover:bg-brand-secondary/90 hover:shadow-lg active:scale-95",
-        ghost: // For subtle actions, no background or border initially
-          "text-foreground hover:bg-accent-bg hover:text-brand-primary active:scale-95",
-        link: // For navigation or actions that look like links
-          "text-brand-primary underline-offset-4 hover:underline hover:text-brand-secondary active:scale-95",
+          "bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold shadow-lg hover:from-red-700 hover:to-red-800 hover:shadow-xl hover:scale-105 active:scale-95",
+        outline: // Secondary action with vibrant hover
+          "border-2 border-[#177863] bg-transparent text-[#177863] font-semibold shadow-md hover:bg-[#177863] hover:text-white hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300",
+        secondary: // Alternative secondary action with gradient
+          "bg-gradient-to-r from-[#16325A] to-[#16325A]/90 text-white font-semibold shadow-lg hover:from-[#16325A]/90 hover:to-[#16325A] hover:shadow-2xl hover:scale-105 active:scale-95 border border-[#16325A]/20",
+        ghost: // For subtle actions with lively hover
+          "text-foreground hover:bg-gradient-to-r hover:from-[#F8F4F2] hover:to-[#177863]/10 hover:text-[#177863] hover:scale-105 active:scale-95 transition-all duration-300",
+        link: // For navigation with smooth transitions
+          "text-[#177863] underline-offset-4 hover:underline hover:text-[#16325A] hover:scale-105 active:scale-95 transition-all duration-300",
       },
       size: {
         default: "h-10 px-5 py-2.5", // Slightly larger default

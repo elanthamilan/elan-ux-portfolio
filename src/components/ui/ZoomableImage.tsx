@@ -1,6 +1,8 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react'; // Imported useCallback
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'; // Import the hook
 
 interface ZoomableImageProps {
   src: string;
@@ -13,6 +15,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isLoading, setIsLoading] = useState(true);
   const imageRef = useRef<HTMLImageElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion(); // Use the hook
   const containerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -62,7 +65,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
         handleClose(); // handleClose is stable
       } else if (e.key === 'Tab') {
         if (closeButtonRef.current && document.activeElement === closeButtonRef.current) {
-          e.preventDefault(); 
+          e.preventDefault();
         } else if (closeButtonRef.current) {
           closeButtonRef.current.focus();
           e.preventDefault();
@@ -88,7 +91,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden ${!isLoading ? 'cursor-zoom-in' : 'cursor-wait'} ${className}`}
+      className={`relative overflow-hidden ${!isLoading ? 'cursor-zoom-in' : 'cursor-wait'} ${className} focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg`}
       onClick={handleClick}
       onMouseMove={handleMouseMove}
       onKeyDown={handleKeyDown}
@@ -108,6 +111,8 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
         className={`w-full h-full object-cover transition-transform duration-300 ${
           isZoomed ? 'scale-150' : 'hover:scale-105'
         } ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        // Removed srcset generation since responsive images don't exist
+        // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
         style={
           isZoomed
             ? {
@@ -116,38 +121,49 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
             : {}
         }
         onLoad={() => setIsLoading(false)}
-        loading="lazy"
+        loading="lazy" // Already present, good.
       />
 
       <AnimatePresence>
-        {isZoomed && (
+        {isZoomed && typeof document !== 'undefined' && createPortal(
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-            onClick={(e) => e.stopPropagation()}
+            transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.3 }} // Modal fade
+            className="fixed inset-0 bg-black/95 z-[10000] flex items-center justify-center p-4 backdrop-blur-sm"
+            onClick={handleClose}
             role="dialog"
             aria-modal="true"
             aria-label="Zoomed image view"
           >
             <motion.img
-              initial={{ scale: 0.5 }}
+              initial={{ scale: prefersReducedMotion ? 1 : 0.5 }}
               animate={{ scale: 1 }}
-              exit={{ scale: 0.5 }}
+              exit={{ scale: prefersReducedMotion ? 1 : 0.5 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.3 }} // Image scale
               src={src}
               alt={alt}
-              className="max-w-full max-h-[90vh] object-contain"
+              className="max-w-full max-h-full object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+              style={{ maxWidth: '95vw', maxHeight: '95vh' }}
             />
             <button
-              ref={closeButtonRef} // Assign ref to close button
-              className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors"
-              onClick={handleClose} // Use centralized close handler
-              aria-label="Close zoomed view"
+              ref={closeButtonRef}
+              className="absolute top-4 right-4 z-[10001] text-white bg-black/50 rounded-full p-3 hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-colors backdrop-blur-sm"
+              onClick={handleClose}
+              aria-label="Close zoomed view (Press Escape)"
+              title="Close zoomed view (Press Escape)"
             >
               <X className="w-6 h-6" />
             </button>
-          </motion.div>
+
+            {/* Instructions */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm">
+              Click outside or press Escape to close
+            </div>
+          </motion.div>,
+          document.body
         )}
       </AnimatePresence>
     </div>
@@ -155,4 +171,4 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
 });
 ZoomableImage.displayName = "ZoomableImage"; // Optional: for better debugging
 
-export default ZoomableImage; 
+export default ZoomableImage;
