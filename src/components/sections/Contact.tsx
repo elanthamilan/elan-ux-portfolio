@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { useGSAP } from '../../lib/gsap/useGSAP.js';
 import { motion } from 'framer-motion';
@@ -10,7 +11,15 @@ const Contact = () => {
 
   useEffect(() => {
     if (contactRef.current) {
-      scrollAnimation(contactRef.current);
+      scrollAnimation({
+        element: contactRef.current,
+        animation: {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out'
+        }
+      });
     }
   }, [scrollAnimation]);
 
