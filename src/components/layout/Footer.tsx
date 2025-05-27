@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ExternalLink, Mail, Phone, MessageSquare, Linkedin } from "lucide-react"; // Added Linkedin
+import { Mail, Phone, MessageSquare, ExternalLink } from "lucide-react";
 import AnimatedFooterAccent from "@/components/ui/AnimatedFooterAccent"; // Import the accent component
 
 const Footer = () => {
@@ -28,13 +28,13 @@ const Footer = () => {
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/elanthamilan/",
-      icon: <Linkedin className="w-5 h-5" />, // Changed to Linkedin icon
+      icon: <ExternalLink className="w-5 h-5" />, // Changed to ExternalLink icon
       label: "LinkedIn Profile (opens in new tab)"
     }
   ];
 
   return (
-    <footer className="bg-accent-off-white/50 border-t border-slate-200 dark:border-slate-700 text-foreground mt-16" role="contentinfo"> {/* Added ARIA role and themed background/border */}
+    <footer className="bg-accent-off-white/50 border-t border-slate-200 text-foreground mt-16" role="contentinfo"> {/* Added ARIA role and themed background/border */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center mb-8 text-center md:text-left">
           <div className="space-y-3"> {/* Reduced space-y slightly */}
@@ -65,11 +65,8 @@ const Footer = () => {
             ))}
           </nav>
         </div>
-        <div className="text-center text-foreground text-sm pt-8 border-t border-slate-200 dark:border-slate-700"> {/* text-foreground/90 to text-foreground, themed border, increased pt */}
+        <div className="text-center text-foreground text-sm pt-8 border-t border-slate-200"> {/* text-foreground/90 to text-foreground, themed border, increased pt */}
           <p>&copy; {currentYear} Elan Thamilan. All rights reserved.</p>
-          <p className="mt-2 inline-flex items-center gap-1">
-            Built with <span className="material-symbols-outlined text-brand-primary align-middle text-base" aria-hidden="true">favorite</span> using React, TypeScript, and Tailwind CSS
-          </p>
           <div className="mt-6 flex justify-center"> {/* Container for the accent */}
             <AnimatedFooterAccent />
           </div>

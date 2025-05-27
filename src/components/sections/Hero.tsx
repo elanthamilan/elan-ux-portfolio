@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import Skills from "../Skills";
@@ -10,7 +9,7 @@ import { motion } from 'motion/react';
 // Simple HomePage component that matches the attachment layout
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-[#F8F4F2]/30 to-[#177863]/5 text-gray-900 font-sans relative overflow-hidden">
+    <div className="min-h-screen bg-white text-gray-900 font-sans relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-[#177863]/10 to-[#177863]/5 rounded-full blur-xl"></div>
