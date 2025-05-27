@@ -243,102 +243,179 @@ const HomePage = () => {
                 />
               </motion.h3>
               <div className="space-y-1 md:space-y-2">
-                <motion.details
+                <motion.div
                   className="border border-gray-200/50 rounded-lg hover:border-gray-300/50 transition-colors duration-200"
-                  open
                   initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
                 >
-                  <summary className="p-4 cursor-pointer font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors">
+                  <motion.button
+                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left"
+                    onClick={() => {
+                      const content = document.getElementById('edtech-content');
+                      const icon = document.getElementById('edtech-icon');
+                      if (content && icon) {
+                        const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+                        content.style.maxHeight = isOpen ? '0px' : content.scrollHeight + 'px';
+                        icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                      }
+                    }}
+                  >
                     <span className="flex items-center gap-2">
-                      🎓 EdTech
+                      <span className="material-symbols-outlined text-lg">school</span>
+                      EdTech
                     </span>
-                    <svg
-                      className="w-5 h-5 transition-transform duration-200 details-open:rotate-180"
+                    <motion.svg
+                      id="edtech-icon"
+                      className="w-5 h-5 transition-transform duration-300"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      initial={{ rotate: 180 }}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="p-4 pt-0 text-gray-700 leading-relaxed font-normal">
-                    Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals. Revamped SIS through evaluation, design systems, and redesign of 30+ features. Directed LMS design focusing on accessibility, usability, and scalable workflows. Designed Student Portal for seamless navigation and mobile responsiveness. Created eLearning platform for trading courses.
-                  </div>
-                </motion.details>
+                    </motion.svg>
+                  </motion.button>
+                  <motion.div
+                    id="edtech-content"
+                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    initial={{ maxHeight: 'auto' }}
+                    style={{ maxHeight: 'auto' }}
+                  >
+                    <div className="p-4 pt-0 text-gray-700 leading-relaxed font-normal">
+                      Led UX strategy and design for SIS, LMS, Recruitment App, and Student Portals. Revamped SIS through evaluation, design systems, and redesign of 30+ features. Directed LMS design focusing on accessibility, usability, and scalable workflows. Designed Student Portal for seamless navigation and mobile responsiveness. Created eLearning platform for trading courses.
+                    </div>
+                  </motion.div>
+                </motion.div>
 
-                <motion.details
+                <motion.div
                   className="border border-gray-200/50 rounded-lg hover:border-gray-300/50 transition-colors duration-200"
                   initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
                 >
-                  <summary className="p-4 cursor-pointer font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors">
+                  <motion.button
+                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left"
+                    onClick={() => {
+                      const content = document.getElementById('ecommerce-content');
+                      const icon = document.getElementById('ecommerce-icon');
+                      if (content && icon) {
+                        const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+                        content.style.maxHeight = isOpen ? '0px' : content.scrollHeight + 'px';
+                        icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                      }
+                    }}
+                  >
                     <span className="flex items-center gap-2">
-                      🛒 eCommerce
+                      <span className="material-symbols-outlined text-lg">shopping_cart</span>
+                      eCommerce
                     </span>
-                    <svg
-                      className="w-5 h-5 transition-transform duration-200 details-open:rotate-180"
+                    <motion.svg
+                      id="ecommerce-icon"
+                      className="w-5 h-5 transition-transform duration-300"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="p-4 pt-0 text-gray-700 leading-relaxed font-normal">
-                    Redesigned key flows for a B2B pharma eCommerce site. Designed eCommerce experiences for brands like Robinson Co. and Natural Partners. Improved product discovery, navigation and checkout flows. Crafted scalable UI systems for quick orders, subscriptions, and account management.
-                  </div>
-                </motion.details>
+                    </motion.svg>
+                  </motion.button>
+                  <motion.div
+                    id="ecommerce-content"
+                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    style={{ maxHeight: '0px' }}
+                  >
+                    <div className="p-4 pt-0 text-gray-700 leading-relaxed font-normal">
+                      Redesigned key flows for a B2B pharma eCommerce site. Designed eCommerce experiences for brands like Robinson Co. and Natural Partners. Improved product discovery, navigation and checkout flows. Crafted scalable UI systems for quick orders, subscriptions, and account management.
+                    </div>
+                  </motion.div>
+                </motion.div>
 
-                <motion.details
+                <motion.div
                   className="border border-gray-200/50 rounded-lg hover:border-gray-300/50 transition-colors duration-200"
                   initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
                 >
-                  <summary className="p-4 cursor-pointer font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors">
+                  <motion.button
+                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left"
+                    onClick={() => {
+                      const content = document.getElementById('connected-content');
+                      const icon = document.getElementById('connected-icon');
+                      if (content && icon) {
+                        const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+                        content.style.maxHeight = isOpen ? '0px' : content.scrollHeight + 'px';
+                        icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                      }
+                    }}
+                  >
                     <span className="flex items-center gap-2">
-                      🔗 Connected Tech
+                      <span className="material-symbols-outlined text-lg">link</span>
+                      Connected Tech
                     </span>
-                    <svg
-                      className="w-5 h-5 transition-transform duration-200 details-open:rotate-180"
+                    <motion.svg
+                      id="connected-icon"
+                      className="w-5 h-5 transition-transform duration-300"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="p-4 pt-0 text-gray-700 leading-relaxed font-normal">
-                    Led design for connected home interfaces (consumer & industrial IoT). As founding member of product/design team, revamped platform and built comprehensive design system. Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine. Specialized in asset management solutions for real-time tool tracking in industrial IoT settings - complex systems requiring intuitive interfaces for non-technical users.
-                  </div>
-                </motion.details>
+                    </motion.svg>
+                  </motion.button>
+                  <motion.div
+                    id="connected-content"
+                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    style={{ maxHeight: '0px' }}
+                  >
+                    <div className="p-4 pt-0 text-gray-700 leading-relaxed font-normal">
+                      Led design for connected home interfaces (consumer & industrial IoT). As founding member of product/design team, revamped platform and built comprehensive design system. Designed subscription-based water purifier interface and mobile app for idly dosa batter making machine. Specialized in asset management solutions for real-time tool tracking in industrial IoT settings - complex systems requiring intuitive interfaces for non-technical users.
+                    </div>
+                  </motion.div>
+                </motion.div>
 
-                <motion.details
+                <motion.div
                   className="border border-gray-200/50 rounded-lg hover:border-gray-300/50 transition-colors duration-200"
                   initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.25, ease: "easeOut" }}
                 >
-                  <summary className="p-4 cursor-pointer font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors">
+                  <motion.button
+                    className="w-full p-4 font-medium flex items-center justify-between text-gray-800 hover:text-gray-900 transition-colors text-left"
+                    onClick={() => {
+                      const content = document.getElementById('startup-content');
+                      const icon = document.getElementById('startup-icon');
+                      if (content && icon) {
+                        const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+                        content.style.maxHeight = isOpen ? '0px' : content.scrollHeight + 'px';
+                        icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                      }
+                    }}
+                  >
                     <span className="flex items-center gap-2">
-                      🚀 Startup
+                      <span className="material-symbols-outlined text-lg">rocket_launch</span>
+                      Startup
                     </span>
-                    <svg
-                      className="w-5 h-5 transition-transform duration-200 details-open:rotate-180"
+                    <motion.svg
+                      id="startup-icon"
+                      className="w-5 h-5 transition-transform duration-300"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="p-4 pt-0 text-gray-700 leading-relaxed font-normal">
-                    Contributed to the design and development of various startup products, focusing on user-centered design and rapid iteration. Built MVPs that scale and deliver real value.
-                  </div>
-                </motion.details>
+                    </motion.svg>
+                  </motion.button>
+                  <motion.div
+                    id="startup-content"
+                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    style={{ maxHeight: '0px' }}
+                  >
+                    <div className="p-4 pt-0 text-gray-700 leading-relaxed font-normal">
+                      Contributed to the design and development of various startup products, focusing on user-centered design and rapid iteration. Built MVPs that scale and deliver real value.
+                    </div>
+                  </motion.div>
+                </motion.div>
               </div>
             </section>
 
@@ -413,7 +490,10 @@ const HomePage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
                 >
-                  💼 LinkedIn Profile
+                  <span className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-lg">work</span>
+                    LinkedIn Profile
+                  </span>
                 </motion.a>
               </div>
             </section>

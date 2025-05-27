@@ -14,32 +14,32 @@ const SKILLS_DATA: SkillData[] = [
   {
     title: 'UX Strategy',
     description: 'Strategic planning and methodology to align user needs with business objectives across enterprise products',
-    icon: '🎯'
+    icon: 'target'
   },
   {
     title: 'User Research',
     description: 'Comprehensive research strategy including interviews, analytics, personas, and user journey mapping',
-    icon: '🔍'
+    icon: 'search'
   },
   {
     title: 'Product Design',
     description: 'End-to-end design process from wireframing to high-fidelity prototypes and usability testing',
-    icon: '🎨'
+    icon: 'palette'
   },
   {
     title: 'Information Architecture',
     description: 'Structuring content, navigation systems, site maps and user flows for intuitive experiences',
-    icon: '🏗️'
+    icon: 'architecture'
   },
   {
     title: 'Product Management',
     description: 'Strategic roadmap planning, stakeholder alignment, and feature prioritization for product success',
-    icon: '📊'
+    icon: 'analytics'
   },
   {
     title: 'Content Strategy',
     description: 'Content planning, information design, and editorial guidelines for consistent user experiences',
-    icon: '✍️'
+    icon: 'edit'
   }
 ];
 
@@ -54,7 +54,7 @@ const SkillListItem = React.memo(({ skill, index }: { skill: SkillData, index: n
     >
       {/* Icon */}
       <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
-        <span className="text-xl" role="img" aria-label={skill.title}>
+        <span className="material-symbols-outlined text-xl text-gray-600" aria-label={skill.title}>
           {skill.icon}
         </span>
       </div>
@@ -102,7 +102,7 @@ const SkillsList = React.memo(() => {
         <div className="text-left mb-6">
           <h3 className="text-lg font-medium mb-4 text-foreground">
             <ScrambleIn
-              text="🛠️ My Problem-Solving Toolkit"
+              text="My Problem-Solving Toolkit"
               scrambleSpeed={35}
               scrambledLetterCount={2}
               className="text-gray-900"
