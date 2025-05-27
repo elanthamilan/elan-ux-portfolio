@@ -1,3 +1,4 @@
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
@@ -11,7 +12,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3001,
+    port: 8080,
     strictPort: true,
     host: true,
     open: true,
@@ -23,11 +24,16 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
-    sourcemap: true, // Keep sourcemap for production debugging if desired
-    minify: 'esbuild', // Enable minification using esbuild
+    sourcemap: true,
+    minify: 'esbuild',
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          animations: ['gsap', 'framer-motion'],
+          ui: ['@radix-ui/react-slot', 'class-variance-authority', 'clsx', 'tailwind-merge']
+        },
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]'
@@ -39,4 +45,4 @@ export default defineConfig({
     strictPort: true,
     host: true
   }
-}); 
+});

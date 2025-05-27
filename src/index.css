@@ -1,26 +1,27 @@
+
 @import "tailwindcss";
 
 @layer base {
   :root {
-    --background: 0 0% 100%;  /* #FFFFFF */
-    --foreground: 0 0% 0%;    /* #000000 */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
-    --primary: 162 65% 28%;   /* #177863 - Teal green */
+    --primary: 162 65% 28%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 213 56% 22%; /* #16325A - Navy blue */
+    --secondary: 213 56% 22%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 30 17% 97%;      /* #F8F4F2 - Warm off-white */
+    --muted: 30 17% 97%;
     --muted-foreground: 0 0% 30%;
-    --accent: 30 17% 97%;     /* #F8F4F2 - Warm off-white */
+    --accent: 30 17% 97%;
     --accent-foreground: 0 0% 0%;
     --destructive: 8 100% 59%;
     --destructive-foreground: 0 0% 100%;
     --border: 30 17% 90%;
     --input: 30 17% 95%;
-    --ring: 162 65% 28%;      /* #177863 */
+    --ring: 162 65% 28%;
     --radius: 0.5rem;
   }
 
@@ -34,94 +35,209 @@
     font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body {
+      scroll-behavior: auto;
+    }
+    
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'DM Serif Text', serif;
+    line-height: 1.2;
   }
 
   a {
-    color: #177863;
+    color: hsl(var(--primary));
+    text-decoration: none;
+    transition: color 0.2s ease;
   }
 
-  a:hover {
-    color: #16325A;
+  a:hover, a:focus {
+    color: hsl(var(--secondary));
+    outline: none;
+  }
+
+  a:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Focus styles for better accessibility */
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Skip link styles */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .sr-only:focus,
+  .sr-only:active {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: inherit;
   }
 }
 
-/* Keep existing utility classes as they might be used by components */
+/* Performance optimizations */
+@layer utilities {
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .smooth-scroll {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Animation utilities with reduced motion support */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-slide-up,
+    .animate-scale-in {
+      animation: none;
+    }
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Enhanced component styles */
 .card {
   overflow: hidden;
-  transition: height 0.3s ease;
+  transition: all 0.3s ease;
+  transform: translateZ(0);
 }
 
-.card.expanded {
-  height: auto;
+.card:hover {
+  transform: translateY(-2px) translateZ(0);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Fade-in effect */
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
 }
 
-.fade-in.loaded {
-  opacity: 1;
-}
-
-/* Case study card hover effect */
-.card-hover-details {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.group:hover .card-hover-details {
-  opacity: 1;
-}
-
-/* Glowing shadow effect on hover */
-.case-study-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-.group:hover .case-study-card {
-  transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
-}
-
-.glitter-border {
-  border: none;
-}
-
-.long-description p {
-  font-size: 1rem;
-}
-
-/* Skills component ripple effect */
+/* Ripple effect for interactive elements */
 .ripple {
   position: absolute;
-  border-radius: 9999px;
+  border-radius: 50%;
   transform: scale(0);
-  animation: ripple 500ms linear;
-  background: rgba(23, 120, 99, 0.2);
+  animation: ripple 600ms linear;
+  background-color: rgba(23, 120, 99, 0.3);
   pointer-events: none;
-  z-index: 10;
 }
 
 @keyframes ripple {
   to {
-    transform: scale(2.5);
+    transform: scale(4);
     opacity: 0;
   }
 }
 
-.m3-card {
-  position: relative;
-  overflow: hidden;
+@media (prefers-reduced-motion: reduce) {
+  .ripple {
+    animation: none;
+    display: none;
+  }
 }
 
-/* Accordion arrow rotation */
-details[open] .details-open\:rotate-180 {
-  transform: rotate(180deg);
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: 0 0% 20%;
+    --ring: 162 65% 35%;
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
 }

@@ -1,55 +1,85 @@
+
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, Suspense, lazy } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { usePrefersReducedMotion } from './components/hooks/usePrefersReducedMotion'; // Import the hook
-import { useGSAP } from './lib/gsap/useGSAP.ts';
+import { useReducedMotion } from './components/hooks/useReducedMotion';
+import { SkipLink } from './components/ui/SkipLink';
+import { PerformanceWrapper } from './components/ui/PerformanceWrapper';
 import ScrollToTop from './components/ui/ScrollToTop';
 
+// Lazy load pages for better performance
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const CaseStudyCampusHiring = lazy(() => import('./pages/CaseStudyCampusHiring.tsx'));
 const CaseStudyStudentPlanner = lazy(() => import('./pages/CaseStudyStudentPlanner.tsx'));
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
-    <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+    <div 
+      className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"
+      role="status"
+      aria-label="Loading page content"
+    >
+      <span className="sr-only">Loading...</span>
+    </div>
   </div>
+);
+
+const NotFoundPage = () => (
+  <main className="min-h-screen flex items-center justify-center bg-background">
+    <div className="text-center p-8 max-w-md">
+      <h1 className="text-2xl font-bold text-foreground mb-4">
+        Page Not Found
+      </h1>
+      <p className="text-foreground/80 mb-6">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <a
+        href="/"
+        className="inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+      >
+        Go Home
+      </a>
+    </div>
+  </main>
 );
 
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
-  { hasError: boolean }
+  { hasError: boolean; error?: Error }
 > {
   constructor(props: { children: React.ReactNode }) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError() {
-    return { hasError: true };
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error('Error caught by boundary:', error, errorInfo);
+    console.error('App Error Boundary caught an error:', error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-background">
-          <div className="text-center p-8">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Something went wrong</h1>
-            <p className="text-foreground/80 mb-4">We're sorry, but there was an error loading this page.</p>
+        <main className="min-h-screen flex items-center justify-center bg-background">
+          <div className="text-center p-8 max-w-md">
+            <h1 className="text-2xl font-bold text-foreground mb-4">
+              Something went wrong
+            </h1>
+            <p className="text-foreground/80 mb-6">
+              We're sorry, but there was an error loading this page. Please try refreshing or contact support if the problem persists.
+            </p>
             <button
               onClick={() => window.location.reload()}
-              className="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+              className="bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               Reload Page
             </button>
           </div>
-        </div>
+        </main>
       );
     }
 
@@ -58,42 +88,40 @@ class ErrorBoundary extends React.Component<
 }
 
 function App() {
-  const { isInitialized } = useGSAP();
   const location = useLocation();
-  const prefersReducedMotion = usePrefersReducedMotion(); // Use the hook
+  const prefersReducedMotion = useReducedMotion();
 
+  // Preload critical pages
   useEffect(() => {
-    if (isInitialized && typeof window !== 'undefined') {
-      try {
-        gsap.registerPlugin(ScrollTrigger);
-      } catch (error) {
-        console.error('Error initializing GSAP:', error);
-      }
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    const preloadPages = () => {
+      import('./pages/HomePage.tsx');
     };
-  }, [isInitialized]);
+
+    // Preload after initial render
+    const timeoutId = setTimeout(preloadPages, 100);
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   const pageTransition = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     exit: { opacity: 0 },
-    transition: { duration: prefersReducedMotion ? 0 : 0.3 } // Conditional duration
+    transition: { 
+      duration: prefersReducedMotion ? 0 : 0.3,
+      ease: 'easeInOut'
+    }
   };
 
   return (
     <ErrorBoundary>
-      <a 
-        href="#main-content" 
-        className="sr-only focus:not-sr-only focus:fixed focus:z-[9999] focus:top-2 focus:left-2 focus:px-4 focus:py-2 focus:bg-background focus:text-foreground focus:border focus:border-brand-primary focus:shadow-lg rounded-md"
-      >
+      <SkipLink href="#main-content">
         Skip to main content
-      </a>
+      </SkipLink>
+      
       <ScrollToTop />
+      
       <AnimatePresence mode="wait">
-        <Suspense fallback={<LoadingSpinner />}>
+        <PerformanceWrapper fallback={<LoadingSpinner />}>
           <Routes location={location} key={location.pathname}>
             <Route 
               path="/" 
@@ -123,23 +151,12 @@ function App() {
               path="*"
               element={
                 <motion.div key="notfound" {...pageTransition}>
-                  <main className="min-h-screen flex items-center justify-center bg-background">
-                    <div className="text-center p-8">
-                      <h1 className="text-2xl font-bold text-foreground mb-4">Page Not Found</h1>
-                      <p className="text-foreground/80 mb-4">The page you're looking for doesn't exist.</p>
-                      <a
-                        href="/"
-                        className="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors inline-block"
-                      >
-                        Go Home
-                      </a>
-                    </div>
-                  </main>
+                  <NotFoundPage />
                 </motion.div>
               }
             />
           </Routes>
-        </Suspense>
+        </PerformanceWrapper>
       </AnimatePresence>
     </ErrorBoundary>
   );
