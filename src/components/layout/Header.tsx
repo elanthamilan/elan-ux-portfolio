@@ -39,7 +39,7 @@ const Header = React.memo(() => {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 transition-all duration-300 ${
+        className={`sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300 ${
           isScrolled ? 'shadow-lg' : 'shadow-none'
         }`}
         role="banner"

@@ -24,28 +24,6 @@
     --radius: 0.5rem;
   }
 
-  .dark {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 162 65% 35%;  /* Lighter #177863 for dark mode */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 213 56% 30%;  /* Lighter #16325A for dark mode */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 8 100% 59%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 162 65% 35%;
-  }
-
   * {
     border-color: hsl(var(--border));
   }
