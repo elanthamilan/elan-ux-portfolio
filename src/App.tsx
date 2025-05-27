@@ -7,6 +7,7 @@ import { useReducedMotion } from './components/hooks/useReducedMotion';
 import { SkipLink } from './components/ui/SkipLink';
 import { PerformanceWrapper } from './components/ui/PerformanceWrapper';
 import ScrollToTop from './components/ui/ScrollToTop';
+import HomePageSkeleton from './components/ui/HomePageSkeleton'; // Import HomePageSkeleton
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
@@ -121,7 +122,7 @@ function App() {
       <ScrollToTop />
       
       <AnimatePresence mode="wait">
-        <PerformanceWrapper fallback={<LoadingSpinner />}>
+        <PerformanceWrapper fallback={<HomePageSkeleton />}>
           <Routes location={location} key={location.pathname}>
             <Route 
               path="/" 
