@@ -29,6 +29,43 @@
     border-color: hsl(var(--border));
   }
 
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  #root {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    height: auto;
+  }
+
+  /* Ensure no extra space after footer */
+  footer {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Remove any default margins from the last child */
+  body > *:last-child,
+  #root > *:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Prevent any viewport height issues */
+  .min-h-screen {
+    min-height: 0 !important;
+  }
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -42,7 +79,7 @@
     body {
       scroll-behavior: auto;
     }
-    
+
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
@@ -236,7 +273,7 @@
     animation: none !important;
     transition: none !important;
   }
-  
+
   .no-print {
     display: none !important;
   }
