@@ -341,7 +341,7 @@ const CaseStudyStudentPlanner = () => {
                     >
                       <div className="flex items-start space-x-4 p-6 flex-grow">
                         <div className="flex-shrink-0 w-12 h-12 bg-[#177863]/15 dark:bg-[#177863]/25 rounded-xl flex items-center justify-center group-hover:bg-[#177863]/20 dark:group-hover:bg-[#177863]/30 transition-colors duration-200">
-                          <span className="text-2xl">🎓</span>
+                          <span className="material-symbols-outlined text-2xl text-[#177863]">school</span>
                         </div>
                         <div className="flex-1 flex flex-col h-full">
                           <h4 className="font-semibold text-lg text-[#177863] dark:text-[#177863] mb-2 group-hover:text-[#16325A] dark:group-hover:text-[#16325A] transition-colors duration-200">
