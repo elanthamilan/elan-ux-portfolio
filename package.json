@@ -50,6 +50,7 @@
     "@shadcn/ui": "^0.0.4",
     "@tailwindcss/postcss": "^4.1.7",
     "@tanstack/react-query": "^5.56.2",
+    "@types/matter-js": "^0.19.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
