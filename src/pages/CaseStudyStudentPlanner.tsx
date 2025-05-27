@@ -16,12 +16,12 @@ const placeholderImages = [
 
 const CaseStudyStudentPlanner = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#16325A]/8 via-background to-[#F8F4F2]/40">
       <Header />
 
       {/* Adjusted page container padding: px-2 xs:px-4 sm:px-6, py-8 xs:py-12 md:py-16 */}
-      <main id="main-content" className="flex-grow container mx-auto px-2 xs:px-4 sm:px-6 py-8 xs:py-12 md:py-16 bg-background">
-        <Link to="/" className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors mb-6 xs:mb-8 text-sm font-medium"> {/* Adjusted margin */}
+      <main id="main-content" className="flex-grow container mx-auto px-2 xs:px-4 sm:px-6 py-8 xs:py-12 md:py-16">
+        <Link to="/" className="inline-flex items-center text-[#16325A] hover:text-[#16325A]/80 transition-colors mb-6 xs:mb-8 text-sm font-medium bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-[#16325A]/20"> {/* Adjusted margin */}
           <ArrowLeft size={16} className="mr-1.5" />
           <span>Back to Home</span>
         </Link>
@@ -45,7 +45,7 @@ const CaseStudyStudentPlanner = () => {
               </div>
 
               {/* Main title with enhanced typography */}
-              <h1 className="text-4xl xs:text-5xl sm:text-6xl font-bold mb-6 text-foreground leading-tight font-heading">
+              <h1 className="text-4xl xs:text-5xl sm:text-6xl font-bold mb-6 text-[#16325A] dark:text-[#16325A] leading-tight font-heading">
                 From Chaos to Clarity
               </h1>
 
@@ -94,7 +94,7 @@ const CaseStudyStudentPlanner = () => {
             {/* Responsive padding: px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8. Adjusted mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/6 to-[#16325A]/3 shadow-lg border border-[#16325A]/20">
                {/* Adaptive Typography for H2: text-2xl xs:text-3xl sm:text-4xl. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-secondary font-heading reveal">Overview/Challenge</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal">Overview/Challenge</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 <strong className="font-medium text-foreground">Project Name:</strong> Student Course Planner Redesign (AI Advisor Integration) (Shipped: May 2025).
               </p>
@@ -131,7 +131,7 @@ const CaseStudyStudentPlanner = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/3 shadow-lg border border-[#177863]/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">My Role & Responsibilities</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal">My Role & Responsibilities</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 <strong className="font-medium text-foreground">Role:</strong> Staff UX Designer (Lead).
               </p>
@@ -153,10 +153,10 @@ const CaseStudyStudentPlanner = () => {
           <SectionReveal>
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#F8F4F2]/40 to-[#F8F4F2]/60 shadow-lg border border-[#177863]/15">
                {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-tertiary font-heading reveal">The Process</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal">The Process</h2>
 
               {/* Adaptive Typography for H3. Adjusted mb. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-brand-secondary font-heading reveal">Discovery & Research</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-[#16325A] dark:text-[#16325A] font-heading reveal">Discovery & Research</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The process began with deep user research. Elan conducted surveys and interviews with undergraduates and part-time working students. The findings were stark: 75% felt overwhelmed by the existing planner, and 60% craved a simpler, more intuitive tool. Priya's story became a cornerstone persona; she needed a schedule that avoided her work hours (1:00 PM–2:00 PM, Monday to Thursday) and prioritized morning classes. The existing system offered no easy way to input such nuanced constraints. Stakeholders, including administrators and advisors, also desired fewer support tickets and better insights into student scheduling needs.
               </p>
@@ -182,7 +182,7 @@ const CaseStudyStudentPlanner = () => {
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-brand-primary font-heading reveal">Ideation & Design</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#177863] dark:text-[#177863] font-heading reveal">Ideation & Design</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The team reimagined the planner based on three core principles: <strong className="font-medium text-foreground">Flexibility</strong> (allowing nuanced constraints), <strong className="font-medium text-foreground">Visualization</strong> (clear calendar views), and <strong className="font-medium text-foreground">AI Integration</strong> (personalized suggestions with user control). Elan started with low-fidelity wireframes focusing on the core flow: inputting constraints, viewing AI-driven suggestions, customizing, and registering. The AI Advisor was envisioned as a key feature, learning student preferences to suggest optimal schedules. However, a crucial aspect was to avoid a "black box" approach—students needed to understand AI suggestions and retain the ability to override and customize.
               </p>
@@ -202,7 +202,7 @@ const CaseStudyStudentPlanner = () => {
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-brand-tertiary font-heading reveal">Testing & Iteration</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#16325A] dark:text-[#16325A] font-heading reveal">Testing & Iteration</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The team progressed to high-fidelity prototypes, testing different calendar views and AI suggestion interfaces. Usability testing was crucial. It revealed that while students loved the AI suggestions, they also desired more granular control over the calendar view. This feedback led to the addition of filters for course types and instructors, allowing students to fine-tune their schedules more effectively.
               </p>
@@ -235,7 +235,7 @@ const CaseStudyStudentPlanner = () => {
               {/* Responsive padding for text content container */}
               <div className="px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8">
                 {/* Adaptive Typography for H2. Adjusted mb. */}
-                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-secondary font-heading reveal">The Solution</h2>
+                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal">The Solution</h2>
                 <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
                   The redesigned Student Course Planner aimed to provide a flexible, intuitive, and AI-assisted scheduling experience. Key features included:
                 </p>
@@ -259,7 +259,7 @@ const CaseStudyStudentPlanner = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/10 shadow-lg border border-[#177863]/25">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">Impact/Results</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal">Impact/Results</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
                 While specific metrics post-launch are pending collection, the project targeted the following outcomes based on the business goals and usability improvements:
               </p>
@@ -289,7 +289,7 @@ const CaseStudyStudentPlanner = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#F8F4F2]/50 to-[#F8F4F2]/70 shadow-lg border border-[#177863]/15">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-tertiary font-heading reveal">Learnings/Reflections</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal">Learnings/Reflections</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The Student Course Planner redesign was a journey of balancing advanced AI capabilities with fundamental user needs for control and clarity. The key lessons learned were:
               </p>
@@ -325,7 +325,7 @@ const CaseStudyStudentPlanner = () => {
               <div className="bg-gradient-to-br from-brand-secondary/12 to-brand-secondary/6 border-brand-secondary/20 shadow-brand-secondary/20 rounded-3xl overflow-hidden shadow-lg border-2 hover:shadow-xl transition-all duration-300 ease-in-out">
                 <div className="px-6 py-8 md:px-8 md:py-10">
                   <div className="text-center mb-6">
-                    <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold font-heading text-brand-secondary mb-3">
+                    <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold font-heading text-[#16325A] dark:text-[#16325A] mb-3">
                       Continue Reading
                     </h3>
                     <p className="text-foreground/80 text-base xs:text-lg leading-relaxed">
@@ -333,53 +333,40 @@ const CaseStudyStudentPlanner = () => {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Next Case Study Card - Target Theme: brand-primary */}
-                    <div className="group bg-white dark:bg-background rounded-2xl p-6 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border border-brand-primary/10">
-                      <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center">
+                  <div className="space-y-4">
+                    {/* Next Case Study Card - Fully clickable with improved styling */}
+                    <Link
+                      to="/case-study/campus-hiring"
+                      className="group block bg-card dark:bg-card text-card-foreground bg-gradient-to-br from-[#177863]/5 to-[#177863]/10 border-[#177863]/20 dark:border-slate-700 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out flex flex-col h-full shadow-xl hover:shadow-2xl border-2 border-b-4 border-b-[#177863] hover:scale-[1.02]"
+                    >
+                      <div className="flex items-start space-x-4 p-6 flex-grow">
+                        <div className="flex-shrink-0 w-12 h-12 bg-[#177863]/15 dark:bg-[#177863]/25 rounded-xl flex items-center justify-center group-hover:bg-[#177863]/20 dark:group-hover:bg-[#177863]/30 transition-colors duration-200">
                           <span className="text-2xl">🎓</span>
                         </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-lg text-brand-primary mb-2 group-hover:text-brand-secondary transition-colors duration-200">
-                            Campus Hiring Platform
+                        <div className="flex-1 flex flex-col h-full">
+                          <h4 className="font-semibold text-lg text-[#177863] dark:text-[#177863] mb-2 group-hover:text-[#16325A] dark:group-hover:text-[#16325A] transition-colors duration-200">
+                            Redesigning Campus Recruitment: From 15 Steps to 2 Days
                           </h4>
-                          <p className="text-foreground/70 text-sm mb-3 leading-relaxed">
-                            Streamlining campus recruitment with 40% faster hiring processes
+                          <p className="text-foreground/70 dark:text-card-foreground/70 text-sm mb-4 leading-relaxed flex-grow">
+                            Streamlining University-to-Industry Hiring Workflows
                           </p>
-                          <Link
-                            to="/case-study/campus-hiring"
-                            className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors duration-200 text-sm font-medium group-hover:translate-x-1 transform"
-                          >
+                          <div className="inline-flex items-center text-[#177863] dark:text-[#177863] group-hover:text-[#16325A] dark:group-hover:text-[#16325A] transition-colors duration-200 text-sm font-medium group-hover:translate-x-1 transform mt-auto">
                             Read Case Study
                             <ArrowLeft size={14} className="ml-1.5 rotate-180" />
-                          </Link>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
 
-                    {/* Back to Portfolio Card - Neutral Theme, Hover to Current Page Theme: brand-secondary */}
-                    <div className="group bg-white dark:bg-background rounded-2xl p-6 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 border border-slate-200 dark:border-slate-700">
-                      <div className="flex items-start space-x-4">
-                        <div className="flex-shrink-0 w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center">
-                          <span className="text-2xl">🏠</span>
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-lg text-foreground/80 mb-2 group-hover:text-brand-secondary transition-colors duration-200">
-                            Back to Portfolio
-                          </h4>
-                          <p className="text-foreground/70 text-sm mb-3 leading-relaxed">
-                            Explore all projects and design work
-                          </p>
-                          <Link
-                            to="/"
-                            className="inline-flex items-center text-foreground/70 hover:text-brand-secondary transition-colors duration-200 text-sm font-medium group-hover:-translate-x-1 transform"
-                          >
-                            <ArrowLeft size={14} className="mr-1.5" />
-                            View All Work
-                          </Link>
-                        </div>
-                      </div>
+                    {/* Back to Home Card - Minimal, below case study */}
+                    <div className="text-center">
+                      <Link
+                        to="/"
+                        className="inline-flex items-center text-foreground/50 hover:text-brand-secondary transition-colors duration-200 text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50/50 dark:hover:bg-slate-800/30"
+                      >
+                        <ArrowLeft size={14} className="mr-1.5" />
+                        Back to Home
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -387,24 +374,7 @@ const CaseStudyStudentPlanner = () => {
             </section>
           </SectionReveal>
 
-               {/* End of Case Study and Links - Stays at the bottom */}
-          <SectionReveal>
-            {/* Responsive padding and mt. */}
-            <div className="text-center mt-12 xs:mt-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/6 to-[#16325A]/10 shadow-lg border border-[#16325A]/25">
-              <p className="text-base xs:text-lg text-foreground/80 mb-4 xs:mb-6 reveal">⭐ End of Case Study ⭐</p> {/* Adjusted typography and mb */}
-              <div className="mb-6 xs:mb-8 reveal"> {/* Adjusted mb */}
-                 {/* Adaptive Typography for H3. Adjusted mb. */}
-                <h3 className="text-lg xs:text-xl sm:text-2xl font-heading font-semibold mb-1.5 xs:mb-2 text-brand-secondary">Next Case Study</h3>
-                <Link to="/case-study/campus-hiring" className="text-brand-primary hover:underline font-medium text-sm xs:text-base"> {/* Adjusted typography */}
-                  Camu Campus Recruitment App →
-                </Link>
-              </div>
-              <Link to="/" className="inline-flex items-center text-brand-primary hover:text-brand-secondary transition-colors text-sm font-medium reveal">
-                <ArrowLeft size={16} className="mr-1.5" />
-                <span>Back to Home</span>
-              </Link>
-            </div>
-          </SectionReveal>
+
         </article>
       </main>
       <Footer />

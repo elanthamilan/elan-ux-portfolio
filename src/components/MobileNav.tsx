@@ -118,7 +118,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
           animate="visible"
           exit="hidden"
           variants={overlayVariants}
-          className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[100] bg-gradient-to-br from-purple-500/20 via-pink-500/10 to-blue-500/20 backdrop-blur-md md:hidden"
           onClick={onClose} // Close on overlay click
           role="dialog"
           aria-modal="true"
@@ -130,7 +130,7 @@ const MobileNav = React.memo<MobileNavProps>(({ isOpen, onClose }) => {
             animate="visible"
             exit="hidden"
             variants={navVariants}
-            className="fixed top-0 left-0 h-full w-11/12 max-w-md bg-background shadow-xl flex flex-col"
+            className="fixed top-0 left-0 h-full w-11/12 max-w-md bg-gradient-to-br from-white/95 via-purple-50/90 to-pink-50/95 dark:from-slate-900/95 dark:via-purple-900/90 dark:to-pink-900/95 backdrop-blur-xl shadow-2xl border-r border-white/20 dark:border-slate-700/50 flex flex-col"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside nav
             aria-labelledby="mobile-nav-title" // Assuming a title is present or can be added
           >

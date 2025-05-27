@@ -17,45 +17,45 @@ interface SkillCardData { // Renamed interface for clarity
 const SKILLS_DATA: SkillCardData[] = [
   {
     title: 'UX Strategy',
-    description: 'Strategic planning and methodology to align user needs with business objectives across enterprise products.',
+    description: 'Strategic planning and methodology to align user needs with business objectives across enterprise products',
     icon: '🎯',
     size: 'large',
-    color: 'bg-gradient-to-r from-[#177863]/8 to-[#177863]/4 border-[#177863]/20'
+    color: 'bg-[#f0f0f0] border-[#177863]/20'
   },
   {
     title: 'User Research',
-    description: 'Comprehensive research strategy including interviews, analytics, personas, and user journey mapping.',
+    description: 'Comprehensive research strategy including interviews, analytics, personas, and user journey mapping',
     icon: '🔍',
     size: 'small',
-    color: 'bg-gradient-to-r from-[#16325A]/8 to-[#16325A]/4 border-[#16325A]/20'
+    color: 'bg-[#f0f0f0] border-[#16325A]/20'
   },
   {
     title: 'Product Design',
-    description: 'End-to-end design process from wireframing to high-fidelity prototypes and usability testing.',
+    description: 'End-to-end design process from wireframing to high-fidelity prototypes and usability testing',
     icon: '🎨',
     size: 'large',
-    color: 'bg-gradient-to-r from-[#F8F4F2]/60 to-[#F8F4F2]/30 border-[#177863]/15'
+    color: 'bg-[#f0f0f0] border-[#177863]/15'
   },
   {
     title: 'Information Architecture',
-    description: 'Structuring content, navigation systems, site maps and user flows.',
+    description: 'Structuring content, navigation systems, site maps and user flows for intuitive experiences',
     icon: '🏗️',
     size: 'small',
-    color: 'bg-gradient-to-r from-[#177863]/6 to-[#16325A]/6 border-[#16325A]/15'
+    color: 'bg-[#f0f0f0] border-[#16325A]/15'
   },
   {
     title: 'Product Management',
-    description: 'Strategic roadmap planning, stakeholder alignment, and feature prioritization for product success.',
+    description: 'Strategic roadmap planning, stakeholder alignment, and feature prioritization for product success',
     icon: '📊',
     size: 'large',
-    color: 'bg-gradient-to-r from-[#16325A]/8 to-[#177863]/8 border-[#177863]/20'
+    color: 'bg-[#f0f0f0] border-[#177863]/20'
   },
   {
     title: 'Content Strategy',
-    description: 'Content planning, information design, and editorial guidelines for consistent user experiences.',
+    description: 'Content planning, information design, and editorial guidelines for consistent user experiences',
     icon: '✍️',
     size: 'small',
-    color: 'bg-gradient-to-r from-[#F8F4F2]/50 to-[#16325A]/8 border-[#16325A]/15'
+    color: 'bg-[#f0f0f0] border-[#16325A]/15'
   }
 ];
 
@@ -75,38 +75,23 @@ const SkillCardDisplay = React.memo(({ skill, index, onCardClick }: { skill: Ski
       transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
     >
       <Card
-        className={`relative rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 ease-in-out ${skill.color} border border-opacity-20 cursor-pointer overflow-hidden group`}
+        className="relative rounded-lg cursor-pointer overflow-hidden group transition-all duration-300 bg-gray-50/50 hover:bg-gray-100/50 border border-gray-200/50 hover:border-gray-300/50"
         tabIndex={0}
         aria-label={skill.title}
         onClick={onCardClick}
       >
-        <CardContent className="flex items-center p-6 text-foreground">
-          {/* Left side - Icon and main content */}
-          <div className="flex-1">
-            <div className="flex items-start gap-5">
-              <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${index % 2 === 0 ? 'bg-[#177863]/12' : 'bg-[#16325A]/12'} flex-shrink-0`}>
-                <span className={`text-2xl ${index % 2 === 0 ? 'text-[#177863]' : 'text-[#16325A]'}`} role="img" aria-label={skill.title}>
-                  {skill.icon}
-                </span>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold text-foreground mb-2">{skill.title}</h3>
-                <p className="text-foreground/75 text-sm leading-relaxed">{skill.description}</p>
-              </div>
-            </div>
+        <CardContent className="p-4 text-foreground relative h-full flex flex-col">
+          {/* Icon at top */}
+          <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-4 bg-gray-100/50 transition-all duration-300 group-hover:scale-105">
+            <span className="text-2xl text-gray-700 transition-all duration-300 group-hover:scale-110" role="img" aria-label={skill.title}>
+              {skill.icon}
+            </span>
           </div>
 
-          {/* Right side - Decorative element with unique emoji */}
-          <div className="flex-shrink-0 ml-6">
-            <div className={`w-16 h-16 rounded-full ${index % 2 === 0 ? 'bg-[#177863]/8' : 'bg-[#16325A]/8'} flex items-center justify-center group-hover:scale-105 transition-transform duration-300`}>
-              <span className={`text-2xl ${index % 2 === 0 ? 'text-[#177863]/40' : 'text-[#16325A]/40'}`}>
-                {skill.title === 'UX Strategy' ? '📈' :
-                 skill.title === 'User Research' ? '🔍' :
-                 skill.title === 'Product Design' ? '🎨' :
-                 skill.title === 'Information Architecture' ? '🏗️' :
-                 skill.title === 'Product Management' ? '📊' : '✍️'}
-              </span>
-            </div>
+          {/* Content */}
+          <div className="flex-1">
+            <h3 className="font-semibold text-gray-800 mb-3 transition-all duration-300 group-hover:text-gray-900">{skill.title}</h3>
+            <p className="text-gray-600 leading-relaxed font-normal">{skill.description}</p>
           </div>
         </CardContent>
       </Card>
@@ -164,11 +149,11 @@ const SkillsBentoGrid = React.memo(() => { // Wrapped SkillsBentoGrid with React
   return (
     <section className="mb-8 bg-background text-foreground"> {/* Removed padding, match other sections */}
       <div> {/* Removed container and padding */}
-        <div className="text-left mb-4"> {/* Match other sections spacing */}
-          {/* Match Get In Touch title size */}
-          <h3 className="text-xl font-semibold mb-4 text-foreground">
+        <div className="text-left mb-8"> {/* Match other sections spacing */}
+          {/* Bold brutalist typography */}
+          <h3 className="text-lg font-medium mb-4 text-foreground">
             <ScrambleIn
-              text="Skills & Expertise"
+              text="🛠️ My Problem-Solving Toolkit"
               scrambleSpeed={35}
               scrambledLetterCount={2}
               className="text-gray-900"
@@ -176,11 +161,11 @@ const SkillsBentoGrid = React.memo(() => { // Wrapped SkillsBentoGrid with React
               autoStart={true}
             />
           </h3>
-          <p className="text-foreground text-base leading-relaxed"> {/* Left aligned, removed max-width and centering */}
-            With over 8 years of experience, I've developed a comprehensive skill set focused on creating exceptional user experiences for enterprise products.
+          <p className="text-foreground leading-relaxed font-normal"> {/* Left aligned, removed max-width and centering */}
+            <strong>"I design complex software and make it usable."</strong> Here's how I turn chaos into clarity - each skill is a weapon against complexity, tested in the real world of enterprise systems where failure isn't an option.
           </p>
         </div>
-        <div ref={gridRef} className="grid grid-cols-1 gap-4"> {/* Single column layout like Salesforce */}
+        <div ref={gridRef} className="grid grid-cols-1 gap-4"> {/* Single column bento grid */}
           {SKILLS_DATA.map((skill, index) => (
             <SkillCardDisplay
               key={skill.title}

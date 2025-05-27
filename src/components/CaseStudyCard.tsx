@@ -75,36 +75,36 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
       }}
       className="h-full cursor-pointer" // Ensure motion div takes full height of its container if any
     >
-      <Card className={`rounded-3xl overflow-hidden transition-all duration-300 flex flex-col h-full shadow-lg hover:shadow-2xl ${cardClassName} ${cardBorderClasses}`}>
+      <Card className={`rounded-3xl overflow-hidden transition-all duration-300 flex flex-col h-full shadow-xl hover:shadow-2xl border-2 ${cardClassName} ${cardBorderClasses}`}>
         <div className="relative">
           <ZoomableImage
             src={image}
             alt={title}
-            className="w-full h-48 md:h-56 object-cover" // Slightly adjusted height
+            className="w-full h-52 md:h-64 object-cover" // Increased height for more prominence
           />
-          <div className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm px-2.5 py-1 rounded-md text-xs font-medium text-foreground shadow-sm"> {/* Adjusted padding and rounding */}
+          <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm px-3 py-1.5 rounded-lg font-medium text-foreground shadow-md"> {/* Enhanced year badge */}
             {year}
           </div>
         </div>
         <CardHeader className="pb-6"> {/* Increased bottom padding after moving description here */}
-          <CardTitle className="text-xl lg:text-2xl font-bold font-heading text-foreground mb-2">{title}</CardTitle>
+          <CardTitle className="text-2xl font-bold text-foreground mb-3">{title}</CardTitle>
           {/* Moved Description Here - Placed before Who/What/Result */}
-          <div className="text-sm text-foreground mt-1 mb-3"> {/* Added mt-1 and adjusted mb for spacing */}
+          <div className="text-foreground mt-1 mb-3 font-normal"> {/* Added mt-1 and adjusted mb for spacing */}
             {description}
           </div>
-          <CardDescription className="text-sm text-foreground/80">
+          <CardDescription className="text-foreground/80">
             <div className="space-y-2">
               <div>
-                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Client:</span>
-                <p className="text-foreground mt-0.5">{who}</p>
+                <span className="font-medium text-foreground/60 uppercase tracking-wider">Client:</span>
+                <p className="text-foreground mt-0.5 font-normal">{who}</p>
               </div>
               <div>
-                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Service:</span>
-                <p className="text-foreground mt-0.5">{what}</p>
+                <span className="font-medium text-foreground/60 uppercase tracking-wider">Service:</span>
+                <p className="text-foreground mt-0.5 font-normal">{what}</p>
               </div>
               <div>
-                <span className="text-xs font-semibold text-foreground/60 uppercase tracking-wider">Impact:</span>
-                <p className="text-foreground mt-0.5">{result}</p>
+                <span className="font-medium text-foreground/60 uppercase tracking-wider">Impact:</span>
+                <p className="text-foreground mt-0.5 font-normal">{result}</p>
               </div>
             </div>
           </CardDescription>
@@ -116,7 +116,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
               <Badge
                 key={tag}
                 // variant="outline" // Using outline variant and then theming with accentColorName
-                className={`px-2.5 py-0.5 text-xs border ${tagClasses}`} // Themed tags
+                className={`px-2.5 py-0.5 border font-normal ${tagClasses}`} // Themed tags
               >
                 {tag}
               </Badge>

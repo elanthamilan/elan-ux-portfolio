@@ -143,4 +143,7 @@
   overflow: hidden;
 }
 
-
+/* Accordion arrow rotation */
+details[open] .details-open\:rotate-180 {
+  transform: rotate(180deg);
+}
