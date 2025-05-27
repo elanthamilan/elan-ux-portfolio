@@ -401,7 +401,7 @@ const HomePage = () => {
                   💬 WhatsApp
                 </motion.a>
                 <motion.a
-                  href="https://linkedin.com/in/elanthamilan"
+                  href="https://www.linkedin.com/in/elanthamilan/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center p-2 md:p-3 text-gray-800 rounded-lg bg-gray-50/50 hover:bg-gray-100/50 border border-gray-200/50 hover:border-gray-300/50 font-normal transition-colors duration-200 text-sm md:text-base"

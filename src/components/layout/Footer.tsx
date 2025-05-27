@@ -27,7 +27,7 @@ const Footer = () => {
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/in/elanthamilan",
+      href: "https://www.linkedin.com/in/elanthamilan/",
       icon: <Linkedin className="w-5 h-5" />, // Changed to Linkedin icon
       label: "LinkedIn Profile (opens in new tab)"
     }

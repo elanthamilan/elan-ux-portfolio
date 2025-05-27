@@ -58,7 +58,7 @@ const Contact = () => {
       icon: <Linkedin className="w-6 h-6" />,
       label: 'LinkedIn',
       value: 'Connect on LinkedIn',
-      action: () => window.open('https://linkedin.com/in/elanthamilan', '_blank')
+      action: () => window.open('https://www.linkedin.com/in/elanthamilan/', '_blank')
     }
   ];
 
