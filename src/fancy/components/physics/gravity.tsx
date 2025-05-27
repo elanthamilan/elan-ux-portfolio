@@ -1,3 +1,4 @@
+
 import {
   createContext,
   forwardRef,
@@ -321,7 +322,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
         ).length > 0
 
       if (grabCursor) {
-        Events.on(engine.current, "beforeUpdate", (event) => {
+        Events.on(engine.current, "beforeUpdate", () => {
           if (canvas.current) {
             if (!mouseDown.current && !touchingMouse()) {
               canvas.current.style.cursor = "default"
@@ -333,7 +334,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
           }
         })
 
-        canvas.current.addEventListener("mousedown", (event) => {
+        canvas.current.addEventListener("mousedown", () => {
           mouseDown.current = true
 
           if (canvas.current) {
@@ -344,7 +345,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
             }
           }
         })
-        canvas.current.addEventListener("mouseup", (event) => {
+        canvas.current.addEventListener("mouseup", () => {
           mouseDown.current = false
 
           if (canvas.current) {

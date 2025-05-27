@@ -1,4 +1,4 @@
-import React from 'react';
+
 import SimpleHomePage from '@/components/sections/Hero';
 
 const HomePage = () => {

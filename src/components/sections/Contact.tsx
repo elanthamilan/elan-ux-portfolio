@@ -1,13 +1,12 @@
+
 import { useEffect, useRef } from 'react';
 import { useGSAP } from '../../lib/gsap/useGSAP.js';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Linkedin, MessageSquare } from 'lucide-react';
 import { Button } from '../components/ui/button.tsx';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card.tsx';
-import { Badge } from '../components/ui/badge.tsx';
 
 const Contact = () => {
-  const { elementRef, scrollAnimation } = useGSAP();
+  const { scrollAnimation } = useGSAP();
   const contactRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -19,15 +18,10 @@ const Contact = () => {
           y: 0,
           duration: 1,
           ease: 'power3.out'
-        },
-        {
-          start: 'top center',
-          end: 'bottom center',
-          toggleActions: 'play none none reverse'
         }
       );
     }
-  }, []);
+  }, [scrollAnimation]);
 
   const contactMethods = [
     {

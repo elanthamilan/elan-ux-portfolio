@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 
 interface TypingAnimationProps {
@@ -19,8 +20,6 @@ const TypingAnimation = ({ phrases, className = '' }: TypingAnimationProps) => {
     const deleteSpeed = 50;
     // Pause at the end of typing
     const pauseAtEnd = 2000;
-    // Pause before starting next phrase
-    const pauseBeforeNext = 500;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
@@ -60,4 +59,4 @@ const TypingAnimation = ({ phrases, className = '' }: TypingAnimationProps) => {
   );
 };
 
-export default TypingAnimation; 
+export default TypingAnimation;
