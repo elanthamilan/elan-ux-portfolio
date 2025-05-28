@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'; // Ensure useEffect is imported
+import { useEffect } from 'react';
 import Header from "../components/layout/Header.tsx";
 import Footer from "../components/layout/Footer.tsx";
 import { ArrowLeft } from "lucide-react";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Badge } from "../components/ui/badge.tsx";
 import ZoomableImage from "../components/ui/ZoomableImage.tsx";
 import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
-import SectionReveal from '@/components/SectionReveal';
+import SectionReveal from '../components/SectionReveal.tsx';
 
 const CaseStudyCampusHiring = () => {
   useEffect(() => {
