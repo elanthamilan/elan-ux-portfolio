@@ -110,7 +110,7 @@ const CaseStudyStudentPlanner = () => {
             <div className="reveal w-full bg-card rounded-3xl overflow-hidden shadow-xl border border-brand-secondary/10">
               <BigImageCarousel
                 images={[
-                  { src: "/Elanable-uploads/78be9a59-8230-4ea5-b024-d96fd3cdd83e.png", alt: "Student Course Planner AI Advisor Interface" },
+                  { src: "/Elanable-uploads/AI-Course-Planner-Dashboard.png", alt: "Student Course Planner AI Advisor Interface" },
                   { src: "/Elanable-uploads/Geninfy.jpg", alt: "AI Recommendation Engine" },
                   { svgPlaceholder: true, alt: "Calendar Visualization System" }
                 ]}

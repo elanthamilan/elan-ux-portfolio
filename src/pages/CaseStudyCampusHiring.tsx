@@ -104,7 +104,7 @@ const CaseStudyCampusHiring = () => {
             <div className="reveal w-full bg-card rounded-3xl overflow-hidden shadow-xl border border-brand-primary/10">
               <BigImageCarousel
                 images={[
-                  { src: "/Elanable-uploads/Camu Campus Recruitment App.png", alt: "Camu Campus Recruitment App Interface" },
+                  { src: "/Elanable-uploads/Camu-Recruitment-Dashboard.png", alt: "Camu Campus Recruitment App Interface" },
                   { src: "/Elanable-uploads/Camu.png", alt: "Camu Brand Identity" },
                   { svgPlaceholder: true, alt: "User Journey Mapping" }
                 ]}
@@ -218,7 +218,7 @@ const CaseStudyCampusHiring = () => {
               {/* Full width image container, adjust vertical margin */}
               <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
-                  src="/Elanable-uploads/Camu Campus Recruitment App.png"
+                  src="/Elanable-uploads/Camu-Recruitment-Dashboard.png"
                   alt="Wireframes and Prototypes"
                   className="aspect-video"
                 />
@@ -301,7 +301,7 @@ const CaseStudyCampusHiring = () => {
               {/* Full width image container, adjust vertical margin */}
               <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
-                  src="/Elanable-uploads/Camu Campus Recruitment App.png"
+                  src="/Elanable-uploads/Camu-Recruitment-Dashboard.png"
                   alt="Final UI Screens and Key Flows"
                   className="aspect-video"
                 />
