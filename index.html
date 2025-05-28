@@ -64,22 +64,34 @@
     <script>
       // Preload optimized hero images after initial load
       window.addEventListener('load', () => {
-        setTimeout(() => {
-          // Preload optimized WebP versions
-          const images = [
-            '/Elanable-uploads/optimized/Camu-Recruitment-Dashboard.webp',
-            '/Elanable-uploads/optimized/AI-Course-Planner-Dashboard.webp'
-          ];
+        // Only preload if we're on the homepage
+        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+          setTimeout(() => {
+            // Preload optimized WebP versions for homepage
+            const images = [
+              '/Elanable-uploads/optimized/Camu-Recruitment-Dashboard.webp',
+              '/Elanable-uploads/optimized/AI-Course-Planner-Dashboard.webp'
+            ];
 
-          images.forEach(src => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'image';
-            link.href = src;
-            link.type = 'image/webp';
-            document.head.appendChild(link);
-          });
-        }, 100);
+            images.forEach(src => {
+              // Check if image exists before preloading
+              fetch(src, { method: 'HEAD' })
+                .then(response => {
+                  if (response.ok) {
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'image';
+                    link.href = src;
+                    link.type = 'image/webp';
+                    document.head.appendChild(link);
+                  }
+                })
+                .catch(() => {
+                  // Silently fail if image doesn't exist
+                });
+            });
+          }, 500); // Increased delay to avoid interfering with initial load
+        }
       });
     </script>
 
@@ -107,7 +119,7 @@
       }(window.location))
     </script>
 
-    <script type="module" crossorigin src="/assets/index-tucxhX9A.js"></script>
+    <script type="module" crossorigin src="/assets/index-D4xjDut9.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-misc-CnCZSQ_5.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-C59emRhC.js">
     <link rel="modulepreload" crossorigin href="/assets/animations-DmCvi6gQ.js">
