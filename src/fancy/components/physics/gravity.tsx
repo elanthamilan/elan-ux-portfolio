@@ -13,6 +13,7 @@ import {
 import { calculatePosition } from "@/utils/calculate-position"
 import { parsePathToVertices } from "@/utils/svg-path-to-vertices"
 import { debounce } from "lodash"
+import decomp from "poly-decomp"
 import Matter, {
   Bodies,
   Common,
@@ -244,7 +245,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
       const height = canvas.current.offsetHeight
       const width = canvas.current.offsetWidth
 
-      Common.setDecomp(require("poly-decomp"))
+      Common.setDecomp(decomp)
 
       engine.current.gravity.x = gravity.x
       engine.current.gravity.y = gravity.y

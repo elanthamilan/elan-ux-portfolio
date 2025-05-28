@@ -1,4 +1,5 @@
 
+import React, { useEffect } from 'react'; // Ensure useEffect is imported
 import Header from "../components/layout/Header.tsx";
 import Footer from "../components/layout/Footer.tsx";
 import { ArrowLeft } from "lucide-react";
@@ -15,6 +16,10 @@ const placeholderImages = [
 ];
 
 const CaseStudyStudentPlanner = () => {
+  useEffect(() => {
+    document.title = "Case Study: Student Planner - Elanthamilan - UX Designer";
+  }, []); // Empty dependency array ensures this runs once on mount
+
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       {/* Subtle mesh gradient background for case study */}

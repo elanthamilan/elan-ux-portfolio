@@ -63,7 +63,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
         <div className="relative w-full sm:w-48 md:w-56 lg:w-64 xl:w-72 flex-shrink-0 h-48 sm:h-auto">
           <img
             src={image}
-            alt={title}
+            alt={image === '/placeholder-ux-design.svg' ? "" : title}
             className="w-full h-full object-cover"
             loading="lazy"
           />
@@ -75,16 +75,17 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
         {/* Right side - Content */}
         <div className="flex-1 flex flex-col p-4 sm:p-6 lg:p-8">
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          <ul className="flex flex-wrap gap-2 mb-4" aria-label="Case study tags">
             {tags.map((tag) => (
-              <Badge
-                key={tag}
-                className="bg-gray-100 text-gray-700 border-0 font-medium px-3 py-1 rounded-xl text-xs"
-              >
-                {tag}
-              </Badge>
+              <li key={tag}>
+                <Badge
+                  className="bg-gray-100 text-gray-700 border-0 font-medium px-3 py-1 rounded-xl text-xs"
+                >
+                  {tag}
+                </Badge>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {/* Title */}
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 leading-tight">{title}</h3>
@@ -95,29 +96,35 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
           </p>
 
           {/* Metadata */}
-          <div className="space-y-2 mb-4 text-sm sm:text-base">
-            <div className="flex items-start gap-2">
-              <div className="w-1.5 h-1.5 bg-[#177863] rounded-full mt-2 flex-shrink-0"></div>
-              <div className="flex flex-col sm:flex-row sm:gap-2">
-                <span className="font-semibold text-gray-800">What:</span>
-                <span className="text-gray-700">{what}</span>
-              </div>
+          <dl className="space-y-2 mb-4 text-sm sm:text-base">
+            <div>
+              <dt className="font-semibold text-gray-800 flex items-center">
+                <span className="w-1.5 h-1.5 bg-[#177863] rounded-full mr-2 flex-shrink-0"></span>
+                What:
+              </dt>
+              <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0"> {/* Adjusted for alignment */}
+                {what}
+              </dd>
             </div>
-            <div className="flex items-start gap-2">
-              <div className="w-1.5 h-1.5 bg-[#16325A] rounded-full mt-2 flex-shrink-0"></div>
-              <div className="flex flex-col sm:flex-row sm:gap-2">
-                <span className="font-semibold text-gray-800">Who:</span>
-                <span className="text-gray-700">{who}</span>
-              </div>
+            <div>
+              <dt className="font-semibold text-gray-800 flex items-center">
+                <span className="w-1.5 h-1.5 bg-[#16325A] rounded-full mr-2 flex-shrink-0"></span>
+                Who:
+              </dt>
+              <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0"> {/* Adjusted for alignment */}
+                {who}
+              </dd>
             </div>
-            <div className="flex items-start gap-2">
-              <div className="w-1.5 h-1.5 bg-[#177863] rounded-full mt-2 flex-shrink-0"></div>
-              <div className="flex flex-col sm:flex-row sm:gap-2">
-                <span className="font-semibold text-gray-800">Results:</span>
-                <span className="text-gray-700">{result}</span>
-              </div>
+            <div>
+              <dt className="font-semibold text-gray-800 flex items-center">
+                <span className="w-1.5 h-1.5 bg-[#177863] rounded-full mr-2 flex-shrink-0"></span>
+                Results:
+              </dt>
+              <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0"> {/* Adjusted for alignment */}
+                {result}
+              </dd>
             </div>
-          </div>
+          </dl>
 
           {/* Button */}
           <motion.a

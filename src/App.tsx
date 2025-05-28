@@ -7,6 +7,7 @@ import { useReducedMotion } from './components/hooks/useReducedMotion';
 import { SkipLink } from './components/ui/SkipLink';
 import { PerformanceWrapper } from './components/ui/PerformanceWrapper';
 import ScrollToTop from './components/ui/ScrollToTop';
+import HomePageSkeleton from './components/ui/HomePageSkeleton'; // Import HomePageSkeleton
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
@@ -103,9 +104,9 @@ function App() {
   }, []);
 
   const pageTransition = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
+    initial: { opacity: 0, x: 20 }, // Added x: 20
+    animate: { opacity: 1, x: 0 },  // Added x: 0
+    exit: { opacity: 0, x: -20 }, // Added x: -20
     transition: { 
       duration: prefersReducedMotion ? 0 : 0.3,
       ease: 'easeInOut'
@@ -121,7 +122,7 @@ function App() {
       <ScrollToTop />
       
       <AnimatePresence mode="wait">
-        <PerformanceWrapper fallback={<LoadingSpinner />}>
+        <PerformanceWrapper fallback={<HomePageSkeleton />}>
           <Routes location={location} key={location.pathname}>
             <Route 
               path="/" 

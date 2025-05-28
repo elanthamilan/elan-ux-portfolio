@@ -64,24 +64,28 @@ const UnifiedAccordion: React.FC<UnifiedAccordionProps> = ({ title, items, class
       </button>
 
       {/* Accordion Items */}
-      <div className="space-y-2">
+      <ul className="space-y-2">
         {items.map((item, index) => {
           const isOpen = openItems.has(item.id);
 
           return (
-            <motion.div
+            <li
               key={item.id}
               className="overflow-hidden"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
             >
-              {/* Accordion Header */}
-              <button
-                onClick={() => toggleItem(item.id)}
-                className="w-full py-2 text-left flex items-center justify-between hover:bg-gray-50/50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-inset"
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
               >
-                <div className="flex items-center gap-3">
+                {/* Accordion Header */}
+                <button
+                  onClick={() => toggleItem(item.id)}
+                  className="w-full py-2 text-left flex items-center justify-between hover:bg-gray-50/50 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-inset"
+                  aria-expanded={isOpen}
+                  aria-controls={item.id + "-content"}
+                >
+                  <div className="flex items-center gap-3">
                   {item.icon && (
                     <div className="flex items-center justify-center w-8 h-8 bg-[#177863]/10 rounded-lg">
                       <span className="material-symbols-outlined text-base text-[#177863]">
@@ -106,6 +110,7 @@ const UnifiedAccordion: React.FC<UnifiedAccordionProps> = ({ title, items, class
               <AnimatePresence>
                 {isOpen && (
                   <motion.div
+                    id={item.id + "-content"}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -122,10 +127,11 @@ const UnifiedAccordion: React.FC<UnifiedAccordionProps> = ({ title, items, class
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+              </motion.div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };
