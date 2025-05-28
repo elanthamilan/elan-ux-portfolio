@@ -8,6 +8,7 @@ import { SkipLink } from './components/ui/SkipLink';
 import { PerformanceWrapper } from './components/ui/PerformanceWrapper';
 import ScrollToTop from './components/ui/ScrollToTop';
 import HomePageSkeleton from './components/ui/HomePageSkeleton'; // Import HomePageSkeleton
+import CaseStudySkeleton from './components/ui/CaseStudySkeleton'; // Import CaseStudySkeleton
 import { PWAInstallPrompt } from './components/PWAInstallPrompt';
 import { PWAUpdateNotification, ConnectionStatus } from './components/PWAUpdateNotification';
 
@@ -15,6 +16,7 @@ import { PWAUpdateNotification, ConnectionStatus } from './components/PWAUpdateN
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const CaseStudyCampusHiring = lazy(() => import('./pages/CaseStudyCampusHiring.tsx'));
 const CaseStudyStudentPlanner = lazy(() => import('./pages/CaseStudyStudentPlanner.tsx'));
+const SkeletonDemo = lazy(() => import('./components/ui/SkeletonDemo.tsx'));
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
@@ -135,7 +137,9 @@ function App() {
               path="/"
               element={
                 <motion.div key="home" {...pageTransition}>
-                  <HomePage />
+                  <React.Suspense fallback={<HomePageSkeleton />}>
+                    <HomePage />
+                  </React.Suspense>
                 </motion.div>
               }
             />
@@ -143,7 +147,9 @@ function App() {
               path="/case-study/campus-hiring"
               element={
                 <motion.div key="cs-campus" {...pageTransition}>
-                  <CaseStudyCampusHiring />
+                  <React.Suspense fallback={<CaseStudySkeleton variant="campus-hiring" />}>
+                    <CaseStudyCampusHiring />
+                  </React.Suspense>
                 </motion.div>
               }
             />
@@ -151,7 +157,19 @@ function App() {
               path="/case-study/student-planner"
               element={
                 <motion.div key="cs-student-planner" {...pageTransition}>
-                  <CaseStudyStudentPlanner />
+                  <React.Suspense fallback={<CaseStudySkeleton variant="student-planner" />}>
+                    <CaseStudyStudentPlanner />
+                  </React.Suspense>
+                </motion.div>
+              }
+            />
+            <Route
+              path="/skeleton-demo"
+              element={
+                <motion.div key="skeleton-demo" {...pageTransition}>
+                  <React.Suspense fallback={<CaseStudySkeleton variant="campus-hiring" />}>
+                    <SkeletonDemo />
+                  </React.Suspense>
                 </motion.div>
               }
             />
