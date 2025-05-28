@@ -1,1 +1,0 @@
-Use these shadcn/ui primitives for all Button, Card, Badge, Accordion, etc. imports in your project.

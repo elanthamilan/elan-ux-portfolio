@@ -1,9 +1,0 @@
-<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="450" rx="32" fill="#F2F8F7"/>
-  <rect x="40" y="40" width="720" height="60" rx="8" fill="#3E8385"/>
-  <rect x="40" y="120" width="504" height="20" rx="4" fill="#B0B7C3"/>
-  <rect x="40" y="150" width="360" height="20" rx="4" fill="#D1D9E6"/>
-  <rect x="40" y="200" width="720" height="200" rx="12" fill="#FBF9F8" stroke="#E0E7EF" stroke-width="2"/>
-  <circle cx="400" cy="300" r="40" fill="#385681"/>
-  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="24" fill="#385681" font-weight="600">UX Design Mockup</text>
-</svg>
