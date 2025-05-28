@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.uxelan.com/sitemap.xml
+
+# Disallow certain paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: *.json$
+
+# Allow important files
+Allow: /manifest.json
+Allow: /sw.js
+Allow: /offline.html
