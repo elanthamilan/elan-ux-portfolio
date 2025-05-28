@@ -8,15 +8,19 @@ import { SkipLink } from './components/ui/SkipLink';
 import { PerformanceWrapper } from './components/ui/PerformanceWrapper';
 import ScrollToTop from './components/ui/ScrollToTop';
 import HomePageSkeleton from './components/ui/HomePageSkeleton'; // Import HomePageSkeleton
+import CaseStudySkeleton from './components/ui/CaseStudySkeleton'; // Import CaseStudySkeleton
+import { PWAInstallPrompt } from './components/PWAInstallPrompt';
+import { PWAUpdateNotification, ConnectionStatus } from './components/PWAUpdateNotification';
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const CaseStudyCampusHiring = lazy(() => import('./pages/CaseStudyCampusHiring.tsx'));
 const CaseStudyStudentPlanner = lazy(() => import('./pages/CaseStudyStudentPlanner.tsx'));
+const SkeletonDemo = lazy(() => import('./components/ui/SkeletonDemo.tsx'));
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
-    <div 
+    <div
       className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"
       role="status"
       aria-label="Loading page content"
@@ -107,7 +111,7 @@ function App() {
     initial: { opacity: 0, x: 20 }, // Added x: 20
     animate: { opacity: 1, x: 0 },  // Added x: 0
     exit: { opacity: 0, x: -20 }, // Added x: -20
-    transition: { 
+    transition: {
       duration: prefersReducedMotion ? 0 : 0.3,
       ease: 'easeInOut'
     }
@@ -118,35 +122,56 @@ function App() {
       <SkipLink href="#main-content">
         Skip to main content
       </SkipLink>
-      
+
       <ScrollToTop />
-      
+
+      {/* PWA Components */}
+      <ConnectionStatus />
+      <PWAUpdateNotification />
+      <PWAInstallPrompt />
+
       <AnimatePresence mode="wait">
         <PerformanceWrapper fallback={<HomePageSkeleton />}>
           <Routes location={location} key={location.pathname}>
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={
                 <motion.div key="home" {...pageTransition}>
-                  <HomePage />
+                  <React.Suspense fallback={<HomePageSkeleton />}>
+                    <HomePage />
+                  </React.Suspense>
                 </motion.div>
-              } 
+              }
             />
-            <Route 
-              path="/case-study/campus-hiring" 
+            <Route
+              path="/case-study/campus-hiring"
               element={
                 <motion.div key="cs-campus" {...pageTransition}>
-                  <CaseStudyCampusHiring />
+                  <React.Suspense fallback={<CaseStudySkeleton variant="campus-hiring" />}>
+                    <CaseStudyCampusHiring />
+                  </React.Suspense>
                 </motion.div>
-              } 
+              }
             />
-            <Route 
-              path="/case-study/student-planner" 
+            <Route
+              path="/case-study/student-planner"
               element={
                 <motion.div key="cs-student-planner" {...pageTransition}>
-                  <CaseStudyStudentPlanner />
+                  <React.Suspense fallback={<CaseStudySkeleton variant="student-planner" />}>
+                    <CaseStudyStudentPlanner />
+                  </React.Suspense>
                 </motion.div>
-              } 
+              }
+            />
+            <Route
+              path="/skeleton-demo"
+              element={
+                <motion.div key="skeleton-demo" {...pageTransition}>
+                  <React.Suspense fallback={<CaseStudySkeleton variant="campus-hiring" />}>
+                    <SkeletonDemo />
+                  </React.Suspense>
+                </motion.div>
+              }
             />
             <Route
               path="*"

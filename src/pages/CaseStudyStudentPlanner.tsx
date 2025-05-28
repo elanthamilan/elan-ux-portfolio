@@ -1,13 +1,13 @@
 
-import React, { useEffect } from 'react'; // Ensure useEffect is imported
+import { useEffect } from 'react';
 import Header from "../components/layout/Header.tsx";
 import Footer from "../components/layout/Footer.tsx";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "../components/ui/badge.tsx";
 // import ImageCarousel from "../components/ui/ImageCarousel.tsx"; // Replaced with BigImageCarousel
-import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
-import SectionReveal from '@/components/SectionReveal';
+import CSSCarousel from "../components/ui/CSSCarousel.tsx";
+import SectionReveal from '../components/SectionReveal.tsx';
 
 const placeholderImages = [
   { src: "/placeholder.svg", alt: "Placeholder Image 1 for carousel" },
@@ -108,12 +108,13 @@ const CaseStudyStudentPlanner = () => {
           {/* Hero Image Section */}
           <SectionReveal>
             <div className="reveal w-full bg-card rounded-3xl overflow-hidden shadow-xl border border-brand-secondary/10">
-              <BigImageCarousel
+              <CSSCarousel
                 images={[
                   { src: "/Elanable-uploads/AI-Course-Planner-Dashboard.png", alt: "Student Course Planner AI Advisor Interface" },
                   { src: "/Elanable-uploads/Geninfy.jpg", alt: "AI Recommendation Engine" },
                   { svgPlaceholder: true, alt: "Calendar Visualization System" }
                 ]}
+                carouselLabel="Student Planner Case Study Images"
               />
             </div>
           </SectionReveal>
@@ -208,7 +209,7 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20">
-                   <BigImageCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for User research insights - Example ${index + 1}`}))} />
+                   <CSSCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for User research insights - Example ${index + 1}`}))} carouselLabel="User Research Insights" />
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
@@ -228,7 +229,7 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20">
-                   <BigImageCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Solution concepts - Example ${index + 1}`}))} />
+                   <CSSCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Solution concepts - Example ${index + 1}`}))} carouselLabel="Solution Concepts" />
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
@@ -253,7 +254,7 @@ const CaseStudyStudentPlanner = () => {
               </blockquote>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-tertiary/20">
-                   <BigImageCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Wireframes and prototypes - Example ${index + 1}`}))} />
+                   <CSSCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Wireframes and prototypes - Example ${index + 1}`}))} carouselLabel="Wireframes and Prototypes" />
               </div>
             </section>
           </SectionReveal>
@@ -280,7 +281,7 @@ const CaseStudyStudentPlanner = () => {
               </div>
               {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my (removed from here, applied to section). */}
               <div className="bg-accent-bg py-4 xs:py-6 rounded-b-lg shadow-inner reveal border-t border-brand-secondary/20">
-                   <BigImageCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Final UI mockups - Example ${index + 1}`}))} />
+                   <CSSCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Final UI mockups - Example ${index + 1}`}))} carouselLabel="Final UI Mockups" />
               </div>
             </section>
           </SectionReveal>

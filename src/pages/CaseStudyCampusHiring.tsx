@@ -1,13 +1,13 @@
 
-import React, { useEffect } from 'react'; // Ensure useEffect is imported
+import { useEffect } from 'react';
 import Header from "../components/layout/Header.tsx";
 import Footer from "../components/layout/Footer.tsx";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "../components/ui/badge.tsx";
 import ZoomableImage from "../components/ui/ZoomableImage.tsx";
-import BigImageCarousel from "../components/ui/BigImageCarousel.tsx";
-import SectionReveal from '@/components/SectionReveal';
+import CSSCarousel from "../components/ui/CSSCarousel.tsx";
+import SectionReveal from '../components/SectionReveal.tsx';
 
 const CaseStudyCampusHiring = () => {
   useEffect(() => {
@@ -102,12 +102,13 @@ const CaseStudyCampusHiring = () => {
           {/* Hero Image Section */}
           <SectionReveal>
             <div className="reveal w-full bg-card rounded-3xl overflow-hidden shadow-xl border border-brand-primary/10">
-              <BigImageCarousel
+              <CSSCarousel
                 images={[
                   { src: "/Elanable-uploads/Camu-Recruitment-Dashboard.png", alt: "Camu Campus Recruitment App Interface" },
-                  { src: "/Elanable-uploads/Camu.png", alt: "Camu Brand Identity" },
+                  { src: "/Elanable-uploads/Camu Campus Recruitment App.png", alt: "Camu Campus Recruitment App Interface" },
                   { svgPlaceholder: true, alt: "User Journey Mapping" }
                 ]}
+                carouselLabel="Campus Hiring Case Study Images"
               />
             </div>
           </SectionReveal>
