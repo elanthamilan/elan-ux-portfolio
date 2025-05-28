@@ -17,6 +17,7 @@ const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const CaseStudyCampusHiring = lazy(() => import('./pages/CaseStudyCampusHiring.tsx'));
 const CaseStudyStudentPlanner = lazy(() => import('./pages/CaseStudyStudentPlanner.tsx'));
 const SkeletonDemo = lazy(() => import('./components/ui/SkeletonDemo.tsx'));
+const PWATestPage = lazy(() => import('./components/ui/PWATestPage.tsx'));
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
@@ -169,6 +170,16 @@ function App() {
                 <motion.div key="skeleton-demo" {...pageTransition}>
                   <React.Suspense fallback={<CaseStudySkeleton variant="campus-hiring" />}>
                     <SkeletonDemo />
+                  </React.Suspense>
+                </motion.div>
+              }
+            />
+            <Route
+              path="/pwa-test"
+              element={
+                <motion.div key="pwa-test" {...pageTransition}>
+                  <React.Suspense fallback={<HomePageSkeleton />}>
+                    <PWATestPage />
                   </React.Suspense>
                 </motion.div>
               }
