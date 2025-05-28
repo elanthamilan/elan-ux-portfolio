@@ -52,12 +52,36 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" /></noscript>
 
-    <!-- Preload critical images -->
-    <link rel="preload" as="image" href="/Elanable-uploads/Camu-Recruitment-Dashboard.png" fetchpriority="high" />
-
-    <!-- DNS prefetch for external domains -->
+    <!-- Critical resource hints -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+    <!-- Preload critical resources only -->
+    <link rel="modulepreload" href="data:application/octet-stream;base64,aW1wb3J0ICcuL2luZGV4LmNzcyc7IC8vIEtlZXAgZ2xvYmFsIHN0eWxlcw0KaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JzsNCmltcG9ydCBSZWFjdERPTSBmcm9tICdyZWFjdC1kb20vY2xpZW50JzsNCmltcG9ydCBBcHAgZnJvbSAnLi9BcHAudHN4JzsNCmltcG9ydCB7IEJyb3dzZXJSb3V0ZXIgfSBmcm9tICdyZWFjdC1yb3V0ZXItZG9tJzsNCmltcG9ydCB7IGluaXRQZXJmb3JtYW5jZU9wdGltaXphdGlvbnMgfSBmcm9tICcuL3V0aWxzL3BlcmZvcm1hbmNlJzsNCg0KLy8gSW5pdGlhbGl6ZSBwZXJmb3JtYW5jZSBvcHRpbWl6YXRpb25zDQppbml0UGVyZm9ybWFuY2VPcHRpbWl6YXRpb25zKCk7DQoNCi8vIFBXQSBTZXJ2aWNlIFdvcmtlciBpcyBoYW5kbGVkIGJ5IFZpdGUgUFdBIHBsdWdpbiB2aWEgcmVnaXN0ZXJTVy5qcw0KLy8gTm8gbWFudWFsIHJlZ2lzdHJhdGlvbiBuZWVkZWQgaGVyZQ0KDQpjb25zdCByb290ID0gUmVhY3RET00uY3JlYXRlUm9vdChkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncm9vdCcpISk7DQoNCi8vIFVzZSBjb25jdXJyZW50IGZlYXR1cmVzIGZvciBiZXR0ZXIgcGVyZm9ybWFuY2UNCnJvb3QucmVuZGVyKA0KICA8UmVhY3QuU3RyaWN0TW9kZT4NCiAgICA8QnJvd3NlclJvdXRlciBmdXR1cmU9e3sgdjdfc3RhcnRUcmFuc2l0aW9uOiB0cnVlLCB2N19yZWxhdGl2ZVNwbGF0UGF0aDogdHJ1ZSB9fT4NCiAgICAgIDxBcHAgLz4NCiAgICA8L0Jyb3dzZXJSb3V0ZXI+DQogIDwvUmVhY3QuU3RyaWN0TW9kZT4NCik7DQo=" />
+
+    <!-- Defer non-critical image preloading -->
+    <script>
+      // Preload optimized hero images after initial load
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          // Preload optimized WebP versions
+          const images = [
+            '/Elanable-uploads/optimized/Camu-Recruitment-Dashboard.webp',
+            '/Elanable-uploads/optimized/AI-Course-Planner-Dashboard.webp'
+          ];
+
+          images.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            link.type = 'image/webp';
+            document.head.appendChild(link);
+          });
+        }, 100);
+      });
+    </script>
 
     <!-- GitHub Pages SPA redirect script -->
     <script type="text/javascript">
@@ -83,11 +107,15 @@
       }(window.location))
     </script>
 
-    <script type="module" crossorigin src="/assets/index-iDnCGmtj.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-BaVwoRKI.js">
-    <link rel="modulepreload" crossorigin href="/assets/animations-UknLjuBE.js">
-    <link rel="modulepreload" crossorigin href="/assets/ui-CJ8Vf4ub.js">
-    <link rel="modulepreload" crossorigin href="/assets/router-DQlhDhXb.js">
+    <script type="module" crossorigin src="/assets/index-tucxhX9A.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-misc-CnCZSQ_5.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-C59emRhC.js">
+    <link rel="modulepreload" crossorigin href="/assets/animations-DmCvi6gQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/icons-lYBrBdy3.js">
+    <link rel="modulepreload" crossorigin href="/assets/ui-D-KR4h-v.js">
+    <link rel="modulepreload" crossorigin href="/assets/gsap-FdPegQMx.js">
+    <link rel="modulepreload" crossorigin href="/assets/case-studies-CNSCRi5J.js">
+    <link rel="stylesheet" crossorigin href="/assets/case-studies-Bu4Mx1PN.css">
     <link rel="stylesheet" crossorigin href="/assets/index-CJEOpGkl.css">
   <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
   <body>
