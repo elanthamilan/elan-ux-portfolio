@@ -104,8 +104,8 @@ const CaseStudyCampusHiring = () => {
             <div className="reveal w-full bg-card rounded-3xl overflow-hidden shadow-xl border border-brand-primary/10">
               <BigImageCarousel
                 images={[
+                  { src: "/Elanable-uploads/Camu-Recruitment-Dashboard.png", alt: "Camu Campus Recruitment App Interface" },
                   { src: "/Elanable-uploads/Camu Campus Recruitment App.png", alt: "Camu Campus Recruitment App Interface" },
-                  { src: "/Elanable-uploads/Camu.png", alt: "Camu Brand Identity" },
                   { svgPlaceholder: true, alt: "User Journey Mapping" }
                 ]}
               />
