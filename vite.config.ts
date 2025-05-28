@@ -17,8 +17,8 @@ export default defineConfig({
         theme_color: '#177863',
         background_color: '#FFFFFF',
         display: 'standalone',
-        scope: '/',
-        start_url: '/',
+        scope: '/elan-ux-portfolio/',
+        start_url: '/elan-ux-portfolio/',
         icons: [
           {
             src: '/icons/icon-192x192.png',
@@ -91,7 +91,7 @@ export default defineConfig({
             }
           }
         ],
-        navigateFallback: '/index.html',
+        navigateFallback: '/elan-ux-portfolio/index.html',
         navigateFallbackDenylist: [/^\/_/, /\/[^/?]+\.[^/]+$/, /^\/offline\.html$/]
       },
       devOptions: {
@@ -99,7 +99,7 @@ export default defineConfig({
       }
     })
   ],
-  base: '/',
+  base: '/elan-ux-portfolio/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
