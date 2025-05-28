@@ -118,7 +118,7 @@ const HomePage = () => {
                   </span>
                 </motion.a>
                 <motion.a
-                  href="/Elanable-uploads/Camu Campus Recruitment App.png"  {/* Corrected this line based on actual file content from re-read */}
+                  href="/Elanthamilan_UX_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#177863] text-[#177863] font-medium rounded-2xl hover:bg-[#177863] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-offset-2 transition-all duration-200"
@@ -159,7 +159,7 @@ const HomePage = () => {
                   what="Streamlining University-to-Industry Hiring Workflows"
                   result="40% faster hiring, $500K revenue boost, 85% user satisfaction"
                   description="🎯 The Challenge: Recruiters were drowning in a 15-step nightmare that took 2 weeks to learn. Everyone said 'impossible to simplify.' I said 'hold my coffee.' Result? A system so intuitive, new users master it in 2 days. Sometimes the best solutions come from questioning what everyone accepts as 'just how it is.'"
-                  image="/Elanable-uploads/Camu Campus Recruitment App.png"
+                  image="/Elanable-uploads/Camu-Recruitment-Dashboard.png"
                   link="/case-study/campus-hiring"
                   tags={["Enterprise UX", "Recruitment", "Workflow Design"]}
                   index={0}
@@ -174,7 +174,7 @@ const HomePage = () => {
                   what="Student Course Planning with Intelligent Constraint Management"
                   result="60% faster course planning, 90% student adoption rate"
                   description="🤖 The Paradox: How do you make AI recommendations feel helpful, not creepy? Students like Priya needed course planning that was smart but not overwhelming. I designed a system where AI works behind the scenes while students feel in control. The secret? Making complex algorithms feel like a helpful friend, not a robot overlord."
-                  image="/placeholder-ux-design.svg"
+                  image="/Elanable-uploads/AI-Course-Planner-Dashboard.png"
                   link="/case-study/student-planner"
                   tags={["AI/UX", "Course Planning", "EdTech"]}
                   index={1}
