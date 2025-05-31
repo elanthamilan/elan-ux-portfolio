@@ -13,7 +13,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../../components/ui/accordion";
+} from "../components/ui/accordion";
 
 const placeholderImages = [
   { src: "/placeholder.svg", alt: "Placeholder Image 1 for carousel" },
@@ -63,21 +63,13 @@ const CaseStudyStudentPlanner = () => {
         </Link>
 
         <article className="max-w-4xl mx-auto space-y-12">
-           {/* Hero Section - Enhanced with better visual hierarchy */}
+          {/* Hero Section */}
           <SectionReveal>
-            <div className="reveal">
-              {/* Meta badges and info */}
-              <div className="mb-6 flex flex-wrap items-center gap-3">
-                <Badge className="bg-[#16325A] text-white px-3 py-1.5 text-sm font-medium rounded-md shadow-sm border border-[#16325A]">
-                  Case Study
-                </Badge>
-                <Badge className="bg-[#177863]/15 text-[#177863] border-[#177863]/30 px-3 py-1.5 text-sm font-medium rounded-md border">
-                  AI Integration
-                </Badge>
-                <Badge className="bg-[#F8F4F2] text-[#16325A] border-[#16325A]/25 px-3 py-1.5 text-sm font-medium rounded-md border">
-                  EdTech
-                </Badge>
-                <span className="text-sm text-foreground/70 ml-auto">Published May 2025</span>
+            <header className="mb-12 xs:mb-16 text-center">
+              <div className="flex justify-center gap-2 mb-4">
+                <Badge className="bg-[#16325A] text-white hover:bg-[#16325A]/90">Case Study</Badge>
+                <Badge className="bg-[#16325A] text-white hover:bg-[#16325A]/90">EdTech</Badge>
+                <Badge className="bg-[#16325A] text-white hover:bg-[#16325A]/90">AI Integration</Badge>
               </div>
 
               {/* Main title with enhanced typography */}
@@ -89,24 +81,20 @@ const CaseStudyStudentPlanner = () => {
               <p className="text-xl xs:text-2xl text-foreground/80 mb-8 leading-relaxed font-medium">
                 Led the UX for an AI-powered Student Course Planner, slashing scheduling frustrations and empowering students to build academic plans that fit their lives.
               </p>
+            </header>
 
-              {/* Key metrics in a clean grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 p-6 bg-gradient-to-br from-[#16325A]/8 to-[#177863]/8 rounded-2xl border border-[#16325A]/20">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-brand-secondary mb-1">Staff UX Lead</div>
-                  <div className="text-sm text-foreground/70 uppercase tracking-wider">My Role</div>
-                  {/* <div className="text-sm text-foreground/60">Lead Designer</div> */}
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-brand-primary mb-1">60% Faster Scheduling</div>
-                  <div className="text-sm text-foreground/70 uppercase tracking-wider">Target</div>
-                  <div className="text-sm text-foreground/60">Aiming to significantly reduce student planning time & stress.</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-brand-tertiary mb-1">40% AI Adoption</div>
-                  <div className="text-sm text-foreground/70 uppercase tracking-wider">Goal</div>
-                  {/* <div className="text-sm text-foreground/60">AI recommendations</div> */}
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 xs:gap-8 mb-10 xs:mb-12 text-center">
+              <div>
+                <p className="text-2xl xs:text-3xl font-bold mb-1 text-[#16325A] dark:text-[#16325A]">Staff UX Lead</p>
+                <p className="text-xs xs:text-sm text-foreground/70 uppercase tracking-wider">My Role</p>
+              </div>
+              <div>
+                <p className="text-2xl xs:text-3xl font-bold mb-1 text-[#177863] dark:text-[#177863]">60% Faster Scheduling</p>
+                <p className="text-xs xs:text-sm text-foreground/70 uppercase tracking-wider">Target</p>
+              </div>
+              <div>
+                <p className="text-2xl xs:text-3xl font-bold mb-1 text-[#177863] dark:text-[#177863]">40% AI Adoption</p>
+                <p className="text-xs xs:text-sm text-foreground/70 uppercase tracking-wider">Goal</p>
               </div>
             </div>
           </SectionReveal>
@@ -162,9 +150,9 @@ const CaseStudyStudentPlanner = () => {
               {/* Responsive padding and margin for blockquote */}
               <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
                 <AccordionItem value="item-elan-thinking-core-problem-sp">
-                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-secondary hover:text-brand-secondary/80">Insight: Fixing a Broken Experience</AccordionTrigger>
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-[#16325A] hover:text-[#16325A]/80">Insight: Fixing a Broken Experience</AccordionTrigger>
                   <AccordionContent className="pt-2">
-                    <blockquote className="border-l-4 border-brand-secondary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
+                    <blockquote className="border-l-4 border-[#16325A]/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
                       <p className="text-foreground text-sm xs:text-base">Priya's frustration highlighted a broken experience, not just a flawed tool. Manual checks wasted hours; poor visualization hindered understanding; disconnected steps created friction. The core problem: the tool didn't adapt to students' complex lives. My focus became: how do we make the system bend to them?</p>
                     </blockquote>
                   </AccordionContent>
@@ -213,15 +201,15 @@ const CaseStudyStudentPlanner = () => {
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal my-4 xs:my-6">
                 <AccordionItem value="item-pain-points-sp">
-                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-secondary hover:text-brand-secondary/80">View Detailed Pain Points</AccordionTrigger>
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-[#16325A] hover:text-[#16325A]/80">View Detailed Pain Points</AccordionTrigger>
                   <AccordionContent className="pt-2">
-                    <div className="border border-brand-secondary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
-                      <h4 className="text-lg xs:text-xl font-semibold mb-2 xs:mb-3 text-brand-secondary font-heading">Key Pain Points Highlighted:</h4>
+                    <div className="border border-[#16325A]/20 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
+                      <h4 className="text-lg xs:text-xl font-semibold mb-2 xs:mb-3 text-[#16325A] dark:text-[#16325A] font-heading">Key Pain Points Highlighted:</h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 xs:gap-x-6 gap-y-2 xs:gap-y-3 text-foreground text-sm xs:text-base">
-                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Manual Conflict Checks:</strong> Tedious and error-prone.</div></div>
-                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Cognitive Overload:</strong> Difficulty managing personal constraints (work, time zones).</div></div>
-                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm4 9a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1zm0-4a1 1 0 011-1h4a1 1 0 110 2H9a1 1 0 01-1-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Poor Visualization:</strong> No intuitive way to view schedules or busy times.</div></div>
-                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Disconnected Flow:</strong> Clunky handoff between planning and registration.</div></div>
+                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-[#16325A] mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Manual Conflict Checks:</strong> Tedious and error-prone.</div></div>
+                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-[#16325A] mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Cognitive Overload:</strong> Difficulty managing personal constraints (work, time zones).</div></div>
+                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-[#16325A] mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm4 9a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1zm0-4a1 1 0 011-1h4a1 1 0 110 2H9a1 1 0 01-1-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Poor Visualization:</strong> No intuitive way to view schedules or busy times.</div></div>
+                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-[#16325A] mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Disconnected Flow:</strong> Clunky handoff between planning and registration.</div></div>
                       </div>
                     </div>
                   </AccordionContent>
@@ -413,7 +401,7 @@ const CaseStudyStudentPlanner = () => {
           {/* Continue Reading Section - Inspired by case study cards design */}
           <SectionReveal>
             <section className="mb-12 xs:mb-16 reveal">
-              <div className="bg-gradient-to-br from-brand-secondary/12 to-brand-secondary/6 border-brand-secondary/20 shadow-brand-secondary/20 rounded-3xl overflow-hidden shadow-lg border-2 hover:shadow-xl transition-all duration-300 ease-in-out">
+              <div className="bg-gradient-to-br from-[#16325A]/12 to-[#16325A]/6 border-[#16325A]/20 shadow-[#16325A]/20 rounded-3xl overflow-hidden shadow-lg border-2 hover:shadow-xl transition-all duration-300 ease-in-out">
                 <div className="px-6 py-8 md:px-8 md:py-10">
                   <div className="text-center mb-6">
                     <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold font-heading text-[#16325A] dark:text-[#16325A] mb-3">
@@ -453,7 +441,7 @@ const CaseStudyStudentPlanner = () => {
                     <div className="text-center">
                       <Link
                         to="/"
-                        className="inline-flex items-center text-foreground/50 hover:text-brand-secondary transition-colors duration-200 text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50/50 dark:hover:bg-slate-800/30"
+                        className="inline-flex items-center text-foreground/50 hover:text-[#16325A] transition-colors duration-200 text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50/50 dark:hover:bg-slate-800/30"
                       >
                         <ArrowLeft size={14} className="mr-1.5" />
                         Back to Home
