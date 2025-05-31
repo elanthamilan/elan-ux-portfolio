@@ -16,6 +16,7 @@ import { PWAUpdateNotification, ConnectionStatus } from './components/PWAUpdateN
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const CaseStudyCampusHiring = lazy(() => import('./pages/CaseStudyCampusHiring.tsx'));
 const CaseStudyStudentPlanner = lazy(() => import('./pages/CaseStudyStudentPlanner.tsx'));
+const CaseStudyCAMUPlanner = lazy(() => import('./pages/CaseStudyCAMUPlanner.tsx')); // Added CAMU Planner
 const SkeletonDemo = lazy(() => import('./components/ui/SkeletonDemo.tsx'));
 const PWATestPage = lazy(() => import('./components/ui/PWATestPage.tsx'));
 
@@ -160,6 +161,16 @@ function App() {
                 <motion.div key="cs-student-planner" {...pageTransition}>
                   <React.Suspense fallback={<CaseStudySkeleton variant="student-planner" />}>
                     <CaseStudyStudentPlanner />
+                  </React.Suspense>
+                </motion.div>
+              }
+            />
+            <Route
+              path="/case-study/camu-course-planner"
+              element={
+                <motion.div key="cs-camu-planner" {...pageTransition}>
+                  <React.Suspense fallback={<CaseStudySkeleton variant="default" />}> {/* Or a specific variant if created */}
+                    <CaseStudyCAMUPlanner />
                   </React.Suspense>
                 </motion.div>
               }
