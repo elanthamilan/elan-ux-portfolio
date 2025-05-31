@@ -99,7 +99,7 @@ const CaseStudyCampusHiring = () => {
                 <div className="text-center">
                   <div className="text-2xl font-bold text-[#177863] mb-1">$500K Revenue Uplift & 40% Faster Hiring</div>
                   <div className="text-sm text-foreground/70 uppercase tracking-wider">Impact</div>
-                  {/* <div className="text-sm text-foreground/60">$500K new revenue</div> */}
+                  <div className="text-sm text-foreground/60">Driving business growth & streamlining operations.</div>
                 </div>
               </div>
             </div>
@@ -223,7 +223,7 @@ const CaseStudyCampusHiring = () => {
               {/* Adaptive Typography for H3. Adjusted margins. */}
               <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-brand-secondary font-heading reveal">Crafting Intuitive Workflows (Ideation & Design)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                Focused on optimizing critical red routes. For Recruiters, we conceptualized a multi-step job posting form, balancing clarity with efficiency. This structured approach, a shift from an initial single-page concept, cut form abandonment by 38% and improved data quality for students and placement officers.
+                User research highlighted recruiters' frustration with lengthy, single-page forms. Based on this, we conceptualized and prototyped a multi-step job posting form for Recruiters, focusing on balancing clarity with efficiency. This structured approach, a direct response to user feedback and a shift from an initial single-page concept, cut form abandonment by 38% and improved data quality for students and placement officers.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
                 <AccordionItem value="item-elan-thinking-ideation">

@@ -100,7 +100,7 @@ const CaseStudyStudentPlanner = () => {
                 <div className="text-center">
                   <div className="text-2xl font-bold text-brand-primary mb-1">60% Faster Scheduling</div>
                   <div className="text-sm text-foreground/70 uppercase tracking-wider">Target</div>
-                  {/* <div className="text-sm text-foreground/60">Scheduling efficiency</div> */}
+                  <div className="text-sm text-foreground/60">Aiming to significantly reduce student planning time & stress.</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-brand-tertiary mb-1">40% AI Adoption</div>
@@ -209,7 +209,7 @@ const CaseStudyStudentPlanner = () => {
               {/* Adaptive Typography for H3. Adjusted mb. */}
               <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-[#16325A] dark:text-[#16325A] font-heading reveal">Uncovering Student Needs (Discovery & Research)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                Initiated with deep user research. Surveys and interviews with undergraduates and part-time students revealed 75% felt overwhelmed and 60% desired a simpler tool. Priya's persona, needing to balance work (1-2 PM, Mon-Thu) with morning classes, became central. Existing tools couldn't handle such nuanced constraints. Stakeholders also aimed for fewer support tickets.
+                Deep user research, including surveys and interviews, revealed that 75% of students felt overwhelmed and 60% craved a simpler planner. Critically, personas like 'Priya'—a part-time student needing to schedule around work (1-2 PM, Mon-Thu) and prioritize morning classes—highlighted that existing tools couldn't handle such nuanced, real-life constraints. This insight directly led to 'Advanced Constraint Input' becoming a cornerstone of our solution.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal my-4 xs:my-6">
                 <AccordionItem value="item-pain-points-sp">

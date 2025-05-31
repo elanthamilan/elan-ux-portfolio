@@ -179,7 +179,7 @@ const CaseStudyCAMUPlanner = () => {
                   </AccordionItem>
                 </Accordion>
                 <p className="text-base xs:text-lg text-foreground/90">
-                  This research yielded key personas ('Planning Paige,' 'Last-Minute Luke') that kept our design efforts laser-focused on actual student needs and goals.
+                  This research yielded key personas like 'Planning Paige' (organized, seeking efficiency) and 'Last-Minute Luke' (needs clear guidance). These personas were instrumental in focusing our design efforts, ensuring features like 'Smart Course Discovery' and 'Automated Planning' directly addressed their distinct needs and goals.
                 </p>
               </div>
 
@@ -298,6 +298,12 @@ const CaseStudyCAMUPlanner = () => {
                     </div>
                     <div className="text-right">
                       <Badge variant="outline" style={{ borderColor: metric.color, color: metric.color }}>{metric.improvement}</Badge>
+                      {metric.label === "Time to Plan Courses" && (
+                        <div className="text-xs text-foreground/60 mt-0.5">Giving students back valuable time & reducing stress.</div>
+                      )}
+                      {metric.label === "Scheduling Conflicts" && (
+                        <div className="text-xs text-foreground/60 mt-0.5">Ensuring smoother registration & academic progress.</div>
+                      )}
                     </div>
                   </div>
                 ))}
