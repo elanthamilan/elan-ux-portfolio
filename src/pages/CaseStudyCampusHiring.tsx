@@ -76,12 +76,12 @@ const CaseStudyCampusHiring = () => {
 
               {/* Main title with enhanced typography */}
               <h1 className="text-4xl xs:text-5xl sm:text-6xl font-bold mb-6 text-[#177863] dark:text-[#177863] leading-tight font-heading">
-                40% Faster Campus Hiring
+                Streamlined Campus Hiring: 40% Faster
               </h1>
 
               {/* Subtitle with better contrast */}
               <p className="text-xl xs:text-2xl text-foreground/80 mb-8 leading-relaxed font-medium">
-                Redesigning Camu's Campus Recruitment App to streamline hiring processes for universities, recruiters, and students
+                Revamped Camu's recruitment app, transforming a complex process into an efficient platform for universities, recruiters, and students, driving significant revenue.
               </p>
 
               {/* Key metrics in a clean grid */}
@@ -97,9 +97,9 @@ const CaseStudyCampusHiring = () => {
                   <div className="text-sm text-foreground/60">Research, Design, Testing</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[#177863] mb-1">40% faster</div>
+                  <div className="text-2xl font-bold text-[#177863] mb-1">$500K Revenue Uplift & 40% Faster Hiring</div>
                   <div className="text-sm text-foreground/70 uppercase tracking-wider">Impact</div>
-                  <div className="text-sm text-foreground/60">$500K new revenue</div>
+                  {/* <div className="text-sm text-foreground/60">$500K new revenue</div> */}
                 </div>
               </div>
             </div>
@@ -124,22 +124,22 @@ const CaseStudyCampusHiring = () => {
               {/* Responsive padding: px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8. Adjusted mb. */}
               <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/3 shadow-lg border border-[#177863]/20">
                 {/* Adaptive Typography for H2: text-2xl xs:text-3xl sm:text-4xl. Adjusted mb. */}
-                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal">Overview/Challenge</h2>
+                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal">The Challenge: Untangling Complex Campus Recruitment</h2>
                 <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                   <strong className="font-medium text-foreground">Project Name:</strong> Camu Campus Recruitment App (Shipped: April 2025).
                 </p>
                 <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                  The core challenge was the significant friction and inefficiency in Camu's existing campus recruitment model, impacting three critical user journeys. Camu needed to boost engagement, improve placement rates, and drive revenue by leveraging its Student Information System (SIS), but the current system created obstacles for all key stakeholders:
+                  Camu's campus recruitment was bogged down by inefficiency, frustrating recruiters, students, and placement officers. The goal: Transform the SIS-based hiring model to boost engagement, improve placement rates, and unlock new revenue.
                 </p>
                 <div className="text-foreground text-base xs:text-lg leading-relaxed space-y-2.5 xs:space-y-3 reveal">
                   <p className="reveal"><strong className="font-medium text-foreground">User Pain Points Along Critical Paths:</strong></p>
                   <ul className="list-disc pl-4 xs:pl-5 space-y-1 xs:space-y-1.5 reveal"> {/* Adjusted padding and spacing */}
-                    <li className="reveal"><strong className="font-medium text-foreground">Recruiter's Journey (Posting & Candidate Sourcing):</strong> Recruiters struggled with a cumbersome job posting process, juggling multiple platform logins, manually uploading data, and lacking clear visibility into student profiles. This made it difficult to efficiently target opportunities and find qualified candidates.</li>
-                    <li className="reveal"><strong className="font-medium text-foreground">Student's Journey (Discovery & Application):</strong> Students faced a frustrating experience with repetitive form-filling for each application and often missed relevant opportunities due to a complex and disjointed job discovery process.</li>
-                    <li className="reveal"><strong className="font-medium text-foreground">Placement Officer's Journey (Management & Analytics):</strong> Placement Officers were mired in email threads and spreadsheets for approvals and scheduling. They lacked centralized tools for managing job postings and had no effective way to monitor recruitment analytics, hindering their ability to ensure successful placement outcomes.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Recruiter's Journey (Posting & Candidate Sourcing):</strong> Struggled with cumbersome job postings, manual data uploads, and poor candidate visibility, hindering efficient talent sourcing.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Student's Journey (Discovery & Application):</strong> Faced repetitive applications and often missed opportunities due to a disjointed job discovery process.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Placement Officer's Journey (Management & Analytics):</strong> Overwhelmed by manual approvals, scheduling via email/spreadsheets, and no analytics for effective oversight.</li>
                   </ul>
                   <p className="mt-2.5 xs:mt-3 reveal">
-                    The business and user need was a unified, efficient, and user-friendly platform built upon the existing SIS. This platform had to streamline these three critical red routes—Recruiter job posting and application management, Student job discovery and application, and Placement Officer management and oversight—to create a cohesive and effective hiring ecosystem for all stakeholders.
+                    The clear need: A unified, user-friendly platform leveraging the SIS to streamline these critical journeys and create a cohesive hiring ecosystem.
                   </p>
                 </div>
               </section>
@@ -152,19 +152,19 @@ const CaseStudyCampusHiring = () => {
               {/* Adaptive Typography for H2. Adjusted mb. */}
               <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal">My Role & Responsibilities</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                <strong className="font-medium text-foreground">Role:</strong> Lead Interaction Designer.
+                As Lead Interaction Designer, I drove the UX strategy and design, collaborating with product and engineering teams to deliver a seamless user experience.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal">
                 <AccordionItem value="item-responsibilities">
-                  <AccordionTrigger className="text-base xs:text-lg font-medium text-foreground hover:text-brand-secondary">View Key Responsibilities</AccordionTrigger>
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-foreground hover:text-brand-secondary">Key Contributions & Responsibilities</AccordionTrigger>
                   <AccordionContent>
                     <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1 xs:space-y-1.5 pt-2">
-                      <li>User Research (interviews, surveys)</li>
-                      <li>Persona Development</li>
-                      <li>Interaction Design (wireframing, prototyping)</li>
-                      <li>User Interface Design</li>
-                      <li>Usability Testing and Iteration</li>
-                      <li>Cross-functional collaboration with product managers and engineers</li>
+                      <li>Led user research (interviews, surveys) defining core user needs.</li>
+                      <li>Developed data-driven personas and journey maps.</li>
+                      <li>Designed intuitive interaction flows, wireframes, and prototypes.</li>
+                      <li>Crafted the user interface focusing on clarity and efficiency.</li>
+                      <li>Conducted usability testing and iterated designs based on feedback.</li>
+                      <li>Ensured cross-functional collaboration with product managers and engineers.</li>
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
@@ -176,12 +176,12 @@ const CaseStudyCampusHiring = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#F8F4F2]/40 to-[#F8F4F2]/60 shadow-lg border border-[#177863]/15">
                {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal">The Process</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal">Design Process: From User Insights to Impactful Solution</h2>
 
               {/* Adaptive Typography for H3. Adjusted mb. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-brand-primary font-heading reveal">Discovery & Research</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-brand-primary font-heading reveal">Understanding User Needs (Discovery & Research)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                The initial phase focused on understanding the users. Research identified three core user groups with distinct needs but a shared desire for simplicity and efficiency: Recruiters, Placement Officers, and Students.
+                Began by deeply understanding the three core user groups—Recruiters, Placement Officers, and Students—through interviews and surveys. While needs varied, a common desire for simplicity and efficiency emerged.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 xs:gap-6 mb-6 xs:mb-8 reveal"> {/* Adjusted gap and mb */}
                  {/* Responsive padding for info boxes: p-3 xs:p-4 sm:p-5 */}
@@ -201,10 +201,10 @@ const CaseStudyCampusHiring = () => {
               </div>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal mt-4">
                 <AccordionItem value="item-discovery-more">
-                  <AccordionTrigger className="text-base xs:text-lg font-medium text-foreground hover:text-brand-primary">More on Discovery & Research</AccordionTrigger>
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-foreground hover:text-brand-primary">Key Research Insights</AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <p className="text-foreground leading-relaxed text-base xs:text-lg">
-                      A user-centric approach involved interviews and surveys to identify key pain points and goals for these personas. This foundational research was critical in shaping the design direction.
+                      Identified critical pain points and goals, forming the foundation for a user-centric design strategy. This research directly shaped the product roadmap.
                     </p>
                   </AccordionContent>
                 </AccordionItem>
@@ -221,22 +221,22 @@ const CaseStudyCampusHiring = () => {
 
               {/* REVISED Ideation & Design START */}
               {/* Adaptive Typography for H3. Adjusted margins. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-brand-secondary font-heading reveal">Ideation & Design</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-brand-secondary font-heading reveal">Crafting Intuitive Workflows (Ideation & Design)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                Design efforts began with wireframing and prototyping, focusing on optimizing the critical red routes. For the <strong className="font-medium text-foreground">Recruiter's Journey</strong>, a multi-step job posting form was conceptualized. This approach, inspired by familiar platforms but tailored for university needs, balanced clarity and efficiency by breaking down the information required into logical chunks (Basic Info, Position Details, etc.). This was a breakthrough, reducing form abandonment by 38% compared to an initial single-page concept, directly easing the recruiter's path to posting targeted opportunities. For the <strong className="font-medium text-foreground">Student's Journey</strong>, this translated into clearer job information and easier application flows with pre-filled data from the SIS.
+                Focused on optimizing critical red routes. For Recruiters, we conceptualized a multi-step job posting form, balancing clarity with efficiency. This structured approach, a shift from an initial single-page concept, cut form abandonment by 38% and improved data quality for students and placement officers.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
                 <AccordionItem value="item-elan-thinking-ideation">
-                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-secondary hover:text-brand-secondary/80">Elan's Thinking: Systemic Solutions & User Advocacy</AccordionTrigger>
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-secondary hover:text-brand-secondary/80">Design Rationale: Systemic Thinking & User Advocacy</AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <blockquote className="border-l-4 border-brand-secondary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
-                      <p className="mb-1.5 xs:mb-2 text-foreground text-sm xs:text-base">"The initial 'Quick Post' concept, while aiming for speed, failed because it didn't integrate well with the Placement Officer's approval workflow or provide enough detail for students—a classic systems thinking oversight. We realized optimizing one red route (recruiter posting) couldn't come at the expense of others. The multi-step form was a trade-off: slightly more steps for recruiters, but vastly improved data quality for student discovery and PO approvals. This structured data was also key for the AI matching features, a win-win for Camu and all user groups. Convincing stakeholders involved showcasing how this more deliberate recruiter input directly fueled more relevant student matches and streamlined PO oversight, reducing downstream friction for everyone. It was about advocating for a solution that, while requiring some upfront effort from one user group, created a more efficient and trustworthy ecosystem overall. For instance, while pre-filling student data offered immense convenience (a key student need), we built in clear review steps to ensure data accuracy, balancing speed with reliability—a crucial trade-off for maintaining trust."</p>
+                      <p className="mb-1.5 xs:mb-2 text-foreground text-sm xs:text-base">Initial 'Quick Post' concepts failed systemically by not integrating with Placement Officer approvals or providing student clarity. The multi-step form, though slightly longer for recruiters, vastly improved data quality, fueling AI matching and streamlining PO oversight—a win for the entire ecosystem. Advocating for this required demonstrating how deliberate recruiter input reduced downstream friction for all.</p>
                     </blockquote>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                The design for recruiters focused on this four-step job creation process with AI assistance and autosave. For students, the design aimed for effortless discovery of jobs within their SIS feed and frictionless applications with pre-filled forms. The <strong className="font-medium text-foreground">Placement Officer's Journey</strong> was enhanced through a centralized dashboard for approvals and analytics, directly fed by the structured data from the new recruiter and student flows.
+                This led to a four-step, AI-assisted job creation for recruiters, effortless SIS-integrated job discovery for students, and a centralized dashboard for Placement Officers.
               </p>
               {/* REVISED Ideation & Design END */}
 
@@ -251,31 +251,27 @@ const CaseStudyCampusHiring = () => {
 
               {/* Testing & Iteration (Original Content) */}
               {/* Adaptive Typography for H3. Adjusted margins. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#177863] dark:text-[#177863] font-heading reveal">Testing & Iteration</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#177863] dark:text-[#177863] font-heading reveal">Refining Through User Feedback (Testing & Iteration)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                Three key iterations refined the design based on user feedback. Usability testing was conducted to identify areas of confusion and opportunities for improvement.
+                Conducted iterative usability testing, leading to key design refinements that significantly improved user experience.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal mb-6 xs:mb-8">
                 <AccordionItem value="item-iteration-details">
-                  <AccordionTrigger className="text-base xs:text-lg font-medium text-foreground hover:text-brand-tertiary">View Iteration Details</AccordionTrigger>
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-foreground hover:text-brand-tertiary">Key Iteration Highlights</AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <div className="space-y-4 xs:space-y-6"> {/* Adjusted spacing and mb */}
                       {/* Responsive padding for iteration boxes */}
                       <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
-                        {/* Adaptive Typography for H4. Adjusted mb. */}
-                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-tertiary font-heading">Iteration 1: Form Structure</h4>
-                        <p className="text-base xs:text-lg text-foreground leading-relaxed"><strong className="font-medium text-foreground">Challenge:</strong> Single-page form overwhelmed users.</p>
-                        <p className="text-base xs:text-lg text-foreground leading-relaxed"><strong className="font-medium text-foreground">Solution:</strong> Multi-step form with autosave, improving clarity and reducing cognitive load.</p>
+                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-tertiary font-heading">Form Structure Refined:</h4>
+                        <p className="text-base xs:text-lg text-foreground leading-relaxed">Replaced overwhelming single-page forms with a multi-step approach and autosave, boosting clarity and task completion.</p>
                       </div>
                       <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
-                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-tertiary font-heading">Iteration 2: AI Autofill</h4>
-                        <p className="text-base xs:text-lg text-foreground leading-relaxed"><strong className="font-medium text-foreground">Challenge:</strong> User distrust of full automation for job posting details.</p>
-                        <p className="text-base xs:text-lg text-foreground leading-relaxed"><strong className="font-medium text-foreground">Solution:</strong> Implemented optional autofill with easy overrides, giving users control while still offering assistance.</p>
+                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-tertiary font-heading">AI Autofill Optimized:</h4>
+                        <p className="text-base xs:text-lg text-foreground leading-relaxed">Balanced automation with user control by making AI autofill optional with easy overrides, building trust.</p>
                       </div>
                       <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
-                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-tertiary font-heading">Iteration 3: External Tracking Links</h4>
-                        <p className="text-base xs:text-lg text-foreground leading-relaxed"><strong className="font-medium text-foreground">Challenge:</strong> Confusing popups and unclear messaging when users clicked on external application tracking links.</p>
-                        <p className="text-base xs:text-lg text-foreground leading-relaxed"><strong className="font-medium text-foreground">Solution:</strong> Simplified wording and provided clearer context for external links, improving user trust and understanding.</p>
+                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-tertiary font-heading">External Tracking Clarified:</h4>
+                        <p className="text-base xs:text-lg text-foreground leading-relaxed">Simplified messaging for external application links, enhancing user understanding and confidence.</p>
                       </div>
                     </div>
                   </AccordionContent>
@@ -306,27 +302,34 @@ const CaseStudyCampusHiring = () => {
                 <div className="reveal">
                   {/* Adaptive Typography for H3. Adjusted mb. */}
                   <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-2 xs:mb-3 text-brand-primary font-heading reveal">Recruiter Flow: Efficient Job Posting & Candidate Sourcing</h3>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">The Solution: A Unified & Efficient Recruitment App</h2>
+              <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
+                The redesigned Camu app delivered a seamless, data-driven recruitment experience integrated within the SIS, with distinct, intuitive flows for each user.
+              </p>
+              <div className="space-y-6 xs:space-y-8 reveal"> {/* Adjusted spacing */}
+                <div className="reveal">
+                  {/* Adaptive Typography for H3. Adjusted mb. */}
+                  <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-2 xs:mb-3 text-brand-primary font-heading reveal">Recruiter Flow: Efficient Job Posting & Candidate Sourcing</h3>
                   <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1 xs:space-y-1.5 reveal">
-                    <li className="reveal"><strong className="font-medium text-foreground">Seamless Access:</strong> Institutional credentials provide scoped login; trusted partners skip approvals, reducing login friction.</li>
-                    <li className="reveal"><strong className="font-medium text-foreground">Simplified Job Creation:</strong> A guided four-step form (Basic Info, Position Details, Location/Time, Compensation) with AI assistance and autosave dramatically streamlined the process of posting targeted jobs.</li>
-                    <li className="reveal"><strong className="font-medium text-foreground">Targeted Candidate Pools:</strong> Leveraging existing SIS data for filters eliminated manual uploads and enabled precise candidate targeting.</li>
-                    <li className="reveal"><strong className="font-medium text-foreground">Centralized Application Management:</strong> A real-time dashboard for job posting approvals and application tracking replaced email chaos, allowing recruiters to efficiently manage incoming applications.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Effortless Login & Job Posting:</strong> Scoped institutional login and a guided 4-step, AI-assisted job creation process.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Precise Candidate Targeting:</strong> Leveraged SIS data for accurate filtering, eliminating manual uploads.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Streamlined Management:</strong> Real-time dashboard for approvals and application tracking.</li>
                   </ul>
                 </div>
                 <div className="reveal">
                   <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-2 xs:mb-3 text-brand-secondary font-heading reveal">Placement Officer Flow: Effective Management & Oversight</h3>
                   <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1 xs:space-y-1.5 reveal">
-                    <li className="reveal"><strong className="font-medium text-foreground">Centralized Job Management:</strong> A dedicated job queue provided a clear overview of all postings, streamlining approval workflows.</li>
-                    <li className="reveal"><strong className="font-medium text-foreground">Integrated Scheduling Tools:</strong> Facilitated coordination of interviews directly within the platform.</li>
-                    <li className="reveal"><strong className="font-medium text-foreground">Actionable Analytics:</strong> Data dashboards offered insights into placement activities, success rates, and recruiter engagement, enabling data-driven decisions.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Centralized Job Management:</strong> Dedicated job queue for streamlined approval workflows.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Integrated Scheduling:</strong> Coordinated interviews directly within the platform.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Actionable Analytics:</strong> Dashboards for data-driven placement decisions.</li>
                   </ul>
                 </div>
                 <div className="reveal">
                   <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-2 xs:mb-3 text-[#177863] dark:text-[#177863] font-heading reveal">Student Flow: Seamless Job Discovery & Application</h3>
                   <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1 xs:space-y-1.5 reveal">
-                    <li className="reveal"><strong className="font-medium text-foreground">Effortless Job Discovery:</strong> Relevant jobs appeared directly in the SIS feed, augmented by AI recommendations tailored to student profiles and preferences.</li>
-                    <li className="reveal"><strong className="font-medium text-foreground">Frictionless Applications:</strong> Pre-filled forms using SIS data significantly reduced application time and effort, minimizing drop-off.</li>
-                    <li className="reveal"><strong className="font-medium text-foreground">Transparent Progress Tracking:</strong> Clear, easy-to-understand interview scheduling and real-time status updates for applications kept students informed.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Targeted Job Discovery:</strong> SIS feed with AI-powered job recommendations.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Simplified Applications:</strong> Pre-filled forms from SIS data to reduce effort.</li>
+                    <li className="reveal"><strong className="font-medium text-foreground">Clear Progress Tracking:</strong> Real-time updates on application status.</li>
                   </ul>
                 </div>
               </div>
@@ -347,9 +350,9 @@ const CaseStudyCampusHiring = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/6 to-[#16325A]/10 shadow-lg border border-[#16325A]/25">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal">Impact/Results</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal">Results: Driving Efficiency and Growth</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
-                The redesigned Camu Campus Recruitment App delivered significant improvements across the board, directly enhancing the critical user journeys:
+                The redesigned app significantly improved key metrics across user journeys, delivering substantial user and business value.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 reveal"> {/* Adjusted gap */}
                  {/* Responsive padding for stat boxes */}
@@ -372,7 +375,7 @@ const CaseStudyCampusHiring = () => {
                 </div>
               </div>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mt-4 xs:mt-6 reveal">
-                These results demonstrate the app's success in streamlining the core recruitment red routes, enhancing overall user experience, and delivering tangible business value.
+                These outcomes highlight the app's success in optimizing recruitment workflows, boosting user satisfaction, and creating tangible business impact.
               </p>
             </section>
           </SectionReveal>
@@ -383,16 +386,16 @@ const CaseStudyCampusHiring = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/8 to-[#16325A]/12 shadow-lg border border-[#16325A]/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal">Learnings/Reflections</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal">Key Learnings & Design Principles</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                The project underscored the importance of user-centric design and iterative development. Challenges like initial user resistance to AI autofill and confusion over external link tracking highlighted the need to prioritize user trust and clarity above all.
+                This project reinforced the power of user-centric design and iterative development in solving complex challenges and delivering measurable results.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
                 <AccordionItem value="item-elan-thinking-learnings">
-                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-tertiary hover:text-brand-tertiary/80">Elan's Thinking: Overcoming Challenges & Growth</AccordionTrigger>
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-tertiary hover:text-brand-tertiary/80">Personal Growth: Navigating Challenges</AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
-                      <p className="mb-1.5 xs:mb-2 text-foreground text-sm xs:text-base">"The 'Quick Post' flop hurt initially because it was an idea I was attached to. Similarly, the confusion around external tracking was a blind spot. These moments were crucial learning experiences. I learned to let data and user feedback be the ultimate guide, even when it meant scrapping 'cool' ideas or rethinking assumptions. Business goals loomed large, but maintaining user trust became my north star throughout the process. It's not just about features; it's about how those features make users feel and whether they genuinely solve their problems."</p>
+                      <p className="mb-1.5 xs:mb-2 text-foreground text-sm xs:text-base">Initial setbacks, like the 'Quick Post' concept, were vital learning experiences. It taught me to rigorously prioritize data and user feedback over personal attachment to ideas, ensuring user trust remained the guiding principle for true problem-solving.</p>
                     </blockquote>
                   </AccordionContent>
                 </AccordionItem>
@@ -403,15 +406,15 @@ const CaseStudyCampusHiring = () => {
                   <AccordionTrigger className="text-base xs:text-lg font-medium text-foreground hover:text-brand-secondary">View Key Takeaways</AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1 xs:space-y-1.5">
-                      <li><strong className="font-medium text-foreground">Embrace User Feedback:</strong> Actively listen to users and be willing to pivot based on their input. Iteration is key to a successful product.</li>
-                      <li><strong className="font-medium text-foreground">Balance Innovation with Usability:</strong> While AI and automation can be powerful, ensure they are implemented in a way that empowers users and builds trust, rather than creating confusion or frustration.</li>
-                      <li><strong className="font-medium text-foreground">Clarity is Paramount:</strong> Especially with complex workflows, ensure that language, navigation, and system behaviors are clear and predictable.</li>
+                      <li><strong className="font-medium text-foreground">Deep User Empathy Drives Innovation:</strong> Uncovering true user needs, not just stated desires, is crucial for breakthrough solutions.</li>
+                      <li><strong className="font-medium text-foreground">Balance Automation with User Control:</strong> AI should empower, not confuse. Provide transparency and control to build trust.</li>
+                      <li><strong className="font-medium text-foreground">Clarity in Complexity:</strong> Simple language, clear navigation, and predictable system behavior are essential, especially in intricate workflows.</li>
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
               <p className="text-foreground leading-relaxed text-lg mt-6 reveal"> {/* Adjusted margin top */}
-                If I were to approach this project again, I would involve placement officers even more deeply in the early co-design phases for the approval workflows, potentially running more targeted prototype tests for that specific user journey.
+                A future iteration would involve even earlier co-design with placement officers for their specific approval workflows to further refine that critical journey.
               </p>
             </section>
           </SectionReveal>

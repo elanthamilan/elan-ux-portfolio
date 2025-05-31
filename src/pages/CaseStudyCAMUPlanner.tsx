@@ -53,10 +53,10 @@ const CaseStudyCAMUPlanner = () => {
                 <Badge style={{ backgroundColor: primaryColor, color: 'white' }}>AI Integration</Badge>
               </div>
               <h1 className="text-3xl xs:text-4xl sm:text-5xl font-bold mb-3 xs:mb-4" style={{ color: primaryColor }}>
-                CAMU Course Compass: Revolutionizing Student Planning
+                CAMU Course Compass: 80% Faster Student Planning
               </h1>
               <p className="text-base xs:text-lg sm:text-xl text-foreground/80">
-                Transforming a 4-6 hour manual scheduling process into an intuitive, 45-minute automated experience, dramatically reducing stress and improving student outcomes.
+                Led UX for an AI-driven planner, transforming a 4-6 hour manual scheduling nightmare into an intuitive 45-minute experience, slashing conflicts & boosting student success.
               </p>
             </header>
 
@@ -70,8 +70,8 @@ const CaseStudyCAMUPlanner = () => {
                 <p className="text-xs xs:text-sm text-foreground/70 uppercase tracking-wider">Research, Design, Strategy</p>
               </div>
               <div>
-                <p className="text-2xl xs:text-3xl font-bold mb-1" style={{ color: primaryColor }}>80% Faster</p>
-                <p className="text-xs xs:text-sm text-foreground/70 uppercase tracking-wider">Planning Time Reduction</p>
+                <p className="text-2xl xs:text-3xl font-bold mb-1" style={{ color: primaryColor }}>80% Faster Planning & 95% Conflict Reduction</p>
+                <p className="text-xs xs:text-sm text-foreground/70 uppercase tracking-wider">Impact</p>
               </div>
             </div>
 
@@ -82,19 +82,19 @@ const CaseStudyCAMUPlanner = () => {
           <SectionReveal>
             <section className={`mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[${primaryColor}]/10 to-[${primaryColor}]/5 shadow-lg border border-[${primaryColor}]/20`}>
               <h2 className="text-2xl xs:text-3xl font-semibold mb-4 xs:mb-6" style={{ color: primaryColor }}>
-                The Challenge: Hours Wasted, Opportunities Missed
+                The Challenge: Student Scheduling Stress & Inefficiency
               </h2>
               <p className="text-base xs:text-lg text-foreground/90 mb-4">
-                University students traditionally spent an arduous 4-6 hours each semester wrestling with clunky, outdated systems to manually piece together their course schedules. This inefficient process was a significant source of frustration and anxiety.
+                University students wasted 4-6 hours each semester on manual, error-prone course scheduling. This frustrating process led to 40% experiencing conflicts, significant stress, and academic delays.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal mb-4">
                 <AccordionItem value="item-camu-detailed-pain-points">
                   <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>View Detailed Pain Points</AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <ul className="list-disc list-inside text-base xs:text-lg text-foreground/80 pl-2 space-y-1">
-                      <li>Approximately 40% of students faced scheduling conflicts during the critical registration period.</li>
-                      <li>The manual effort led to significant stress, potential academic delays, and ultimately, poorer student outcomes.</li>
-                      <li>Key information was often fragmented across multiple platforms, requiring manual conflict checking and deciphering confusing prerequisite chains.</li>
+                      <li><strong className="font-medium text-foreground">Widespread Conflicts:</strong> 40% of students faced registration-day schedule clashes.</li>
+                      <li><strong className="font-medium text-foreground">High Stress & Delays:</strong> Manual planning caused anxiety and impacted academic progress.</li>
+                      <li><strong className="font-medium text-foreground">Fragmented Information:</strong> Data scattered across systems, requiring manual cross-referencing and prerequisite checks.</li>
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
@@ -104,7 +104,7 @@ const CaseStudyCAMUPlanner = () => {
                 <cite className="block text-sm text-right mt-2 not-italic">- Sarah, Junior Year Student</cite>
               </blockquote>
               <p className="text-base xs:text-lg text-foreground/90">
-                To address these profound challenges, we designed and launched the CAMU Course Compass Planner, a user-centered platform aimed at intelligent automation and intuitive design, transforming this critical aspect of the student journey.
+                The goal: Develop CAMU Course Compass, a user-centered, AI-powered platform to automate and simplify academic planning, drastically improving student outcomes.
               </p>
             </section>
           </SectionReveal>
@@ -113,23 +113,23 @@ const CaseStudyCAMUPlanner = () => {
           <SectionReveal>
             <section className={`mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[${secondaryColor}]/10 to-[${secondaryColor}]/5 shadow-lg border border-[${secondaryColor}]/20`}>
               <h2 className="text-2xl xs:text-3xl font-semibold mb-4 xs:mb-6" style={{ color: secondaryColor }}>
-                My Role & Responsibilities
+                My Role: Lead UX & Product Strategy
               </h2>
               <p className="text-base xs:text-lg text-foreground/90 mb-4">
-                As the Lead UX Designer on a cross-functional team (2 UX Designers, 1 UX Researcher, 3 Product Managers, and 8 Engineers), I spearheaded the user experience strategy and design for the CAMU Course Compass Planner. The project spanned 12 months and targeted a Web Application platform, compatible with both Desktop and Mobile devices.
+                As Lead UX Designer in a team of 2 UX Designers, 1 UX Researcher, 3 PMs, and 8 Engineers, I spearheaded the UX vision, strategy, and execution for this transformative web application (desktop & mobile) over 12 months.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal mt-4">
                 <AccordionItem value="item-camu-responsibilities">
-                  <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${secondaryColor}] hover:text-[${secondaryColor}]/80`}>View All Key Responsibilities</AccordionTrigger>
+                  <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${secondaryColor}] hover:text-[${secondaryColor}]/80`}>Key Contributions & Leadership</AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <ul className="list-disc list-inside text-base xs:text-lg text-foreground/80 space-y-2 pl-2">
-                      <li>User Research: Conducting 45+ student interviews, ethnographic studies (shadowing 12 students), journey mapping workshops, and usability tests on existing systems.</li>
-                      <li>Persona Development: Creating data-driven personas such as "Planning Paige" (organized, seeks efficiency) and "Last-Minute Luke" (needs guidance) to inform design decisions.</li>
-                      <li>UX Strategy: Defining the strategic approach for an AI-driven planning experience, focusing on user needs and pain points.</li>
-                      <li>Interaction Design: Developing wireframes, interactive prototypes, and user flows to visualize and test design concepts.</li>
-                      <li>User Interface Design: Crafting a visually appealing, intuitive, and accessible interface.</li>
-                      <li>Iterative Design & Usability Testing: Leading multiple cycles of testing and refinement based on user feedback.</li>
-                      <li>Cross-functional Collaboration: Working closely with product management to align on goals and with engineering to ensure design feasibility and quality.</li>
+                      <li>Led user research (45+ interviews, ethnographic studies, journey mapping) to uncover deep user needs.</li>
+                      <li>Developed data-driven personas ('Planning Paige,' 'Last-Minute Luke') guiding design decisions.</li>
+                      <li>Defined UX strategy for AI-driven intelligent planning & personalization.</li>
+                      <li>Directed interaction design: wireframes, prototypes, and complex user flows.</li>
+                      <li>Oversaw UI design, ensuring an intuitive, accessible, and mobile-first experience.</li>
+                      <li>Championed iterative design through continuous usability testing and feedback analysis.</li>
+                      <li>Drove cross-functional alignment with product and engineering to deliver a cohesive solution.</li>
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
@@ -141,28 +141,28 @@ const CaseStudyCAMUPlanner = () => {
           <SectionReveal>
             <section className={`mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[${primaryColor}]/10 to-[${primaryColor}]/5 shadow-lg border border-[${primaryColor}]/20`}>
               <h2 className="text-2xl xs:text-3xl font-semibold mb-6 xs:mb-8" style={{ color: primaryColor }}>
-                Our User-Centered Design Process
+                Process: User-Centric Design for Transformative Results
               </h2>
 
               {/* Discovery & Research Subsection */}
               <div className="mb-8 xs:mb-10">
                 <h3 className="text-xl xs:text-2xl font-semibold mb-3" style={{ color: primaryColor }}>
-                  1. Deep User Understanding (Discovery & Research)
+                  1. Uncovering Deep User Needs (Discovery & Research)
                 </h3>
                 <p className="text-base xs:text-lg text-foreground/90 mb-4">
-                  Our process began with extensive user research to deeply understand the student experience. We conducted over 45 student interviews, shadowed 12 students during their planning process (ethnographic studies), organized journey mapping workshops, and performed usability tests on the then-current systems.
+                  Our process was anchored in deep empathy. We conducted 45+ student interviews, shadowed 12 students (ethnographic studies), held journey mapping workshops, and usability-tested existing systems to pinpoint core frustrations.
                 </p>
                 <Accordion type="single" collapsible className="w-full space-y-2 reveal mb-4">
                   <AccordionItem value="item-camu-research-pain-points">
                     <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>Detailed Pain Points from Research</AccordionTrigger>
                     <AccordionContent className="pt-2">
-                      <p className="text-base xs:text-lg text-foreground/80 mb-2">Key pain points identified included:</p>
+                      {/* <p className="text-base xs:text-lg text-foreground/80 mb-2">Key pain points identified included:</p> */}
                       <ul className="list-disc list-inside text-base xs:text-lg text-foreground/80 pl-2 space-y-1">
-                        <li>Information fragmentation across multiple university portals.</li>
-                        <li>Manual and error-prone conflict detection for course timings.</li>
-                        <li>Confusion surrounding course prerequisites and degree requirements.</li>
-                        <li>High levels of anxiety related to the registration process.</li>
-                        <li>A suboptimal experience on mobile devices.</li>
+                        <li>Information overload & system fragmentation.</li>
+                        <li>Error-prone manual conflict checking.</li>
+                        <li>Confusion over complex prerequisite chains.</li>
+                        <li>Significant registration anxiety.</li>
+                        <li>Poor mobile planning capabilities.</li>
                       </ul>
                     </AccordionContent>
                   </AccordionItem>
@@ -170,44 +170,44 @@ const CaseStudyCAMUPlanner = () => {
                 <ZoomableImage src="/Elanable-uploads/camu-planner-research.png" alt="CAMU Planner - User Research Artifacts" caption="User journey maps and persona highlights from the discovery phase." svgPlaceholder={true} />
                 <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
                   <AccordionItem value="item-camu-elan-thinking-discovery">
-                    <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>Elan's Thinking: Understanding Student Struggles</AccordionTrigger>
+                    <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>Insight: Beyond the Tool, The Experience</AccordionTrigger>
                     <AccordionContent className="pt-2">
                       <blockquote className={`border-l-4 border-[${primaryColor}]/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm`}>
-                        <p>"Understanding the nuances of student struggles was foundational. We didn't just want to build a new tool; we wanted to solve their core problems. The 'Aha!' moments from direct observation were invaluable."</p>
+                        <p>Direct observation revealed the depth of student frustration. The 'Aha!' moment was realizing we weren't just fixing a tool, but a broken, stressful experience. This understanding became our design compass.</p>
                       </blockquote>
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
                 <p className="text-base xs:text-lg text-foreground/90">
-                  This research culminated in data-driven personas like "Planning Paige" (highly organized, values efficiency) and "Last-Minute Luke" (often overwhelmed, needs clear guidance), which served as constant reference points.
+                  This research yielded key personas ('Planning Paige,' 'Last-Minute Luke') that kept our design efforts laser-focused on actual student needs and goals.
                 </p>
               </div>
 
               {/* Ideation & Design Subsection */}
               <div className="mb-8 xs:mb-10">
                 <h3 className="text-xl xs:text-2xl font-semibold mb-3" style={{ color: primaryColor }}>
-                  2. Focus on Key Journeys (Ideation & Design)
+                  2. Reimagining Core Journeys (Ideation & Design)
                 </h3>
                 <p className="text-base xs:text-lg text-foreground/90 mb-4">
-                  We focused on redesigning the critical "First-Time Course Planning" journey.
+                  We zeroed in on the 'First-Time Course Planning' journey, a critical pain point.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                   <div className="p-4 bg-red-50 border border-red-200 rounded-md">
                     <h4 className="font-semibold text-red-700 mb-1">Before:</h4>
-                    <p className="text-sm text-red-600">A 4+ hour ordeal, often involving multiple spreadsheets, confusing website tabs, and a 35% abandonment rate before a satisfactory schedule was drafted.</p>
+                    <p className="text-sm text-red-600">A 4+ hour manual struggle with a 35% abandonment rate.</p>
                   </div>
                   <div className="p-4 bg-green-50 border border-green-200 rounded-md">
                     <h4 className="font-semibold text-green-700 mb-1">After (New Journey):</h4>
-                    <p className="text-sm text-green-600 mb-2">A streamlined ~45-minute experience with a 90% task completion rate.</p>
+                    <p className="text-sm text-green-600 mb-2">A ~45-minute guided experience achieving 90% completion.</p>
                     <Accordion type="single" collapsible className="w-full">
                       <AccordionItem value="item-camu-new-journey-details">
                         <AccordionTrigger className="text-sm font-medium text-green-700 hover:text-green-700/80 py-1">View New Journey Details</AccordionTrigger>
                         <AccordionContent className="pt-1">
                           <ul className="list-disc list-inside text-sm text-green-600 space-y-1 pl-2">
-                            <li>Quick Setup</li>
-                            <li>Intelligent Course Discovery</li>
-                            <li>Automated Schedule Planning</li>
-                            <li>Easy Optimization & Confirmation</li>
+                            <li><strong className="font-medium">Quick Setup:</strong> Intuitive major selection & smart defaults.</li>
+                            <li><strong className="font-medium">Intelligent Discovery:</strong> AI-recommended courses & visual requirements.</li>
+                            <li><strong className="font-medium">Automated Planning:</strong> Drag-and-drop with real-time conflict detection & multiple schedule options.</li>
+                            <li><strong className="font-medium">Easy Optimization:</strong> Side-by-side comparison & one-click save.</li>
                           </ul>
                         </AccordionContent>
                       </AccordionItem>
@@ -217,26 +217,26 @@ const CaseStudyCAMUPlanner = () => {
                 <ZoomableImage src="/Elanable-uploads/camu-planner-design.png" alt="CAMU Planner - Ideation and Wireframes" caption="Early wireframes and user flow diagrams for the new planning journey." svgPlaceholder={true} />
                 <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
                   <AccordionItem value="item-camu-elan-thinking-ideation">
-                    <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>Elan's Thinking: Balancing User Needs & Technical Feasibility</AccordionTrigger>
+                    <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>Design Philosophy: Smart Simplification</AccordionTrigger>
                     <AccordionContent className="pt-2">
                       <blockquote className={`border-l-4 border-[${primaryColor}]/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm`}>
-                        <p>"The challenge was to simplify a complex, multi-variable problem. We constantly asked: 'How can we make this smarter for the student?' This involved balancing user desires with what was technically feasible for our AI engine."</p>
+                        <p>The core challenge was simplifying a multi-variable problem without sacrificing power. Constant questioning—'How do we make this smarter for the student?'—drove us to balance desired features with AI engine capabilities and iterative development.</p>
                       </blockquote>
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
                  <p className="text-base xs:text-lg text-foreground/90">
-                  Design sprints were focused on key areas like Information Architecture (IA), the core scheduling Algorithm's UX, and ensuring a robust Mobile Experience.
+                  Focused design sprints on IA, scheduling algorithms, and mobile experience ensured a cohesive and robust solution.
                 </p>
               </div>
 
               {/* Key UX Innovations & Iterations Subsection */}
               <div>
                 <h3 className="text-xl xs:text-2xl font-semibold mb-3" style={{ color: primaryColor }}>
-                  3. Key UX Innovations & Iterations (Testing & Iteration)
+                  3. Delivering Impactful UX Innovations (Testing & Iteration)
                 </h3>
                 <p className="text-base xs:text-lg text-foreground/90 mb-4">
-                  Through iterative design and testing, we developed several key UX innovations:
+                  Iterative design and rigorous testing led to key innovations that directly addressed student pain points:
                 </p>
                 <Accordion type="single" collapsible className="w-full space-y-2 reveal">
                   <AccordionItem value="item-camu-ux-innovations">
@@ -244,19 +244,19 @@ const CaseStudyCAMUPlanner = () => {
                     <AccordionContent className="pt-2">
                       <ul className="list-none space-y-6">
                         <li className="p-4 border border-border rounded-md shadow-sm bg-white">
-                          <h4 className="font-semibold text-lg mb-1" style={{color: primaryColor}}>Smart Course Discovery</h4>
-                          <p className="text-sm text-foreground/80 mb-1">Natural language input for course search (e.g., "intro marketing classes on Tuesdays"), contextual filters based on major/minor, visual mapping of degree requirements, and instant prerequisite validation.</p>
-                          <p className="text-sm font-medium text-green-600">Impact: 70% faster course discovery compared to old systems.</p>
+                          <h4 className="font-semibold text-lg mb-1" style={{color: primaryColor}}>Smart Course Discovery:</h4>
+                          <p className="text-sm text-foreground/80 mb-1">Natural language search & contextual filters cut course discovery time by 70%.</p>
+                          {/* <p className="text-sm font-medium text-green-600">Impact: 70% faster course discovery compared to old systems.</p> */}
                         </li>
                         <li className="p-4 border border-border rounded-md shadow-sm bg-white">
-                          <h4 className="font-semibold text-lg mb-1" style={{color: primaryColor}}>Conflict-Free Schedule Generation</h4>
-                          <p className="text-sm text-foreground/80 mb-1">One-click generation of multiple optimized, conflict-free schedule options. Visual calendar view for easy understanding and side-by-side comparison of alternatives.</p>
-                          <p className="text-sm font-medium text-green-600">Impact: 99.9% accuracy in generating valid schedules, drastically reducing errors.</p>
+                          <h4 className="font-semibold text-lg mb-1" style={{color: primaryColor}}>Conflict-Free Generation:</h4>
+                          <p className="text-sm text-foreground/80 mb-1">One-click, AI-powered scheduling achieved 99.9% accuracy, eliminating errors.</p>
+                          {/* <p className="text-sm font-medium text-green-600">Impact: 99.9% accuracy in generating valid schedules, drastically reducing errors.</p> */}
                         </li>
                         <li className="p-4 border border-border rounded-md shadow-sm bg-white">
-                          <h4 className="font-semibold text-lg mb-1" style={{color: primaryColor}}>Mobile-First Calendar Interface</h4>
-                          <p className="text-sm text-foreground/80 mb-1">A fully responsive design ensuring students could plan effectively on any device, with a touch-friendly calendar and intuitive navigation.</p>
-                          <p className="text-sm font-medium text-green-600">Impact: 40% of all planning sessions occurred on mobile devices post-launch.</p>
+                          <h4 className="font-semibold text-lg mb-1" style={{color: primaryColor}}>Mobile-First Calendar:</h4>
+                          <p className="text-sm text-foreground/80 mb-1">Responsive, touch-friendly interface drove 40% of planning sessions to mobile.</p>
+                          {/* <p className="text-sm font-medium text-green-600">Impact: 40% of all planning sessions occurred on mobile devices post-launch.</p> */}
                         </li>
                       </ul>
                     </AccordionContent>
@@ -271,10 +271,10 @@ const CaseStudyCAMUPlanner = () => {
           <SectionReveal>
             <section className={`mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[${secondaryColor}]/10 to-[${secondaryColor}]/5 shadow-lg border border-[${secondaryColor}]/20`}>
               <h2 className="text-2xl xs:text-3xl font-semibold mb-4 xs:mb-6" style={{ color: secondaryColor }}>
-                Measurable Success: Transforming the Student Experience
+                Results: Revolutionized Planning, Measurable Impact
               </h2>
               <p className="text-base xs:text-lg text-foreground/90 mb-6 xs:mb-8">
-                The CAMU Course Compass Planner delivered significant, quantifiable improvements to the student academic planning experience and provided substantial value to the institution.
+                The CAMU Course Compass Planner dramatically improved student academic planning and delivered significant institutional value.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                 {[
@@ -309,30 +309,27 @@ const CaseStudyCAMUPlanner = () => {
           <SectionReveal>
             <section className={`mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[${primaryColor}]/10 to-[${primaryColor}]/5 shadow-lg border border-[${primaryColor}]/20`}>
               <h2 className="text-2xl xs:text-3xl font-semibold mb-4 xs:mb-6" style={{ color: primaryColor }}>
-                Learnings, Principles & Future Impact
+                Key Learnings & Guiding Principles
               </h2>
               <p className="text-base xs:text-lg text-foreground/90 mb-4">
-                The CAMU Course Compass Planner project was a transformative initiative, not just for the student experience but also in terms of the insights gained throughout its lifecycle.
+                This project was a testament to user-centered design's power to solve complex problems and the importance of a deeply collaborative, iterative approach.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-4 reveal mb-6">
-                <AccordionItem value="item-camu-lessons-learned">
-                  <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>View Key Lessons Learned</AccordionTrigger>
+                <AccordionItem value="item-camu-lessons-principles">
+                  <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>Key Lessons & Design Principles</AccordionTrigger>
                   <AccordionContent className="pt-2">
-                    <ul className="list-disc list-inside text-base xs:text-lg text-foreground/80 space-y-1 pl-2">
-                      <li>User Research is Paramount: Deep ethnographic research and continuous user touchpoints were critical to understanding true needs vs. stated desires.</li>
-                      <li>Iterative Testing Pays Off: Regular usability testing with tangible prototypes allowed for early course correction and validation of design choices.</li>
-                      <li>Cross-Functional Collaboration is Key: Tight alignment between UX, Product, and Engineering from day one ensured we built the *right* product *right*.</li>
+                    <h4 className="text-md xs:text-lg font-semibold mb-1" style={{color: primaryColor}}>Lessons Learned:</h4>
+                    <ul className="list-disc list-inside text-base xs:text-lg text-foreground/80 space-y-1 pl-2 mb-3">
+                      <li>User research is paramount for true innovation.</li>
+                      <li>Iterative testing prevents costly errors.</li>
+                      <li>Cross-functional synergy is vital.</li>
                     </ul>
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-camu-design-principles">
-                  <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>View Key Design Principles Applied</AccordionTrigger>
-                  <AccordionContent className="pt-2">
+                    <h4 className="text-md xs:text-lg font-semibold mb-1" style={{color: primaryColor}}>Design Principles:</h4>
                     <ul className="list-disc list-inside text-base xs:text-lg text-foreground/80 space-y-1 pl-2">
-                      <li>Progressive Disclosure: Revealing complexity gradually to avoid overwhelming users.</li>
-                      <li>Intelligent Defaults: Providing smart suggestions based on user data and common patterns.</li>
-                      <li>Real-Time Feedback: Instant validation and conflict notifications to guide users.</li>
-                      <li>Mobile-First Design: Prioritizing the mobile experience ensured accessibility and convenience.</li>
+                      <li>Progressive disclosure for clarity.</li>
+                      <li>Intelligent defaults to reduce effort.</li>
+                      <li>Real-time feedback for guidance.</li>
+                      <li>Mobile-first for accessibility.</li>
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
@@ -340,16 +337,16 @@ const CaseStudyCAMUPlanner = () => {
 
               <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
                 <AccordionItem value="item-camu-elan-thinking-learnings">
-                  <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>Elan's Thinking: The Driving Force</AccordionTrigger>
+                  <AccordionTrigger className={`text-base xs:text-lg font-medium text-[${primaryColor}] hover:text-[${primaryColor}]/80`}>Personal Reflection: The Why Behind the Work</AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <blockquote className={`border-l-4 border-[${primaryColor}]/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm`}>
-                      <p>"The driving force was to transform a universally frustrating student experience into something empowering and efficient. Seeing the direct impact on students' lives and the institution's operational efficiency was incredibly rewarding."</p>
+                      <p>The core motivation was transforming a universally frustrating student experience into one that was empowering and efficient. Witnessing the direct, positive impact on students and the institution was the ultimate reward.</p>
                     </blockquote>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
               <p className="text-base xs:text-lg text-foreground/90">
-                This project not only significantly improved the student course planning journey but also delivered substantial business value through increased efficiency and student retention. It laid the groundwork for future AI-driven student support tools at CAMU.
+                The Course Compass Planner not only solved critical student issues but also set a new standard for academic planning tools at CAMU, paving the way for future AI-driven student support.
               </p>
             </section>
           </SectionReveal>
