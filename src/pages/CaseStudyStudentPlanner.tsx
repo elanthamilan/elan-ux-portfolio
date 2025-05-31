@@ -8,6 +8,12 @@ import { Badge } from "../components/ui/badge.tsx";
 // import ImageCarousel from "../components/ui/ImageCarousel.tsx"; // Replaced with BigImageCarousel
 import CSSCarousel from "../components/ui/CSSCarousel.tsx";
 import SectionReveal from '../components/SectionReveal.tsx';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../../components/ui/accordion";
 
 const placeholderImages = [
   { src: "/placeholder.svg", alt: "Placeholder Image 1 for carousel" },
@@ -166,17 +172,23 @@ const CaseStudyStudentPlanner = () => {
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 <strong className="font-medium text-foreground">Role:</strong> Staff UX Designer (Lead).
               </p>
-              <p className="text-foreground leading-relaxed text-base xs:text-lg reveal"><strong className="font-medium text-foreground">Key Responsibilities:</strong></p>
-              <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1 xs:space-y-1.5 reveal">
-                <li className="reveal">Leading User Research (focus groups, surveys, interviews)</li>
-                <li className="reveal">Persona Development and Journey Mapping (e.g., Priya's story)</li>
-                <li className="reveal">Defining UX Strategy for AI integration and personalization</li>
-                <li className="reveal">Interaction Design (wireframing, prototyping from lo-fi to hi-fi)</li>
-                <li className="reveal">User Interface Design with a focus on visualization and usability</li>
-                <li className="reveal">Conducting and analyzing Usability Testing sessions</li>
-                <li className="reveal">Iterating on designs based on user feedback and technical constraints</li>
-                <li className="reveal">Collaborating with product management and engineering teams</li>
-              </ul>
+              <Accordion type="single" collapsible className="w-full space-y-2 reveal">
+                <AccordionItem value="item-responsibilities-sp">
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-foreground hover:text-brand-primary">View Key Responsibilities</AccordionTrigger>
+                  <AccordionContent>
+                    <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1 xs:space-y-1.5 pt-2">
+                      <li className="reveal">Leading User Research (focus groups, surveys, interviews)</li>
+                      <li className="reveal">Persona Development and Journey Mapping (e.g., Priya's story)</li>
+                      <li className="reveal">Defining UX Strategy for AI integration and personalization</li>
+                      <li className="reveal">Interaction Design (wireframing, prototyping from lo-fi to hi-fi)</li>
+                      <li className="reveal">User Interface Design with a focus on visualization and usability</li>
+                      <li className="reveal">Conducting and analyzing Usability Testing sessions</li>
+                      <li className="reveal">Iterating on designs based on user feedback and technical constraints</li>
+                      <li className="reveal">Collaborating with product management and engineering teams</li>
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </section>
           </SectionReveal>
 
@@ -191,22 +203,32 @@ const CaseStudyStudentPlanner = () => {
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The process began with deep user research. Elan conducted surveys and interviews with undergraduates and part-time working students. The findings were stark: 75% felt overwhelmed by the existing planner, and 60% craved a simpler, more intuitive tool. Priya's story became a cornerstone persona; she needed a schedule that avoided her work hours (1:00 PM–2:00 PM, Monday to Thursday) and prioritized morning classes. The existing system offered no easy way to input such nuanced constraints. Stakeholders, including administrators and advisors, also desired fewer support tickets and better insights into student scheduling needs.
               </p>
-              {/* Responsive padding for info box container. Adjusted my. */}
-              <div className="border border-brand-secondary/30 rounded-lg p-3 xs:p-4 sm:p-6 my-4 xs:my-6 reveal bg-white shadow-sm">
-                {/* Adaptive Typography for H4. Adjusted mb. */}
-                <h4 className="text-lg xs:text-xl font-semibold mb-2 xs:mb-3 text-brand-secondary font-heading reveal">Key Pain Points Highlighted:</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 xs:gap-x-6 gap-y-2 xs:gap-y-3 text-foreground text-sm xs:text-base reveal"> {/* Adjusted gap and typography */}
-                  <div className="flex items-start reveal"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Manual Conflict Checks:</strong> Tedious and error-prone.</div></div>
-                  <div className="flex items-start reveal"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Cognitive Overload:</strong> Difficulty with constraints like work hours.</div></div>
-                  <div className="flex items-start reveal"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm4 9a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1zm0-4a1 1 0 011-1h4a1 1 0 110 2H9a1 1 0 01-1-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Poor Visualization:</strong> No clear way to see schedules or busy times.</div></div>
-                  <div className="flex items-start reveal"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Disconnected Steps:</strong> Planning and registration felt separate.</div></div>
-                </div>
-              </div>
-              {/* Responsive padding and margin for blockquote */}
-              <blockquote className="border-l-4 border-brand-secondary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
-                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-secondary text-base xs:text-lg">Elan's Thinking: Digging Deeper into User Needs</strong></p>
-                <p className="text-foreground text-sm xs:text-base">"Priya's story kept coming back to me—she wasn't just struggling with a tool; she was struggling to fit education into her complex life. The data showed 75% of students felt overwhelmed, but the stories revealed why: rigid systems that didn't bend to real life. I sketched scenarios: a student working night shifts, another taking care of family mid-day, a third with back-to-back intensive labs needing breaks. Our system had to adapt to their lives, not force standardization."</p>
-              </blockquote>
+              <Accordion type="single" collapsible className="w-full space-y-2 reveal my-4 xs:my-6">
+                <AccordionItem value="item-pain-points-sp">
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-secondary hover:text-brand-secondary/80">View Detailed Pain Points</AccordionTrigger>
+                  <AccordionContent className="pt-2">
+                    <div className="border border-brand-secondary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
+                      <h4 className="text-lg xs:text-xl font-semibold mb-2 xs:mb-3 text-brand-secondary font-heading">Key Pain Points Highlighted:</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 xs:gap-x-6 gap-y-2 xs:gap-y-3 text-foreground text-sm xs:text-base">
+                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Manual Conflict Checks:</strong> Tedious and error-prone.</div></div>
+                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Cognitive Overload:</strong> Difficulty with constraints like work hours.</div></div>
+                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm4 9a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1zm0-4a1 1 0 011-1h4a1 1 0 110 2H9a1 1 0 01-1-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Poor Visualization:</strong> No clear way to see schedules or busy times.</div></div>
+                        <div className="flex items-start"><div className="flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 text-brand-secondary mr-2 xs:mr-3 mt-0.5 xs:mt-1"><svg fill="currentColor" viewBox="0 0 20 20"> <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" clipRule="evenodd"></path> </svg></div><div><strong className="font-medium text-foreground">Disconnected Steps:</strong> Planning and registration felt separate.</div></div>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
+                <AccordionItem value="item-elan-thinking-discovery-sp">
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-secondary hover:text-brand-secondary/80">Elan's Thinking: Digging Deeper into User Needs</AccordionTrigger>
+                  <AccordionContent className="pt-2">
+                    <blockquote className="border-l-4 border-brand-secondary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
+                      <p className="text-foreground text-sm xs:text-base">"Priya's story kept coming back to me—she wasn't just struggling with a tool; she was struggling to fit education into her complex life. The data showed 75% of students felt overwhelmed, but the stories revealed why: rigid systems that didn't bend to real life. I sketched scenarios: a student working night shifts, another taking care of family mid-day, a third with back-to-back intensive labs needing breaks. Our system had to adapt to their lives, not force standardization."</p>
+                    </blockquote>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20">
                    <CSSCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for User research insights - Example ${index + 1}`}))} carouselLabel="User Research Insights" />
@@ -223,10 +245,16 @@ const CaseStudyStudentPlanner = () => {
                 <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm"><h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-primary font-semibold">Visualization</h4><p className="text-foreground text-xs xs:text-sm leading-relaxed">Offer a clear, intuitive calendar view that highlights conflicts and available options.</p></div>
                 <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm"><h4 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-primary font-semibold">AI Integration</h4><p className="text-foreground text-xs xs:text-sm leading-relaxed">Use AI to suggest personalized schedules while keeping students in control.</p></div>
               </div>
-              <blockquote className="border-l-4 border-brand-primary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
-                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-primary text-base xs:text-lg">Elan's Thinking: Balancing AI and User Control</strong></p>
-                <p className="text-foreground text-sm xs:text-base">"AI was the key to personalization, but I didn't want to create a system that felt like a 'magic box.' Students needed to understand why the AI was suggesting certain schedules and have the power to override those suggestions. I sketched interfaces that showed the AI's reasoning—'This schedule avoids your work hours'—and made it easy to tweak the AI's recommendations. It was about empowering students, not replacing them."</p>
-              </blockquote>
+              <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
+                <AccordionItem value="item-elan-thinking-ideation-sp">
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-primary hover:text-brand-primary/80">Elan's Thinking: Balancing AI and User Control</AccordionTrigger>
+                  <AccordionContent className="pt-2">
+                    <blockquote className="border-l-4 border-brand-primary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
+                      <p className="text-foreground text-sm xs:text-base">"AI was the key to personalization, but I didn't want to create a system that felt like a 'magic box.' Students needed to understand why the AI was suggesting certain schedules and have the power to override those suggestions. I sketched interfaces that showed the AI's reasoning—'This schedule avoids your work hours'—and made it easy to tweak the AI's recommendations. It was about empowering students, not replacing them."</p>
+                    </blockquote>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20">
                    <CSSCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Solution concepts - Example ${index + 1}`}))} carouselLabel="Solution Concepts" />
@@ -248,10 +276,16 @@ const CaseStudyStudentPlanner = () => {
                   <p className="text-foreground text-xs xs:text-sm leading-relaxed">Tested different calendar views and AI suggestion interfaces, gathering critical user feedback.</p>
                 </div>
               </div>
-              <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
-                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-tertiary text-base xs:text-lg">Elan's Thinking: Iterating Based on User Feedback</strong></p>
-                <p className="text-foreground text-sm xs:text-base">"Usability testing was brutal but essential. Students loved the AI suggestions, but they also wanted to 'zoom in' on the calendar and filter courses by type and instructor. I realized I had over-engineered the AI and under-engineered the basic calendar view. It was a humbling lesson: AI is powerful, but it's not a substitute for a solid foundation."</p>
-              </blockquote>
+              <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
+                <AccordionItem value="item-elan-thinking-iteration-sp">
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-tertiary hover:text-brand-tertiary/80">Elan's Thinking: Iterating Based on User Feedback</AccordionTrigger>
+                  <AccordionContent className="pt-2">
+                    <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
+                      <p className="text-foreground text-sm xs:text-base">"Usability testing was brutal but essential. Students loved the AI suggestions, but they also wanted to 'zoom in' on the calendar and filter courses by type and instructor. I realized I had over-engineered the AI and under-engineered the basic calendar view. It was a humbling lesson: AI is powerful, but it's not a substitute for a solid foundation."</p>
+                    </blockquote>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
                  {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my. */}
                  <div className="bg-accent-bg py-4 xs:py-6 rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-tertiary/20">
                    <CSSCarousel images={placeholderImages.map((img, index) => ({...img, alt: `Conceptual placeholder for Wireframes and prototypes - Example ${index + 1}`}))} carouselLabel="Wireframes and Prototypes" />
@@ -268,16 +302,23 @@ const CaseStudyStudentPlanner = () => {
                 {/* Adaptive Typography for H2. Adjusted mb. */}
                 <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal">The Solution</h2>
                 <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
-                  The redesigned Student Course Planner aimed to provide a flexible, intuitive, and AI-assisted scheduling experience. Key features included:
+                  The redesigned Student Course Planner aimed to provide a flexible, intuitive, and AI-assisted scheduling experience.
                 </p>
-                <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1.5 xs:space-y-2 mb-6 xs:mb-8 reveal"> {/* Adjusted padding, spacing, mb */}
-                  <li className="reveal"><strong className="font-medium text-foreground">Advanced Constraint Input:</strong> Allowing students to specify work hours, preferred class times (morning/afternoon), and other personal commitments.</li>
-                  <li className="reveal"><strong className="font-medium text-foreground">AI-Powered Schedule Suggestions:</strong> The AI Advisor generates multiple schedule options based on student preferences, degree requirements, and course availability, clearly explaining the rationale behind suggestions.</li>
-                  <li className="reveal"><strong className="font-medium text-foreground">Interactive Calendar View:</strong> A visual calendar that displays potential schedules, highlights conflicts, and allows direct manipulation and customization.</li>
-                  <li className="reveal"><strong className="font-medium text-foreground">Filtering and Sorting:</strong> Options to filter courses by type, instructor, or department, and sort schedules by different criteria (e.g., fewest conflicts, preferred times).</li>
-                  <li className="reveal"><strong className="font-medium text-foreground">Seamless Registration Flow:</strong> Once a schedule is finalized, a clear path to register for the selected courses directly from the planner.</li>
-                  <li className="reveal"><strong className="font-medium text-foreground">User Control & Overrides:</strong> Maintaining student autonomy by allowing them to easily modify AI suggestions or build a schedule from scratch.</li>
-                </ul>
+                <Accordion type="single" collapsible className="w-full space-y-2 reveal mb-6 xs:mb-8">
+                  <AccordionItem value="item-key-features-sp">
+                    <AccordionTrigger className="text-base xs:text-lg font-medium text-foreground hover:text-brand-secondary">View All Key Features</AccordionTrigger>
+                    <AccordionContent className="pt-2">
+                      <ul className="list-disc pl-4 xs:pl-5 text-foreground text-base xs:text-lg leading-relaxed space-y-1.5 xs:space-y-2">
+                        <li><strong className="font-medium text-foreground">Advanced Constraint Input:</strong> Allowing students to specify work hours, preferred class times (morning/afternoon), and other personal commitments.</li>
+                        <li><strong className="font-medium text-foreground">AI-Powered Schedule Suggestions:</strong> The AI Advisor generates multiple schedule options based on student preferences, degree requirements, and course availability, clearly explaining the rationale behind suggestions.</li>
+                        <li><strong className="font-medium text-foreground">Interactive Calendar View:</strong> A visual calendar that displays potential schedules, highlights conflicts, and allows direct manipulation and customization.</li>
+                        <li><strong className="font-medium text-foreground">Filtering and Sorting:</strong> Options to filter courses by type, instructor, or department, and sort schedules by different criteria (e.g., fewest conflicts, preferred times).</li>
+                        <li><strong className="font-medium text-foreground">Seamless Registration Flow:</strong> Once a schedule is finalized, a clear path to register for the selected courses directly from the planner.</li>
+                        <li><strong className="font-medium text-foreground">User Control & Overrides:</strong> Maintaining student autonomy by allowing them to easily modify AI suggestions or build a schedule from scratch.</li>
+                      </ul>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
               {/* Full-width carousel: Vertical padding py-4 xs:py-6. Adjusted my (removed from here, applied to section). */}
               <div className="bg-accent-bg py-4 xs:py-6 rounded-b-lg shadow-inner reveal border-t border-brand-secondary/20">
@@ -324,29 +365,40 @@ const CaseStudyStudentPlanner = () => {
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 The Student Course Planner redesign was a journey of balancing advanced AI capabilities with fundamental user needs for control and clarity. The key lessons learned were:
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 xs:gap-6 my-6 xs:my-8 reveal"> {/* Adjusted gap and my */}
-                 {/* Responsive padding and typography for learning boxes */}
-                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-white shadow-sm">
-                  <h3 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">Empathy is Foundational</h3>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Deeply understanding user frustrations (like Priya's) is crucial to designing meaningful solutions.</p>
-                </div>
-                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-white shadow-sm">
-                  <h3 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">Iterate Relentlessly</h3>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">User feedback, especially during usability testing, is invaluable. Be prepared to pivot and refine (e.g., enhancing calendar controls).</p>
-                </div>
-                <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 reveal bg-white shadow-sm">
-                  <h3 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">AI Augments, Not Replaces</h3>
-                  <p className="text-foreground text-xs xs:text-sm leading-relaxed">Use AI to empower users and simplify complex tasks, but always ensure they remain in control and understand the system's suggestions.</p>
-                </div>
-              </div>
+              <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
+                <AccordionItem value="item-detailed-learnings-sp">
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-tertiary hover:text-brand-tertiary/80">Explore Detailed Learnings</AccordionTrigger>
+                  <AccordionContent className="pt-2">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 xs:gap-6">
+                      <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
+                        <h3 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">Empathy is Foundational</h3>
+                        <p className="text-foreground text-xs xs:text-sm leading-relaxed">Deeply understanding user frustrations (like Priya's) is crucial to designing meaningful solutions.</p>
+                      </div>
+                      <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
+                        <h3 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">Iterate Relentlessly</h3>
+                        <p className="text-foreground text-xs xs:text-sm leading-relaxed">User feedback, especially during usability testing, is invaluable. Be prepared to pivot and refine (e.g., enhancing calendar controls).</p>
+                      </div>
+                      <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
+                        <h3 className="font-heading text-base xs:text-lg mb-1 xs:mb-1.5 text-brand-tertiary font-semibold">AI Augments, Not Replaces</h3>
+                        <p className="text-foreground text-xs xs:text-sm leading-relaxed">Use AI to empower users and simplify complex tasks, but always ensure they remain in control and understand the system's suggestions.</p>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 This project reinforced that even with advanced technology, the core principles of user-centered design—empathy, clarity, and iterative improvement—are paramount to success.
               </p>
-              {/* Responsive padding and margin for blockquote */}
-              <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 my-6 xs:my-8 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm reveal">
-                <p className="mb-1.5 xs:mb-2"><strong className="not-italic font-sans font-medium text-brand-tertiary text-base xs:text-lg">Elan's Thinking: The Bigger Picture</strong></p>
-                <p className="text-foreground text-sm xs:text-base">"This project taught me that UX design is more than just a job—it's a chance to make a positive impact on the world. By understanding people's struggles and creating solutions that make their lives a little easier, we can create a better future for everyone."</p>
-              </blockquote>
+              <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
+                <AccordionItem value="item-elan-thinking-bigger-picture-sp">
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-tertiary hover:text-brand-tertiary/80">Elan's Thinking: The Bigger Picture</AccordionTrigger>
+                  <AccordionContent className="pt-2">
+                    <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
+                      <p className="text-foreground text-sm xs:text-base">"This project taught me that UX design is more than just a job—it's a chance to make a positive impact on the world. By understanding people's struggles and creating solutions that make their lives a little easier, we can create a better future for everyone."</p>
+                    </blockquote>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </section>
           </SectionReveal>
 

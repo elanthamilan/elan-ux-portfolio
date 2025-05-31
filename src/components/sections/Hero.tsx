@@ -153,6 +153,21 @@ const HomePage = () => {
               </h2>
               <div className="space-y-8">
                 <CaseStudyCard
+                  title="CAMU Course Compass: Revolutionizing Student Planning"
+                  year="2023"
+                  who="CAMU (University Tech)"
+                  what="Streamlining Student Academic Scheduling with AI"
+                  result="80% faster planning, 95% conflict reduction, 90% NPS"
+                  description="🗓️ The Challenge: Students spent 4-6 hours in stressful, manual course planning, with 40% facing conflicts. I led the UX to build an AI-powered planner that cut planning time to 45 minutes and nearly eliminated conflicts."
+                  image="/Elanable-uploads/camu-planner-card.png"
+                  link="/case-study/camu-course-planner"
+                  tags={["UX Design", "EdTech", "AI", "Product Design"]}
+                  index={0}
+                  cardClassName="bg-[#E9F5F2]"
+                  accentColorName="brand-primary"
+                  buttonVariant="default"
+                />
+                <CaseStudyCard
                   title="Redesigning Campus Recruitment: From 15 Steps to 2 Days"
                   year="2024"
                   who="Camu (EdTech Platform)"
@@ -162,7 +177,7 @@ const HomePage = () => {
                   image="/Elanable-uploads/Camu-Recruitment-Dashboard.png"
                   link="/case-study/campus-hiring"
                   tags={["Enterprise UX", "Recruitment", "Workflow Design"]}
-                  index={0}
+                  index={1}
                   cardClassName="bg-[#F2F8F7]"
                   accentColorName="brand-primary"
                   buttonVariant="default"
@@ -177,7 +192,7 @@ const HomePage = () => {
                   image="/Elanable-uploads/AI-Course-Planner-Dashboard.png"
                   link="/case-study/student-planner"
                   tags={["AI/UX", "Course Planning", "EdTech"]}
-                  index={1}
+                  index={2}
                   cardClassName="bg-[#F3F6F9]"
                   accentColorName="brand-secondary"
                   buttonVariant="secondary"
