@@ -152,7 +152,7 @@ const CSSCarousel: React.FC<CSSCarouselProps> = ({
                   e.stopPropagation();
                   handleImageClick();
                 }}
-                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
+                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
                 aria-label="View fullscreen"
               >
                 <Maximize2 size={16} />
@@ -194,7 +194,7 @@ const CSSCarousel: React.FC<CSSCarouselProps> = ({
             <button
               key={index}
               onClick={() => scrollToIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex
                   ? 'bg-white scale-125'
                   : 'bg-white/50 hover:bg-white/75'

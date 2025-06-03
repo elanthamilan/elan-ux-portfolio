@@ -170,16 +170,17 @@
   cursor: pointer;
   transition: all 0.2s ease;
   z-index: 10;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0.6; /* Changed: Make visible by default */
+  pointer-events: auto; /* Changed: Make clickable by default */
 }
 
-.css-carousel:hover .nav-button {
+/* .css-carousel:hover .nav-button { Removed: No longer needed for initial visibility
   opacity: 1;
   pointer-events: auto;
-}
+} */
 
-.css-carousel .nav-button:hover {
+.css-carousel .nav-button:hover,
+.css-carousel .nav-button:focus-visible { /* Added focus-visible here for consistent active state */
   background: rgba(0, 0, 0, 0.7);
   transform: translateY(-50%) scale(1.1);
 }
@@ -205,16 +206,16 @@
 /* Responsive adjustments */
 @media (max-width: 640px) {
   .css-carousel .nav-button {
-    width: 32px;
-    height: 32px;
+    width: 36px; /* Changed: Increased size */
+    height: 36px; /* Changed: Increased size */
   }
   
   .css-carousel .nav-button.prev {
-    left: 8px;
+    left: 12px; /* Adjusted position */
   }
   
   .css-carousel .nav-button.next {
-    right: 8px;
+    right: 12px; /* Adjusted position */
   }
 }
 
