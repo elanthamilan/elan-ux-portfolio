@@ -4,13 +4,27 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X } from 'lucide-react';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'; // Import the hook
 
-interface ZoomableImageProps {
+// For optimal performance with srcSet and sizes, provide actual multiple image sources and descriptors.
+interface ZoomableImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt: string;
   className?: string;
+  srcSet?: string;
+  sizes?: string;
+  caption?: string; // Already saw this in CAMUPlanner, ensure it's here
+  svgPlaceholder?: boolean; // Already saw this in CAMUPlanner, ensure it's here
 }
 
-const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, className = '' }) => { // Wrapped with React.memo
+const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({
+  src,
+  alt,
+  className = '',
+  srcSet,
+  sizes,
+  caption, // Destructure caption
+  svgPlaceholder, // Destructure svgPlaceholder though it's not directly used in this component's output but good for props consistency
+  ...props // Spread other img attributes
+}) => { // Wrapped with React.memo
   const [isZoomed, setIsZoomed] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isLoading, setIsLoading] = useState(true);
@@ -123,7 +137,13 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({ src, alt, clas
         }
         onLoad={() => setIsLoading(false)}
         loading="lazy" // Already present, good.
+        srcSet={srcSet}
+        sizes={sizes}
+        {...props} // Spread other img attributes to the img tag
       />
+      {caption && !isZoomed && (
+        <figcaption className="text-xs text-center text-foreground/70 mt-2">{caption}</figcaption>
+      )}
 
       <AnimatePresence>
         {isZoomed && typeof document !== 'undefined' && createPortal(

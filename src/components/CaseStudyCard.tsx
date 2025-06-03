@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion'; // Import the hook
 import { Card } from "@/components/ui/card";
+import { OptimizedImage } from "@/components/ui/OptimizedImage"; // Import OptimizedImage
 
 import { Badge } from "@/components/ui/badge"; // Import Badge component
 
@@ -61,11 +62,13 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
       <Card className={`rounded-3xl overflow-hidden flex flex-col sm:flex-row h-full ${cardClassName}`}>
         {/* Left side - Image */}
         <div className="relative w-full sm:w-48 md:w-56 lg:w-64 xl:w-72 flex-shrink-0 h-48 sm:h-auto">
-          <img
+          <OptimizedImage
             src={image}
             alt={image === '/placeholder-ux-design.svg' ? "" : title}
             className="w-full h-full object-cover"
-            loading="lazy"
+            lazy={true}
+            priority={false}
+            // width and height can be omitted if layout is handled by parent div and object-cover
           />
           <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-xl text-sm font-medium text-gray-700 shadow-sm">
             {year}

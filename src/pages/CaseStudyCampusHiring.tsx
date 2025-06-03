@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Header from "../components/layout/Header.tsx";
 import Footer from "../components/layout/Footer.tsx";
@@ -214,7 +213,7 @@ const CaseStudyCampusHiring = () => {
                 <ZoomableImage
                   src="/Elanable-uploads/Camu.png"
                   alt="Collage of user personas and journey map sketches for campus hiring"
-                  caption="User personas and journey maps developed during the discovery phase."
+                  caption="User personas and journey maps developed during the discovery phase to guide design."
                   className="aspect-video"
                 />
               </div>
@@ -245,7 +244,7 @@ const CaseStudyCampusHiring = () => {
               <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu-Recruitment-Dashboard.png"
-                  alt="Early wireframes and high-fidelity prototypes of the Camu recruitment app"
+                  alt="Early wireframes and high-fidelity prototypes of the Camu recruitment app dashboard"
                   caption="Wireframes and prototypes illustrating the evolution of the job posting and candidate management flows."
                   className="aspect-video"
                 />
@@ -283,7 +282,7 @@ const CaseStudyCampusHiring = () => {
               <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-tertiary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu.png"
-                  alt="UI mockups showing iterations of the external tracking link modal and AI autofill suggestions"
+                  alt="UI mockups showing iterations of the external tracking link modal and AI autofill suggestions for the Camu app"
                   caption="Iterations on AI autofill suggestions and external tracking link modals based on usability feedback."
                   className="aspect-video"
                 />
@@ -332,7 +331,7 @@ const CaseStudyCampusHiring = () => {
               <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu-Recruitment-Dashboard.png"
-                  alt="Final UI of the Camu Campus Recruitment dashboard showing job postings and candidate lists"
+                  alt="Final UI of the Camu Campus Recruitment dashboard interface showcasing job postings and candidate lists"
                   caption="The final dashboard UI for recruiters, showcasing clear job management and candidate tracking features."
                   className="aspect-video"
                 />
@@ -481,3 +480,5 @@ const CaseStudyCampusHiring = () => {
 };
 
 export default CaseStudyCampusHiring;
+
+[end of src/pages/CaseStudyCampusHiring.tsx]

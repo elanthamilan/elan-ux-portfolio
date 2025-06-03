@@ -13,6 +13,8 @@ interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
   priority?: boolean;
   width?: number;
   height?: number;
+  srcSet?: string; // For optimal performance with srcSet and sizes, provide actual multiple image sources and descriptors.
+  sizes?: string;
 }
 
 const OptimizedImage: React.FC<OptimizedImageProps> = ({
@@ -26,6 +28,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   priority = false,
   width,
   height,
+  srcSet,
+  sizes,
   ...props
 }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -118,6 +122,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
           decoding="async"
           width={width}
           height={height}
+          srcSet={srcSet}
+          sizes={sizes}
           {...props}
         />
       )}
