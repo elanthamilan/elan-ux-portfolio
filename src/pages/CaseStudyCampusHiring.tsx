@@ -13,7 +13,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../components/ui/accordion"; // Adjusted path
+} from "../../components/ui/accordion"; // Adjusted path
 
 const CaseStudyCampusHiring = () => {
   useEffect(() => {
@@ -57,13 +57,21 @@ const CaseStudyCampusHiring = () => {
         </Link>
 
         <article className="max-w-4xl mx-auto space-y-12">
-          {/* Hero Section */}
+           {/* Hero Section - Enhanced with better visual hierarchy */}
           <SectionReveal>
-            <header className="mb-12 xs:mb-16 text-center">
-              <div className="flex justify-center gap-2 mb-4">
-                <Badge className="bg-[#177863] text-white hover:bg-[#177863]/90">Case Study</Badge>
-                <Badge className="bg-[#177863] text-white hover:bg-[#177863]/90">EdTech</Badge>
-                <Badge className="bg-[#177863] text-white hover:bg-[#177863]/90">UX Research</Badge>
+            <div className="reveal">
+              {/* Meta badges and info */}
+              <div className="mb-6 flex flex-wrap items-center gap-3">
+                <Badge className="bg-[#177863] text-white px-3 py-1.5 text-sm font-medium rounded-md shadow-sm border border-[#177863]">
+                  Case Study
+                </Badge>
+                <Badge className="bg-[#16325A]/15 text-[#16325A] border-[#16325A]/30 px-3 py-1.5 text-sm font-medium rounded-md border">
+                  EdTech
+                </Badge>
+                <Badge className="bg-[#F8F4F2] text-[#177863] border-[#177863]/25 px-3 py-1.5 text-sm font-medium rounded-md border">
+                  UX Research
+                </Badge>
+                <span className="text-sm text-foreground/70 ml-auto">Published April 2025</span>
               </div>
 
               {/* Main title with enhanced typography */}
@@ -75,20 +83,24 @@ const CaseStudyCampusHiring = () => {
               <p className="text-xl xs:text-2xl text-foreground/80 mb-8 leading-relaxed font-medium">
                 Revamped Camu's recruitment app, transforming a complex process into an efficient platform for universities, recruiters, and students, driving significant revenue.
               </p>
-            </header>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 xs:gap-8 mb-10 xs:mb-12 text-center">
-              <div>
-                <p className="text-2xl xs:text-3xl font-bold mb-1 text-[#177863] dark:text-[#177863]">6 months</p>
-                <p className="text-xs xs:text-sm text-foreground/70 uppercase tracking-wider">Timeline</p>
-              </div>
-              <div>
-                <p className="text-2xl xs:text-3xl font-bold mb-1 text-[#16325A] dark:text-[#16325A]">Lead UX</p>
-                <p className="text-xs xs:text-sm text-foreground/70 uppercase tracking-wider">My Role</p>
-              </div>
-              <div>
-                <p className="text-2xl xs:text-3xl font-bold mb-1 text-[#177863] dark:text-[#177863]">$500K Revenue Uplift & 40% Faster Hiring</p>
-                <p className="text-xs xs:text-sm text-foreground/70 uppercase tracking-wider">Impact</p>
+              {/* Key metrics in a clean grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 p-6 bg-gradient-to-br from-[#177863]/8 to-[#16325A]/8 rounded-2xl border border-[#177863]/20">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#177863] mb-1">6 months</div>
+                  <div className="text-sm text-foreground/70 uppercase tracking-wider">Timeline</div>
+                  <div className="text-sm text-foreground/60">Jan - June 2024</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#16325A] mb-1">Lead UX</div>
+                  <div className="text-sm text-foreground/70 uppercase tracking-wider">My Role</div>
+                  <div className="text-sm text-foreground/60">Research, Design, Testing</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#177863] mb-1">$500K Revenue Uplift & 40% Faster Hiring</div>
+                  <div className="text-sm text-foreground/70 uppercase tracking-wider">Impact</div>
+                  <div className="text-sm text-foreground/60">Driving business growth & streamlining operations.</div>
+                </div>
               </div>
             </div>
           </SectionReveal>
@@ -140,7 +152,7 @@ const CaseStudyCampusHiring = () => {
               {/* Adaptive Typography for H2. Adjusted mb. */}
               <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal">My Role & Responsibilities</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
-                As Lead Interaction Designer, I drove the UX strategy and design, collaborating with product and engineering teams to deliver a seamless user experience.
+                As Lead Interaction Designer, I drove the UX strategy and design, collaborating with product and engineering teams to deliver a seamless user experience. This project involved collaboration with a dedicated team of product managers, engineers, and fellow designers.
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal">
                 <AccordionItem value="item-responsibilities">
@@ -173,17 +185,17 @@ const CaseStudyCampusHiring = () => {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 xs:gap-6 mb-6 xs:mb-8 reveal"> {/* Adjusted gap and mb */}
                  {/* Responsive padding for info boxes: p-3 xs:p-4 sm:p-5 */}
-                <div className="border border-[#177863]/20 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm">
+                <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm">
                   {/* Adaptive Typography for H4 (used as sub-sub-heading). Adjusted mb. */}
-                  <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-[#177863] dark:text-[#177863] font-heading">Recruiters</h4>
+                  <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-primary font-heading">Recruiters</h4>
                   <p className="text-foreground text-sm xs:text-base leading-relaxed">Needed quick job posting, candidate targeting, and easy application tracking.</p>
                 </div>
-                <div className="border border-[#177863]/20 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm">
-                  <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-[#177863] dark:text-[#177863] font-heading">Placement Officers</h4>
+                <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm">
+                  <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-primary font-heading">Placement Officers</h4>
                   <p className="text-foreground text-sm xs:text-base leading-relaxed">Required centralized policy management, interview scheduling, and reporting.</p>
                 </div>
-                <div className="border border-[#177863]/20 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm">
-                  <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-[#177863] dark:text-[#177863] font-heading">Students</h4>
+                <div className="border border-brand-primary/30 rounded-lg p-3 xs:p-4 sm:p-5 reveal bg-white shadow-sm">
+                  <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-primary font-heading">Students</h4>
                   <p className="text-foreground text-sm xs:text-base leading-relaxed">Wanted intuitive job discovery, simple applications, and progress tracking.</p>
                 </div>
               </div>
@@ -198,10 +210,11 @@ const CaseStudyCampusHiring = () => {
                 </AccordionItem>
               </Accordion>
               {/* Full width image container, adjust vertical margin */}
-              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-[#177863]/20"> {/* Removed overflow-hidden */}
+              <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu.png"
-                  alt="User Personas and Journey Map"
+                  alt="Collage of user personas and journey map sketches for campus hiring"
+                  caption="User personas and journey maps developed during the discovery phase."
                   className="aspect-video"
                 />
               </div>
@@ -217,7 +230,7 @@ const CaseStudyCampusHiring = () => {
                 <AccordionItem value="item-elan-thinking-ideation">
                   <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-secondary hover:text-brand-secondary/80">Design Rationale: Systemic Thinking & User Advocacy</AccordionTrigger>
                   <AccordionContent className="pt-2">
-                    <blockquote className="border-l-4 border-[#16325A]/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
+                    <blockquote className="border-l-4 border-brand-secondary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
                       <p className="mb-1.5 xs:mb-2 text-foreground text-sm xs:text-base">Initial 'Quick Post' concepts failed systemically by not integrating with Placement Officer approvals or providing student clarity. The multi-step form, though slightly longer for recruiters, vastly improved data quality, fueling AI matching and streamlining PO oversight—a win for the entire ecosystem. Advocating for this required demonstrating how deliberate recruiter input reduced downstream friction for all.</p>
                     </blockquote>
                   </AccordionContent>
@@ -232,7 +245,8 @@ const CaseStudyCampusHiring = () => {
               <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-secondary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu-Recruitment-Dashboard.png"
-                  alt="Wireframes and Prototypes"
+                  alt="Early wireframes and high-fidelity prototypes of the Camu recruitment app"
+                  caption="Wireframes and prototypes illustrating the evolution of the job posting and candidate management flows."
                   className="aspect-video"
                 />
               </div>
@@ -249,16 +263,16 @@ const CaseStudyCampusHiring = () => {
                   <AccordionContent className="pt-2">
                     <div className="space-y-4 xs:space-y-6"> {/* Adjusted spacing and mb */}
                       {/* Responsive padding for iteration boxes */}
-                      <div className="border border-[#177863]/20 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
-                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-[#177863] dark:text-[#177863] font-heading">Form Structure Refined:</h4>
+                      <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
+                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-tertiary font-heading">Form Structure Refined:</h4>
                         <p className="text-base xs:text-lg text-foreground leading-relaxed">Replaced overwhelming single-page forms with a multi-step approach and autosave, boosting clarity and task completion.</p>
                       </div>
-                      <div className="border border-[#177863]/20 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
-                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-[#177863] dark:text-[#177863] font-heading">AI Autofill Optimized:</h4>
+                      <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
+                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-tertiary font-heading">AI Autofill Optimized:</h4>
                         <p className="text-base xs:text-lg text-foreground leading-relaxed">Balanced automation with user control by making AI autofill optional with easy overrides, building trust.</p>
                       </div>
-                      <div className="border border-[#177863]/20 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
-                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-[#177863] dark:text-[#177863] font-heading">External Tracking Clarified:</h4>
+                      <div className="border border-brand-tertiary/30 rounded-lg p-3 xs:p-4 sm:p-6 bg-white shadow-sm">
+                        <h4 className="font-semibold text-lg xs:text-xl mb-1.5 xs:mb-2 text-brand-tertiary font-heading">External Tracking Clarified:</h4>
                         <p className="text-base xs:text-lg text-foreground leading-relaxed">Simplified messaging for external application links, enhancing user understanding and confidence.</p>
                       </div>
                     </div>
@@ -269,7 +283,8 @@ const CaseStudyCampusHiring = () => {
               <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-tertiary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu.png"
-                  alt="Iteration Examples and UI Mockups"
+                  alt="UI mockups showing iterations of the external tracking link modal and AI autofill suggestions"
+                  caption="Iterations on AI autofill suggestions and external tracking link modals based on usability feedback."
                   className="aspect-video"
                 />
               </div>
@@ -282,9 +297,9 @@ const CaseStudyCampusHiring = () => {
              {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/10 shadow-lg border border-[#177863]/25">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">The Solution</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">The Solution: A Unified & Efficient Recruitment App</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
-                The final design delivered a seamless, data-driven campus recruitment app integrated within the Camu SIS. It provided distinct, intuitive flows for each user persona, directly addressing their critical red routes and creating a cohesive ecosystem.
+                The redesigned Camu app delivered a seamless, data-driven recruitment experience integrated within the SIS, with distinct, intuitive flows for each user.
               </p>
               <div className="space-y-6 xs:space-y-8 reveal"> {/* Adjusted spacing */}
                 <div className="reveal">
@@ -317,7 +332,8 @@ const CaseStudyCampusHiring = () => {
               <div className="w-full bg-accent-bg rounded-lg my-8 xs:my-12 shadow-lg reveal border border-brand-primary/20"> {/* Removed overflow-hidden */}
                 <ZoomableImage
                   src="/Elanable-uploads/Camu-Recruitment-Dashboard.png"
-                  alt="Final UI Screens and Key Flows"
+                  alt="Final UI of the Camu Campus Recruitment dashboard showing job postings and candidate lists"
+                  caption="The final dashboard UI for recruiters, showcasing clear job management and candidate tracking features."
                   className="aspect-video"
                 />
               </div>
@@ -336,21 +352,21 @@ const CaseStudyCampusHiring = () => {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 reveal"> {/* Adjusted gap */}
                  {/* Responsive padding for stat boxes */}
-                <div className="border border-[#16325A]/20 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
+                <div className="border border-brand-secondary/30 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
                   {/* Adaptive Typography for stats. Adjusted mb. */}
-                  <p className="text-3xl xs:text-4xl sm:text-5xl font-semibold text-[#16325A] dark:text-[#16325A] mb-0.5 xs:mb-1">30%</p>
+                  <p className="text-3xl xs:text-4xl sm:text-5xl font-semibold text-brand-secondary mb-0.5 xs:mb-1">30%</p>
                   <p className="text-foreground text-sm xs:text-base leading-relaxed">Faster Time-to-Hire (Recruiter & Student Journey Improvement)</p>
                 </div>
-                <div className="border border-[#16325A]/20 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
-                  <p className="text-3xl xs:text-4xl sm:text-5xl font-semibold text-[#16325A] dark:text-[#16325A] mb-0.5 xs:mb-1">40%</p>
+                <div className="border border-brand-secondary/30 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
+                  <p className="text-3xl xs:text-4xl sm:text-5xl font-semibold text-brand-secondary mb-0.5 xs:mb-1">40%</p>
                   <p className="text-foreground text-sm xs:text-base leading-relaxed">Reduced PO Workload (Placement Officer Journey Improvement)</p>
                 </div>
-                <div className="border border-[#16325A]/20 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
-                  <p className="text-3xl xs:text-4xl sm:text-5xl font-semibold text-[#16325A] dark:text-[#16325A] mb-0.5 xs:mb-1">25%</p>
+                <div className="border border-brand-secondary/30 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
+                  <p className="text-3xl xs:text-4xl sm:text-5xl font-semibold text-brand-secondary mb-0.5 xs:mb-1">25%</p>
                   <p className="text-foreground text-sm xs:text-base leading-relaxed">Increased SIS Engagement (Student & Recruiter Journey Benefit)</p>
                 </div>
-                <div className="border border-[#16325A]/20 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
-                  <p className="text-3xl xs:text-4xl sm:text-5xl font-semibold text-[#16325A] dark:text-[#16325A] mb-0.5 xs:mb-1">$500K</p>
+                <div className="border border-brand-secondary/30 bg-white p-3 xs:p-4 sm:p-6 rounded-lg text-center reveal shadow-sm">
+                  <p className="text-3xl xs:text-4xl sm:text-5xl font-semibold text-brand-secondary mb-0.5 xs:mb-1">$500K</p>
                   <p className="text-foreground text-sm xs:text-base leading-relaxed">New Revenue Stream (Business Outcome from improved journeys)</p>
                 </div>
               </div>
@@ -372,7 +388,7 @@ const CaseStudyCampusHiring = () => {
               </p>
               <Accordion type="single" collapsible className="w-full space-y-2 reveal my-6 xs:my-8">
                 <AccordionItem value="item-elan-thinking-learnings">
-                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-tertiary hover:text-brand-tertiary/80">Personal Growth: Navigating Challenges</AccordionTrigger>
+                  <AccordionTrigger className="text-base xs:text-lg font-medium text-brand-tertiary hover:text-brand-tertiary/80">Reflection: Navigating Challenges</AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <blockquote className="border-l-4 border-brand-tertiary/50 pl-3 xs:pl-4 sm:pl-6 italic text-foreground/80 bg-white p-3 xs:p-4 rounded-r-lg shadow-sm">
                       <p className="mb-1.5 xs:mb-2 text-foreground text-sm xs:text-base">Initial setbacks, like the 'Quick Post' concept, were vital learning experiences. It taught me to rigorously prioritize data and user feedback over personal attachment to ideas, ensuring user trust remained the guiding principle for true problem-solving.</p>
@@ -403,7 +419,7 @@ const CaseStudyCampusHiring = () => {
           {/* Continue Reading Section - Inspired by case study cards design */}
           <SectionReveal>
             <section className="mb-12 xs:mb-16 reveal">
-              <div className="bg-gradient-to-br from-[#177863]/12 to-[#177863]/6 border-[#177863]/20 shadow-[#177863]/20 rounded-3xl overflow-hidden shadow-lg border-2 hover:shadow-xl transition-all duration-300 ease-in-out">
+              <div className="bg-gradient-to-br from-brand-primary/12 to-brand-primary/6 border-brand-primary/20 shadow-brand-primary/20 rounded-3xl overflow-hidden shadow-lg border-2 hover:shadow-xl transition-all duration-300 ease-in-out">
                 <div className="px-6 py-8 md:px-8 md:py-10">
                   <div className="text-center mb-6">
                     <h3 className="text-2xl xs:text-3xl sm:text-4xl font-bold font-heading text-[#177863] dark:text-[#177863] mb-3">
@@ -443,7 +459,7 @@ const CaseStudyCampusHiring = () => {
                     <div className="text-center">
                       <Link
                         to="/"
-                        className="inline-flex items-center text-foreground/50 hover:text-[#177863] transition-colors duration-200 text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50/50 dark:hover:bg-slate-800/30"
+                        className="inline-flex items-center text-foreground/50 hover:text-brand-primary transition-colors duration-200 text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50/50 dark:hover:bg-slate-800/30"
                       >
                         <ArrowLeft size={14} className="mr-1.5" />
                         Back to Home
