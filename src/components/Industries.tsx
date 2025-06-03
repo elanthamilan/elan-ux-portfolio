@@ -31,6 +31,7 @@ const INDUSTRIES_DATA = [
 const Industries = React.memo(() => {
   return (
     <section className="mb-6 md:mb-8">
+      <h2 className="sr-only">Industries I have Worked In</h2>
       <UnifiedAccordion
         title="🏭 Industries I have Worked In"
         items={INDUSTRIES_DATA}

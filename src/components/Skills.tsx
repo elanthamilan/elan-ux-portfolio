@@ -43,6 +43,7 @@ const SKILLS_DATA = [
 const Skills = React.memo(() => {
   return (
     <section className="mb-8">
+      <h2 className="sr-only">My Problem-Solving Toolkit</h2>
       <UnifiedAccordion
         title="🛠️ My Problem-Solving Toolkit"
         items={SKILLS_DATA}

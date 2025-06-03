@@ -8,7 +8,7 @@ const BrandsSection: React.FC = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <section className="mb-8 md:mb-12" aria-labelledby="brands-worked-with-title">
-      <h3 id="brands-worked-with-title" className="text-lg font-semibold mb-3 md:mb-4">
+      <h2 id="brands-worked-with-title" className="text-3xl md:text-4xl font-bold mb-8 text-black">
         <ScrambleIn
           text="🏢 Brands I Have Worked With"
           scrambleSpeed={30}
