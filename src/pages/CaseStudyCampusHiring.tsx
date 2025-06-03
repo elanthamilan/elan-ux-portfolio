@@ -12,7 +12,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../../components/ui/accordion"; // Adjusted path
+} from "../components/components/ui/accordion";
 
 const CaseStudyCampusHiring = () => {
   useEffect(() => {
@@ -123,7 +123,7 @@ const CaseStudyCampusHiring = () => {
               {/* Responsive padding: px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8. Adjusted mb. */}
               <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/3 shadow-lg border border-[#177863]/20">
                 {/* Adaptive Typography for H2: text-2xl xs:text-3xl sm:text-4xl. Adjusted mb. */}
-                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal">The Challenge: Untangling Complex Campus Recruitment</h2>
+                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal text-center">The Challenge: Untangling Complex Campus Recruitment</h2>
                 <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                   <strong className="font-medium text-foreground">Project Name:</strong> Camu Campus Recruitment App (Shipped: April 2025).
                 </p>
@@ -149,7 +149,7 @@ const CaseStudyCampusHiring = () => {
              {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/6 to-[#16325A]/3 shadow-lg border border-[#16325A]/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal">My Role & Responsibilities</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal text-center">My Role & Responsibilities</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 As Lead Interaction Designer, I drove the UX strategy and design, collaborating with product and engineering teams to deliver a seamless user experience. This project involved collaboration with a dedicated team of product managers, engineers, and fellow designers.
               </p>
@@ -175,10 +175,10 @@ const CaseStudyCampusHiring = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#F8F4F2]/40 to-[#F8F4F2]/60 shadow-lg border border-[#177863]/15">
                {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal">Design Process: From User Insights to Impactful Solution</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] font-heading reveal text-center">Design Process: From User Insights to Impactful Solution</h2>
 
               {/* Adaptive Typography for H3. Adjusted mb. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-brand-primary font-heading reveal">Understanding User Needs (Discovery & Research)</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-brand-primary font-heading reveal text-center">Understanding User Needs (Discovery & Research)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 Began by deeply understanding the three core user groups—Recruiters, Placement Officers, and Students—through interviews and surveys. While needs varied, a common desire for simplicity and efficiency emerged.
               </p>
@@ -221,7 +221,7 @@ const CaseStudyCampusHiring = () => {
 
               {/* REVISED Ideation & Design START */}
               {/* Adaptive Typography for H3. Adjusted margins. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-brand-secondary font-heading reveal">Crafting Intuitive Workflows (Ideation & Design)</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-brand-secondary font-heading reveal text-center">Crafting Intuitive Workflows (Ideation & Design)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 User research highlighted recruiters' frustration with lengthy, single-page forms. Based on this, we conceptualized and prototyped a multi-step job posting form for Recruiters, focusing on balancing clarity with efficiency. This structured approach, a direct response to user feedback and a shift from an initial single-page concept, cut form abandonment by 38% and improved data quality for students and placement officers.
               </p>
@@ -252,7 +252,7 @@ const CaseStudyCampusHiring = () => {
 
               {/* Testing & Iteration (Original Content) */}
               {/* Adaptive Typography for H3. Adjusted margins. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#177863] dark:text-[#177863] font-heading reveal">Refining Through User Feedback (Testing & Iteration)</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#177863] dark:text-[#177863] font-heading reveal text-center">Refining Through User Feedback (Testing & Iteration)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 Conducted iterative usability testing, leading to key design refinements that significantly improved user experience.
               </p>
@@ -296,7 +296,7 @@ const CaseStudyCampusHiring = () => {
              {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/10 shadow-lg border border-[#177863]/25">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal">The Solution: A Unified & Efficient Recruitment App</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-brand-primary font-heading reveal text-center">The Solution: A Unified & Efficient Recruitment App</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
                 The redesigned Camu app delivered a seamless, data-driven recruitment experience integrated within the SIS, with distinct, intuitive flows for each user.
               </p>
@@ -345,7 +345,7 @@ const CaseStudyCampusHiring = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/6 to-[#16325A]/10 shadow-lg border border-[#16325A]/25">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal">Results: Driving Efficiency and Growth</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal text-center">Results: Driving Efficiency and Growth</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
                 The redesigned app significantly improved key metrics across user journeys, delivering substantial user and business value.
               </p>
@@ -381,7 +381,7 @@ const CaseStudyCampusHiring = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/8 to-[#16325A]/12 shadow-lg border border-[#16325A]/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal">Key Learnings & Design Principles</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] font-heading reveal text-center">Key Learnings & Design Principles</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 This project reinforced the power of user-centric design and iterative development in solving complex challenges and delivering measurable results.
               </p>
@@ -480,5 +480,3 @@ const CaseStudyCampusHiring = () => {
 };
 
 export default CaseStudyCampusHiring;
-
-[end of src/pages/CaseStudyCampusHiring.tsx]

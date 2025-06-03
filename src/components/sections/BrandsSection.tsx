@@ -1,23 +1,27 @@
 // src/components/sections/BrandsSection.tsx
 import React from 'react';
 import { motion } from 'motion/react';
-import ScrambleIn from '../../fancy/components/text/scramble-in';
+
 import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion';
 
 const BrandsSection: React.FC = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <section className="mb-8 md:mb-12" aria-labelledby="brands-worked-with-title">
-      <h2 id="brands-worked-with-title" className="text-3xl md:text-4xl font-bold mb-8 text-black">
-        <ScrambleIn
-          text="🏢 Brands I Have Worked With"
-          scrambleSpeed={30}
-          scrambledLetterCount={2}
-          className="text-black"
-          scrambledClassName="text-gray-500"
-          autoStart={true}
-        />
-      </h3>
+      <motion.h2
+        id="brands-worked-with-title"
+        className="text-lg font-semibold mb-3 md:mb-4 text-black"
+        initial={{ opacity: 0, y: 15, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: "-20px" }}
+        transition={{
+          duration: 0.8,
+          delay: 0.1,
+          ease: [0.16, 1, 0.3, 1]
+        }}
+      >
+        🏢 Brands I Have Worked With
+      </motion.h2>
       <div className="relative overflow-hidden">
         <motion.div
           className="flex gap-6 items-center"

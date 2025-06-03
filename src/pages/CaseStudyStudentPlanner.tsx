@@ -7,19 +7,16 @@ import { Link } from "react-router-dom";
 import { Badge } from "../components/ui/badge.tsx";
 // import ImageCarousel from "../components/ui/ImageCarousel.tsx"; // Replaced with BigImageCarousel
 import CSSCarousel from "../components/ui/CSSCarousel.tsx";
+import ZoomableImage from "../components/ui/ZoomableImage.tsx";
 import SectionReveal from '../components/SectionReveal.tsx';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../../components/ui/accordion";
+} from "../components/components/ui/accordion";
 
-const placeholderImages = [
-  { src: "/placeholder.svg", alt: "Placeholder Image 1 for carousel" },
-  { src: "/placeholder.svg", alt: "Placeholder Image 2 for carousel" },
-  { src: "/placeholder.svg", alt: "Placeholder Image 3 for carousel" },
-];
+
 
 const CaseStudyStudentPlanner = () => {
   useEffect(() => {
@@ -128,7 +125,7 @@ const CaseStudyStudentPlanner = () => {
             {/* Responsive padding: px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8. Adjusted mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#16325A]/6 to-[#16325A]/3 shadow-lg border border-[#16325A]/20">
                {/* Adaptive Typography for H2: text-2xl xs:text-3xl sm:text-4xl. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal">The Challenge: Overcoming Student Scheduling Overwhelm</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal text-center">The Challenge: Overcoming Student Scheduling Overwhelm</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 <strong className="font-medium text-foreground">Project Name:</strong> Student Course Planner Redesign (AI Advisor Integration) (Shipped: May 2025).
               </p>
@@ -174,7 +171,7 @@ const CaseStudyStudentPlanner = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/3 shadow-lg border border-[#177863]/20">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal">My Role: Staff UX Lead & Strategist</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal text-center">My Role: Staff UX Lead & Strategist</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 As Staff UX Designer (Lead), I led the user research, UX strategy for AI integration, and the complete interaction and interface design to create a personalized and intuitive planner. I collaborated closely with product and engineering teams to bring this vision to life.
               </p>
@@ -201,10 +198,10 @@ const CaseStudyStudentPlanner = () => {
           <SectionReveal>
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#F8F4F2]/40 to-[#F8F4F2]/60 shadow-lg border border-[#177863]/15">
                {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal">Design Process: Empathy, AI, and Iteration</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal text-center">Design Process: Empathy, AI, and Iteration</h2>
 
               {/* Adaptive Typography for H3. Adjusted mb. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-[#16325A] dark:text-[#16325A] font-heading reveal">Uncovering Student Needs (Discovery & Research)</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 text-[#16325A] dark:text-[#16325A] font-heading reveal text-center">Uncovering Student Needs (Discovery & Research)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 Deep user research, including surveys and interviews, revealed that 75% of students felt overwhelmed and 60% craved a simpler planner. Critically, personas like 'Priya'—a part-time student needing to schedule around work (1-2 PM, Mon-Thu) and prioritize morning classes—highlighted that existing tools couldn't handle such nuanced, real-life constraints. This insight directly led to 'Advanced Constraint Input' becoming a cornerstone of our solution.
               </p>
@@ -240,7 +237,7 @@ const CaseStudyStudentPlanner = () => {
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#177863] dark:text-[#177863] font-heading reveal">Solution Principles & Early Designs (Ideation & Design)</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#177863] dark:text-[#177863] font-heading reveal text-center">Solution Principles & Early Designs (Ideation & Design)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 Reimagined the planner around three core principles: <strong className="font-medium text-foreground">Flexibility</strong> (nuanced constraints), <strong className="font-medium text-foreground">Visualization</strong> (clear calendars), and <strong className="font-medium text-foreground">AI Integration</strong> (personalized, controllable suggestions). Early lo-fi wireframes focused on the flow: input constraints, view AI suggestions, customize, register. The AI Advisor was key, but designed to be transparent, not a 'black box,' ensuring students understood suggestions and could easily override them.
               </p>
@@ -266,7 +263,7 @@ const CaseStudyStudentPlanner = () => {
               </div>
 
               {/* Adaptive Typography for H3. Adjusted margins. */}
-              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#16325A] dark:text-[#16325A] font-heading reveal">Refining with User Feedback (Testing & Iteration)</h3>
+              <h3 className="text-xl xs:text-2xl sm:text-3xl font-semibold mb-3 xs:mb-4 mt-8 xs:mt-12 text-[#16325A] dark:text-[#16325A] font-heading reveal text-center">Refining with User Feedback (Testing & Iteration)</h3>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 Progressed to high-fidelity prototypes, testing calendar views and AI interfaces. Usability testing was vital: students loved AI suggestions but wanted more granular calendar control. This feedback led to adding filters for course types/instructors for finer schedule tuning.
               </p>
@@ -305,7 +302,7 @@ const CaseStudyStudentPlanner = () => {
               {/* Responsive padding for text content container */}
               <div className="px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8">
                 {/* Adaptive Typography for H2. Adjusted mb. */}
-                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal">The Solution: An AI-Powered, Flexible Course Planner</h2>
+                <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#16325A] dark:text-[#16325A] font-heading reveal text-center">The Solution: An AI-Powered, Flexible Course Planner</h2>
                 <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
                   The redesigned Student Course Planner delivered a flexible, intuitive, and AI-assisted scheduling experience.
                 </p>
@@ -336,7 +333,7 @@ const CaseStudyStudentPlanner = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#177863]/6 to-[#177863]/10 shadow-lg border border-[#177863]/25">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal">Impact: Towards Smarter Student Scheduling</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal text-center">Impact: Towards Smarter Student Scheduling</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-4 xs:mb-6 reveal">
                 The project targeted significant improvements in efficiency and user satisfaction, with strong positive indicators from usability testing.
               </p>
@@ -366,7 +363,7 @@ const CaseStudyStudentPlanner = () => {
             {/* Responsive padding and mb. */}
             <section className="mb-12 xs:mb-16 reveal px-3 py-5 xs:px-4 xs:py-6 sm:p-6 md:p-8 rounded-lg bg-gradient-to-br from-[#F8F4F2]/50 to-[#F8F4F2]/70 shadow-lg border border-[#177863]/15">
               {/* Adaptive Typography for H2. Adjusted mb. */}
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal">Key Learnings & Design Philosophy</h2>
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl font-semibold mb-4 xs:mb-6 text-[#177863] dark:text-[#177863] font-heading reveal text-center">Key Learnings & Design Philosophy</h2>
               <p className="text-foreground leading-relaxed text-base xs:text-lg mb-3 xs:mb-4 reveal">
                 This redesign underscored how balancing advanced AI with core user needs for control and clarity leads to successful adoption.
               </p>

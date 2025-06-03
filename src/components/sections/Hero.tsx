@@ -1,12 +1,12 @@
-import React, { lazy, Suspense } from 'react'; // Added lazy and Suspense
+import { lazy, Suspense } from 'react'; // Added lazy and Suspense
 import Header from "../layout/Header";
 // import Footer from "../layout/Footer"; // Removed
 // import Skills from "../Skills"; // Removed
 // import Industries from "../Industries"; // Removed
 import CaseStudyCard from "../CaseStudyCard";
-import ScrambleIn from "../../fancy/components/text/scramble-in";
+
 import { motion } from 'motion/react';
-import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion';
+
 // import BrandsSection from './BrandsSection'; // Removed
 
 // Define lazy-loaded components
@@ -23,7 +23,6 @@ const LoadingFallback = ({ minHeight = '100px', text = 'Loading...' }) => (
 
 // Simple HomePage component that matches the attachment layout
 const HomePage = () => {
-  const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <div
       className="text-gray-900 font-sans"
@@ -49,25 +48,30 @@ const HomePage = () => {
             <div className="mb-12">
               {/* Main Headline */}
               <div className="mb-8">
-                <h1 className="text-4xl md:text-5xl font-bold mb-2 leading-tight">
-                  <ScrambleIn
-                    text="Designing Intuitive Experiences"
-                    scrambleSpeed={30}
-                    scrambledLetterCount={3}
-                    className="text-black"
-                    scrambledClassName="text-gray-500"
-                  />
-                </h1>
-                <h2 className="text-2xl font-semibold text-[#16325A] mb-8">
-                  <ScrambleIn
-                    text="for Complex Enterprise Systems"
-                    scrambleSpeed={40}
-                    scrambledLetterCount={2}
-                    className="text-[#16325A]"
-                    scrambledClassName="text-[#16325A]/60"
-                    autoStart={true}
-                  />
-                </h2>
+                <motion.h1
+                  className="text-4xl md:text-5xl font-bold mb-2 leading-tight text-black"
+                  initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    duration: 1.2,
+                    delay: 0.2,
+                    ease: [0.16, 1, 0.3, 1]
+                  }}
+                >
+                  Designing Intuitive Experiences
+                </motion.h1>
+                <motion.h2
+                  className="text-2xl font-semibold text-[#16325A] mb-8"
+                  initial={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{
+                    duration: 1.4,
+                    delay: 0.8,
+                    ease: [0.23, 1, 0.32, 1]
+                  }}
+                >
+                  for Complex Enterprise Systems
+                </motion.h2>
               </div>
 
               {/* Introduction */}
@@ -141,16 +145,20 @@ const HomePage = () => {
 
             {/* Case Studies - Prominent in Left Column with extra spacing */}
             <section aria-labelledby="case-studies-title" className="mt-12 md:mt-16">
-              <h2 id="case-studies-title" className="text-3xl md:text-4xl font-bold mb-8 text-black">
-                <ScrambleIn
-                  text="Problems I've Actually Solved"
-                  scrambleSpeed={25}
-                  scrambledLetterCount={2}
-                  className="text-black"
-                  scrambledClassName="text-gray-500"
-                  autoStart={true}
-                />
-              </h2>
+              <motion.h2
+                id="case-studies-title"
+                className="text-3xl md:text-4xl font-bold mb-8 text-black"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.2,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+              >
+                Problems I've Actually Solved
+              </motion.h2>
               <div className="space-y-8">
                 <CaseStudyCard
                   title="CAMU Course Compass: Revolutionizing Student Planning"
@@ -205,16 +213,19 @@ const HomePage = () => {
           <div className="space-y-8 md:space-y-12 md:max-w-md lg:max-w-none mx-auto lg:mx-0">
             {/* Get In Touch - Moved to top, sticky on desktop */}
             <section className="mb-8 md:mb-12 md:sticky md:top-24 md:z-10">
-              <h3 className="text-lg font-semibold mb-3 md:mb-4">
-                <ScrambleIn
-                  text="📞 Get In Touch"
-                  scrambleSpeed={30}
-                  scrambledLetterCount={2}
-                  className="text-black"
-                  scrambledClassName="text-gray-500"
-                  autoStart={true}
-                />
-              </h3>
+              <motion.h3
+                className="text-lg font-semibold mb-3 md:mb-4 text-black"
+                initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.1,
+                  ease: [0.16, 1, 0.3, 1]
+                }}
+              >
+                📞 Get In Touch
+              </motion.h3>
               <div className="grid grid-cols-1 gap-3 md:gap-4">
                 <motion.a
                   href="mailto:elanthamilan12@gmail.com"
