@@ -43,11 +43,15 @@ const PlaceholderSVG: React.FC<{ width?: number; height?: number; text?: string 
 interface CSSCarouselProps {
   images: Array<{ src?: string; alt?: string; svgPlaceholder?: boolean }>;
   carouselLabel?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 const CSSCarousel: React.FC<CSSCarouselProps> = ({
   images,
-  carouselLabel = "Image gallery"
+  carouselLabel = "Image gallery",
+  imageWidth,
+  imageHeight,
 }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -70,6 +74,7 @@ const CSSCarousel: React.FC<CSSCarouselProps> = ({
   }, []);
 
   const scrollToIndex = (index: number) => {
+    setCurrentIndex(index); // Optimistically update active dot
     const carousel = carouselRef.current;
     if (!carousel) return;
 
@@ -134,6 +139,8 @@ const CSSCarousel: React.FC<CSSCarouselProps> = ({
                       alt={img.alt || ''}
                       className="w-full h-auto object-contain aspect-video rounded-xl shadow-md"
                       loading="lazy"
+                      width={imageWidth || 1280}
+                      height={imageHeight || 720}
                     />
                   )
                 )}

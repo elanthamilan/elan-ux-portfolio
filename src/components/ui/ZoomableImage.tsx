@@ -26,7 +26,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({
   ...props // Spread other img attributes
 }) => { // Wrapped with React.memo
   const [isZoomed, setIsZoomed] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  // const [position, setPosition] = useState({ x: 0, y: 0 }); // Removed position state
   const [isLoading, setIsLoading] = useState(true);
   const imageRef = useRef<HTMLImageElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion(); // Use the hook
@@ -53,14 +53,14 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({
     }
   }, [isZoomed, isLoading, handleClose, handleClick]); // Dependencies: isZoomed, isLoading, handleClose, handleClick
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => { // Wrapped handleMouseMove with useCallback
-    if (!containerRef.current || !imageRef.current || !isZoomed) return;
+  // const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => { // Removed handleMouseMove
+  //   if (!containerRef.current || !imageRef.current || !isZoomed) return;
 
-    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
-    setPosition({ x, y });
-  }, [isZoomed]); // Dependency: isZoomed
+  //   const { left, top, width, height } = containerRef.current.getBoundingClientRect();
+  //   const x = ((e.clientX - left) / width) * 100;
+  //   const y = ((e.clientY - top) / height) * 100;
+  //   setPosition({ x, y });
+  // }, [isZoomed]); // Dependency: isZoomed
 
   useEffect(() => {
     // Define event handlers within useEffect or ensure they are stable via useCallback if defined outside
@@ -107,7 +107,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({
       ref={containerRef}
       className={`relative overflow-hidden ${!isLoading ? 'cursor-zoom-in' : 'cursor-wait'} ${className} focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg`}
       onClick={handleClick}
-      onMouseMove={handleMouseMove}
+      // onMouseMove={handleMouseMove} // Removed onMouseMove
       onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
@@ -123,18 +123,16 @@ const ZoomableImage: React.FC<ZoomableImageProps> = React.memo(({
         ref={imageRef}
         src={src}
         alt={alt}
-        className={`w-full h-full object-cover transition-transform duration-300 ${
-          isZoomed ? 'scale-150' : 'hover:scale-105'
-        } ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        className={`w-full h-full object-cover transition-transform duration-300 hover:scale-105 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
         // Removed srcset generation since responsive images don't exist
         // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
-        style={
-          isZoomed
-            ? {
-                transformOrigin: `${position.x}% ${position.y}%`,
-              }
-            : {}
-        }
+        // style={ // Removed style prop related to transformOrigin
+        //   isZoomed
+        //     ? {
+        //         transformOrigin: `${position.x}% ${position.y}%`,
+        //       }
+        //     : {}
+        // }
         onLoad={() => setIsLoading(false)}
         loading="lazy" // Already present, good.
         srcSet={srcSet}
