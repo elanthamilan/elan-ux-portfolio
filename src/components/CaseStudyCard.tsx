@@ -24,7 +24,7 @@ interface CaseStudyCardProps {
   index: number;
   cardClassName?: string; // New prop for custom card background
   accentColorName?: 'brand-primary' | 'brand-secondary' | 'brand-tertiary' | string; // New prop for accent colors
-  buttonVariant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
+  buttonVariant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'custom-purple';
 }
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
@@ -59,7 +59,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
       }}
       className="h-full" // Ensure motion div takes full height of its container if any
     >
-      <Card className={`rounded-3xl overflow-hidden flex flex-col sm:flex-row h-full ${cardClassName}`}>
+      <Card className={`rounded-3xl overflow-hidden flex flex-col sm:flex-row h-full ${cardClassName}`} style={{ background: cardClassName?.startsWith('bg-[') ? undefined : cardClassName }}>
         {/* Left side - Image */}
         <div className="relative w-full sm:w-48 md:w-56 lg:w-64 xl:w-72 flex-shrink-0 h-48 sm:h-auto">
           <OptimizedImage
@@ -134,8 +134,10 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
             href={link}
             className={`inline-flex items-center justify-center px-8 py-4 font-medium rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
               buttonVariant === "secondary"
-                ? "bg-[#234574] hover:bg-[#234574]/90 text-white focus:ring-[#234574]"
-                : "bg-[#177863] hover:bg-[#177863]/90 text-white focus:ring-[#177863]"
+                ? "bg-[#14B789] hover:bg-[#14B789]/90 text-white focus:ring-[#14B789]"
+                : buttonVariant === "custom-purple"
+                ? "bg-[#8330C2] hover:bg-[#8330C2]/90 text-white focus:ring-[#8330C2]"
+                : "bg-[#171717] hover:bg-[#171717]/90 text-white focus:ring-[#171717]"
             }`}
             whileHover={{
               scale: 1.02,

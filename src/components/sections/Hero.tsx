@@ -47,9 +47,14 @@ const HomePage = () => {
             {/* Hero Section - Properly Grouped */}
             <div className="mb-12">
               {/* Main Headline */}
-              <div className="mb-8">
+              <div className="mb-3"> {/* Reduce margin-bottom from 8 (32px) to 3 (12px) */}
+                <div className="mb-0">
+                  <span className="block text-base md:text-lg font-bold uppercase tracking-widest" style={{ color: '#177863' }}>
+                    Designing Intuitive Experiences
+                  </span>
+                </div>
                 <motion.h1
-                  className="text-4xl md:text-5xl font-bold mb-2 leading-tight text-black"
+                  className="text-4xl md:text-5xl font-bold leading-tight text-black"
                   initial={{ opacity: 0, y: 20, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{
@@ -57,21 +62,7 @@ const HomePage = () => {
                     delay: 0.2,
                     ease: [0.16, 1, 0.3, 1]
                   }}
-                >
-                  Designing Intuitive Experiences
-                </motion.h1>
-                <motion.h2
-                  className="text-2xl font-semibold text-[#16325A] mb-8"
-                  initial={{ opacity: 0, y: 15, filter: 'blur(4px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  transition={{
-                    duration: 1.4,
-                    delay: 0.8,
-                    ease: [0.23, 1, 0.32, 1]
-                  }}
-                >
-                  for Complex Enterprise Systems
-                </motion.h2>
+                />
               </div>
 
               {/* Introduction */}
@@ -82,19 +73,40 @@ const HomePage = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <div className="text-gray-800 leading-relaxed text-base">
-                  <p className="text-lg">
-                    Hi, I'm <motion.span
-                      className="font-semibold text-[#177863]"
-                      whileHover={{
-                        scale: 1.05,
-                        color: "#177863",
-                        transition: { duration: 0.2 }
-                      }}
-                    >
-                      Elanthamilan
-                    </motion.span>, a UX designer with <strong className="text-gray-900">9 years of experience</strong> in <em className="text-[#177863] font-medium">EdTech, eCommerce, and IoT</em>. I specialize in designing <strong className="text-gray-900">intuitive interfaces</strong> that streamline workflows and drive business growth, working across <em className="text-[#16325A] font-medium">startups and enterprises</em> to solve complex design challenges.
+                  <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight" style={{ color: '#16325A' }}>
+                    Transform Complexity into Effortless Product Experiences.
+                  </h1>
+                  <p className="text-lg mb-2">
+                    Imagine your users <span className="font-semibold text-[#177863]">empowered</span>, workflows <span className="font-semibold text-[#177863]">streamlined</span>. As a Product Designer, I help businesses achieve this by crafting <span className="font-semibold text-[#16325A]">intuitive interfaces</span> that transform complex enterprise systems into <span className="font-semibold text-[#177863]">effortless interactions</span>, driving <span className="font-semibold text-[#16325A]">efficiency</span> and <span className="font-semibold text-[#16325A]">growth</span>.
                   </p>
                 </div>
+              </motion.div>
+
+              {/* New Bullet Points */}
+              <motion.div
+                className="mt-8 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3 text-lg text-gray-800 leading-relaxed">
+                    <span className="material-symbols-outlined text-[#177863]">add_circle</span>
+                    <span><span className="font-semibold text-[#16325A]">Create user-centric designs</span> that handle complex workflows.</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-lg text-gray-800 leading-relaxed">
+                    <span className="material-symbols-outlined text-[#177863]">percent</span>
+                    <span><span className="font-semibold text-[#16325A]">Automate repetitive user tasks</span> — no extensive training needed.</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-lg text-gray-800 leading-relaxed">
+                    <span className="material-symbols-outlined text-[#177863]">more_horiz</span>
+                    <span><span className="font-semibold text-[#16325A]">Plug into diverse industries</span>: EdTech, eCommerce, and IoT.</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-lg text-gray-800 leading-relaxed">
+                    <span className="material-symbols-outlined text-[#177863]">post_add</span>
+                    <span><span className="font-semibold text-[#16325A]">Translate complex business requirements</span> into elegant solutions.</span>
+                  </li>
+                </ul>
               </motion.div>
 
               {/* Call to Action Buttons */}
@@ -171,7 +183,7 @@ const HomePage = () => {
                   link="/case-study/camu-course-planner"
                   tags={["UX Design", "EdTech", "AI", "Product Design"]}
                   index={0}
-                  cardClassName="bg-[#E9F5F2]"
+                  cardClassName="bg-[#F6F9F9]"
                   accentColorName="brand-primary"
                   buttonVariant="default"
                 />
@@ -186,9 +198,9 @@ const HomePage = () => {
                   link="/case-study/campus-hiring"
                   tags={["Enterprise UX", "Recruitment", "Workflow Design"]}
                   index={1}
-                  cardClassName="bg-[#F2F8F7]"
-                  accentColorName="brand-primary"
-                  buttonVariant="default"
+                  cardClassName="bg-[#D9F4D7]"
+                  accentColorName="brand-secondary"
+                  buttonVariant="secondary"
                 />
                 <CaseStudyCard
                   title="AI-Powered Course Planner: Eliminating Scheduling Conflicts"
@@ -201,9 +213,9 @@ const HomePage = () => {
                   link="/case-study/student-planner"
                   tags={["AI/UX", "Course Planning", "EdTech"]}
                   index={2}
-                  cardClassName="bg-[#F3F6F9]"
-                  accentColorName="brand-secondary"
-                  buttonVariant="secondary"
+                  cardClassName="bg-[#EFD7ED]"
+                  accentColorName="brand-tertiary"
+                  buttonVariant="custom-purple"
                 />
               </div>
             </section>
@@ -311,14 +323,10 @@ const HomePage = () => {
               <BrandsSection />
             </Suspense>
 
-
-
             {/* Industries Section */}
             <Suspense fallback={<LoadingFallback text="Loading Industries..." />}>
               <Industries />
             </Suspense>
-
-
 
             {/* Skills & Expertise Section */}
             <Suspense fallback={<LoadingFallback text="Loading Skills..." />}>
