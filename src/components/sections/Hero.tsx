@@ -1,3 +1,4 @@
+
 import { lazy, Suspense } from 'react'; // Added lazy and Suspense
 import Header from "../layout/Header";
 import CaseStudyCard from "../CaseStudyCard";
@@ -241,7 +242,6 @@ const HomePage = () => {
                   tags={["UX Design", "EdTech", "AI", "Product Design"]}
                   index={0}
                   cardClassName="bg-gradient-to-br from-[#F6F9F9] to-white/80 backdrop-blur-sm border border-gray-100/50"
-                  accentColorName="brand-primary"
                 />
                 <CaseStudyCard
                   title="Redesigning Campus Recruitment: From 15 Steps to 2 Days"
@@ -255,7 +255,6 @@ const HomePage = () => {
                   tags={["Enterprise UX", "Recruitment", "Workflow Design"]}
                   index={1}
                   cardClassName="bg-gradient-to-br from-[#D9F4D7] to-white/80 backdrop-blur-sm border border-gray-100/50"
-                  accentColorName="brand-secondary"
                 />
                 <CaseStudyCard
                   title="AI-Powered Course Planner: Eliminating Scheduling Conflicts"
@@ -269,7 +268,6 @@ const HomePage = () => {
                   tags={["AI/UX", "Course Planning", "EdTech"]}
                   index={2}
                   cardClassName="bg-gradient-to-br from-[#EFD7ED] to-white/80 backdrop-blur-sm border border-gray-100/50"
-                  accentColorName="brand-tertiary"
                 />
               </div>
             </section>
