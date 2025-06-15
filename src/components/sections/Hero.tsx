@@ -23,13 +23,7 @@ const HomePage = () => {
     <div
       className="text-gray-900 font-sans"
       style={{
-        background: `
-          radial-gradient(circle at 20% 20%, rgba(23, 120, 99, 0.04) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(22, 50, 90, 0.03) 0%, transparent 50%),
-          radial-gradient(circle at 40% 70%, rgba(248, 244, 242, 0.06) 0%, transparent 50%),
-          radial-gradient(circle at 90% 80%, rgba(23, 120, 99, 0.03) 0%, transparent 50%),
-          linear-gradient(135deg, rgba(248, 244, 242, 0.02) 0%, rgba(255, 255, 255, 0.97) 50%, rgba(23, 120, 99, 0.02) 100%)
-        `
+        background: '#FFFFFF'
       }}
     >
       <Header />
@@ -155,10 +149,11 @@ const HomePage = () => {
               >
                 <AccessibleButton
                   asChild
-                  variant="discord"
+                  variant="dark"
                   size="lg"
-                  className="font-medium rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#5865F2] focus:ring-offset-2 shadow-lg hover:shadow-xl relative overflow-hidden text-white"
+                  className="font-medium rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#171717] focus:ring-offset-2 shadow-lg hover:shadow-xl relative overflow-hidden text-white"
                   aria-label="Send email to discuss collaboration"
+                  style={{ backgroundColor: '#171717' }}
                 >
                   <motion.a
                     href="mailto:elanthamilan12@gmail.com"
@@ -181,10 +176,11 @@ const HomePage = () => {
                 </AccessibleButton>
                 <AccessibleButton
                   asChild
-                  variant="green"
+                  variant="dark"
                   size="lg"
-                  className="font-medium rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#14B789] focus:ring-offset-2 hover:shadow-lg text-white"
+                  className="font-medium rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#171717] focus:ring-offset-2 hover:shadow-lg text-white"
                   aria-label="Download resume PDF"
+                  style={{ backgroundColor: '#171717' }}
                 >
                   <motion.a
                     href="/Elanthamilan_UX_Resume.pdf"
@@ -310,7 +306,7 @@ const HomePage = () => {
                       isExternal: true,
                       customIcon: (
                         <svg className="w-5 h-5 text-[#177863]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.547 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                       )
                     }
