@@ -58,6 +58,8 @@ const Header = React.memo(() => {
           <nav className="hidden md:flex items-center space-x-4" aria-label="Main navigation">
             <Button
               variant="default"
+              size="lg"
+              className="text-white bg-brand-primary border border-brand-primary/20 font-semibold"
               asChild
             >
               <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">

@@ -45,11 +45,19 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
     return colors[index % colors.length];
   };
 
-  // Get button variant based on index
+  // Get button variant and color for this card
   const getButtonVariant = (index: number) => {
-    if (index === 1) return 'secondary'; // Green button for second card
-    if (index === 2) return 'purple'; // Purple button for third card
-    return 'default'; // Dark button for first card
+    // Use solid, on-theme colors matching card backgrounds
+    if (index === 1) return 'secondary'; // green: #14B789 (brand-secondary)
+    if (index === 2) return 'purple';    // purple gradient
+    return 'default'; // black: #171717 (brand-primary)
+  };
+
+  // Get text color for button based on variant for contrast (optional, but safe)
+  const getButtonTextClass = (index: number) => {
+    if (index === 1) return 'text-white'; // green
+    if (index === 2) return 'text-white'; // purple
+    return 'text-white'; // black
   };
 
   return (
@@ -139,7 +147,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
             asChild
             variant={getButtonVariant(index)}
             size="lg"
-            className="mt-auto w-full sm:w-auto inline-flex items-center justify-center gap-3 font-medium focus:ring-2 focus:ring-brand-primary focus:ring-offset-2"
+            className={`mt-auto w-full sm:w-auto inline-flex items-center justify-center gap-3 font-medium focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 ${getButtonTextClass(index)}`}
             aria-label={`View ${title} case study`}
           >
             <motion.a
