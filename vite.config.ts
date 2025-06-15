@@ -2,11 +2,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { componentTagger } from "lovable-tagger";
 import path from 'path';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
+    mode === 'development' && componentTagger(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
@@ -98,7 +100,7 @@ export default defineConfig({
         enabled: false
       }
     })
-  ],
+  ].filter(Boolean),
   base: '/',
   resolve: {
     alias: {
@@ -106,9 +108,9 @@ export default defineConfig({
     },
   },
   server: {
+    host: "::",
     port: 8080,
     strictPort: true,
-    host: true,
     open: true,
     hmr: {
       overlay: true,
@@ -145,4 +147,4 @@ export default defineConfig({
     strictPort: true,
     host: true
   }
-});
+}));

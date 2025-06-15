@@ -61,6 +61,7 @@
     "gsap": "^3.13.0",
     "input-otp": "^1.2.4",
     "lodash": "^4.17.21",
+    "lovable-tagger": "^1.1.8",
     "lucide-react": "^0.462.0",
     "motion": "^12.14.0",
     "poly-decomp": "^0.3.0",
