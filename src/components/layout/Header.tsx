@@ -57,11 +57,10 @@ const Header = React.memo(() => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-4" aria-label="Main navigation">
             <Button
-              variant="dark"
+              variant="secondary"
               size="lg"
               className="text-white font-semibold"
               asChild
-              style={{ backgroundColor: '#171717' }}
             >
               <a href="/Elanthamilan_UX_Resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Download className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />

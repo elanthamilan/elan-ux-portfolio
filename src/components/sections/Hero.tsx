@@ -176,11 +176,10 @@ const HomePage = () => {
                 </AccessibleButton>
                 <AccessibleButton
                   asChild
-                  variant="dark"
+                  variant="secondary"
                   size="lg"
-                  className="font-medium rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#171717] focus:ring-offset-2 hover:shadow-lg text-white"
+                  className="font-medium rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-offset-2 hover:shadow-lg text-white"
                   aria-label="Download resume PDF"
-                  style={{ backgroundColor: '#171717' }}
                 >
                   <motion.a
                     href="/Elanthamilan_UX_Resume.pdf"
