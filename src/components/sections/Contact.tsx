@@ -62,7 +62,8 @@ const Contact = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
-      className="py-16 md:py-24 bg-background text-foreground border-t border-brand-light-gray-accent"
+      className="py-16 md:py-24 border-t border-brand-light-gray-accent"
+      style={{ backgroundColor: '#C9FFC5' }}
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
@@ -78,17 +79,18 @@ const Contact = () => {
             <Button
               key={method.label}
               onClick={method.action}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-md text-base font-medium py-3 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 flex items-center gap-2"
+              variant="secondary"
+              className="h-auto flex-col gap-3 py-6 px-4 text-center"
               aria-label={method.label}
               type="button"
             >
-              <span className="mb-2 text-primary group-hover:scale-110 transition-transform">
+              <span className="text-white">
                 {method.icon}
               </span>
-              <span className="font-semibold text-lg mb-1 text-foreground">
+              <span className="font-semibold text-lg text-white">
                 {method.label}
               </span>
-              <span className="text-sm text-foreground/70">
+              <span className="text-sm text-white/90">
                 {method.value}
               </span>
             </Button>

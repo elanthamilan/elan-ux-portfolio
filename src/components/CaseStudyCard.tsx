@@ -1,13 +1,13 @@
+
 import React from 'react';
 
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
-import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion'; // Import the hook
+import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion';
 import { Card } from "@/components/ui/card";
-import { OptimizedImage } from "@/components/ui/OptimizedImage"; // Import OptimizedImage
-
-import { Badge } from "@/components/ui/badge"; // Import Badge component
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import { Badge } from "@/components/ui/badge";
 
 interface CaseStudyCardProps {
   title: string;
@@ -18,12 +18,10 @@ interface CaseStudyCardProps {
   image: string;
   link: string;
   tags: string[];
-  // backgroundColor: string; // Kept commented as a reminder of previous prop
-  // buttonColor: string; // Kept commented
   description: React.ReactNode;
   index: number;
-  cardClassName?: string; // New prop for custom card background
-  accentColorName?: 'brand-primary' | 'brand-secondary' | 'brand-tertiary' | string; // New prop for accent colors
+  cardClassName?: string;
+  accentColorName?: 'brand-primary' | 'brand-secondary' | 'brand-tertiary' | string;
   buttonVariant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'custom-purple';
 }
 
@@ -38,16 +36,16 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
   tags,
   description,
   index,
-  cardClassName = "", // Default background
+  cardClassName = "", 
   buttonVariant = "default",
 }) => {
-  const prefersReducedMotion = usePrefersReducedMotion(); // Use the hook
+  const prefersReducedMotion = usePrefersReducedMotion();
 
-  // The main Button component uses variants that are already themed (e.g. variant="default" uses brand-primary).
-  // To make the button specifically use accentColorName, we'd either need a new variant or override styles.
-  // For simplicity, we'll let the button use its default theming for now,
-  // but if a specific accentColor was required for the button, it might be:
-  // const buttonClasses = `bg-${accentColorName} hover:bg-${accentColorName}/90 text-white`; // (This would override the default variant)
+  // Define case study specific background colors
+  const getCaseStudyBackground = (index: number) => {
+    const colors = ['#F6F9F9', '#D9F4D7', '#EDE1FF'];
+    return colors[index % colors.length];
+  };
 
   return (
     <motion.div
@@ -57,9 +55,12 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
         duration: prefersReducedMotion ? 0 : 0.5,
         delay: prefersReducedMotion ? 0 : index * 0.1
       }}
-      className="h-full" // Ensure motion div takes full height of its container if any
+      className="h-full"
     >
-      <Card className={`rounded-3xl overflow-hidden flex flex-col sm:flex-row h-full ${cardClassName}`} style={{ background: cardClassName?.startsWith('bg-[') ? undefined : cardClassName }}>
+      <Card 
+        className={`rounded-3xl overflow-hidden flex flex-col sm:flex-row h-full ${cardClassName}`} 
+        style={{ backgroundColor: getCaseStudyBackground(index) }}
+      >
         {/* Left side - Image */}
         <div className="relative w-full sm:w-48 md:w-56 lg:w-64 xl:w-72 flex-shrink-0 h-48 sm:h-auto">
           <OptimizedImage
@@ -68,7 +69,6 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
             className="w-full h-full object-cover"
             lazy={true}
             priority={false}
-            // width and height can be omitted if layout is handled by parent div and object-cover
           />
           <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-xl text-sm font-medium text-gray-700 shadow-sm">
             {year}
@@ -102,28 +102,28 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
           <dl className="space-y-2 mb-4 text-sm sm:text-base">
             <div>
               <dt className="font-semibold text-gray-800 flex items-center">
-                <span className="w-1.5 h-1.5 bg-[#177863] rounded-full mr-2 flex-shrink-0"></span>
+                <span className="w-1.5 h-1.5 bg-brand-secondary rounded-full mr-2 flex-shrink-0"></span>
                 What:
               </dt>
-              <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0"> {/* Adjusted for alignment */}
+              <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0">
                 {what}
               </dd>
             </div>
             <div>
               <dt className="font-semibold text-gray-800 flex items-center">
-                <span className="w-1.5 h-1.5 bg-[#16325A] rounded-full mr-2 flex-shrink-0"></span>
+                <span className="w-1.5 h-1.5 bg-brand-primary rounded-full mr-2 flex-shrink-0"></span>
                 Who:
               </dt>
-              <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0"> {/* Adjusted for alignment */}
+              <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0">
                 {who}
               </dd>
             </div>
             <div>
               <dt className="font-semibold text-gray-800 flex items-center">
-                <span className="w-1.5 h-1.5 bg-[#177863] rounded-full mr-2 flex-shrink-0"></span>
+                <span className="w-1.5 h-1.5 bg-brand-secondary rounded-full mr-2 flex-shrink-0"></span>
                 Results:
               </dt>
-              <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0"> {/* Adjusted for alignment */}
+              <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0">
                 {result}
               </dd>
             </div>
@@ -132,13 +132,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
           {/* Button */}
           <motion.a
             href={link}
-            className={`inline-flex items-center justify-center px-8 py-4 font-medium rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-              buttonVariant === "secondary"
-                ? "bg-[#14B789] hover:bg-[#14B789]/90 text-white focus:ring-[#14B789]"
-                : buttonVariant === "custom-purple"
-                ? "bg-[#8330C2] hover:bg-[#8330C2]/90 text-white focus:ring-[#8330C2]"
-                : "bg-[#171717] hover:bg-[#171717]/90 text-white focus:ring-[#171717]"
-            }`}
+            className="inline-flex items-center justify-center px-8 py-4 font-medium rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-brand-primary hover:bg-brand-primary/90 text-white focus:ring-brand-primary"
             whileHover={{
               scale: 1.02,
               transition: { duration: 0.2 }
@@ -158,6 +152,6 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
     </motion.div>
   );
 });
-CaseStudyCard.displayName = "CaseStudyCard"; // Optional: for better debugging names
+CaseStudyCard.displayName = "CaseStudyCard";
 
 export default CaseStudyCard;

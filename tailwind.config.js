@@ -42,17 +42,25 @@ module.exports = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
 
-        // Updated theme colors based on the green design from images
-        'brand-primary': '#22c55e', // Modern green primary
-        'brand-secondary': '#1f2937', // Dark gray/black for contrast
-        'brand-tertiary': '#10b981', // Emerald green variant
-        'accent-bg': '#f0fdf4', // Very light green background
+        // Your specific brand colors
+        'brand-primary': '#171717', // Primary button and text
+        'brand-secondary': '#14B789', // Secondary button and text
+        'brand-tertiary': '#10b981', // Keep existing tertiary
+        'accent-bg': '#f0fdf4', // Keep existing light green background
         'accent-light': '#FFFFFF',
         'accent-off-white': '#f9fafb',
         'brand-light-gray-accent': '#f3f4f6',
         
+        // Case study card colors
+        'case-study-1': '#F6F9F9',
+        'case-study-2': '#D9F4D7', 
+        'case-study-3': '#EDE1FF',
+        
+        // Contact section
+        'contact-bg': '#C9FFC5',
+        
         // Additional green theme colors
-        'green-primary': '#22c55e',
+        'green-primary': '#14B789', // Updated to match secondary
         'green-secondary': '#16a34a',
         'green-light': '#bbf7d0',
         'green-lighter': '#dcfce7',
