@@ -24,6 +24,15 @@ const buttonVariants = cva(
           "text-brand-secondary underline-offset-4 hover:underline hover:text-brand-secondary/80 transition-all duration-300 border-none",
         purple:
           "bg-gradient-to-r from-purple-primary to-purple-secondary text-white font-semibold border border-purple-primary/20 hover:from-purple-primary/90 hover:to-purple-secondary/90", // Purple gradient with white text
+        // New custom color variants
+        green:
+          "text-white font-semibold border-none hover:opacity-90", // #14B789
+        dark:
+          "text-white font-semibold border-none hover:opacity-90", // #2E2E2E
+        violet:
+          "text-white font-semibold border-none hover:opacity-90", // #8330C2
+        discord:
+          "text-white font-semibold border-none hover:opacity-90", // #5865F2
       },
       size: {
         default: "h-14 px-8 py-3 text-base",    // Height increased from h-11 to h-14, font a bit bigger
@@ -46,12 +55,23 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, style, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    
+    // Define custom colors for the new variants
+    const getCustomStyle = () => {
+      if (variant === "green") return { backgroundColor: "#14B789", ...style }
+      if (variant === "dark") return { backgroundColor: "#2E2E2E", ...style }
+      if (variant === "violet") return { backgroundColor: "#8330C2", ...style }
+      if (variant === "discord") return { backgroundColor: "#5865F2", ...style }
+      return style
+    }
+    
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        style={getCustomStyle()}
         {...props}
       />
     )

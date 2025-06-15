@@ -155,9 +155,9 @@ const HomePage = () => {
               >
                 <AccessibleButton
                   asChild
-                  variant="default"
+                  variant="discord"
                   size="lg"
-                  className="bg-gradient-to-r from-[#177863] to-[#177863]/90 text-white font-medium rounded-2xl hover:from-[#177863]/90 hover:to-[#177863]/80 focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-offset-2 shadow-lg hover:shadow-xl relative overflow-hidden"
+                  className="font-medium rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#5865F2] focus:ring-offset-2 shadow-lg hover:shadow-xl relative overflow-hidden text-white"
                   aria-label="Send email to discuss collaboration"
                 >
                   <motion.a
@@ -181,9 +181,9 @@ const HomePage = () => {
                 </AccessibleButton>
                 <AccessibleButton
                   asChild
-                  variant="outline"
+                  variant="green"
                   size="lg"
-                  className="border-2 border-[#177863] text-[#177863] font-medium rounded-2xl hover:bg-[#177863] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-offset-2 bg-white/50 backdrop-blur-sm hover:shadow-lg"
+                  className="font-medium rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#14B789] focus:ring-offset-2 hover:shadow-lg text-white"
                   aria-label="Download resume PDF"
                 >
                   <motion.a
