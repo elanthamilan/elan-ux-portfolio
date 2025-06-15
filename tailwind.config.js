@@ -42,16 +42,18 @@ module.exports = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
 
-        // Your specific brand colors
+        // Standardized brand colors
         'brand-primary': '#171717', // Primary button and text
-        'brand-secondary': '#14B789', // Secondary button and text
-        'brand-tertiary': '#10b981', // Keep existing tertiary
-        'accent-bg': '#f0fdf4', // Keep existing light green background
+        'brand-secondary': '#14B789', // Secondary button and accent
+        'brand-tertiary': '#10b981', // Keep existing tertiary for compatibility
+        
+        // Background colors
+        'accent-bg': '#f0fdf4',
         'accent-light': '#FFFFFF',
         'accent-off-white': '#f9fafb',
         'brand-light-gray-accent': '#f3f4f6',
         
-        // Case study card colors
+        // Case study card colors (standardized)
         'case-study-1': '#F6F9F9',
         'case-study-2': '#D9F4D7', 
         'case-study-3': '#EDE1FF',
@@ -59,8 +61,8 @@ module.exports = {
         // Contact section
         'contact-bg': '#C9FFC5',
         
-        // Additional green theme colors
-        'green-primary': '#14B789', // Updated to match secondary
+        // Additional semantic colors
+        'green-primary': '#14B789',
         'green-secondary': '#16a34a',
         'green-light': '#bbf7d0',
         'green-lighter': '#dcfce7',
@@ -71,6 +73,19 @@ module.exports = {
         sans: ['DM Sans', 'sans-serif'],
         heading: ['DM Serif Text', 'serif'],
       },
+      fontSize: {
+        // Standardized typography scale
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['1rem', { lineHeight: '1.5rem' }],
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '1' }],
+        '6xl': ['3.75rem', { lineHeight: '1' }],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -79,10 +94,20 @@ module.exports = {
       keyframes: {
         'accordion-down': { from: { height: '0' }, to: { height: 'var(--radix-accordion-content-height)' } },
         'accordion-up': { from: { height: 'var(--radix-accordion-content-height)' }, to: { height: '0' } },
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        'scale-in': {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' }
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in': 'fade-in 0.6s ease-out',
+        'scale-in': 'scale-in 0.5s ease-out',
       },
     },
   },

@@ -6,23 +6,23 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/components/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transform",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transform btn-hover",
   {
     variants: {
       variant: {
-        default: // Primary button using #171717
+        default: // Primary button using brand-primary (#171717)
           "bg-brand-primary text-white font-semibold shadow-lg hover:bg-brand-primary/90 hover:shadow-xl hover:scale-105 active:scale-95 border border-brand-primary/20",
         destructive: // Red destructive actions
           "bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold shadow-lg hover:from-red-700 hover:to-red-800 hover:shadow-xl hover:scale-105 active:scale-95",
-        outline: // White/transparent outline button
-          "border-2 border-gray-300 bg-white text-gray-700 font-semibold shadow-md hover:bg-gray-50 hover:border-gray-400 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
-        secondary: // Secondary button using #14B789
+        outline: // Outline button with brand-primary
+          "border-2 border-brand-primary bg-white text-brand-primary font-semibold shadow-md hover:bg-brand-primary hover:text-white hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
+        secondary: // Secondary button using brand-secondary (#14B789)
           "bg-brand-secondary text-white font-semibold shadow-lg hover:bg-brand-secondary/90 hover:shadow-xl hover:scale-105 active:scale-95 border border-brand-secondary/20",
         ghost: // Subtle hover effects
-          "text-foreground hover:bg-brand-secondary/10 hover:text-brand-secondary hover:scale-105 active:scale-95 transition-all duration-300",
+          "text-brand-primary hover:bg-brand-secondary/10 hover:text-brand-secondary hover:scale-105 active:scale-95 transition-all duration-300",
         link: // Link style
           "text-brand-secondary underline-offset-4 hover:underline hover:text-brand-secondary/80 hover:scale-105 active:scale-95 transition-all duration-300",
-        purple: // Purple variant for enterprise features
+        purple: // Purple variant for special features
           "bg-gradient-to-r from-purple-primary to-purple-secondary text-white font-semibold shadow-lg hover:from-purple-secondary hover:to-purple-primary hover:shadow-xl hover:scale-105 active:scale-95 border border-purple-primary/20",
       },
       size: {

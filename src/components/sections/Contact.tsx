@@ -75,11 +75,12 @@ const Contact = () => {
         <div className="text-center mb-10">
           <h2 
             id="contact-heading"
-            className="text-3xl md:text-4xl font-heading font-semibold mb-4 text-foreground"
+            className="text-3xl md:text-4xl font-heading font-semibold mb-4"
+            style={{ color: '#171717' }}
           >
             Get In Touch
           </h2>
-          <p className="text-foreground/80 max-w-xl mx-auto text-lg leading-relaxed">
+          <p className="max-w-xl mx-auto text-lg leading-relaxed" style={{ color: '#171717' }}>
             Interested in collaborating or have a question? Reach out via any method below.
           </p>
         </div>
@@ -106,8 +107,8 @@ const Contact = () => {
             </AccessibleButton>
           ))}
         </div>
-        <p className="mt-8 text-sm text-foreground/80 text-center">
-          Email: <span className="font-medium">elanthamilan12@gmail.com</span>
+        <p className="mt-8 text-sm text-center font-medium" style={{ color: '#171717' }}>
+          Email: <span className="font-semibold">elanthamilan12@gmail.com</span>
         </p>
       </div>
     </motion.section>
