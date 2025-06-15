@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useCallback, useRef } from "react"; // Added useRef
+
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Download, Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MobileNav from "../MobileNav";
 
 const Header = React.memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const menuTriggerRef = useRef<HTMLButtonElement>(null); // Ref for the menu trigger button
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
 
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 0);
@@ -49,7 +50,7 @@ const Header = React.memo(() => {
             to="/"
             className="text-2xl font-heading font-bold text-brand-primary hover:text-brand-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 rounded-sm transition-colors"
             aria-label="Elanthamilan, Back to Homepage"
-            onClick={() => isMobileMenuOpen && toggleMobileMenu()} // Close menu on site navigation
+            onClick={() => isMobileMenuOpen && toggleMobileMenu()}
           >
             Elanthamilan
           </Link>
@@ -64,12 +65,11 @@ const Header = React.memo(() => {
                 Download Resume
               </a>
             </Button>
-
           </nav>
           {/* Mobile Navigation Trigger (Hamburger Menu) */}
           <div className="md:hidden">
             <Button
-              ref={menuTriggerRef} // Assign ref to the button
+              ref={menuTriggerRef}
               variant="ghost"
               size="icon"
               onClick={toggleMobileMenu}
@@ -87,7 +87,7 @@ const Header = React.memo(() => {
       <MobileNav isOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
     </>
   );
-}); // Closing React.memo
-Header.displayName = "Header"; // Optional: for better debugging names
+});
+Header.displayName = "Header";
 
 export default Header;

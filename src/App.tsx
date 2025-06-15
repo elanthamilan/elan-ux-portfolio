@@ -7,8 +7,8 @@ import { useReducedMotion } from './components/hooks/useReducedMotion';
 import { SkipLink } from './components/ui/SkipLink';
 import { PerformanceWrapper } from './components/ui/PerformanceWrapper';
 import ScrollToTop from './components/ui/ScrollToTop';
-import HomePageSkeleton from './components/ui/HomePageSkeleton'; // Import HomePageSkeleton
-import CaseStudySkeleton from './components/ui/CaseStudySkeleton'; // Import CaseStudySkeleton
+import HomePageSkeleton from './components/ui/HomePageSkeleton';
+import CaseStudySkeleton from './components/ui/CaseStudySkeleton';
 import { PWAInstallPrompt } from './components/PWAInstallPrompt';
 import { PWAUpdateNotification, ConnectionStatus } from './components/PWAUpdateNotification';
 
@@ -16,21 +16,9 @@ import { PWAUpdateNotification, ConnectionStatus } from './components/PWAUpdateN
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
 const CaseStudyCampusHiring = lazy(() => import('./pages/CaseStudyCampusHiring.tsx'));
 const CaseStudyStudentPlanner = lazy(() => import('./pages/CaseStudyStudentPlanner.tsx'));
-const CaseStudyCAMUPlanner = lazy(() => import('./pages/CaseStudyCAMUPlanner.tsx')); // Added CAMU Planner
+const CaseStudyCAMUPlanner = lazy(() => import('./pages/CaseStudyCAMUPlanner.tsx'));
 const SkeletonDemo = lazy(() => import('./components/ui/SkeletonDemo.tsx'));
 const PWATestPage = lazy(() => import('./components/ui/PWATestPage.tsx'));
-
-const LoadingSpinner = () => (
-  <div className="min-h-screen flex items-center justify-center bg-background">
-    <div
-      className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"
-      role="status"
-      aria-label="Loading page content"
-    >
-      <span className="sr-only">Loading...</span>
-    </div>
-  </div>
-);
 
 const NotFoundPage = () => (
   <main className="min-h-screen flex items-center justify-center bg-background">
@@ -104,15 +92,14 @@ function App() {
       import('./pages/HomePage.tsx');
     };
 
-    // Preload after initial render
     const timeoutId = setTimeout(preloadPages, 100);
     return () => clearTimeout(timeoutId);
   }, []);
 
   const pageTransition = {
-    initial: { opacity: 0, x: 20 }, // Added x: 20
-    animate: { opacity: 1, x: 0 },  // Added x: 0
-    exit: { opacity: 0, x: -20 }, // Added x: -20
+    initial: { opacity: 0, x: 20 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -20 },
     transition: {
       duration: prefersReducedMotion ? 0 : 0.3,
       ease: 'easeInOut'
@@ -169,7 +156,7 @@ function App() {
               path="/case-study/camu-course-planner"
               element={
                 <motion.div key="cs-camu-planner" {...pageTransition}>
-                  <React.Suspense fallback={<CaseStudySkeleton variant="default" />}> {/* Or a specific variant if created */}
+                  <React.Suspense fallback={<CaseStudySkeleton />}>
                     <CaseStudyCAMUPlanner />
                   </React.Suspense>
                 </motion.div>

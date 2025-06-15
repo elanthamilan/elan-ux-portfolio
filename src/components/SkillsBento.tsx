@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import ScrambleIn from "../fancy/components/text/scramble-in";
@@ -45,99 +46,101 @@ const SKILLS_DATA: SkillData[] = [
 const ModernBentoGrid = React.memo(() => {
   const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
 
+  const gridStyles = `
+    .bento-grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 1rem;
+      width: 100%;
+      height: auto;
+      min-height: 600px;
+    }
+
+    @media (max-width: 768px) {
+      .bento-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        min-height: 500px;
+      }
+    }
+
+    .bento-card {
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      background-color: #fafafa;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-height: 160px;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -5px rgba(16, 16, 39, 0.1);
+    }
+
+    .bento-card-large {
+      grid-area: 1 / 1 / 3 / 2;
+      background: linear-gradient(-225deg, #177863/5 0%, #177863/10 100%);
+    }
+
+    .bento-card-wide {
+      grid-area: 1 / 2 / 2 / 4;
+      background: linear-gradient(-225deg, #16325A/5 0%, #16325A/10 100%);
+    }
+
+    .bento-card-normal-1 {
+      grid-area: 2 / 2 / 3 / 3;
+      background: linear-gradient(-225deg, #ffffff 0%, #f8f9fa 100%);
+    }
+
+    .bento-card-normal-2 {
+      grid-area: 2 / 3 / 3 / 4;
+      background: linear-gradient(-225deg, #177863/3 0%, #16325A/5 100%);
+    }
+
+    .bento-card-bottom-left {
+      grid-area: 3 / 1 / 4 / 2;
+      background: linear-gradient(-225deg, #f8f9fa 0%, #ffffff 100%);
+    }
+
+    .bento-card-bottom-right {
+      grid-area: 3 / 2 / 4 / 4;
+      background: linear-gradient(-225deg, #16325A/3 0%, #177863/5 100%);
+    }
+
+    @media (max-width: 768px) {
+      .bento-card-large {
+        grid-area: 1 / 1 / 2 / 3;
+      }
+      .bento-card-wide {
+        grid-area: 2 / 1 / 3 / 2;
+      }
+      .bento-card-normal-1 {
+        grid-area: 2 / 2 / 3 / 3;
+      }
+      .bento-card-normal-2 {
+        grid-area: 3 / 1 / 4 / 2;
+      }
+      .bento-card-bottom-left {
+        grid-area: 3 / 2 / 4 / 3;
+      }
+      .bento-card-bottom-right {
+        grid-area: 4 / 1 / 5 / 3;
+      }
+    }
+  `;
+
   return (
     <div className="bento-grid-container relative">
-      <style jsx>{`
-        .bento-grid-container {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: repeat(3, 1fr);
-          gap: 1rem;
-          width: 100%;
-          height: auto;
-          min-height: 600px;
-        }
-
-        @media (max-width: 768px) {
-          .bento-grid-container {
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            min-height: 500px;
-          }
-        }
-
-        .bento-card {
-          border-radius: 1.5rem;
-          padding: 1.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          position: relative;
-          background-color: #fafafa;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          cursor: pointer;
-          transition: all 0.3s ease;
-          min-height: 160px;
-        }
-
-        .bento-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px -5px rgba(16, 16, 39, 0.1);
-        }
-
-        .bento-card-large {
-          grid-area: 1 / 1 / 3 / 2;
-          background: linear-gradient(-225deg, #177863/5 0%, #177863/10 100%);
-        }
-
-        .bento-card-wide {
-          grid-area: 1 / 2 / 2 / 4;
-          background: linear-gradient(-225deg, #16325A/5 0%, #16325A/10 100%);
-        }
-
-        .bento-card-normal-1 {
-          grid-area: 2 / 2 / 3 / 3;
-          background: linear-gradient(-225deg, #ffffff 0%, #f8f9fa 100%);
-        }
-
-        .bento-card-normal-2 {
-          grid-area: 2 / 3 / 3 / 4;
-          background: linear-gradient(-225deg, #177863/3 0%, #16325A/5 100%);
-        }
-
-        .bento-card-bottom-left {
-          grid-area: 3 / 1 / 4 / 2;
-          background: linear-gradient(-225deg, #f8f9fa 0%, #ffffff 100%);
-        }
-
-        .bento-card-bottom-right {
-          grid-area: 3 / 2 / 4 / 4;
-          background: linear-gradient(-225deg, #16325A/3 0%, #177863/5 100%);
-        }
-
-        @media (max-width: 768px) {
-          .bento-card-large {
-            grid-area: 1 / 1 / 2 / 3;
-          }
-          .bento-card-wide {
-            grid-area: 2 / 1 / 3 / 2;
-          }
-          .bento-card-normal-1 {
-            grid-area: 2 / 2 / 3 / 3;
-          }
-          .bento-card-normal-2 {
-            grid-area: 3 / 1 / 4 / 2;
-          }
-          .bento-card-bottom-left {
-            grid-area: 3 / 2 / 4 / 3;
-          }
-          .bento-card-bottom-right {
-            grid-area: 4 / 1 / 5 / 3;
-          }
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{ __html: gridStyles }} />
 
       {SKILLS_DATA.map((skill, index) => {
         const cardClasses = [
@@ -177,8 +180,6 @@ const ModernBentoGrid = React.memo(() => {
                 {skill.title}
               </h3>
             </motion.div>
-
-
           </motion.div>
         );
       })}
