@@ -37,6 +37,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
   description,
   index,
   cardClassName = "", 
+  accentColorName = 'brand-primary'
 }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -44,6 +45,13 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
   const getCaseStudyBackground = (index: number) => {
     const colors = ['#F6F9F9', '#D9F4D7', '#EDE1FF'];
     return colors[index % colors.length];
+  };
+
+  // Get button variant based on index
+  const getButtonVariant = (index: number) => {
+    if (index === 1) return 'secondary'; // Green button for second card
+    if (index === 2) return 'purple'; // Purple button for third card
+    return 'default'; // Dark button for first card
   };
 
   return (
@@ -98,7 +106,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
           </div>
 
           {/* Metadata */}
-          <dl className="space-y-2 mb-4 text-sm sm:text-base">
+          <dl className="space-y-2 mb-6 text-sm sm:text-base">
             <div>
               <dt className="font-semibold text-gray-800 flex items-center">
                 <span className="w-1.5 h-1.5 bg-brand-secondary rounded-full mr-2 flex-shrink-0" aria-hidden="true"></span>
@@ -131,9 +139,9 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
           {/* Button */}
           <Button
             asChild
-            variant="default"
+            variant={getButtonVariant(index)}
             size="lg"
-            className="mt-auto w-full sm:w-auto inline-flex items-center justify-center gap-3 font-medium focus:ring-2 focus:ring-brand-primary focus:ring-offset-2"
+            className="mt-auto w-full sm:w-auto inline-flex items-center justify-center gap-3 font-medium focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 shadow-lg"
             aria-label={`View ${title} case study`}
           >
             <motion.a
