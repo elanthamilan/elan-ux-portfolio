@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -41,21 +42,29 @@ module.exports = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
 
-        // Custom Brand Colors - uxelan.com theme
-        'brand-primary': '#177863',
-        'brand-secondary': '#16325A',
-        'brand-tertiary': '#177863',
-        'accent-bg': '#F8F4F2',
+        // Updated theme colors based on the green design from images
+        'brand-primary': '#22c55e', // Modern green primary
+        'brand-secondary': '#1f2937', // Dark gray/black for contrast
+        'brand-tertiary': '#10b981', // Emerald green variant
+        'accent-bg': '#f0fdf4', // Very light green background
         'accent-light': '#FFFFFF',
-        'accent-off-white': '#F8F4F2',
-        'brand-light-gray-accent': '#F8F4F2',
+        'accent-off-white': '#f9fafb',
+        'brand-light-gray-accent': '#f3f4f6',
+        
+        // Additional green theme colors
+        'green-primary': '#22c55e',
+        'green-secondary': '#16a34a',
+        'green-light': '#bbf7d0',
+        'green-lighter': '#dcfce7',
+        'purple-primary': '#8b5cf6',
+        'purple-secondary': '#7c3aed',
       },
       fontFamily: {
         sans: ['DM Sans', 'sans-serif'],
         heading: ['DM Serif Text', 'serif'],
       },
       borderRadius: {
-        lg: 'var(--radius)', // Assuming --radius will be 0.5rem from global styles or Shadcn setup
+        lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },

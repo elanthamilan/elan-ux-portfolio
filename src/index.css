@@ -1,4 +1,3 @@
-
 @import "tailwindcss";
 @import "./styles/carousel.css";
 
@@ -10,19 +9,19 @@
     --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
-    --primary: 162 65% 28%;
+    --primary: 142 71% 45%; /* Updated to green theme */
     --primary-foreground: 0 0% 100%;
-    --secondary: 213 56% 22%;
+    --secondary: 220 13% 18%; /* Dark gray for contrast */
     --secondary-foreground: 0 0% 100%;
-    --muted: 30 17% 97%;
+    --muted: 120 60% 97%;
     --muted-foreground: 0 0% 30%;
-    --accent: 30 17% 97%;
+    --accent: 120 60% 97%;
     --accent-foreground: 0 0% 0%;
     --destructive: 8 100% 59%;
     --destructive-foreground: 0 0% 100%;
-    --border: 30 17% 90%;
-    --input: 30 17% 95%;
-    --ring: 162 65% 28%;
+    --border: 120 40% 90%;
+    --input: 120 50% 95%;
+    --ring: 142 71% 45%; /* Updated to match primary green */
     --radius: 0.5rem;
   }
 

@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -5,28 +6,30 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/components/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transform", // Added transform for better animations
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transform",
   {
     variants: {
       variant: {
-        default: // Primary action button with gradient and lively effects
-          "bg-gradient-to-r from-[#177863] to-[#177863]/90 text-white font-semibold shadow-lg hover:from-[#177863]/90 hover:to-[#177863] hover:shadow-2xl hover:scale-105 active:scale-95 border border-[#177863]/20",
-        destructive: // For destructive actions
+        default: // Green primary button matching the "Start for free" button
+          "bg-gradient-to-r from-green-primary to-green-secondary text-white font-semibold shadow-lg hover:from-green-secondary hover:to-green-primary hover:shadow-xl hover:scale-105 active:scale-95 border border-green-primary/20",
+        destructive: // Red destructive actions
           "bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold shadow-lg hover:from-red-700 hover:to-red-800 hover:shadow-xl hover:scale-105 active:scale-95",
-        outline: // Secondary action with vibrant hover
-          "border-2 border-[#177863] bg-transparent text-[#177863] font-semibold shadow-md hover:bg-[#177863] hover:text-white hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300",
-        secondary: // Alternative secondary action with gradient
-          "bg-gradient-to-r from-[#16325A] to-[#16325A]/90 text-white font-semibold shadow-lg hover:from-[#16325A]/90 hover:to-[#16325A] hover:shadow-2xl hover:scale-105 active:scale-95 border border-[#16325A]/20",
-        ghost: // For subtle actions with lively hover
-          "text-foreground hover:bg-gradient-to-r hover:from-[#F8F4F2] hover:to-[#177863]/10 hover:text-[#177863] hover:scale-105 active:scale-95 transition-all duration-300",
-        link: // For navigation with smooth transitions
-          "text-[#177863] underline-offset-4 hover:underline hover:text-[#16325A] hover:scale-105 active:scale-95 transition-all duration-300",
+        outline: // White/transparent outline button matching "Get started"
+          "border-2 border-gray-300 bg-white text-gray-700 font-semibold shadow-md hover:bg-gray-50 hover:border-gray-400 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
+        secondary: // Dark button matching "Join our Discord" 
+          "bg-gradient-to-r from-gray-800 to-gray-900 text-white font-semibold shadow-lg hover:from-gray-700 hover:to-gray-800 hover:shadow-xl hover:scale-105 active:scale-95 border border-gray-700/20",
+        ghost: // Subtle hover effects
+          "text-foreground hover:bg-gradient-to-r hover:from-green-lighter hover:to-green-light hover:text-green-secondary hover:scale-105 active:scale-95 transition-all duration-300",
+        link: // Link style
+          "text-green-primary underline-offset-4 hover:underline hover:text-green-secondary hover:scale-105 active:scale-95 transition-all duration-300",
+        purple: // Purple variant for enterprise features
+          "bg-gradient-to-r from-purple-primary to-purple-secondary text-white font-semibold shadow-lg hover:from-purple-secondary hover:to-purple-primary hover:shadow-xl hover:scale-105 active:scale-95 border border-purple-primary/20",
       },
       size: {
-        default: "h-10 px-5 py-2.5", // Slightly larger default
-        sm: "h-9 rounded-md px-4 text-xs", // Adjusted sm
-        lg: "h-11 rounded-lg px-8 text-base", // Adjusted lg
-        icon: "h-10 w-10 rounded-lg", // Adjusted icon size & rounding
+        default: "h-11 px-6 py-3 text-sm", // Slightly larger for better UX
+        sm: "h-9 rounded-lg px-4 text-xs",
+        lg: "h-12 rounded-xl px-8 text-base", // Larger size for hero CTAs
+        icon: "h-11 w-11 rounded-xl",
       },
     },
     defaultVariants: {
