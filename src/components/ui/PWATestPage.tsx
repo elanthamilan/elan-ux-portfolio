@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { usePWA } from '../../hooks/usePWA';
 
@@ -8,7 +9,7 @@ const PWATestPage: React.FC = () => {
     isUpdateAvailable,
     needsUpdate,
     isOnline,
-    showInstallPrompt,
+    installApp,
     updateApp,
     dismissUpdate
   } = usePWA();
@@ -124,7 +125,7 @@ const PWATestPage: React.FC = () => {
         {/* Action Buttons */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <button
-            onClick={showInstallPrompt}
+            onClick={installApp}
             disabled={!isInstallable}
             className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-blue-600 transition-colors"
           >

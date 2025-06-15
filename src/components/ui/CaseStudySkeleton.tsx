@@ -4,7 +4,7 @@ interface CaseStudySkeletonProps {
   variant?: 'campus-hiring' | 'student-planner';
 }
 
-const CaseStudySkeleton: React.FC<CaseStudySkeletonProps> = ({ variant = 'campus-hiring' }) => {
+const CaseStudySkeleton: React.FC<CaseStudySkeletonProps> = () => {
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden animate-pulse" aria-label="Loading case study content">
       {/* Subtle mesh gradient background skeleton */}

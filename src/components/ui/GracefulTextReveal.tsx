@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useAnimation } from 'framer-motion';
 import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMotion';
@@ -27,7 +28,6 @@ const GracefulTextReveal: React.FC<GracefulTextRevealProps> = ({
   const isInView = useInView(ref, { once: true, margin: "0px" });
   const controls = useAnimation();
   const prefersReducedMotion = usePrefersReducedMotion();
-  const [hasStarted, setHasStarted] = useState(false);
 
   // Split text into words for animation
   const words = text.split(' ');
@@ -40,7 +40,7 @@ const GracefulTextReveal: React.FC<GracefulTextRevealProps> = ({
       return;
     }
 
-    if ((autoStart && isInView) || hasStarted) {
+    if (autoStart && isInView) {
       const startAnimation = async () => {
         await controls.start('visible');
         onComplete?.();
@@ -54,7 +54,7 @@ const GracefulTextReveal: React.FC<GracefulTextRevealProps> = ({
         startAnimation();
       }
     }
-  }, [isInView, hasStarted, autoStart, controls, delay, prefersReducedMotion, onComplete]);
+  }, [isInView, autoStart, controls, delay, prefersReducedMotion, onComplete]);
 
   const getAnimationVariants = () => {
     const baseVariants = {
