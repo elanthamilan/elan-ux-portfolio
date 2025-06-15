@@ -41,7 +41,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
 
   // Define case study specific background colors - flat colors
   const getCaseStudyBackground = (index: number) => {
-    const colors = ['#F6F9F9', '#D9F4D7', '#EDE1FF'];
+    const colors = ['#FCF9F4', '#D9F4D7', '#EDE1FF'];
     return colors[index % colors.length];
   };
 
