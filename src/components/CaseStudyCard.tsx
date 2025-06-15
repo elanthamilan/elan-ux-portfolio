@@ -22,7 +22,6 @@ interface CaseStudyCardProps {
   description: React.ReactNode;
   index: number;
   cardClassName?: string;
-  accentColorName?: 'brand-primary' | 'brand-secondary' | 'brand-tertiary' | string;
 }
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
@@ -36,8 +35,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
   tags,
   description,
   index,
-  cardClassName = "", 
-  accentColorName = 'brand-primary'
+  cardClassName = ""
 }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
