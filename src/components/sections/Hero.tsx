@@ -4,6 +4,7 @@ import Header from "../layout/Header";
 import CaseStudyCard from "../CaseStudyCard";
 
 import { motion } from 'motion/react';
+import { AccessibleButton } from '../ui/AccessibleButton';
 
 // Define lazy-loaded components
 const Skills = lazy(() => import('../Skills'));
@@ -34,14 +35,14 @@ const HomePage = () => {
     >
       <Header />
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8" role="main">
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-[5fr_2fr] gap-8 md:gap-10 lg:gap-20">
 
           {/* Left Column - Hero (mb-8) + Case Studies */}
           <div className="space-y-10">
             {/* Hero Section - Enhanced Presentation */}
-            <div className="mb-16">
+            <section className="mb-16" aria-labelledby="hero-heading">
               {/* Main Headline with enhanced visual hierarchy */}
               <div className="mb-6">
                 <div className="mb-2">
@@ -52,11 +53,12 @@ const HomePage = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                    <span className="w-2 h-2 bg-[#177863] rounded-full mr-3 animate-pulse"></span>
+                    <span className="w-2 h-2 bg-[#177863] rounded-full mr-3 animate-pulse" aria-hidden="true"></span>
                     Designing Intuitive Experiences
                   </motion.span>
                 </div>
                 <motion.h1
+                  id="hero-heading"
                   className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-black mt-4"
                   initial={{ opacity: 0, y: 20, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -80,7 +82,7 @@ const HomePage = () => {
               >
                 <div className="text-gray-800 leading-relaxed">
                   <div className="relative">
-                    <div className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-[#177863] to-[#16325A] rounded-full opacity-60"></div>
+                    <div className="absolute -left-1 top-0 w-1 h-full bg-gradient-to-b from-[#177863] to-[#16325A] rounded-full opacity-60" aria-hidden="true"></div>
                     <p className="text-lg md:text-xl pl-6 mb-4 leading-relaxed">
                       Imagine your users <span className="font-semibold text-[#177863] bg-[#177863]/5 px-1 rounded">empowered</span>, workflows <span className="font-semibold text-[#177863] bg-[#177863]/5 px-1 rounded">streamlined</span>. As a Product Designer, I help businesses achieve this by crafting <span className="font-semibold text-[#16325A] bg-[#16325A]/5 px-1 rounded">intuitive interfaces</span> that transform complex enterprise systems into <span className="font-semibold text-[#177863] bg-[#177863]/5 px-1 rounded">effortless interactions</span>, driving <span className="font-semibold text-[#16325A] bg-[#16325A]/5 px-1 rounded">efficiency</span> and <span className="font-semibold text-[#16325A] bg-[#16325A]/5 px-1 rounded">growth</span>.
                     </p>
@@ -130,7 +132,7 @@ const HomePage = () => {
                       transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
                     >
                       <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#177863]/10 to-[#177863]/5 flex items-center justify-center group-hover:from-[#177863]/15 group-hover:to-[#177863]/10 transition-all duration-300">
-                        <span className="material-symbols-outlined text-[#177863] text-xl">
+                        <span className="material-symbols-outlined text-[#177863] text-xl" aria-hidden="true">
                           {item.icon}
                         </span>
                       </div>
@@ -149,46 +151,64 @@ const HomePage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4 sm:gap-6"
+                role="group"
+                aria-label="Contact options"
               >
-                <motion.a
-                  href="mailto:elanthamilan12@gmail.com"
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#177863] to-[#177863]/90 text-white font-medium rounded-2xl hover:from-[#177863]/90 hover:to-[#177863]/80 focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-offset-2 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.2 }
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                <AccessibleButton
+                  asChild
+                  variant="default"
+                  size="lg"
+                  className="bg-gradient-to-r from-[#177863] to-[#177863]/90 text-white font-medium rounded-2xl hover:from-[#177863]/90 hover:to-[#177863]/80 focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-offset-2 shadow-lg hover:shadow-xl relative overflow-hidden"
+                  aria-label="Send email to discuss collaboration"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                  <span className="flex items-center gap-3 relative z-10">
-                    <span className="material-symbols-outlined text-xl">mail</span>
-                    Let's Solve Together
-                  </span>
-                </motion.a>
-                <motion.a
-                  href="/Elanthamilan_UX_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center px-8 py-4 border-2 border-[#177863] text-[#177863] font-medium rounded-2xl hover:bg-[#177863] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-offset-2 transition-all duration-300 hover:shadow-lg bg-white/50 backdrop-blur-sm"
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.2 }
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                  <motion.a
+                    href="mailto:elanthamilan12@gmail.com"
+                    className="group inline-flex items-center justify-center px-8 py-4"
+                    whileHover={{
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" aria-hidden="true"></div>
+                    <span className="flex items-center gap-3 relative z-10">
+                      <span className="material-symbols-outlined text-xl" aria-hidden="true">mail</span>
+                      Let's Solve Together
+                    </span>
+                  </motion.a>
+                </AccessibleButton>
+                <AccessibleButton
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-[#177863] text-[#177863] font-medium rounded-2xl hover:bg-[#177863] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#177863] focus:ring-offset-2 bg-white/50 backdrop-blur-sm hover:shadow-lg"
+                  aria-label="Download resume PDF"
                 >
-                  <span className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-xl group-hover:rotate-12 transition-transform duration-300">download</span>
-                    See Track Record
-                  </span>
-                </motion.a>
+                  <motion.a
+                    href="/Elanthamilan_UX_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center justify-center px-8 py-4"
+                    whileHover={{
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className="material-symbols-outlined text-xl group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">download</span>
+                      See Track Record
+                    </span>
+                  </motion.a>
+                </AccessibleButton>
               </motion.div>
-            </div>
+            </section>
 
             {/* Case Studies - Enhanced section header */}
             <section aria-labelledby="case-studies-title" className="mt-16 md:mt-20">

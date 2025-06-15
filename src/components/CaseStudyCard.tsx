@@ -8,6 +8,7 @@ import { usePrefersReducedMotion } from '@/components/hooks/usePrefersReducedMot
 import { Card } from "@/components/ui/card";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/components/ui/button";
 
 interface CaseStudyCardProps {
   title: string;
@@ -22,7 +23,6 @@ interface CaseStudyCardProps {
   index: number;
   cardClassName?: string;
   accentColorName?: 'brand-primary' | 'brand-secondary' | 'brand-tertiary' | string;
-  buttonVariant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'custom-purple';
 }
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
@@ -37,7 +37,6 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
   description,
   index,
   cardClassName = "", 
-  buttonVariant = "default",
 }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -65,7 +64,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
         <div className="relative w-full sm:w-48 md:w-56 lg:w-64 xl:w-72 flex-shrink-0 h-48 sm:h-auto">
           <OptimizedImage
             src={image}
-            alt={image === '/placeholder-ux-design.svg' ? "" : title}
+            alt={image === '/placeholder-ux-design.svg' ? `${title} case study preview` : title}
             className="w-full h-full object-cover"
             lazy={true}
             priority={false}
@@ -94,15 +93,15 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
           <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 leading-tight">{title}</h3>
 
           {/* Description */}
-          <p className="text-gray-600 mb-4 text-sm sm:text-base leading-relaxed flex-1">
+          <div className="text-gray-600 mb-4 text-sm sm:text-base leading-relaxed flex-1">
             {description}
-          </p>
+          </div>
 
           {/* Metadata */}
           <dl className="space-y-2 mb-4 text-sm sm:text-base">
             <div>
               <dt className="font-semibold text-gray-800 flex items-center">
-                <span className="w-1.5 h-1.5 bg-brand-secondary rounded-full mr-2 flex-shrink-0"></span>
+                <span className="w-1.5 h-1.5 bg-brand-secondary rounded-full mr-2 flex-shrink-0" aria-hidden="true"></span>
                 What:
               </dt>
               <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0">
@@ -111,7 +110,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
             </div>
             <div>
               <dt className="font-semibold text-gray-800 flex items-center">
-                <span className="w-1.5 h-1.5 bg-brand-primary rounded-full mr-2 flex-shrink-0"></span>
+                <span className="w-1.5 h-1.5 bg-brand-primary rounded-full mr-2 flex-shrink-0" aria-hidden="true"></span>
                 Who:
               </dt>
               <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0">
@@ -120,7 +119,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
             </div>
             <div>
               <dt className="font-semibold text-gray-800 flex items-center">
-                <span className="w-1.5 h-1.5 bg-brand-secondary rounded-full mr-2 flex-shrink-0"></span>
+                <span className="w-1.5 h-1.5 bg-brand-secondary rounded-full mr-2 flex-shrink-0" aria-hidden="true"></span>
                 Results:
               </dt>
               <dd className="text-gray-700 ml-[calc(0.375rem+0.5rem)] sm:ml-0 sm:pl-0">
@@ -130,23 +129,28 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
           </dl>
 
           {/* Button */}
-          <motion.a
-            href={link}
-            className="inline-flex items-center justify-center px-8 py-4 font-medium rounded-2xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-brand-primary hover:bg-brand-primary/90 text-white focus:ring-brand-primary"
-            whileHover={{
-              scale: 1.02,
-              transition: { duration: 0.2 }
-            }}
-            whileTap={{ scale: 0.98 }}
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+          <Button
+            asChild
+            variant="default"
+            size="lg"
+            className="mt-auto w-full sm:w-auto inline-flex items-center justify-center gap-3 font-medium focus:ring-2 focus:ring-brand-primary focus:ring-offset-2"
+            aria-label={`View ${title} case study`}
           >
-            <span className="flex items-center gap-3">
+            <motion.a
+              href={link}
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
               <span>View Case Study</span>
-              <ArrowRight className="h-4 w-4" />
-            </span>
-          </motion.a>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </motion.a>
+          </Button>
         </div>
       </Card>
     </motion.div>
