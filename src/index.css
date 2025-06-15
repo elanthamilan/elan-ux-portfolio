@@ -2,14 +2,22 @@
 /* IMPORTANT: Do NOT remove this line. Design tokens are needed for Tailwind and app-wide CSS variables! */
 @import './styles/design-tokens.css';
 
+/* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital,wght@0,400;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
+/* Tailwind direct imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* TEST: fallback style to prove CSS loads at ALL */
+body {
+  border: 8px dashed #14B789 !important;
+}
+
+/* ========== BASE ========== */
 @layer base {
   :root {
     --background: 0 0% 100%;
