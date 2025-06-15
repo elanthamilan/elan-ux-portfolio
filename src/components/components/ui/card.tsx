@@ -1,3 +1,4 @@
+
 import * as React from "react"
 
 import { cn } from "@/components/lib/utils"
@@ -9,7 +10,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-xl border border-slate-200 bg-card text-card-foreground shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out", // Updated shadow, added hover shadow and transition, specific border
+      "rounded-xl border-0 bg-card text-card-foreground", // Removed border, shadow, and hover effects
       className
     )}
     {...props}
@@ -35,10 +36,6 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    // Base font size will be inherited or set by specific usage (e.g. in CaseStudyCard)
-    // Adding responsive typography here if this is a generic Title for all cards:
-    // className={cn("text-lg xs:text-xl font-semibold leading-none tracking-tight", className)}
-    // For now, keeping it as is, specific components like CaseStudyCard will handle title size.
     className={cn("font-semibold leading-none tracking-tight", className)}
     {...props}
   />

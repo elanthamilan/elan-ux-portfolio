@@ -39,7 +39,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
 }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  // Define case study specific background colors
+  // Define case study specific background colors - flat colors
   const getCaseStudyBackground = (index: number) => {
     const colors = ['#F6F9F9', '#D9F4D7', '#EDE1FF'];
     return colors[index % colors.length];
@@ -63,8 +63,8 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
       className="h-full"
     >
       <Card 
-        className={`rounded-3xl overflow-hidden flex flex-col sm:flex-row h-full ${cardClassName}`} 
-        style={{ backgroundColor: getCaseStudyBackground(index) }}
+        className={`rounded-3xl overflow-hidden flex flex-col sm:flex-row h-full border-0 ${cardClassName}`} 
+        style={{ backgroundColor: getCaseStudyBackground(index), boxShadow: 'none' }}
       >
         {/* Left side - Image */}
         <div className="relative w-full sm:w-48 md:w-56 lg:w-64 xl:w-72 flex-shrink-0 h-48 sm:h-auto">
@@ -75,7 +75,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
             lazy={true}
             priority={false}
           />
-          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-xl text-sm font-medium text-gray-700 shadow-sm">
+          <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-xl text-sm font-medium text-gray-700">
             {year}
           </div>
         </div>
@@ -139,7 +139,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = React.memo(({
             asChild
             variant={getButtonVariant(index)}
             size="lg"
-            className="mt-auto w-full sm:w-auto inline-flex items-center justify-center gap-3 font-medium focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 shadow-lg"
+            className="mt-auto w-full sm:w-auto inline-flex items-center justify-center gap-3 font-medium focus:ring-2 focus:ring-brand-primary focus:ring-offset-2"
             aria-label={`View ${title} case study`}
           >
             <motion.a
