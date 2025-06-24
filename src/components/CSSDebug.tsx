@@ -1,6 +1,4 @@
 
-import React from 'react';
-
 const CSSDebug = () => {
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
