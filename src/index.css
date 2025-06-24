@@ -1,3 +1,4 @@
+
 /* IMPORTANT: Do NOT remove this line. Design tokens are needed for Tailwind and app-wide CSS variables! */
 @import './styles/design-tokens.css';
 
@@ -10,6 +11,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* CSS Debug Test Class */
+.test-custom-class {
+  background-color: #10b981 !important;
+  color: white !important;
+  padding: 16px !important;
+  margin: 8px 0 !important;
+  border-radius: 8px !important;
+}
 
 /* HARD TEST: Body fallback style, should be huge border & bg */
 body {

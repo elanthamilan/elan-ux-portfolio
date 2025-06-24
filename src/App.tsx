@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, lazy } from 'react';
@@ -11,6 +10,7 @@ import HomePageSkeleton from './components/ui/HomePageSkeleton';
 import CaseStudySkeleton from './components/ui/CaseStudySkeleton';
 import { PWAInstallPrompt } from './components/PWAInstallPrompt';
 import { PWAUpdateNotification, ConnectionStatus } from './components/PWAUpdateNotification';
+import CSSDebug from './components/CSSDebug';
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import('./pages/HomePage.tsx'));
@@ -118,6 +118,33 @@ function App() {
       <ConnectionStatus />
       <PWAUpdateNotification />
       <PWAInstallPrompt />
+
+      {/* CSS Debug Route - Remove this after testing */}
+      <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: 9999 }}>
+        <a 
+          href="#debug" 
+          onClick={(e) => {
+            e.preventDefault();
+            document.body.innerHTML = '';
+            const debugContainer = document.createElement('div');
+            document.body.appendChild(debugContainer);
+            import('react-dom/client').then(({ createRoot }) => {
+              const root = createRoot(debugContainer);
+              root.render(React.createElement(CSSDebug));
+            });
+          }}
+          style={{ 
+            background: 'red', 
+            color: 'white', 
+            padding: '10px', 
+            textDecoration: 'none',
+            borderRadius: '4px',
+            fontSize: '12px'
+          }}
+        >
+          CSS DEBUG
+        </a>
+      </div>
 
       <AnimatePresence mode="wait">
         <PerformanceWrapper fallback={<HomePageSkeleton />}>
